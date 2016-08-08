@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Granted
+//  Feed NYC
 //
-//  Created by Flatiron School on 8/4/16.
+//  Created by Flatiron School on 8/8/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 
