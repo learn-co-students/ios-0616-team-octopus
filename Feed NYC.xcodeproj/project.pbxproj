@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F611D58D3520031C3AC /* AppDelegate.swift */; };
-		1BAC3F641D58D3520031C3AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* ViewController.swift */; };
+		1BAC3F641D58D3520031C3AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
 		1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F651D58D3520031C3AC /* Main.storyboard */; };
 		1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */; };
 		1BAC3F6C1D58D3520031C3AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		1BAC3F5E1D58D3520031C3AC /* Feed NYC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed NYC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAC3F611D58D3520031C3AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1BAC3F631D58D3520031C3AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1BAC3F631D58D3520031C3AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1BAC3F661D58D3520031C3AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BAC3F691D58D3520031C3AC /* Feed_NYC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Feed_NYC.xcdatamodel; sourceTree = "<group>"; };
 		1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				1BAC3F611D58D3520031C3AC /* AppDelegate.swift */,
-				1BAC3F631D58D3520031C3AC /* ViewController.swift */,
+				1BAC3F631D58D3520031C3AC /* MapViewController.swift */,
 				1BAC3F651D58D3520031C3AC /* Main.storyboard */,
 				1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */,
 				1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */,
@@ -217,7 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BAC3F641D58D3520031C3AC /* ViewController.swift in Sources */,
+				1BAC3F641D58D3520031C3AC /* MapViewController.swift in Sources */,
 				1BCA6BFE1D58F84B00889A8B /* Secrets.swift in Sources */,
 				1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */,
 				1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */,
