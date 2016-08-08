@@ -11,21 +11,19 @@ import GoogleMaps
 
 class ViewController: UIViewController {
 
-    // You don't need to modify the default init(nibName:bundle:) method.
     
     override func loadView() {
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6.0)
+        // map possition at start
+        let camera = GMSCameraPosition.cameraWithLatitude(40.723074, longitude: -73.986348, zoom: 11.0)
         let mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
         mapView.myLocationEnabled = true
         view = mapView
         
-        // Creates a marker in the center of the map.
+        // Marker
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
+        marker.position = CLLocationCoordinate2D(latitude: 40.723074, longitude: -73.986348)
+        marker.title = "Test"
+        marker.snippet = "test"
         marker.map = mapView
     }
 
