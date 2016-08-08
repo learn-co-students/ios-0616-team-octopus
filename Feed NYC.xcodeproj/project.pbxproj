@@ -14,6 +14,9 @@
 		1BAC3F6C1D58D3520031C3AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */; };
 		1BAC3F6F1D58D3520031C3AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */; };
 		5B6D146B6F52C764D192A85B /* Pods_Feed_NYC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */; };
+		BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */; };
+		BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049E1D58DF0B0048CB8F /* TopViewController.swift */; };
+		BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4404A01D58DF170048CB8F /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		1BAC3F701D58D3520031C3AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FC8724A16989CF6927F967D /* Pods-Feed NYC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed NYC.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feed NYC/Pods-Feed NYC.release.xcconfig"; sourceTree = "<group>"; };
 		51B40F90EBFF5AD8382BB20B /* Pods-Feed NYC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed NYC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feed NYC/Pods-Feed NYC.debug.xcconfig"; sourceTree = "<group>"; };
+		BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		BA44049E1D58DF0B0048CB8F /* TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		BA4404A01D58DF170048CB8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feed_NYC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -65,6 +71,9 @@
 			children = (
 				1BAC3F611D58D3520031C3AC /* AppDelegate.swift */,
 				1BAC3F631D58D3520031C3AC /* ViewController.swift */,
+				BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */,
+				BA44049E1D58DF0B0048CB8F /* TopViewController.swift */,
+				BA4404A01D58DF170048CB8F /* MenuViewController.swift */,
 				1BAC3F651D58D3520031C3AC /* Main.storyboard */,
 				1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */,
 				1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */,
@@ -98,12 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BAC3F731D58D3520031C3AC /* Build configuration list for PBXNativeTarget "Feed NYC" */;
 			buildPhases = (
-				BAA9EFEFE935629FC8B997E9 /* 📦 Check Pods Manifest.lock */,
+				BAA9EFEFE935629FC8B997E9 /* [CP] Check Pods Manifest.lock */,
 				1BAC3F5A1D58D3520031C3AC /* Sources */,
 				1BAC3F5B1D58D3520031C3AC /* Frameworks */,
 				1BAC3F5C1D58D3520031C3AC /* Resources */,
-				78FF9414B05EAEEFBC395732 /* 📦 Embed Pods Frameworks */,
-				F7FB1DAFEB4DBF8AA9DF77DF /* 📦 Copy Pods Resources */,
+				78FF9414B05EAEEFBC395732 /* [CP] Embed Pods Frameworks */,
+				F7FB1DAFEB4DBF8AA9DF77DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,14 +171,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		78FF9414B05EAEEFBC395732 /* 📦 Embed Pods Frameworks */ = {
+		78FF9414B05EAEEFBC395732 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,14 +186,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Feed NYC/Pods-Feed NYC-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BAA9EFEFE935629FC8B997E9 /* 📦 Check Pods Manifest.lock */ = {
+		BAA9EFEFE935629FC8B997E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,14 +201,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F7FB1DAFEB4DBF8AA9DF77DF /* 📦 Copy Pods Resources */ = {
+		F7FB1DAFEB4DBF8AA9DF77DF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,8 +224,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BAC3F641D58D3520031C3AC /* ViewController.swift in Sources */,
+				BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */,
 				1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */,
+				BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */,
 				1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */,
+				BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
