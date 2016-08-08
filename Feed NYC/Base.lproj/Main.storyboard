@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Map View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mapScreen" id="BYZ-38-t0r" customClass="MapViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ContainerViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,9 +19,107 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="nOm-qf-CiN" kind="presentation" id="8vU-ZV-tiv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="sRQ-uw-jys">
+            <objects>
+                <viewControllerPlaceholder id="nOm-qf-CiN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcE-H7-UVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915.5" y="315"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="xdD-Lj-5gy">
+            <objects>
+                <viewController storyboardIdentifier="menuScreen" id="jCI-Os-AK9" customClass="MenuViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JNv-zt-y5h"/>
+                        <viewControllerLayoutGuide type="bottom" id="VIZ-N4-3bf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ttq-bn-JOl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgO-0D-hBg">
+                                <rect key="frame" x="20" y="30" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
+                                <rect key="frame" x="20" y="71" width="158" height="165"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
+                                        <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
+                                        <state key="normal" title="Food Banks"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
+                                        <rect key="frame" x="0.0" y="45" width="57" height="30"/>
+                                        <state key="normal" title="Shelters"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
+                                        <rect key="frame" x="0.0" y="90" width="158" height="30"/>
+                                        <state key="normal" title="Mental Health Services"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hey-pe-iAi">
+                                        <rect key="frame" x="0.0" y="135" width="64" height="30"/>
+                                        <state key="normal" title="About Us"/>
+                                        <connections>
+                                            <action selector="AboutUsTapped:" destination="jCI-Os-AK9" eventType="touchUpInside" id="Sdo-au-p9o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jgO-0D-hBg" firstAttribute="top" secondItem="JNv-zt-y5h" secondAttribute="bottom" constant="10" id="Teb-aZ-1tU"/>
+                            <constraint firstItem="5Hj-Zn-s7J" firstAttribute="leading" secondItem="ttq-bn-JOl" secondAttribute="leadingMargin" id="YSX-ru-o1M"/>
+                            <constraint firstItem="que-Vy-TwR" firstAttribute="top" secondItem="jgO-0D-hBg" secondAttribute="bottom" constant="20" id="axC-QK-cnY"/>
+                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="ttq-bn-JOl" secondAttribute="leadingMargin" id="tGP-bA-P2W"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pV7-pY-jC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155" y="1799"/>
+        </scene>
+        <!--Top View Controller-->
+        <scene sceneID="AzT-7R-Wuh">
+            <objects>
+                <viewController storyboardIdentifier="topScreen" id="uQY-aM-RRh" customClass="TopViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kab-1v-anz"/>
+                        <viewControllerLayoutGuide type="bottom" id="iSw-MX-Enk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zgL-l1-Rxt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9M-fX-nnP">
+                                <rect key="frame" x="20" y="35" width="39" height="30"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <action selector="showMenu:" destination="uQY-aM-RRh" eventType="touchUpInside" id="dch-d2-bgw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c9M-fX-nnP" firstAttribute="leading" secondItem="zgL-l1-Rxt" secondAttribute="leadingMargin" id="DQg-hY-ntp"/>
+                            <constraint firstItem="c9M-fX-nnP" firstAttribute="top" secondItem="Kab-1v-anz" secondAttribute="bottom" constant="15" id="UF1-aQ-A7L"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XKQ-lx-Rtp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="306" y="1078"/>
         </scene>
     </scenes>
 </document>

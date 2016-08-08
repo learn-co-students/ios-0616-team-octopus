@@ -6,5 +6,7 @@ target 'Feed NYC' do
   use_frameworks!
 
   # Pods for Feed NYC
-pod 'GoogleMaps'
+  pod 'GoogleMaps'
+  pod 'SidebarOverlay', '~> 3.0'
+
 end
