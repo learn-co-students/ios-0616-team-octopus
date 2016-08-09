@@ -19,9 +19,9 @@
 		1BF9B57A1D5A4B52009A60E7 /* DennisStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */; };
 		1BF9B57E1D5A869D009A60E7 /* FacilityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */; };
 		5B6D146B6F52C764D192A85B /* Pods_Feed_NYC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */; };
-		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
 		78407CBC1D5A3784005EE9C2 /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */; };
 		78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */; };
+		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
 		BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */; };
 		BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049E1D58DF0B0048CB8F /* TopViewController.swift */; };
 		BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4404A01D58DF170048CB8F /* MenuViewController.swift */; };
