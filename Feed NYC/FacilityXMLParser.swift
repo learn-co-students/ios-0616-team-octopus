@@ -55,22 +55,60 @@ extension FacilityParser {
             currentFacility?.streetAddress = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         }
         
+        if elementName == "city" {
+            currentFacility?.city = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "state" {
+            currentFacility?.state = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "zip-code" {
+            currentFacility?.zipcode = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
         if elementName == "phone-number" {
             currentFacility?.phoneNumber = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         }
+        
+        if elementName == "hours-of-operation" {
+            currentFacility?.hoursOfOperation = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "intake" {
+            currentFacility?.intake = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "fee" {
+            currentFacility?.fee = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "eligibility" {
+            currentFacility?.eligibility = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "required-documents" {
+            currentFacility?.requiredDocuments = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "feature" {
+            currentFacility?.featureList.append(xmlText)
+        }
+        
         
         if elementName == "facility" {
             if let facility = currentFacility {
                 facilities.append(facility)
             }
         }
+        
     }
-    
     
     func parser(parser: NSXMLParser, foundCharacters string: String) {
         xmlText += string
+        
     }
     
-    
+
 }
 
