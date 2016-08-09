@@ -19,20 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="nOm-qf-CiN" kind="presentation" id="8vU-ZV-tiv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="sRQ-uw-jys">
-            <objects>
-                <viewControllerPlaceholder id="nOm-qf-CiN" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gcE-H7-UVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="915.5" y="315"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="xdD-Lj-5gy">
