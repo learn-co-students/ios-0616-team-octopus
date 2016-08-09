@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="-155" y="1799"/>
         </scene>
-        <!--Top View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="AzT-7R-Wuh">
             <objects>
-                <viewController storyboardIdentifier="topScreen" id="uQY-aM-RRh" customClass="TopViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="topScreen" id="uQY-aM-RRh" customClass="MapViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kab-1v-anz"/>
                         <viewControllerLayoutGuide type="bottom" id="iSw-MX-Enk"/>
@@ -95,14 +95,26 @@
                                 <rect key="frame" x="20" y="35" width="39" height="30"/>
                                 <state key="normal" title="Menu"/>
                                 <connections>
-                                    <action selector="showMenu:" destination="uQY-aM-RRh" eventType="touchUpInside" id="dch-d2-bgw"/>
+                                    <action selector="showMenu:" destination="uQY-aM-RRh" eventType="touchUpInside" id="UHN-aS-Zd2"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvz-yN-vtj">
+                                <rect key="frame" x="153" y="490" width="295" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="295" id="kke-c3-gOV"/>
+                                </constraints>
+                                <state key="normal" title="OOH A BIG RED BUTTON">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iSw-MX-Enk" firstAttribute="top" secondItem="zvz-yN-vtj" secondAttribute="bottom" constant="80" id="5T3-Mo-4oZ"/>
                             <constraint firstItem="c9M-fX-nnP" firstAttribute="leading" secondItem="zgL-l1-Rxt" secondAttribute="leadingMargin" id="DQg-hY-ntp"/>
                             <constraint firstItem="c9M-fX-nnP" firstAttribute="top" secondItem="Kab-1v-anz" secondAttribute="bottom" constant="15" id="UF1-aQ-A7L"/>
+                            <constraint firstItem="zvz-yN-vtj" firstAttribute="centerX" secondItem="zgL-l1-Rxt" secondAttribute="centerX" id="av8-j6-PbV"/>
                         </constraints>
                     </view>
                 </viewController>

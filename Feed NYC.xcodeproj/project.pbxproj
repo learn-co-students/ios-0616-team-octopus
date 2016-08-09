@@ -18,6 +18,7 @@
 		1BB67E1B1D5A2DE200EEE7AE /* FacilityXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB67E171D5A2DE200EEE7AE /* FacilityXMLParser.swift */; };
 		1BB67E1D1D5A2E0E00EEE7AE /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB67E1C1D5A2E0E00EEE7AE /* Secrets.swift */; };
 		5B6D146B6F52C764D192A85B /* Pods_Feed_NYC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */; };
+		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
 		BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */; };
 		BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049E1D58DF0B0048CB8F /* TopViewController.swift */; };
 		BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4404A01D58DF170048CB8F /* MenuViewController.swift */; };
@@ -238,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */,
 				1BB67E1A1D5A2DE200EEE7AE /* FacilityTableViewController.swift in Sources */,
 				1BB67E1D1D5A2E0E00EEE7AE /* Secrets.swift in Sources */,
 				BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */,

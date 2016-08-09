@@ -10,14 +10,35 @@ import UIKit
 import GoogleMaps
 
 class MapViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpMaps()
+        
+        
+//        let findHelpButton = UIButton(type: UIButtonType.System)
+//        findHelpButton.frame = CGRectMake(0, 30, self.view.frame.size.width/6, self.view.frame.size.height/6)
+//        self.view.addSubview(<#T##view: UIView##UIView#>)
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
     
-    override func loadView() {
+    func setUpMaps() {
         // map possition at start
         let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 11.0)
-        let mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
+        
+        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
+        let mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
         mapView.myLocationEnabled = true
-        view = mapView
+        self.view.insertSubview(mapView, atIndex: 0)
+//        self.view.addSubview(mapView)
+//        view = mapView
+//        self.view.bringSubviewToFront(mapView)
         
         // Marker Green
         let marker = GMSMarker()
@@ -36,6 +57,14 @@ class MapViewController: UIViewController {
         marker1.map = mapView
     }
 
-
+    @IBAction func showMenu(sender: AnyObject) {
+        if let container = self.so_containerViewController
+        {
+            container.isSideViewControllerPresented = true
+            
+            // To close the sidebar menu set is sideVCPresented to false
+        }
+        
+    }
 }
 
