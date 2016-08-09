@@ -14,8 +14,6 @@ class FacilityTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         do {
             if let xmlURL = NSBundle.mainBundle().URLForResource("FacilityDetails", withExtension: "xml") {
                 let xml = try String(contentsOfURL: xmlURL)
@@ -24,6 +22,8 @@ class FacilityTableViewController: UITableViewController {
                 
                 for facility in facilities {
                     elementArray.append(facility)
+                    print(facility)
+                
                 }
             }
             
