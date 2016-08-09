@@ -23,7 +23,6 @@ class FacilityTableViewController: UITableViewController {
                 for facility in facilities {
                     elementArray.append(facility)
                     print(facility)
-                
                 }
             }
             
