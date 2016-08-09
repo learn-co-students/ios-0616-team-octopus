@@ -14,11 +14,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpMaps()
-        
-        
-//        let findHelpButton = UIButton(type: UIButtonType.System)
-//        findHelpButton.frame = CGRectMake(0, 30, self.view.frame.size.width/6, self.view.frame.size.height/6)
-//        self.view.addSubview(<#T##view: UIView##UIView#>)
         // Do any additional setup after loading the view.
     }
     

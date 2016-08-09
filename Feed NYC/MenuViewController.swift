@@ -23,13 +23,15 @@ class MenuViewController: UIViewController {
     
     // When you want to instantiate a new ViewController from Menu do two things:
     // 1) Instantiate new VC:
-    //      let profileViewController =
+    //     let profileViewController =
     //      self.storyboard!.instantiateViewControllerWithIdentifier("profileViewController")
     
     // 2) Set self.so_containerViewController.topViewController equal to new VC:
     //     self.so_containerViewController.topViewController = profileViewController
+    // 3) To close the sidebar menu set is sideVCPresented to false
+    //      self.so_containerViewController?.isSideViewControllerPresented = false
     @IBAction func AboutUsTapped(sender: AnyObject) {
-        
+        self.so_containerViewController?.isSideViewControllerPresented = false
     }
     
 
