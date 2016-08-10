@@ -96,9 +96,9 @@
 				1BB67E171D5A2DE200EEE7AE /* FacilityXMLParser.swift */,
 				78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */,
 				78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */,
-				1BAC3F631D58D3520031C3AC /* MapViewController.swift */,
 				BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */,
 				BA44049E1D58DF0B0048CB8F /* TopViewController.swift */,
+				1BAC3F631D58D3520031C3AC /* MapViewController.swift */,
 				BA4404A01D58DF170048CB8F /* MenuViewController.swift */,
 				1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */,
 				1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */,
@@ -165,7 +165,6 @@
 				TargetAttributes = {
 					1BAC3F5D1D58D3520031C3AC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = X82JT57D2Y;
 					};
 				};
 			};
