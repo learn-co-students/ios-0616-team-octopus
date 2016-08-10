@@ -165,7 +165,7 @@
 				TargetAttributes = {
 					1BAC3F5D1D58D3520031C3AC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = JZ89B42673;
+						DevelopmentTeam = X82JT57D2Y;
 					};
 				};
 			};
@@ -384,6 +384,7 @@
 			baseConfigurationReference = 51B40F90EBFF5AD8382BB20B /* Pods-Feed NYC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
@@ -396,6 +397,7 @@
 			baseConfigurationReference = 3FC8724A16989CF6927F967D /* Pods-Feed NYC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
