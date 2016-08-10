@@ -66,7 +66,7 @@ class CenkersDetailViewController: UIViewController {
     func updateLabels() {
         self.facilityNameLabel.text = self.facilityToDisplay.name
         self.addressLabel.setTitle(self.createAddress(), forState: .Normal)
-        self.phoneNumberLabel.setTitle(self.facilityToDisplay.phoneNumber, forState: .Normal)
+        self.phoneNumberLabel.setTitle(self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" x", withString: "  Ext:"), forState: .Normal)
         self.hoursLabel.text = self.facilityToDisplay.hoursOfOperation
         self.intakeLabel.text = self.facilityToDisplay.intake
         self.feeLabel.text = self.facilityToDisplay.fee
