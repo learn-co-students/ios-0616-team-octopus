@@ -10,7 +10,7 @@ import Foundation
 
 class GeocodingAPI {
     
-    var elementArray: [FacilityDetails] = []
+    var elementArray: [Facility] = []
     var addresses: [String] = []
     var addressesObjects: [NSDictionary] = []
     //var latLotOfAddresses = [String: String]()
