@@ -12,9 +12,9 @@ import Foundation
 class FacilityParser: NSObject, NSXMLParserDelegate {
     
     var xmlParser: NSXMLParser?
-    var facilities: [FacilityDetails] = []
+    var facilities: [Facility] = []
     var xmlText = String()
-    var currentFacility: FacilityDetails?
+    var currentFacility: Facility?
     
     init(withXML xml: String) {
         
@@ -23,7 +23,7 @@ class FacilityParser: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parse() -> [FacilityDetails] {
+    func parse() -> [Facility] {
         xmlParser?.delegate = self
         xmlParser?.parse()
         
@@ -37,7 +37,7 @@ extension FacilityParser {
         
         xmlText = ""
         if elementName == "facility" {
-            currentFacility = FacilityDetails()
+            currentFacility = Facility()
         }
     }
     

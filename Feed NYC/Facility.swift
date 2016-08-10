@@ -1,5 +1,5 @@
 //
-//  FacilityDetails.swift
+//  Facility.swift
 //  Feed NYC
 //
 //  Created by Flatiron School on 8/8/16.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-class FacilityDetails: CustomStringConvertible {
+class Facility: CustomStringConvertible {
     
     var name = String()
     var briefDescription = String()
