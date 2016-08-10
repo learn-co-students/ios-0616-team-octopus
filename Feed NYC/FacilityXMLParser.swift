@@ -29,6 +29,24 @@ class FacilityParser: NSObject, NSXMLParserDelegate {
         
         return facilities
     }
+    
+    class func getFacilitiesWithCompletion(completion: ([Facility]) -> ()) {
+        
+        do {
+            if let xmlURL = NSBundle.mainBundle().URLForResource("FacilityDetails", withExtension: "xml") {
+                let xml = try String(contentsOfURL: xmlURL)
+                let facilityParser = FacilityParser(withXML: xml)
+                let facilities = facilityParser.parse()
+                completion(facilities)
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+
+    }
+
 }
 
 extension FacilityParser {
@@ -109,6 +127,6 @@ extension FacilityParser {
         
     }
     
-
+    
 }
 

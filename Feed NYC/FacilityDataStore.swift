@@ -12,6 +12,15 @@ class FacilityDataStore {
     static let sharedInstance = FacilityDataStore()
     private init() {}
     
-    var repositories : [Facility] = []
-
+    var facilities : [Facility] = []
+    
+    func refreshFacilitiesDataStoreWithCompletion(completion: () -> ()) {
+        facilities.removeAll()
+        FacilityParser.getFacilitiesWithCompletion { (facilities) in
+            for facility in facilities {
+                self.facilities.append(facility)
+            }
+            completion()
+        }
+    }
 }

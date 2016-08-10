@@ -24,6 +24,8 @@ class Facility: CustomStringConvertible {
     var featureList: [String] = []
     var eligibility = String()
     var requiredDocuments = String()
+    var latitude: String?
+    var longitude: String?
     
     
     var description: String {
