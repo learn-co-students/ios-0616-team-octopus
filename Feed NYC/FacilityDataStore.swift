@@ -46,6 +46,24 @@ class FacilityDataStore {
         completion(cleanedFacilities)
     }
     
+    
+    // featureToCompare is either "Soup Kitchen" or "Food Pantry"
+    //    Method example call: self.store.getFacilitiesThatHave(feature: Facility.foodType.FoodPantry)
+    func getFacilitiesThatHave(feature featureToCompare: Facility.foodType) -> [Facility]{
+        var facilityList = [Facility]()
+        
+        for facility in self.facilities {
+            for feature in facility.featureList {
+                if feature == featureToCompare.rawValue {
+                    facilityList.append(facility)
+                    break
+                }
+            }
+        }
+        return facilityList
+    }
+    
+    
     func getFoodPantries() -> [Facility] {
         var foodPantries = [Facility]()
         
@@ -57,7 +75,19 @@ class FacilityDataStore {
                 }
             }
         }
-        
         return foodPantries
+    }
+    func getSoupKitchens() -> [Facility] {
+        var soupKitchen = [Facility]()
+        
+        for facility in self.facilities {
+            for feature in facility.featureList {
+                if feature == "Soup Kitchen" {
+                    soupKitchen.append(facility)
+                    break
+                }
+            }
+        }
+        return soupKitchen
     }
 }
