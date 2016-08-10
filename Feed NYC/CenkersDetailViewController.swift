@@ -66,7 +66,7 @@ class CenkersDetailViewController: UIViewController {
         self.phoneNumberLabel.titleLabel?.text = self.facilityToDisplay.phoneNumber
         self.hoursLabel.text = self.facilityToDisplay.hoursOfOperation
         self.intakeLabel.text = self.facilityToDisplay.intake
-        self.feeLabel.text = self.facilityToDisplay.intake
+        self.feeLabel.text = self.facilityToDisplay.fee
         self.featureListLabel.text = self.giveStringFromArray(self.facilityToDisplay.featureList)
         self.eligibilityLabel.text = self.facilityToDisplay.eligibility
         self.requiredDocLabel.text = self.facilityToDisplay.requiredDocuments
