@@ -10,25 +10,11 @@ import UIKit
 
 class FacilityTableViewController: UITableViewController {
     
-    var elementArray: [Facility] = []
+    let store = FacilityDataStore.sharedInstance
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            if let xmlURL = NSBundle.mainBundle().URLForResource("FacilityDetails", withExtension: "xml") {
-                let xml = try String(contentsOfURL: xmlURL)
-                let facilityParser = FacilityParser(withXML: xml)
-                let facilities = facilityParser.parse()
-                
-                for facility in facilities {
-                    elementArray.append(facility)
-                    print(facility)
-                }
-            }
-            
-        } catch {
-            print(error)
-        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,15 +31,15 @@ class FacilityTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return elementArray.count
+        return self.store.facilities.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = elementArray[indexPath.row].name as String
-        cell.detailTextLabel?.text = elementArray[indexPath.row].briefDescription as String
+        cell.textLabel?.text = self.store.facilities[indexPath.row].name as String
+        cell.detailTextLabel?.text = self.store.facilities[indexPath.row].briefDescription as String
         
         
         return cell

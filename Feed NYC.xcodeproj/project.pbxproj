@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */; };
 		1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F611D58D3520031C3AC /* AppDelegate.swift */; };
 		1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F651D58D3520031C3AC /* Main.storyboard */; };
 		1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodingAPI.swift; sourceTree = "<group>"; };
 		1BAC3F5E1D58D3520031C3AC /* Feed NYC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed NYC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAC3F611D58D3520031C3AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BAC3F631D58D3520031C3AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		1BAC3F601D58D3520031C3AC /* Feed NYC */ = {
 			isa = PBXGroup;
 			children = (
+				1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */,
 				1BAC3F611D58D3520031C3AC /* AppDelegate.swift */,
 				1BB67E141D5A2DE200EEE7AE /* Facility.swift */,
 				BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */,
@@ -162,7 +165,7 @@
 				TargetAttributes = {
 					1BAC3F5D1D58D3520031C3AC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = JZ89B42673;
+						DevelopmentTeam = X82JT57D2Y;
 					};
 				};
 			};
@@ -261,6 +264,7 @@
 				1BB67E1B1D5A2DE200EEE7AE /* FacilityXMLParser.swift in Sources */,
 				1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */,
 				BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */,
+				1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */,
 				1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */,
 				BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */,
 				BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */,
@@ -380,6 +384,7 @@
 			baseConfigurationReference = 51B40F90EBFF5AD8382BB20B /* Pods-Feed NYC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
@@ -392,6 +397,7 @@
 			baseConfigurationReference = 3FC8724A16989CF6927F967D /* Pods-Feed NYC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
