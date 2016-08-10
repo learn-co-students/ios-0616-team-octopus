@@ -33,7 +33,7 @@ class CenkersDetailViewController: UIViewController {
         facilityToDisplay.city = "Bronx"
         facilityToDisplay.state = "NY"
         facilityToDisplay.zipcode = "100123"
-        facilityToDisplay.phoneNumber = "(917) 604-4812"
+        facilityToDisplay.phoneNumber = "(917) 604-4812 x152"
         facilityToDisplay.intake = "intake done"
         facilityToDisplay.fee = "Free"
         facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
@@ -53,7 +53,8 @@ class CenkersDetailViewController: UIViewController {
     }
     
     @IBAction func phoneNumberTapped(sender: UIButton) {
-        let phoneNumString = self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: "")
+        var phoneNumString = self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: "")
+        phoneNumString = phoneNumString.stringByReplacingOccurrencesOfString("x", withString: ",,,")
         if let url = NSURL(string: "tel://\(phoneNumString)") {
             UIApplication.sharedApplication().openURL(url)
         }
@@ -62,8 +63,8 @@ class CenkersDetailViewController: UIViewController {
     //updating labels
     func updateLabels() {
         self.briefDescLabel.text = self.facilityToDisplay.briefDescription
-        self.addressLabel.titleLabel?.text = self.createAddress()
-        self.phoneNumberLabel.titleLabel?.text = self.facilityToDisplay.phoneNumber
+        self.addressLabel.setTitle(self.createAddress(), forState: .Normal)
+        self.phoneNumberLabel.setTitle(self.facilityToDisplay.phoneNumber, forState: .Normal)
         self.hoursLabel.text = self.facilityToDisplay.hoursOfOperation
         self.intakeLabel.text = self.facilityToDisplay.intake
         self.feeLabel.text = self.facilityToDisplay.fee
