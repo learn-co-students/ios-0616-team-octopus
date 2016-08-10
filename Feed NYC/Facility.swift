@@ -24,9 +24,16 @@ class Facility: CustomStringConvertible {
     var featureList: [String] = []
     var eligibility = String()
     var requiredDocuments = String()
+    var latitude: String?
+    var longitude: String?
+    var fullAddress: String {return self.getFullAddress()}
     
     
     var description: String {
         return "name: \(name)\n, briefDescription: \(briefDescription)\n, streetAddress: \(streetAddress)\n, city: \(city)\n, state: \(state)\n, zipcode: \(zipcode)\n, phoneNumber: \(phoneNumber)\n, hoursOfOperation: \(hoursOfOperation)\n, intake: \(intake)\n, fee: \(fee)\n, featureList: \(featureList)\n, eligibility: \(eligibility)\n, requiredDocuments: \(requiredDocuments)"
+    }
+    
+    private func getFullAddress() -> String {
+        return "\(self.streetAddress)+\(self.city)+\(self.state)+\(self.zipcode)"
     }
 }
