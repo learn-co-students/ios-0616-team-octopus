@@ -14,6 +14,13 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpMaps()
+        
+        
+        let geo = GeocodingAPI()
+        geo.getGeoLatitudeLongtitudeByAddress()
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     

@@ -10,7 +10,8 @@ import Foundation
 
 class GeocodingAPI {
     
-    var elementArray: [Facility] = []
+    let store = FacilityDataStore.sharedInstance
+    
     var addresses: [String] = []
     var addressesObjects: [NSDictionary] = []
     //var latLotOfAddresses = [String: String]()
@@ -20,49 +21,23 @@ class GeocodingAPI {
     
     
     func getGeoLatitudeLongtitudeByAddress() {
-        self.parseData()
         self.getAddresses()
         self.getLocationWithCompletion { dictionary in
             let lat = dictionary["lat"]
             let lng = dictionary["lng"]
-//            print(lat)
-//            print(lng)
+            print(lat)
+            print(lng)
         
         
         }
-        
-    }
-    
-    // parsing XML to get the location info
-    func parseData() {
-        do {
-            if let xmlURL = NSBundle.mainBundle().URLForResource("FacilityDetails", withExtension: "xml") {
-                let xml = try String(contentsOfURL: xmlURL)
-                let facilityParser = FacilityParser(withXML: xml)
-                let facilities = facilityParser.parse()
-                for facility in facilities {
-                    elementArray.append(facility)
-                }
-            }
-        } catch {
-            print(error)
-        }
-        //print("=====elementArray \(self.elementArray[0])=====")
     }
     
     
-    
-    
-    
-    
-    
-    
-    // making [String] of location as address based on location info
+    // making [String] of addresses based on location info
     func getAddresses() {
-        for geo in self.elementArray {
+        for geo in self.store.facilities {
             self.addresses.append(geo.fullAddress)
         }
-        print("")
     }
     
     
