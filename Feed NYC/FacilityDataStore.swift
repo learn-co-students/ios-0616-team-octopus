@@ -31,9 +31,11 @@ class FacilityDataStore {
             for feature in facility.featureList {
                 if feature == "Food Pantry" {
                     foodPantries.append(facility)
+                    break
                 }
             }
         }
+        
         return foodPantries
     }
 }
