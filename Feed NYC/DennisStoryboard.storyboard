@@ -25,8 +25,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GuE-Gs-5Qx">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvS-zM-LO9">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Facilities" id="Rqf-bV-d3r">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back To Map" id="rZk-9E-eWz">
+                                            <connections>
+                                                <segue destination="9Ce-gk-Le4" kind="show" id="OoM-lR-BHQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GuE-Gs-5Qx">
+                                <rect key="frame" x="0.0" y="64" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicCell" id="ekc-yy-QAI">
@@ -39,20 +52,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvS-zM-LO9">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Facilities" id="Rqf-bV-d3r">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="rZk-9E-eWz">
-                                            <connections>
-                                                <segue destination="9Ce-gk-Le4" kind="show" id="OoM-lR-BHQ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hvS-zM-LO9" firstAttribute="top" secondItem="zmf-TX-r1S" secondAttribute="bottom" id="DA3-oU-89C"/>
+                            <constraint firstItem="GuE-Gs-5Qx" firstAttribute="leading" secondItem="nZu-D5-nCk" secondAttribute="leading" id="DOR-Z8-GXM"/>
+                            <constraint firstAttribute="bottom" secondItem="GuE-Gs-5Qx" secondAttribute="bottom" id="LC3-BJ-kBF"/>
+                            <constraint firstItem="hvS-zM-LO9" firstAttribute="width" secondItem="nZu-D5-nCk" secondAttribute="width" id="O6A-Gu-JeB"/>
+                            <constraint firstItem="hvS-zM-LO9" firstAttribute="centerX" secondItem="nZu-D5-nCk" secondAttribute="centerX" id="RAV-tJ-eEN"/>
+                            <constraint firstItem="GuE-Gs-5Qx" firstAttribute="width" secondItem="nZu-D5-nCk" secondAttribute="width" id="oj2-l3-ANl"/>
+                            <constraint firstItem="GuE-Gs-5Qx" firstAttribute="top" secondItem="hvS-zM-LO9" secondAttribute="bottom" id="s7c-z1-6jL"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="fieldView" destination="GuE-Gs-5Qx" id="Rnd-Qw-Zzh"/>
