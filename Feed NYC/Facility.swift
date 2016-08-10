@@ -37,3 +37,9 @@ class Facility: CustomStringConvertible {
         return "\(self.streetAddress)+\(self.city)+\(self.state)+\(self.zipcode)"
     }
 }
+extension Facility {
+    enum foodType: String {
+        case FoodPantry = "Food Pantry"
+        case SoupKitchen = "Soup Kitchen"
+    }
+}

@@ -41,20 +41,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
-                                <rect key="frame" x="20" y="71" width="158" height="165"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
+                                <rect key="frame" x="20" y="71" width="213" height="165"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
-                                        <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
-                                        <state key="normal" title="Food Banks"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
+                                        <rect key="frame" x="0.0" y="0.0" width="213" height="30"/>
+                                        <state key="normal" title="Food Banks and Soup Kitchens"/>
+                                        <connections>
+                                            <segue destination="rDb-nV-Ii3" kind="show" id="9r9-8b-lzB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
-                                        <rect key="frame" x="0.0" y="45" width="57" height="30"/>
-                                        <state key="normal" title="Shelters"/>
+                                        <rect key="frame" x="0.0" y="45" width="81" height="30"/>
+                                        <state key="normal" title="Food Banks"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
-                                        <rect key="frame" x="0.0" y="90" width="158" height="30"/>
-                                        <state key="normal" title="Mental Health Services"/>
+                                        <rect key="frame" x="0.0" y="90" width="99" height="30"/>
+                                        <state key="normal" title="Soup Kitchens"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hey-pe-iAi">
                                         <rect key="frame" x="0.0" y="135" width="64" height="30"/>
@@ -77,7 +80,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pV7-pY-jC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-155" y="1799"/>
+            <point key="canvasLocation" x="1196" y="937"/>
+        </scene>
+        <!--DennisStoryboard-->
+        <scene sceneID="KJm-IF-T9y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DennisStoryboard" id="rDb-nV-Ii3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RH5-EU-giL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1714" y="713"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="AzT-7R-Wuh">
@@ -120,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKQ-lx-Rtp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="1078"/>
+            <point key="canvasLocation" x="1196" y="193"/>
         </scene>
     </scenes>
 </document>
