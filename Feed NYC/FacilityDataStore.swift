@@ -23,4 +23,17 @@ class FacilityDataStore {
             completion()
         }
     }
+    
+    func getFoodPantries() -> [Facility] {
+        var foodPantries = [Facility]()
+        
+        for facility in self.facilities {
+            for feature in facility.featureList {
+                if feature == "Food Pantry" {
+                    foodPantries.append(facility)
+                }
+            }
+        }
+        return foodPantries
+    }
 }
