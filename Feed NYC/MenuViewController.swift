@@ -30,7 +30,14 @@ class MenuViewController: UIViewController {
     //     self.so_containerViewController.topViewController = profileViewController
     // 3) To close the sidebar menu set is sideVCPresented to false
     //      self.so_containerViewController?.isSideViewControllerPresented = false
-    @IBAction func AboutUsTapped(sender: AnyObject) {
+    @IBAction func foodBanksTapped(sender: AnyObject) {
+//        let dennisStoryboard = UIStoryboard(name: "DennisStoryboard", bundle: nil)
+//        let facilitiesVC = dennisStoryboard.instantiateViewControllerWithIdentifier("facilityScreen")
+//        self.so_containerViewController?.topViewController = facilitiesVC
+        self.so_containerViewController?.isSideViewControllerPresented = false
+    }
+    
+    @IBAction func aboutUsTapped(sender: AnyObject) {
         self.so_containerViewController?.isSideViewControllerPresented = false
     }
     

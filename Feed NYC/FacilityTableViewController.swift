@@ -8,12 +8,15 @@
 
 import UIKit
 
-class FacilityTableViewController: UITableViewController {
+class FacilityTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var elementArray: [FacilityDetails] = []
         
+    @IBOutlet weak var fieldView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         do {
             if let xmlURL = NSBundle.mainBundle().URLForResource("FacilityDetails", withExtension: "xml") {
                 let xml = try String(contentsOfURL: xmlURL)
@@ -29,6 +32,8 @@ class FacilityTableViewController: UITableViewController {
         } catch {
             print(error)
         }
+        fieldView.delegate = self
+        fieldView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,18 +43,18 @@ class FacilityTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return elementArray.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
 
         cell.textLabel?.text = elementArray[indexPath.row].name as String
