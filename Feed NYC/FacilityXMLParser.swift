@@ -6,6 +6,9 @@
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 
+// 
+
+
 import Foundation
 
 
@@ -53,6 +56,18 @@ extension FacilityParser {
         
         if elementName == "street-address" {
             currentFacility?.streetAddress = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "city" {
+            currentFacility?.city = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "state" {
+            currentFacility?.state = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        }
+        
+        if elementName == "zip-code" {
+            currentFacility?.zipCode = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         }
         
         if elementName == "phone-number" {
