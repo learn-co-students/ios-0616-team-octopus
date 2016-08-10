@@ -33,7 +33,7 @@ class GeocodingAPI {
         
     }
     
-    // parsing XML to get the location
+    // parsing XML to get the location info
     func parseData() {
         do {
             if let xmlURL = NSBundle.mainBundle().URLForResource("FacilityDetails", withExtension: "xml") {
@@ -47,13 +47,22 @@ class GeocodingAPI {
         } catch {
             print(error)
         }
+        //print("=====elementArray \(self.elementArray[0])=====")
     }
     
-    // making [String] of location as address
+    
+    
+    
+    
+    
+    
+    
+    // making [String] of location as address based on location info
     func getAddresses() {
         for geo in self.elementArray {
             self.addresses.append(geo.fullAddress)
         }
+        print("")
     }
     
     
@@ -65,7 +74,7 @@ class GeocodingAPI {
         
         // 2. create task for this session
         // 2.1 for this URL
-        if let url = NSURL(string: "\(self.geocodingURL)address=\(self.addresses[0])&key=\(Secrets.googleGeocodingAPI)".stringByReplacingOccurrencesOfString(" ", withString: "%20")) {
+        if let url = NSURL(string: "\(self.geocodingURL)address=\(self.addresses[1])&key=\(Secrets.googleGeocodingAPI)".stringByReplacingOccurrencesOfString(" ", withString: "%20")) {
             // 2.2 make a task that will
             let task = session.dataTaskWithURL(url) {
                 (data, response, error) in
