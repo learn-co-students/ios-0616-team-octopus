@@ -9,12 +9,18 @@
 import UIKit
 import GoogleMaps
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
+    var mapView: GMSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpMaps()
-        // Do any additional setup after loading the view.
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,7 +34,7 @@ class MapViewController: UIViewController {
         let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 11.0)
         
         let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
-        let mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
         mapView.myLocationEnabled = true
         self.view.insertSubview(mapView, atIndex: 0)
 //        self.view.addSubview(mapView)
@@ -58,6 +64,37 @@ class MapViewController: UIViewController {
             container.isSideViewControllerPresented = true
             
             // To close the sidebar menu set is sideVCPresented to false
+        }
+        
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+//1
+extension MapViewController {
+    // 2
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        // 3
+        if status == .AuthorizedWhenInUse {
+            
+            // 4
+            locationManager.startUpdatingLocation()
+            
+            //5
+            self.mapView.myLocationEnabled = true
+            self.mapView.settings.myLocationButton = true
+        }
+    }
+    
+    // 6
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            
+            // 7
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            
+            // 8
+            locationManager.stopUpdatingLocation()
         }
         
     }
