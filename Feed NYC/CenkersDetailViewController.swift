@@ -14,7 +14,8 @@ class CenkersDetailViewController: UIViewController {
     var facilityToDisplay: Facility = Facility()
     
     //label outlets
-    @IBOutlet weak var briefDescLabel: UILabel!
+    
+    @IBOutlet weak var facilityNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UIButton!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var intakeLabel: UILabel!
@@ -28,12 +29,13 @@ class CenkersDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        facilityToDisplay.briefDescription = "food pantry"
+        facilityToDisplay.name = "Flatiron Soup Kitchen and Food Pantry"
         facilityToDisplay.streetAddress = "440 blah blah ave."
         facilityToDisplay.city = "Bronx"
         facilityToDisplay.state = "NY"
         facilityToDisplay.zipcode = "100123"
-        facilityToDisplay.phoneNumber = "(917) 604-4812 x152"
+        facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
+        facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
         facilityToDisplay.intake = "intake done"
         facilityToDisplay.fee = "Free"
         facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
@@ -62,7 +64,7 @@ class CenkersDetailViewController: UIViewController {
     
     //updating labels
     func updateLabels() {
-        self.briefDescLabel.text = self.facilityToDisplay.briefDescription
+        self.facilityNameLabel.text = self.facilityToDisplay.name
         self.addressLabel.setTitle(self.createAddress(), forState: .Normal)
         self.phoneNumberLabel.setTitle(self.facilityToDisplay.phoneNumber, forState: .Normal)
         self.hoursLabel.text = self.facilityToDisplay.hoursOfOperation
