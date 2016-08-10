@@ -16,12 +16,34 @@ class FacilityDataStore {
     
     func refreshFacilitiesDataStoreWithCompletion(completion: () -> ()) {
         facilities.removeAll()
-        FacilityParser.getFacilitiesWithCompletion { (facilities) in
-            for facility in facilities {
-                self.facilities.append(facility)
-            }
-            completion()
+        FacilityParser.getFacilitiesWithCompletion { (parsedFacilities) in
+            self.cleanRedundantFacilities(parsedFacilities, completion: { (cleanedFacilities) in
+                self.facilities = cleanedFacilities
+                print(self.facilities[20])
+                completion()
+            })
         }
+    }
+    
+    func cleanRedundantFacilities(parsedFacilities: [Facility], completion: ([Facility])->()) {
+        var i=0
+        var cleanedFacilities: [Facility] = []
+        while i < parsedFacilities.count-1 {
+            if parsedFacilities[i].streetAddress == parsedFacilities[i+1].streetAddress {
+                parsedFacilities[i].featureList.appendContentsOf(parsedFacilities[i+1].featureList)
+                parsedFacilities[i].briefDescription = parsedFacilities[i].briefDescription + " " + parsedFacilities[i+1].briefDescription
+                cleanedFacilities.append(parsedFacilities[i])
+                i += 1
+            }
+            else {
+                cleanedFacilities.append(parsedFacilities[i])
+            }
+            i += 1
+        }
+        if parsedFacilities[parsedFacilities.count-1].streetAddress != parsedFacilities[parsedFacilities.count-2].streetAddress {
+            cleanedFacilities.append(parsedFacilities[parsedFacilities.count-1])
+        }
+        completion(cleanedFacilities)
     }
     
     func getFoodPantries() -> [Facility] {
