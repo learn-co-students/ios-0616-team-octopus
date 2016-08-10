@@ -10,7 +10,7 @@ import UIKit
 
 class FacilityTableViewController: UITableViewController {
     
-    var elementArray: [FacilityDetails] = []
+    var elementArray: [Facility] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
