@@ -22,6 +22,21 @@ class CenkersMapSelectionViewController: UIViewController {
     }
     
 
+    @IBAction func googleMapsTapped(sender: UIButton) {
+        
+    }
+    
+    
+    @IBAction func appleMapsTapped(sender: UIButton) {
+    
+    }
+    
+    
+    @IBAction func cancelButtonTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
