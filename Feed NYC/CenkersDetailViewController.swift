@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class CenkersDetailViewController: UIViewController {
     
@@ -14,7 +16,6 @@ class CenkersDetailViewController: UIViewController {
     var facilityToDisplay: Facility = Facility()
     
     //label outlets
-    
     @IBOutlet weak var facilityNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UIButton!
     @IBOutlet weak var hoursLabel: UILabel!
@@ -29,6 +30,7 @@ class CenkersDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // fake facility for test - to be commented out and/or deleted later
         facilityToDisplay.name = "Flatiron Soup Kitchen and Food Pantry"
         facilityToDisplay.streetAddress = "440 blah blah ave."
         facilityToDisplay.city = "Bronx"
@@ -42,6 +44,7 @@ class CenkersDetailViewController: UIViewController {
         facilityToDisplay.eligibility = "open for everyone"
         facilityToDisplay.requiredDocuments = "please call"
         
+        //call the function that updates the labels
         self.updateLabels()
     }
 
@@ -66,7 +69,8 @@ class CenkersDetailViewController: UIViewController {
     func updateLabels() {
         self.facilityNameLabel.text = self.facilityToDisplay.name
         self.addressLabel.setTitle(self.createAddress(), forState: .Normal)
-        self.phoneNumberLabel.setTitle(self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" x", withString: "  Ext:"), forState: .Normal)
+        let phoneNumWithExt = self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" x", withString: "  Ext:")
+        self.phoneNumberLabel.setTitle(phoneNumWithExt, forState: .Normal)
         self.hoursLabel.text = self.facilityToDisplay.hoursOfOperation
         self.intakeLabel.text = self.facilityToDisplay.intake
         self.feeLabel.text = self.facilityToDisplay.fee
@@ -93,4 +97,27 @@ class CenkersDetailViewController: UIViewController {
         }
         return returnString
     }
+    
+//    // function to open the maps app
+//    func openMapForPlace() {
+//        
+////        let lat1 : NSString = self.venueLat
+////        let lng1 : NSString = self.venueLng
+//        
+//        let latitute:CLLocationDegrees =  40.817330064
+//        let longitute:CLLocationDegrees =  -73.8570632384
+//        
+//        let regionDistance:CLLocationDistance = 10000
+//        let coordinates = CLLocationCoordinate2DMake(latitute, longitute)
+//        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+//        let options = [
+//            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+//            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+//        ]
+//        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+//        let mapItem = MKMapItem(placemark: placemark)
+//        mapItem.name = "\(self.venueName)"
+//        mapItem.openInMapsWithLaunchOptions(options)
+//        
+//    }
 }
