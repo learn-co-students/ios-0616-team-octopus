@@ -143,6 +143,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ulJ-si-WVl">
+                                <rect key="frame" x="167" y="452" width="240" height="128"/>
+                                <connections>
+                                    <segue destination="VIz-68-L0G" kind="embed" identifier="mapsSegue" id="Ciw-om-lEU"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -208,6 +214,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vj5-1G-TGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="631" y="467"/>
+        </scene>
+        <!--Cenkers Map Selection View Controller-->
+        <scene sceneID="9Fv-XV-9Mh">
+            <objects>
+                <viewController id="VIz-68-L0G" customClass="CenkersMapSelectionViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vuT-yk-gQa"/>
+                        <viewControllerLayoutGuide type="bottom" id="rn1-GB-YBC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="syq-un-voS">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZr-kV-Wmw">
+                                <rect key="frame" x="20" y="20" width="93" height="42"/>
+                                <state key="normal" title="Google Maps"/>
+                                <connections>
+                                    <action selector="googleMapsTapped:" destination="VIz-68-L0G" eventType="touchUpInside" id="GZi-ag-PTD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZF-FP-saF">
+                                <rect key="frame" x="127" y="20" width="93" height="42"/>
+                                <state key="normal" title="Apple Maps"/>
+                                <connections>
+                                    <action selector="appleMapsTapped:" destination="VIz-68-L0G" eventType="touchUpInside" id="9Sn-XS-2gU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbW-mE-DI9">
+                                <rect key="frame" x="96" y="78" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="VIz-68-L0G" eventType="touchUpInside" id="nkq-BU-Ylc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tET-Ly-GDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="631" y="1125"/>
         </scene>
     </scenes>
 </document>

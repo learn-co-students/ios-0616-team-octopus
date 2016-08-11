@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class CenkersDetailViewController: UIViewController {
     
@@ -14,7 +16,6 @@ class CenkersDetailViewController: UIViewController {
     var facilityToDisplay: Facility = Facility()
     
     //label outlets
-    
     @IBOutlet weak var facilityNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UIButton!
     @IBOutlet weak var hoursLabel: UILabel!
@@ -29,19 +30,21 @@ class CenkersDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        facilityToDisplay.name = "Flatiron Soup Kitchen and Food Pantry"
-        facilityToDisplay.streetAddress = "440 blah blah ave."
+        // fake facility for test - to be commented out and/or deleted later
+        facilityToDisplay.name = "Holy Cross Church"
+        facilityToDisplay.streetAddress = "600 Southview ave."
         facilityToDisplay.city = "Bronx"
         facilityToDisplay.state = "NY"
         facilityToDisplay.zipcode = "100123"
         facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
         facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
-        facilityToDisplay.intake = "intake done"
+        facilityToDisplay.intake = "please call"
         facilityToDisplay.fee = "Free"
         facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
         facilityToDisplay.eligibility = "open for everyone"
         facilityToDisplay.requiredDocuments = "please call"
         
+        //call the function that updates the labels
         self.updateLabels()
     }
 
@@ -51,7 +54,11 @@ class CenkersDetailViewController: UIViewController {
     }
     
     @IBAction func addressTapped(sender: UIButton) {
+        //apple
+        self.openMapForPlace()
         
+        //google
+        //self.openGoogleMapsAppWithDirection()
     }
     
     @IBAction func phoneNumberTapped(sender: UIButton) {
@@ -66,7 +73,8 @@ class CenkersDetailViewController: UIViewController {
     func updateLabels() {
         self.facilityNameLabel.text = self.facilityToDisplay.name
         self.addressLabel.setTitle(self.createAddress(), forState: .Normal)
-        self.phoneNumberLabel.setTitle(self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" x", withString: "  Ext:"), forState: .Normal)
+        let phoneNumWithExt = self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" x", withString: "  Ext:")
+        self.phoneNumberLabel.setTitle(phoneNumWithExt, forState: .Normal)
         self.hoursLabel.text = self.facilityToDisplay.hoursOfOperation
         self.intakeLabel.text = self.facilityToDisplay.intake
         self.feeLabel.text = self.facilityToDisplay.fee
@@ -92,5 +100,55 @@ class CenkersDetailViewController: UIViewController {
             }
         }
         return returnString
+    }
+    
+    //function to open Google's maps app
+    func openGoogleMapsAppWithDirection() {
+        
+        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+            UIApplication.sharedApplication().openURL(NSURL(string:
+                "comgooglemaps://?saddr=40.705329,-74.0139696&daddr=40.817330064,-73.8570632384&directionsmode=driving&views=traffic")!)
+        } else {
+            print("Can't use comgooglemaps://");
+        }
+
+    }
+    
+    // function to open Apple's maps app
+    func openMapForPlace() {
+        
+        let currentLatitude: CLLocationDegrees = 40.705329
+        let currentLongitude: CLLocationDegrees = -74.0139696
+        let currentCoordinates = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
+        
+        let destinationLatitude:CLLocationDegrees =  40.817330064
+        let destinationLongitude:CLLocationDegrees =  -73.8570632384
+        let destinationCoordinates = CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude)
+        
+        let regionDistance:CLLocationDistance = 10000
+        let regionSpan = MKCoordinateRegionMakeWithDistance(destinationCoordinates, regionDistance, regionDistance)
+        
+//        let options = [
+//            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+//            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+//        ]
+        
+        let myLocationPlacemark = MKPlacemark(coordinate: currentCoordinates, addressDictionary: nil)
+        let myLocationMapItem = MKMapItem(placemark: myLocationPlacemark)
+        
+        let placemark = MKPlacemark(coordinate: destinationCoordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(facilityToDisplay.name)"
+        let launchOptions = [
+            MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,
+            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+        ]
+        
+        MKMapItem.openMapsWithItems(
+            [myLocationMapItem, mapItem],
+            launchOptions: launchOptions)
+        
+        //mapItem.openInMapsWithLaunchOptions(options)
+        
     }
 }
