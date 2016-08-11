@@ -219,6 +219,10 @@
         <scene sceneID="9Fv-XV-9Mh">
             <objects>
                 <viewController id="VIz-68-L0G" customClass="CenkersMapSelectionViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vuT-yk-gQa"/>
+                        <viewControllerLayoutGuide type="bottom" id="rn1-GB-YBC"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="syq-un-voS">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
