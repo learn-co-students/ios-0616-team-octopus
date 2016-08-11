@@ -19,35 +19,53 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         let geo = GeocodingAPI()
         geo.getGeoLatitudeLongtitudeByAddress()
         setUpMaps()
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-
-
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
 
+        if status == .AuthorizedWhenInUse {
+            
+            locationManager.startUpdatingLocation()
+            
+            self.mapView.myLocationEnabled = true
+            self.mapView.settings.myLocationButton = true
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            
+            self.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 18, bearing: 0, viewingAngle: 0)
+            
+            locationManager.stopUpdatingLocation()
+        }
+    }
     
     func setUpMaps() {
         // map possition at start
+        
         let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 11.0)
         
         let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
         self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
         mapView.myLocationEnabled = true
         self.view.insertSubview(mapView, atIndex: 0)
-//        self.view.addSubview(mapView)
-//        view = mapView
-//        self.view.bringSubviewToFront(mapView)
-        
+        //        self.view.addSubview(mapView)
+        //        view = mapView
+        //        self.view.bringSubviewToFront(mapView)
         
         // Marker Green
         let marker = GMSMarker()
@@ -70,23 +88,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let currentFasility = self.store.facilities[i]
             
             
-            
-            //print("CURRENT FASILITY: \(currentFasility)")
+            //print("CURRENT FACILITY: \(currentFasility)")
             
             
             let latitude = currentFasility.latitude
             let longitude = currentFasility.longitude
             let name = currentFasility.name
-          
+            
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
-           
+            
         }
         
     }
-
+    
     @IBAction func showMenu(sender: AnyObject) {
         if let container = self.so_containerViewController
         {
@@ -94,38 +111,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             // To close the sidebar menu set is sideVCPresented to false
         }
-        
-    }
-}
-
-// MARK: - CLLocationManagerDelegate
-//1
-extension MapViewController {
-    // 2
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        // 3
-        if status == .AuthorizedWhenInUse {
-            
-            // 4
-            locationManager.startUpdatingLocation()
-            
-            //5
-            self.mapView.myLocationEnabled = true
-            self.mapView.settings.myLocationButton = true
-        }
     }
     
-    // 6
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            
-            // 7
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            
-            // 8
-            locationManager.stopUpdatingLocation()
-        }
-        
-    }
+    
+    
 }
+
 
