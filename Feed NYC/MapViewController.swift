@@ -23,14 +23,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         
-        
-        //let geo = GeocodingAPI()
-        //geo.getGeoLatitudeLongtitudeByAddress()
+        let geo = GeocodingAPI()
+        geo.getGeoLatitudeLongtitudeByAddress()
+        setUpMaps()
+
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
-        setUpMaps()
 
     }
     
@@ -38,15 +37,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+//    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+//
+//        if status == .AuthorizedWhenInUse {
+//            
+//            locationManager.startUpdatingLocation()
+//            
+//            self.mapView.myLocationEnabled = true
+//            self.mapView.settings.myLocationButton = true
+//        }
+//    }
+//    
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.first {
+//            
+//            self.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 18, bearing: 0, viewingAngle: 0)
+//            
+//            locationManager.stopUpdatingLocation()
+//        }
+//    }
     
     func setUpMaps() {
         // map possition at start
-        
-//        self.view.addSubview(mapView)
-//        view = mapView
-//        self.view.bringSubviewToFront(mapView)
-        
+
+        //        self.view.addSubview(mapView)
+        //        view = mapView
+        //        self.view.bringSubviewToFront(mapView)
+
         
         // Marker Green
         let marker = GMSMarker()
@@ -69,10 +87,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
          //   let currentFasility = self.store.facilities[i]
             
             
+            //print("CURRENT FACILITY: \(currentFasility)")
             
-            //print("CURRENT FASILITY: \(currentFasility)")
             
-            
+
            // let latitude = currentFasility.latitude
            // let longitude = currentFasility.longitude
            // let name = currentFasility.name
@@ -83,9 +101,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
            // marker.map = mapView
            
        // }
+
         
     }
-
+    
     @IBAction func showMenu(sender: AnyObject) {
         if let container = self.so_containerViewController
         {
@@ -93,6 +112,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             // To close the sidebar menu set is sideVCPresented to false
         }
+
         
     }
 
@@ -162,7 +182,7 @@ extension MapViewController {
         
     }
     
-
     
 }
+
 
