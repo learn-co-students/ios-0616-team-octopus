@@ -14,12 +14,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var mapView: GMSMapView!
     
+    let store = FacilityDataStore.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMaps()
         
+        
+        
+        let geo = GeocodingAPI()
+        geo.getGeoLatitudeLongtitudeByAddress()
+        setUpMaps()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+
 
     }
     
@@ -41,6 +48,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //        view = mapView
 //        self.view.bringSubviewToFront(mapView)
         
+        
         // Marker Green
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: 40.723074, longitude: -73.986348)
@@ -56,6 +64,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         marker1.snippet = "test"
         marker1.icon = GMSMarker.markerImageWithColor(UIColor.blueColor())
         marker1.map = mapView
+        
+        
+        for i in 0...1 {
+            let currentFasility = self.store.facilities[i]
+            
+            
+            
+            //print("CURRENT FASILITY: \(currentFasility)")
+            
+            
+            let latitude = currentFasility.latitude
+            let longitude = currentFasility.longitude
+            let name = currentFasility.name
+          
+            let position = CLLocationCoordinate2DMake(latitude, longitude)
+            let marker = GMSMarker(position: position)
+            marker.title = name
+            marker.map = mapView
+           
+        }
+        
     }
 
     @IBAction func showMenu(sender: AnyObject) {
