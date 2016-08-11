@@ -42,7 +42,7 @@ class GeocodingAPI {
 //                        facility.latitude = String(dictionary["lat"])
 //                        facility.longitude = String(dictionary["lng"])
                         //print(facility.latitude)
-                        print("JJJJJJJJ\(self.store.facilities[i].description)jjj")
+                        //print("JJJJJJJJ\(self.store.facilities[i].description)jjj")
                     }
                 }
             }
