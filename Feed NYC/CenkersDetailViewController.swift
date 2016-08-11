@@ -54,7 +54,11 @@ class CenkersDetailViewController: UIViewController {
     }
     
     @IBAction func addressTapped(sender: UIButton) {
+        //apple
         self.openMapForPlace()
+        
+        //google
+        //self.openGoogleMapsAppWithDirection()
     }
     
     @IBAction func phoneNumberTapped(sender: UIButton) {
@@ -98,7 +102,19 @@ class CenkersDetailViewController: UIViewController {
         return returnString
     }
     
-    // function to open the maps app
+    //function to open Google's maps app
+    func openGoogleMapsAppWithDirection() {
+        
+        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+            UIApplication.sharedApplication().openURL(NSURL(string:
+                "comgooglemaps://?saddr=40.705329,-74.0139696&daddr=40.817330064,-73.8570632384&directionsmode=driving&views=traffic")!)
+        } else {
+            print("Can't use comgooglemaps://");
+        }
+
+    }
+    
+    // function to open Apple's maps app
     func openMapForPlace() {
         
         let currentLatitude: CLLocationDegrees = 40.705329
