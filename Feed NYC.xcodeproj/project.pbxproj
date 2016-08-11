@@ -22,6 +22,8 @@
 		5B6D146B6F52C764D192A85B /* Pods_Feed_NYC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */; };
 		78407CBC1D5A3784005EE9C2 /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */; };
 		78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */; };
+		78CE21CD1D5CC65A006713FD /* semiDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE21CB1D5CC65A006713FD /* semiDetailedViewController.swift */; };
+		78CE21CE1D5CC65A006713FD /* semiDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78CE21CC1D5CC65A006713FD /* semiDetailedViewController.xib */; };
 		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
 		BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */; };
 		BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049E1D58DF0B0048CB8F /* TopViewController.swift */; };
@@ -49,6 +51,8 @@
 		51B40F90EBFF5AD8382BB20B /* Pods-Feed NYC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed NYC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feed NYC/Pods-Feed NYC.debug.xcconfig"; sourceTree = "<group>"; };
 		78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
 		78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenkersDetailViewController.swift; sourceTree = "<group>"; };
+		78CE21CB1D5CC65A006713FD /* semiDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = semiDetailedViewController.swift; sourceTree = "<group>"; };
+		78CE21CC1D5CC65A006713FD /* semiDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = semiDetailedViewController.xib; sourceTree = "<group>"; };
 		BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		BA44049E1D58DF0B0048CB8F /* TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		BA4404A01D58DF170048CB8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				BA4404A01D58DF170048CB8F /* MenuViewController.swift */,
 				BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */,
 				78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */,
+				78CE21CB1D5CC65A006713FD /* semiDetailedViewController.swift */,
+				78CE21CC1D5CC65A006713FD /* semiDetailedViewController.xib */,
 				1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */,
 				78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */,
 				1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */,
@@ -195,6 +201,7 @@
 				1BB67E191D5A2DE200EEE7AE /* FacilityDetails.xml in Resources */,
 				1BF9B57A1D5A4B52009A60E7 /* DennisStoryboard.storyboard in Resources */,
 				1BAC3F6C1D58D3520031C3AC /* Assets.xcassets in Resources */,
+				78CE21CE1D5CC65A006713FD /* semiDetailedViewController.xib in Resources */,
 				1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */,
 				78407CBC1D5A3784005EE9C2 /* CenkersStoryboard.storyboard in Resources */,
 			);
@@ -257,6 +264,7 @@
 			files = (
 				BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */,
 				78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */,
+				78CE21CD1D5CC65A006713FD /* semiDetailedViewController.swift in Sources */,
 				1BB67E1D1D5A2E0E00EEE7AE /* Secrets.swift in Sources */,
 				1BF9B57E1D5A869D009A60E7 /* FacilityTableViewController.swift in Sources */,
 				BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */,

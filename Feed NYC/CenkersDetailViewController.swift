@@ -31,14 +31,14 @@ class CenkersDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // fake facility for test - to be commented out and/or deleted later
-        facilityToDisplay.name = "Flatiron Soup Kitchen and Food Pantry"
-        facilityToDisplay.streetAddress = "440 blah blah ave."
+        facilityToDisplay.name = "Holy Cross Church"
+        facilityToDisplay.streetAddress = "600 Southview ave."
         facilityToDisplay.city = "Bronx"
         facilityToDisplay.state = "NY"
         facilityToDisplay.zipcode = "100123"
         facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
         facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
-        facilityToDisplay.intake = "intake done"
+        facilityToDisplay.intake = "please call"
         facilityToDisplay.fee = "Free"
         facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
         facilityToDisplay.eligibility = "open for everyone"
@@ -54,7 +54,7 @@ class CenkersDetailViewController: UIViewController {
     }
     
     @IBAction func addressTapped(sender: UIButton) {
-        
+        self.openMapForPlace()
     }
     
     @IBAction func phoneNumberTapped(sender: UIButton) {
@@ -98,26 +98,41 @@ class CenkersDetailViewController: UIViewController {
         return returnString
     }
     
-//    // function to open the maps app
-//    func openMapForPlace() {
-//        
-////        let lat1 : NSString = self.venueLat
-////        let lng1 : NSString = self.venueLng
-//        
-//        let latitute:CLLocationDegrees =  40.817330064
-//        let longitute:CLLocationDegrees =  -73.8570632384
-//        
-//        let regionDistance:CLLocationDistance = 10000
-//        let coordinates = CLLocationCoordinate2DMake(latitute, longitute)
-//        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+    // function to open the maps app
+    func openMapForPlace() {
+        
+        let currentLatitude: CLLocationDegrees = 40.705329
+        let currentLongitude: CLLocationDegrees = -74.0139696
+        let currentCoordinates = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
+        
+        let destinationLatitude:CLLocationDegrees =  40.817330064
+        let destinationLongitude:CLLocationDegrees =  -73.8570632384
+        let destinationCoordinates = CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude)
+        
+        let regionDistance:CLLocationDistance = 10000
+        let regionSpan = MKCoordinateRegionMakeWithDistance(destinationCoordinates, regionDistance, regionDistance)
+        
 //        let options = [
 //            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
 //            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
 //        ]
-//        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-//        let mapItem = MKMapItem(placemark: placemark)
-//        mapItem.name = "\(self.venueName)"
-//        mapItem.openInMapsWithLaunchOptions(options)
-//        
-//    }
+        
+        let myLocationPlacemark = MKPlacemark(coordinate: currentCoordinates, addressDictionary: nil)
+        let myLocationMapItem = MKMapItem(placemark: myLocationPlacemark)
+        
+        let placemark = MKPlacemark(coordinate: destinationCoordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(facilityToDisplay.name)"
+        let launchOptions = [
+            MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,
+            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+        ]
+        
+        MKMapItem.openMapsWithItems(
+            [myLocationMapItem, mapItem],
+            launchOptions: launchOptions)
+        
+        //mapItem.openInMapsWithLaunchOptions(options)
+        
+    }
 }
