@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import MapKit
 
 class CenkersDetailViewController: UIViewController {
     
@@ -54,11 +53,7 @@ class CenkersDetailViewController: UIViewController {
     }
     
     @IBAction func addressTapped(sender: UIButton) {
-        //apple
-        self.openMapForPlace()
         
-        //google
-        //self.openGoogleMapsAppWithDirection()
     }
     
     @IBAction func phoneNumberTapped(sender: UIButton) {
@@ -102,53 +97,4 @@ class CenkersDetailViewController: UIViewController {
         return returnString
     }
     
-    //function to open Google's maps app
-    func openGoogleMapsAppWithDirection() {
-        
-        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
-            UIApplication.sharedApplication().openURL(NSURL(string:
-                "comgooglemaps://?saddr=40.705329,-74.0139696&daddr=40.817330064,-73.8570632384&directionsmode=driving&views=traffic")!)
-        } else {
-            print("Can't use comgooglemaps://");
-        }
-
-    }
-    
-    // function to open Apple's maps app
-    func openMapForPlace() {
-        
-        let currentLatitude: CLLocationDegrees = 40.705329
-        let currentLongitude: CLLocationDegrees = -74.0139696
-        let currentCoordinates = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
-        
-        let destinationLatitude:CLLocationDegrees =  40.817330064
-        let destinationLongitude:CLLocationDegrees =  -73.8570632384
-        let destinationCoordinates = CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude)
-        
-        let regionDistance:CLLocationDistance = 10000
-        let regionSpan = MKCoordinateRegionMakeWithDistance(destinationCoordinates, regionDistance, regionDistance)
-        
-//        let options = [
-//            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
-//            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
-//        ]
-        
-        let myLocationPlacemark = MKPlacemark(coordinate: currentCoordinates, addressDictionary: nil)
-        let myLocationMapItem = MKMapItem(placemark: myLocationPlacemark)
-        
-        let placemark = MKPlacemark(coordinate: destinationCoordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = "\(facilityToDisplay.name)"
-        let launchOptions = [
-            MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,
-            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
-        ]
-        
-        MKMapItem.openMapsWithItems(
-            [myLocationMapItem, mapItem],
-            launchOptions: launchOptions)
-        
-        //mapItem.openInMapsWithLaunchOptions(options)
-        
-    }
 }
