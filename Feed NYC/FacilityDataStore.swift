@@ -149,7 +149,7 @@ class FacilityDataStore {
         }
 //        print(self.facilities)
 //        print(self.facilities.count)
-        print(self.facilitiesDictionary.count)
+//        print(self.facilitiesDictionary.count)
     }
     
     func checkDuplicates()
