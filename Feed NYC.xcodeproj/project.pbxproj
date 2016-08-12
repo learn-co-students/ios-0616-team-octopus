@@ -24,7 +24,6 @@
 		78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */; };
 		78CE21CD1D5CC65A006713FD /* semiDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE21CB1D5CC65A006713FD /* semiDetailedViewController.swift */; };
 		78CE21CE1D5CC65A006713FD /* semiDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78CE21CC1D5CC65A006713FD /* semiDetailedViewController.xib */; };
-		78CE21D01D5D0450006713FD /* CenkersMapSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE21CF1D5D0450006713FD /* CenkersMapSelectionViewController.swift */; };
 		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
 		BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */; };
 		BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049E1D58DF0B0048CB8F /* TopViewController.swift */; };
@@ -54,7 +53,6 @@
 		78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenkersDetailViewController.swift; sourceTree = "<group>"; };
 		78CE21CB1D5CC65A006713FD /* semiDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = semiDetailedViewController.swift; sourceTree = "<group>"; };
 		78CE21CC1D5CC65A006713FD /* semiDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = semiDetailedViewController.xib; sourceTree = "<group>"; };
-		78CE21CF1D5D0450006713FD /* CenkersMapSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenkersMapSelectionViewController.swift; sourceTree = "<group>"; };
 		BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		BA44049E1D58DF0B0048CB8F /* TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		BA4404A01D58DF170048CB8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				78CE21CC1D5CC65A006713FD /* semiDetailedViewController.xib */,
 				1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */,
 				78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */,
-				78CE21CF1D5D0450006713FD /* CenkersMapSelectionViewController.swift */,
 				1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */,
 				1BAC3F651D58D3520031C3AC /* Main.storyboard */,
 				1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */,
@@ -277,7 +274,6 @@
 				1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */,
 				1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */,
 				BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */,
-				78CE21D01D5D0450006713FD /* CenkersMapSelectionViewController.swift in Sources */,
 				BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */,
 				1BB67E181D5A2DE200EEE7AE /* Facility.swift in Sources */,
 			);
