@@ -26,7 +26,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
-        
     }
     
     override func didReceiveMemoryWarning() {

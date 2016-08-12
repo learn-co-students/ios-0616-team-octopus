@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0288791D5E23CE002309A6 /* xibUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0288781D5E23CE002309A6 /* xibUIView.swift */; };
+		1B02887C1D5E2499002309A6 /* xibUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B02887B1D5E2499002309A6 /* xibUIView.xib */; };
+		1B0288801D5E28F6002309A6 /* DennisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B02887F1D5E28F6002309A6 /* DennisViewController.swift */; };
 		1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */; };
 		1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F611D58D3520031C3AC /* AppDelegate.swift */; };
 		1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F651D58D3520031C3AC /* Main.storyboard */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B0288781D5E23CE002309A6 /* xibUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = xibUIView.swift; sourceTree = "<group>"; };
+		1B02887B1D5E2499002309A6 /* xibUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = xibUIView.xib; sourceTree = "<group>"; };
+		1B02887F1D5E28F6002309A6 /* DennisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DennisViewController.swift; sourceTree = "<group>"; };
 		1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodingAPI.swift; sourceTree = "<group>"; };
 		1BAC3F5E1D58D3520031C3AC /* Feed NYC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed NYC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAC3F611D58D3520031C3AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,12 +111,15 @@
 				BA4404A01D58DF170048CB8F /* MenuViewController.swift */,
 				BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */,
 				78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */,
+				1B0288781D5E23CE002309A6 /* xibUIView.swift */,
+				1B02887B1D5E2499002309A6 /* xibUIView.xib */,
+				1B02887F1D5E28F6002309A6 /* DennisViewController.swift */,
+				1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */,
 				78CE21CB1D5CC65A006713FD /* semiDetailedViewController.swift */,
 				78CE21CC1D5CC65A006713FD /* semiDetailedViewController.xib */,
 				1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */,
 				78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */,
 				78CE21CF1D5D0450006713FD /* CenkersMapSelectionViewController.swift */,
-				1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */,
 				1BAC3F651D58D3520031C3AC /* Main.storyboard */,
 				1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */,
 				1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */,
@@ -201,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BAC3F6F1D58D3520031C3AC /* LaunchScreen.storyboard in Resources */,
+				1B02887C1D5E2499002309A6 /* xibUIView.xib in Resources */,
 				1BB67E191D5A2DE200EEE7AE /* FacilityDetails.xml in Resources */,
 				1BF9B57A1D5A4B52009A60E7 /* DennisStoryboard.storyboard in Resources */,
 				1BAC3F6C1D58D3520031C3AC /* Assets.xcassets in Resources */,
@@ -265,12 +275,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B0288801D5E28F6002309A6 /* DennisViewController.swift in Sources */,
 				BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */,
 				78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */,
 				78CE21CD1D5CC65A006713FD /* semiDetailedViewController.swift in Sources */,
 				1BB67E1D1D5A2E0E00EEE7AE /* Secrets.swift in Sources */,
 				1BF9B57E1D5A869D009A60E7 /* FacilityTableViewController.swift in Sources */,
 				BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */,
+				1B0288791D5E23CE002309A6 /* xibUIView.swift in Sources */,
 				1BB67E1B1D5A2DE200EEE7AE /* FacilityXMLParser.swift in Sources */,
 				1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */,
 				BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */,
