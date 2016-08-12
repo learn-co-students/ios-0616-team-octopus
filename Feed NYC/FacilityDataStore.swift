@@ -132,7 +132,6 @@ class FacilityDataStore {
     // Would help to convert to a completion block
     // This method "pulls apart" the Facilities.txt string, parsing it out into the objects that comprise self.facilities and self.facilitiesDictionary
     func getFacilitiesFromJSONFile(jsonString: String) {
-        self.facilities.removeAll()
         
         if let
             data = jsonString.dataUsingEncoding(NSUTF8StringEncoding),
@@ -150,7 +149,7 @@ class FacilityDataStore {
         }
         //print(self.facilities)
         //print(self.facilities.count)
-        //print(self.facilitiesDictionary.count)
+        print(self.facilitiesDictionary.count)
     }
     
     func checkDuplicates()
