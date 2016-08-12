@@ -19,11 +19,17 @@ class GeocodingAPI {
     let geocodingAPI = "\(Secrets.googleGeocodingAPI)"
     
     
+    // MARK: -Gets locations from GoogleMaps API
+    // Make sure the for loop is "for i in 0..<self.store.facilities.count"
     func getGeoLatitudeLongtitudeByAddress() {
         self.getAddresses()
-        for i in 0...1 {
+        for i in 0..<2 {   // Update for loop here
             self.getLocationWithCompletion(self.addresses[i]) {
                 dictionary in
+                
+                if i % 20 == 0 {
+                    sleep(1)
+                }
                 
                 for facility in self.store.facilities {
                     
@@ -42,7 +48,7 @@ class GeocodingAPI {
 //                        facility.latitude = String(dictionary["lat"])
 //                        facility.longitude = String(dictionary["lng"])
                         //print(facility.latitude)
-                        print("JJJJJJJJ\(self.store.facilities[i].description)jjj")
+                        print("JJJJJJJJ \(i) \(self.store.facilities[i].description)jjj")
                     }
                 }
             }

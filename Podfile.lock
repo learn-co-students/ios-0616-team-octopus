@@ -5,15 +5,18 @@ PODS:
   - GoogleMaps/Maps (2.0.1):
     - GoogleMaps/Base (= 2.0.1)
   - SidebarOverlay (3.0.0)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - GoogleMaps
   - SidebarOverlay (~> 3.0)
+  - SwiftyJSON (~> 2.3)
 
 SPEC CHECKSUMS:
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   SidebarOverlay: ac775b6c3371963746da17610f49f44e2ea1d64e
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: a8cdb134d3a482b0620d38717a6c48f459e2ee20
+PODFILE CHECKSUM: ef76dcc913fc3cd65fc5230e75c09b1476f67274
 
 COCOAPODS: 1.0.1

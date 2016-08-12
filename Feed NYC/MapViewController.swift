@@ -19,14 +19,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        let geo = GeocodingAPI()
-        geo.getGeoLatitudeLongtitudeByAddress()
+        self.store.readInTextFile()
         setUpMaps()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-
 
     }
     
@@ -66,7 +62,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         marker1.map = mapView
         
         
-        for i in 0...1 {
+        // MARK: -To display all the pins on map
+        for i in 0..<self.store.facilities.count {
             let currentFasility = self.store.facilities[i]
             
             
