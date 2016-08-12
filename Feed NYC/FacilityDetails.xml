@@ -1032,7 +1032,7 @@
 <zip-code>10473</zip-code>
 <phone-number>(718) 893-5550</phone-number>
 <web-site/>
-<hours-of-operation>Thu: 9:00 AM - 10:00 AM</hours-of-operation>
+<hours-of-operation>Thu: 8:30 AM - 10:00 AM</hours-of-operation>
 <intake>Call ahead.</intake>
 <fee>Call for information.</fee>
 <feature-list>
@@ -1854,7 +1854,7 @@
 <name>Coalition for the Homeless</name>
 <brief-description>Soup kitchen.</brief-description>
 <proximity/>
-<street-address>108 East 51st Street</street-address>
+<street-address>108 East  51st street</street-address>
 <city>NEW YORK</city>
 <state>NY</state>
 <zip-code>10022</zip-code>
@@ -3747,29 +3747,6 @@ Sun: 9:00 AM - 11:00 AM</hours-of-operation>
 <language-list/>
 </facility>
 <facility>
-<name>Holy Cross Church</name>
-<brief-description>Food pantry. </brief-description>
-<proximity/>
-<street-address>600 Soundview Avenue</street-address>
-<city>BRONX</city>
-<state>NY</state>
-<zip-code>10473</zip-code>
-<phone-number>(718) 893-5550</phone-number>
-<web-site/>
-<hours-of-operation>Thu: 8:30 AM - 9:30 AM</hours-of-operation>
-<intake>Call ahead.</intake>
-<fee>Free.</fee>
-<feature-list>
-<feature>Food Pantry</feature>
-</feature-list>
-<detailed-description/>
-<eligibility>Eligibility restrictions may apply. Call for information.</eligibility>
-<application-procedure/>
-<required-documents>Call for information.</required-documents>
-<age-restriction/>
-<language-list/>
-</facility>
-<facility>
 <name>Holy Ghost Pentecostal Church</name>
 <brief-description>Soup kitchen.</brief-description>
 <proximity/>
@@ -4993,13 +4970,13 @@ Sun: 9:00 AM - 11:00 AM</hours-of-operation>
 <name>Momentum Project at St Peter's Church</name>
 <brief-description>Soup kitchen offering an HIV/AIDS diet.</brief-description>
 <proximity/>
-<street-address>619 Lexington Avenue</street-address>
+<street-address>619  lexington Avenue</street-address>
 <city>NEW YORK</city>
 <state>NY</state>
 <zip-code>10022</zip-code>
 <phone-number>(212) 691-8100 x2103</phone-number>
 <web-site/>
-<hours-of-operation>Tue: 11:00 AM - 1:00 PM, 4:00 PM - 7:00 PM</hours-of-operation>
+<hours-of-operation>Tue: 6:00 AM - 8:00 AM, 11:00 AM - 1:00 PM, 4:00 PM - 7:00 PM</hours-of-operation>
 <intake>Call ahead.</intake>
 <fee>Free.</fee>
 <feature-list>
@@ -7545,29 +7522,6 @@ Fri: 12:00 PM - 2:00 PM</hours-of-operation>
 <fee>Free.</fee>
 <feature-list>
 <feature>Food Pantry</feature>
-</feature-list>
-<detailed-description/>
-<eligibility>Eligibility restrictions may apply. Call for information.</eligibility>
-<application-procedure/>
-<required-documents>Call for information.</required-documents>
-<age-restriction/>
-<language-list/>
-</facility>
-<facility>
-<name>St Peter's Church Breakfast Program</name>
-<brief-description>Soup kitchen.</brief-description>
-<proximity/>
-<street-address>619 Lexington Avenue</street-address>
-<city>NEW YORK</city>
-<state>NY</state>
-<zip-code>10022</zip-code>
-<phone-number>(212) 935-2200</phone-number>
-<web-site/>
-<hours-of-operation>Tue: 6:00 AM - 8:00 AM </hours-of-operation>
-<intake>Call ahead.</intake>
-<fee>Free.</fee>
-<feature-list>
-<feature>Soup Kitchen</feature>
 </feature-list>
 <detailed-description/>
 <eligibility>Eligibility restrictions may apply. Call for information.</eligibility>
