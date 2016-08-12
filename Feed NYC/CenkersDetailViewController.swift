@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class CenkersDetailViewController: UIViewController {
     
@@ -14,7 +16,6 @@ class CenkersDetailViewController: UIViewController {
     var facilityToDisplay: Facility = Facility()
     
     //label outlets
-    
     @IBOutlet weak var facilityNameLabel: UILabel!
     @IBOutlet weak var addressLabel: UIButton!
     @IBOutlet weak var hoursLabel: UILabel!
@@ -29,20 +30,13 @@ class CenkersDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        facilityToDisplay.name = "Flatiron Soup Kitchen and Food Pantry"
-        facilityToDisplay.streetAddress = "440 blah blah ave."
-        facilityToDisplay.city = "Bronx"
-        facilityToDisplay.state = "NY"
-        facilityToDisplay.zipcode = "100123"
-        facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
-        facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
-        facilityToDisplay.intake = "intake done"
-        facilityToDisplay.fee = "Free"
-        facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
-        facilityToDisplay.eligibility = "open for everyone"
-        facilityToDisplay.requiredDocuments = "please call"
-        
+        //call the function that updates the labels
         self.updateLabels()
+        //print(facilityToDisplay)
+        
+        // fake facility coordinates for test - to be commented out and/or deleted later
+        facilityToDisplay.latitude = 40.817330064
+        facilityToDisplay.longitude = -73.8570632384
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +45,7 @@ class CenkersDetailViewController: UIViewController {
     }
     
     @IBAction func addressTapped(sender: UIButton) {
-        
+        self.checkGoogleMapOnPhone()
     }
     
     @IBAction func phoneNumberTapped(sender: UIButton) {
@@ -62,11 +56,17 @@ class CenkersDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func pageDone(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     //updating labels
     func updateLabels() {
         self.facilityNameLabel.text = self.facilityToDisplay.name
         self.addressLabel.setTitle(self.createAddress(), forState: .Normal)
-        self.phoneNumberLabel.setTitle(self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" x", withString: "  Ext:"), forState: .Normal)
+        let phoneNumWithExt = self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" x", withString: "  Ext:")
+        self.phoneNumberLabel.setTitle(phoneNumWithExt, forState: .Normal)
         self.hoursLabel.text = self.facilityToDisplay.hoursOfOperation
         self.intakeLabel.text = self.facilityToDisplay.intake
         self.feeLabel.text = self.facilityToDisplay.fee
@@ -92,5 +92,95 @@ class CenkersDetailViewController: UIViewController {
             }
         }
         return returnString
+    }
+    
+    func checkGoogleMapOnPhone() {
+        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+            self.showMapAlert()
+        } else {
+            self.openMapForPlace()
+        }
+    }
+    
+    //function to open Google's maps app
+    func openGoogleMapsAppWithDirection() {
+        
+        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+            UIApplication.sharedApplication().openURL(NSURL(string:
+                "comgooglemaps://?saddr=40.705329,-74.0139696&daddr=40.817330064,-73.8570632384&directionsmode=driving&views=traffic")!)
+        } else {
+            print("cannot open google maps app");
+        }
+    }
+    
+    // function to open Apple's maps app
+    func openMapForPlace() {
+        
+        let currentLatitude: CLLocationDegrees = 40.705329
+        let currentLongitude: CLLocationDegrees = -74.0139696
+        let currentCoordinates = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
+        
+        let destinationLatitude:CLLocationDegrees = self.facilityToDisplay.latitude
+        let destinationLongitude:CLLocationDegrees = self.facilityToDisplay.longitude
+        let destinationCoordinates = CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude)
+        
+        let regionDistance:CLLocationDistance = 10000
+        let regionSpan = MKCoordinateRegionMakeWithDistance(destinationCoordinates, regionDistance, regionDistance)
+        
+        let myLocationPlacemark = MKPlacemark(coordinate: currentCoordinates, addressDictionary: nil)
+        let myLocationMapItem = MKMapItem(placemark: myLocationPlacemark)
+        
+        let placemark = MKPlacemark(coordinate: destinationCoordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(self.facilityToDisplay.name)"
+        let launchOptions = [
+            MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,
+            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+        ]
+        
+        MKMapItem.openMapsWithItems(
+            [myLocationMapItem, mapItem],
+            launchOptions: launchOptions)
+    }
+    
+    func showMapAlert() {
+        let alertController = UIAlertController(title: "\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+       
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert :UIAlertAction!) in
+            //print("Cancel button tapped")
+        })
+        alertController.addAction(cancelAction)
+        
+        let googleButton = UIButton(frame: CGRectMake(20,10,260,30))
+        googleButton.setTitle("Goggle Maps", forState: .Normal)
+        googleButton.layer.cornerRadius = 3
+        googleButton.setTitleColor(UIView().tintColor, forState: .Normal)
+        googleButton.addTarget(self, action: #selector(dismissForGoogleMaps), forControlEvents: .TouchUpInside)
+        alertController.view.addSubview(googleButton)
+        
+        let separator = UIButton(frame: CGRectMake(10,50,280, 0.5))
+        separator.backgroundColor = UIColor.lightGrayColor()
+        alertController.view.addSubview(separator)
+        
+        let appleButton = UIButton(frame: CGRectMake(20,60,260,30))
+        appleButton.setTitle("Apple Maps", forState: .Normal)
+        appleButton.layer.cornerRadius = 3
+        appleButton.setTitleColor(UIView().tintColor, forState: .Normal)
+        appleButton.addTarget(self, action: #selector(dismissForAppleMaps), forControlEvents: .TouchUpInside)
+        alertController.view.addSubview(appleButton)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func dismissForGoogleMaps() {
+        self.dismissViewControllerAnimated(true, completion: {
+            self.openGoogleMapsAppWithDirection()
+        })
+    }
+    
+    func dismissForAppleMaps() {
+        self.dismissViewControllerAnimated(true, completion: {
+            self.openMapForPlace()
+        })
     }
 }

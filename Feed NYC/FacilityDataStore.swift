@@ -147,8 +147,8 @@ class FacilityDataStore {
                 self.facilitiesDictionary[streetAddress] = newFacility
             }
         }
-        //print(self.facilities)
-        //print(self.facilities.count)
+//        print(self.facilities)
+//        print(self.facilities.count)
         print(self.facilitiesDictionary.count)
     }
     
