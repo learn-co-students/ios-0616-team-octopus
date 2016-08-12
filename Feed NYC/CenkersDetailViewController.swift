@@ -13,7 +13,7 @@ import MapKit
 class CenkersDetailViewController: UIViewController {
     
     //facility object that we receive
-    let facilityToDisplay: Facility = Facility()
+    var facilityToDisplay: Facility = Facility()
     
     //label outlets
     @IBOutlet weak var facilityNameLabel: UILabel!
@@ -31,21 +31,22 @@ class CenkersDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // fake facility for test - to be commented out and/or deleted later
-        facilityToDisplay.name = "Holy Cross Church"
-        facilityToDisplay.streetAddress = "600 Southview ave."
-        facilityToDisplay.city = "Bronx"
-        facilityToDisplay.state = "NY"
-        facilityToDisplay.zipcode = "100123"
-        facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
-        facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
-        facilityToDisplay.intake = "please call"
-        facilityToDisplay.fee = "Free"
-        facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
-        facilityToDisplay.eligibility = "open for everyone"
-        facilityToDisplay.requiredDocuments = "please call"
+//        facilityToDisplay.name = "Holy Cross Church"
+//        facilityToDisplay.streetAddress = "600 Southview ave."
+//        facilityToDisplay.city = "Bronx"
+//        facilityToDisplay.state = "NY"
+//        facilityToDisplay.zipcode = "100123"
+//        facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
+//        facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
+//        facilityToDisplay.intake = "please call"
+//        facilityToDisplay.fee = "Free"
+//        facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
+//        facilityToDisplay.eligibility = "open for everyone"
+//        facilityToDisplay.requiredDocuments = "please call"
         
         //call the function that updates the labels
         self.updateLabels()
+        print(facilityToDisplay)
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +65,11 @@ class CenkersDetailViewController: UIViewController {
             UIApplication.sharedApplication().openURL(url)
         }
     }
+    
+    @IBAction func pageDone(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     //updating labels
     func updateLabels() {
