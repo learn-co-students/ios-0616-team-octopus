@@ -31,18 +31,18 @@ class CenkersDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // fake facility for test - to be commented out and/or deleted later
-//        facilityToDisplay.name = "Holy Cross Church"
-//        facilityToDisplay.streetAddress = "600 Southview ave."
-//        facilityToDisplay.city = "Bronx"
-//        facilityToDisplay.state = "NY"
-//        facilityToDisplay.zipcode = "100123"
-//        facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
-//        facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
-//        facilityToDisplay.intake = "please call"
-//        facilityToDisplay.fee = "Free"
-//        facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
-//        facilityToDisplay.eligibility = "open for everyone"
-//        facilityToDisplay.requiredDocuments = "please call"
+        facilityToDisplay.name = "Holy Cross Church"
+        facilityToDisplay.streetAddress = "600 Southview ave."
+        facilityToDisplay.city = "Bronx"
+        facilityToDisplay.state = "NY"
+        facilityToDisplay.zipcode = "100123"
+        facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
+        facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
+        facilityToDisplay.intake = "please call"
+        facilityToDisplay.fee = "Free"
+        facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
+        facilityToDisplay.eligibility = "open for everyone"
+        facilityToDisplay.requiredDocuments = "please call"
         
         //call the function that updates the labels
         self.updateLabels()
@@ -111,7 +111,7 @@ class CenkersDetailViewController: UIViewController {
             UIApplication.sharedApplication().openURL(NSURL(string:
                 "comgooglemaps://?saddr=40.705329,-74.0139696&daddr=40.817330064,-73.8570632384&directionsmode=driving&views=traffic")!)
         } else {
-            self.openMapForPlace()
+            self.showMapAlert()
             //print("cannot open google maps app");
         }
         
@@ -145,6 +145,34 @@ class CenkersDetailViewController: UIViewController {
         MKMapItem.openMapsWithItems(
             [myLocationMapItem, mapItem],
             launchOptions: launchOptions)
+    }
+    
+    func showMapAlert() {
+        let alertController = UIAlertController(title: "\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+       
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert :UIAlertAction!) in
+            //self.dismissViewControllerAnimated(true, completion: nil)
+            print("Cancel button tapped")
+        })
+        alertController.addAction(cancelAction)
+        
+        let googleButton = UIButton(frame: CGRectMake(20,10,260,30))
+        googleButton.setTitle("Goggle Maps", forState: .Normal)
+        googleButton.layer.cornerRadius = 3
+        googleButton.setTitleColor(UIView().tintColor, forState: .Normal)
+        alertController.view.addSubview(googleButton)
+        
+        let separator = UIButton(frame: CGRectMake(10,50,280, 0.5))
+        separator.backgroundColor = UIColor.lightGrayColor() //UIView().tintColor
+        alertController.view.addSubview(separator)
+        
+        let appleButton = UIButton(frame: CGRectMake(20,60,260,30))
+        appleButton.setTitle("Apple Maps", forState: .Normal)
+        appleButton.layer.cornerRadius = 3
+        appleButton.setTitleColor(UIView().tintColor, forState: .Normal)
+        alertController.view.addSubview(appleButton)
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
 
