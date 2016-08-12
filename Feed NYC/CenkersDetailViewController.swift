@@ -124,8 +124,8 @@ class CenkersDetailViewController: UIViewController {
         let currentLongitude: CLLocationDegrees = -74.0139696
         let currentCoordinates = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
         
-        let destinationLatitude:CLLocationDegrees =  40.817330064
-        let destinationLongitude:CLLocationDegrees =  -73.8570632384
+        let destinationLatitude:CLLocationDegrees = 40.817330064 //self.facilityToDisplay.latitude
+        let destinationLongitude:CLLocationDegrees = -73.8570632384 //self.facilityToDisplay.longitude
         let destinationCoordinates = CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude)
         
         let regionDistance:CLLocationDistance = 10000

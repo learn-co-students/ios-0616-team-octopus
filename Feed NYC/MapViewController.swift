@@ -67,22 +67,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         
         for i in 0...1 {
-            let currentFasility = self.store.facilities[i]
+            let currentFacility = self.store.facilities[i]
             
             
             
             //print("CURRENT FASILITY: \(currentFasility)")
             
             
-            let latitude = currentFasility.latitude
-            let longitude = currentFasility.longitude
-            let name = currentFasility.name
+            let latitude = currentFacility.latitude
+            let longitude = currentFacility.longitude
+            let name = currentFacility.name
           
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
-           
+            
         }
         
     }
