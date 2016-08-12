@@ -37,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="H6r-MV-Vcs" kind="presentation" identifier="mapSegue" id="De7-wb-G6A"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,6 +52,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5Q-mW-ZrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="500.5" y="418.5"/>
+        </scene>
+        <!--CenkersDetailViewController-->
+        <scene sceneID="Cpb-pe-9Sv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CenkersStoryboard" referencedIdentifier="CenkersDetailViewController" id="H6r-MV-Vcs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLF-4W-hxo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922.5" y="126"/>
         </scene>
     </scenes>
 </document>

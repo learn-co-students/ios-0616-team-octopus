@@ -85,11 +85,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
        // for i in 0...1 {
          //   let currentFasility = self.store.facilities[i]
+
             
             
             //print("CURRENT FACILITY: \(currentFasility)")
             
-            
+
 
            // let latitude = currentFasility.latitude
            // let longitude = currentFasility.longitude
@@ -101,6 +102,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
            // marker.map = mapView
            
        // }
+
 
         
     }
