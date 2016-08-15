@@ -9,10 +9,11 @@
 import UIKit
 import GoogleMaps
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     let locationManager = CLLocationManager()
     var mapView: GMSMapView!
+    var marker: GMSMarker!
     
     var currentDeviceLocationLatitude = 0.0
     var currentDeviceLocationLongitude = 0.0
@@ -26,7 +27,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         setUpMaps()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,25 +35,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-//    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-//
-//        if status == .AuthorizedWhenInUse {
-//            
-//            locationManager.startUpdatingLocation()
-//            
-//            self.mapView.myLocationEnabled = true
-//            self.mapView.settings.myLocationButton = true
-//        }
-//    }
-//    
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let location = locations.first {
-//            
-//            self.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 18, bearing: 0, viewingAngle: 0)
-//            
-//            locationManager.stopUpdatingLocation()
-//        }
-//    }
+    //    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    //
+    //        if status == .AuthorizedWhenInUse {
+    //
+    //            locationManager.startUpdatingLocation()
+    //
+    //            self.mapView.myLocationEnabled = true
+    //            self.mapView.settings.myLocationButton = true
+    //        }
+    //    }
+    //
+    //    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //        if let location = locations.first {
+    //
+    //            self.mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 18, bearing: 0, viewingAngle: 0)
+    //
+    //            locationManager.stopUpdatingLocation()
+    //        }
+    //    }
+    
     
     func setUpMaps() {
         // map possition at start
@@ -61,8 +63,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
         self.mapView.myLocationEnabled = true
         self.view.insertSubview(mapView, atIndex: 0)
-
-
+        
+        
         //        self.view.addSubview(mapView)
         //        view = mapView
         //        self.view.bringSubviewToFront(mapView)
@@ -84,30 +86,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         marker1.map = mapView
         
         
-
+        
         // MARK: -To display all the pins on map
         for i in 0..<self.store.facilities.count {
             let currentFasility = self.store.facilities[i]
             
             
             
-//            print("CURRENT FACILITY: \(currentFasility)")
+            //            print("CURRENT FACILITY: \(currentFasility)")
             
-
-
+            
             let latitude = currentFasility.latitude
             let longitude = currentFasility.longitude
             let name = currentFasility.name
-          
+            
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
-           
+
+            
         }
-
-
-        
     }
     
     @IBAction func showMenu(sender: AnyObject) {
@@ -117,17 +116,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             // To close the sidebar menu set is sideVCPresented to false
         }
-
-        
     }
-
     
     
     
 }
-
-
-
 
 
 // MARK: - CLLocationManagerDelegate
@@ -141,7 +134,7 @@ extension MapViewController {
         
         // if user aggried access to his/he location coordinats
         if status == .AuthorizedWhenInUse {
-        
+            
             // 4
             locationManager.startUpdatingLocation()
             
@@ -184,8 +177,10 @@ extension MapViewController {
             // 8
             locationManager.stopUpdatingLocation()
         }
-        
     }
+   
+    
+    
     
     
 }
