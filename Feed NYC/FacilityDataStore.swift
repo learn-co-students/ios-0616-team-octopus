@@ -8,15 +8,10 @@
 
 import Foundation
 
-// Fix 3 XML
-// Make JSON
-// Convert from JSON
-// Prepare GoogleLocations api for hits
-
 
 class FacilityDataStore {
     static let sharedInstance = FacilityDataStore()
-    private init() {}
+    private init() {  }
     
     var facilities : [Facility] = []
     var facilitiesDictionary : [String : Facility] = [:]
@@ -51,11 +46,21 @@ class FacilityDataStore {
     // Developer then copy paste and add it to Facilities.txt
     // Displays the new Facilities.txt file in the debug area
     private func printFacilitiesTextFilenWhenWeUpdateWithNewXMLFile() {
+        
+        //Read XML files
         self.refreshFacilitiesDataStoreWithCompletion { [weak weakSelf = self] in
+            
+            // Ask google to convert locations to latitude and longitude
             let geo = GeocodingAPI()
             geo.getGeoLatitudeLongtitudeByAddress()  // Make sure that the for loop inside is from 0..<self.store.facilities.count
+            
+            // Call method to  Print the facility dictionary  -- what you copy, then paste into the Facilities.txt file
             weakSelf?.setUpFacilitiesForOutputToJSON()
         }
+    }
+    func printFacilitiesDictionary() {
+        self.checkAndRemoveDuplicateFacilities()
+        self.setUpFacilitiesForOutputToJSON()
     }
     
     func refreshFacilitiesDataStoreWithCompletion(completion: () -> ()) {
@@ -90,12 +95,10 @@ class FacilityDataStore {
         completion(cleanedFacilities)
     }
     
-    
-    
     // Converts self.facilities to facilityDictionary, makes facilityDictionary into a jsonable string
     func setUpFacilitiesForOutputToJSON() {
-        // Sleep waits for the googleMaps GeocodingAPI to finish
-        sleep(60)
+        // Sleep waits 60 seconds for the googleMaps GeocodingAPI to finish
+        //sleep(60)
         
         var i = 0
         var masterDictionaryOfFacilities = [String : AnyObject]()
@@ -107,8 +110,9 @@ class FacilityDataStore {
             
             //            print(dictionaryFacility)
             
-            
-            masterDictionaryOfFacilities[currentFacility.streetAddress] = dictionaryFacility
+            let coordinatesString = "\(currentFacility.latitude) \(currentFacility.longitude)"
+
+            masterDictionaryOfFacilities[coordinatesString] = dictionaryFacility
             i += 1
         }
         
@@ -137,43 +141,62 @@ class FacilityDataStore {
             data = jsonString.dataUsingEncoding(NSUTF8StringEncoding),
             object = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
             dict = object as? [String : NSDictionary] {
-            for (streetAddress, facility) in dict {
+            for (coordinate, facility) in dict {
                 
                 //                print(facility)
                 let newFacility = Facility.makeFacility(facility)
+                //MARK: -Cenker add user distance to facility
+                //  newFacility.distanceFromCurrentLocation =
+                
                 //                print(newFacility)
-                //                print(streetAddress)
+                //                print(coordinate)
                 self.facilities.append(newFacility)
-                self.facilitiesDictionary[streetAddress] = newFacility
+                self.facilitiesDictionary[coordinate] = newFacility
             }
         }
-        //        print(self.facilities)
-        //        print(self.facilities.count)
-        //        print(self.facilitiesDictionary.count)
+//                print(self.facilities)
+                    print(self.facilitiesDictionary)
+//                print(self.facilities.count)
+//                print(self.facilitiesDictionary.count)
     }
     
-    func checkDuplicates()
+    func checkAndRemoveDuplicateFacilities()
     {
         var i = 0
         var j = 0
         var duplicateCount = 0
         var duplicateFacilities = [Facility]()
-        let firstCoordinates = "\(facilities[i].latitude)+\(facilities[i].longitude)"
         
-        while j < self.facilities.count {
+        // Iterate over array comparing all Facilities's Latitude+Longitudes
+        while i < self.facilities.count {
             j = i + 1
+            let firstCoordinates = "\(facilities[i].latitude) \(facilities[i].longitude)"
+            
             while j < self.facilities.count {
-                let secondCoordinates = "\(facilities[j].latitude)+\(facilities[j].longitude)"
+                let secondCoordinates = "\(facilities[j].latitude) \(facilities[j].longitude)"
+                
                 if firstCoordinates == secondCoordinates {
                     duplicateCount += 1
                     duplicateFacilities.append(facilities[i])
                     duplicateFacilities.append(facilities[j])
+                    
+                    // Check if the duplicate entry is a food pantry or soup kitchen and set hoursOfOperation to special character
+                    if facilities[j].featureList.contains("Food Pantry") && facilities[j].featureList.contains("Soup Kitchen") {
+                      // Do nothing
+                    } else if facilities[j].featureList.contains("Food Pantry") {
+                        self.facilities[i].hoursOfOperation.appendContentsOf(" & Food Pantry \(facilities[j].hoursOfOperation)")
+                    } else if facilities[j].featureList.contains("Soup Kitchen") {
+                        self.facilities[i].hoursOfOperation.appendContentsOf(" & Soup Kitchen \(facilities[j].hoursOfOperation)")
+                    }
+                    self.facilities.removeAtIndex(j)
+                    print("Updated facility is now \(self.facilities[i])")
                 }
                 j += 1
             }
             i += 1
         }
-        print ("Duplicate Count is \(duplicateCount)\n \(duplicateFacilities)")
+//        print ("Duplicate Count is \(duplicateCount)\n \(duplicateFacilities)")
+        
     }
     
     

@@ -36,13 +36,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 //        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
 //        self.mapView.myLocationEnabled = true
 //        self.view.insertSubview(mapView, atIndex: 0)
-
+        
         self.store.readInTextFile()
+        
         setUpMaps()
+        
+    
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,9 +122,11 @@ extension MapViewController {
             locationManager.startUpdatingLocation()
             
             // current user location latitude and longitude
-            self.currentDeviceLocationLatitude = manager.location!.coordinate.latitude
-            self.currentDeviceLocationLongitude = manager.location!.coordinate.longitude
-
+            if let managerLocation = manager.location {
+                self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
+                self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
+            }
+            
             self.findClosestLocatio()
             
             // setting map with current location coordinats in the middle
