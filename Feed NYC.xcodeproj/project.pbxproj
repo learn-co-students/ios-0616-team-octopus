@@ -10,6 +10,7 @@
 		1B0288801D5E28F6002309A6 /* DennisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B02887F1D5E28F6002309A6 /* DennisViewController.swift */; };
 		1B067D991D5E872800619228 /* DennisStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B067D981D5E872800619228 /* DennisStoryboard.storyboard */; };
 		1B067D9B1D5E875F00619228 /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */; };
+		1B3305641D6242B60032A307 /* Telegram-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3305631D6242B60032A307 /* Telegram-icon.png */; };
 		1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */; };
 		1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F611D58D3520031C3AC /* AppDelegate.swift */; };
 		1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F651D58D3520031C3AC /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		1B02887F1D5E28F6002309A6 /* DennisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DennisViewController.swift; sourceTree = "<group>"; };
 		1B067D981D5E872800619228 /* DennisStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DennisStoryboard.storyboard; sourceTree = "<group>"; };
 		1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
+		1B3305631D6242B60032A307 /* Telegram-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Telegram-icon.png"; sourceTree = "<group>"; };
 		1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodingAPI.swift; sourceTree = "<group>"; };
 		1BAC3F5E1D58D3520031C3AC /* Feed NYC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed NYC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAC3F611D58D3520031C3AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				1BAC3F651D58D3520031C3AC /* Main.storyboard */,
 				1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */,
 				1B067D981D5E872800619228 /* DennisStoryboard.storyboard */,
+				1B3305631D6242B60032A307 /* Telegram-icon.png */,
 				1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */,
 				1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */,
 				1BB67E151D5A2DE200EEE7AE /* FacilityDetails.xml */,
@@ -213,6 +216,7 @@
 				1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */,
 				BA1B6DC01D5E115F005CAF4A /* Facilities.txt in Resources */,
 				E1A0F3061D5F89C900DE0C51 /* XibAnnotationView.xib in Resources */,
+				1B3305641D6242B60032A307 /* Telegram-icon.png in Resources */,
 				1B067D9B1D5E875F00619228 /* CenkersStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,7 +411,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed--NYC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -422,7 +426,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed--NYC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

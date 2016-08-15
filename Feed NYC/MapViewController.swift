@@ -9,13 +9,12 @@
 import UIKit
 import GoogleMaps
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate{
     
     // view and manager to operate with map
     let locationManager = CLLocationManager()
     var mapView: GMSMapView!
     var marker: GMSMarker!
-    
     
     var currentDeviceLocationLatitude = 0.0
     var currentDeviceLocationLongitude = 0.0
@@ -27,22 +26,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     // data store for all facility objects
     let store = FacilityDataStore.sharedInstance
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
-//        
-//        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
-//        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-//        self.mapView.myLocationEnabled = true
-//        self.view.insertSubview(mapView, atIndex: 0)
-
+        //        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
+        //
+        //        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
+        //        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+        //        self.mapView.myLocationEnabled = true
+        //        self.view.insertSubview(mapView, atIndex: 0)
+        
         self.store.readInTextFile()
         setUpMaps()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +48,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     // finds the closest facility to current user location
     // puts closest location to the propert "closestFacility" and the distance to it in "distanceInMetersForClosestFacility"
     func findClosestLocatio() {
@@ -69,7 +67,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             }
         }
     }
-   
+    
     
     func setUpMaps() {
         // map possition at start
@@ -77,22 +75,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
         self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
         self.mapView.myLocationEnabled = true
-        self.view.insertSubview(mapView, atIndex: 0)        
-  
+        self.view.insertSubview(mapView, atIndex: 0)
+        
         // MARK: -To display all the pins on map
         for i in 0..<self.store.facilities.count {
             let currentFasility = self.store.facilities[i]
             
             let latitude = currentFasility.latitude
             let longitude = currentFasility.longitude
-            let name = currentFasility.name
+                        let name = currentFasility.name
             
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
-            marker.title = name
+                        marker.title = name
             marker.map = mapView
-        }        
-
+        }
+        
     }
     
     @IBAction func showMenu(sender: AnyObject) {
@@ -108,7 +106,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
 // MARK: - CLLocationManagerDelegate
 
-extension MapViewController {
+extension MapViewController: GMSMapViewDelegate {
     
     // 2 authorization status for the application (can I get access to your location?)
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -116,14 +114,14 @@ extension MapViewController {
         
         // if user aggried access to his/he location coordinats
         if status == .AuthorizedWhenInUse {
-
+            
             // ask for updates on the user’s location
             locationManager.startUpdatingLocation()
             
             // current user location latitude and longitude
             self.currentDeviceLocationLatitude = manager.location!.coordinate.latitude
             self.currentDeviceLocationLongitude = manager.location!.coordinate.longitude
-
+            
             self.findClosestLocatio()
             
             // setting map with current location coordinats in the middle
@@ -158,5 +156,44 @@ extension MapViewController {
         }
     }
 }
+    
+//    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
+//        
+//        let placeMarker = marker as! XibAnnotationView
+//        
+//        if let infoView = UIView.viewFromNibName("XibAnnotationView") as? XibAnnotationView {
+//            
+//            infoView.locationLabel.text = placeMarker.locationName
+//            
+//            return infoView
+//        } else {
+//            return nil
+//        }
+//    }
+//}
+
+
+//    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
+//
+////
+////        let placemarker = marker as! JohannView
+////
+////        var newView:UIView{
+////            var nView = UIView()
+////            nView.backgroundColor = UIColor.blueColor()
+////            return nView
+////        }
+//
+////        let coordinateString = "\(coordinate.latitude) \(coordinate.longitude)"
+////        let currentFacility = self.store.facilitiesDictionary[coordinateString]
+////        print(currentFacility)
+//
+//        return
+
+//        let placeMarker = marker as! XibAnnotationView
+
+//
+//    }
+
 
 

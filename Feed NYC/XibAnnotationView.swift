@@ -7,7 +7,20 @@
 //
 
 import UIKit
+import GoogleMaps
 
+class JohannView: GMSMarker{
+    
+    override init() {
+        super.init()
+        icon = UIImage(named:"Telegram-icon")
+
+        groundAnchor = CGPoint(x: 0.5, y: 1)
+        appearAnimation = kGMSMarkerAnimationPop
+        
+        print("this location was tapped")
+    }
+}
 
 @IBDesignable class XibAnnotationView: UIView {
     
