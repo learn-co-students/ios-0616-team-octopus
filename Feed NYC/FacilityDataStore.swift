@@ -112,7 +112,7 @@ class FacilityDataStore {
             i += 1
         }
         
-//                print (masterDictionaryOfFacilities)
+        //                print (masterDictionaryOfFacilities)
         
         
         //  creating JSON out of the above dictionary
@@ -147,9 +147,9 @@ class FacilityDataStore {
                 self.facilitiesDictionary[streetAddress] = newFacility
             }
         }
-//        print(self.facilities)
-//        print(self.facilities.count)
-//        print(self.facilitiesDictionary.count)
+        //        print(self.facilities)
+        //        print(self.facilities.count)
+        //        print(self.facilitiesDictionary.count)
     }
     
     func checkDuplicates()
@@ -158,10 +158,13 @@ class FacilityDataStore {
         var j = 0
         var duplicateCount = 0
         var duplicateFacilities = [Facility]()
-        while i < self.facilities.count {
+        let firstCoordinates = "\(facilities[i].latitude)+\(facilities[i].longitude)"
+        
+        while j < self.facilities.count {
             j = i + 1
             while j < self.facilities.count {
-                if facilities[i].streetAddress == facilities[j].streetAddress {
+                let secondCoordinates = "\(facilities[j].latitude)+\(facilities[j].longitude)"
+                if firstCoordinates == secondCoordinates {
                     duplicateCount += 1
                     duplicateFacilities.append(facilities[i])
                     duplicateFacilities.append(facilities[j])
@@ -170,7 +173,7 @@ class FacilityDataStore {
             }
             i += 1
         }
-                print ("Duplicate Count is \(duplicateCount)\n \(duplicateFacilities)")
+        print ("Duplicate Count is \(duplicateCount)\n \(duplicateFacilities)")
     }
     
     
