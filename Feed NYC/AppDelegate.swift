@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("\(Secrets.googleAPI)")
         store.refreshFacilitiesDataStoreWithCompletion {  }
-       
+        
+        let geo = GeocodingAPI()
+        geo.getGeoLatitudeLongtitudeByAddress()
         
         return true
     }

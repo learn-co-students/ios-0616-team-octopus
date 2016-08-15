@@ -20,8 +20,12 @@ class GeocodingAPI {
     
     
     func getGeoLatitudeLongtitudeByAddress() {
+        
+        // get full addresses of locations
         self.getAddresses()
-        for i in 0...1 {
+        
+        // based on full addresses set Lat and Lng for each location accordingly
+        for i in 0...10 {
             self.getLocationWithCompletion(self.addresses[i]) {
                 dictionary in
                 
@@ -42,7 +46,7 @@ class GeocodingAPI {
 //                        facility.latitude = String(dictionary["lat"])
 //                        facility.longitude = String(dictionary["lng"])
                         //print(facility.latitude)
-                        //print("JJJJJJJJ\(self.store.facilities[i].description)jjj")
+                        //print("JJJ=\(i)=JJJJJ\(self.store.facilities[i].description)jjj")
                     }
                 }
             }
