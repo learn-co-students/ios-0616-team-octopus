@@ -9,11 +9,12 @@
 import UIKit
 import GoogleMaps
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     // view and manager to operate with map
     let locationManager = CLLocationManager()
     var mapView: GMSMapView!
+    var marker: GMSMarker!
     
     
     var currentDeviceLocationLatitude = 0.0
@@ -29,22 +30,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        let geo = GeocodingAPI()
-//        geo.getGeoLatitudeLongtitudeByAddress()
-        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
-        
-        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
-        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-        self.mapView.myLocationEnabled = true
-        self.view.insertSubview(mapView, atIndex: 0)
-        
-        
-        self.setUpMaps()
+//        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
+//        
+//        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
+//        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+//        self.mapView.myLocationEnabled = true
+//        self.view.insertSubview(mapView, atIndex: 0)
 
-        
-        self.locationManager.delegate = self
-        self.locationManager.requestWhenInUseAuthorization()
+        self.store.readInTextFile()
+        setUpMaps()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
 
         
     }
@@ -54,6 +50,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+
     // finds the closest facility to current user location
     // puts closest location to the propert "closestFacility" and the distance to it in "distanceInMetersForClosestFacility"
     func findClosestLocatio() {
@@ -72,46 +69,30 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+   
     
     func setUpMaps() {
         // map possition at start
-
-        // TEMP test markers
-        // Marker Green
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 40.723074, longitude: -73.986348)
-        marker.title = "Test"
-        marker.snippet = "test"
-        marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
-        marker.map = mapView
-        // Marker Blue
-        let marker1 = GMSMarker()
-        marker1.position = CLLocationCoordinate2D(latitude: 40.717540, longitude: -74.001620)
-        marker1.title = "Test"
-        marker1.snippet = "test"
-        marker1.icon = GMSMarker.markerImageWithColor(UIColor.blueColor())
-        marker1.map = mapView
-        
-        // rendering markers on the map
-        for i in 0...10 {
+        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
+        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
+        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+        self.mapView.myLocationEnabled = true
+        self.view.insertSubview(mapView, atIndex: 0)        
+  
+        // MARK: -To display all the pins on map
+        for i in 0..<self.store.facilities.count {
             let currentFasility = self.store.facilities[i]
-
             
-            
-            //print("CURRENT FACILITY: \(currentFasility)")
-            
-
-
             let latitude = currentFasility.latitude
             let longitude = currentFasility.longitude
             let name = currentFasility.name
-          
+            
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
-           
         }        
+
     }
     
     @IBAction func showMenu(sender: AnyObject) {
@@ -122,11 +103,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             // To close the sidebar menu set is sideVCPresented to false
         }
     }
-    
 }
-
-
-
 
 
 // MARK: - CLLocationManagerDelegate
@@ -139,13 +116,14 @@ extension MapViewController {
         
         // if user aggried access to his/he location coordinats
         if status == .AuthorizedWhenInUse {
+
             // ask for updates on the user’s location
             locationManager.startUpdatingLocation()
-            // current user location latitude and longitude
             
+            // current user location latitude and longitude
             self.currentDeviceLocationLatitude = manager.location!.coordinate.latitude
             self.currentDeviceLocationLongitude = manager.location!.coordinate.longitude
-            
+
             self.findClosestLocatio()
             
             // setting map with current location coordinats in the middle

@@ -30,23 +30,13 @@ class CenkersDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // fake facility for test - to be commented out and/or deleted later
-//        facilityToDisplay.name = "Holy Cross Church"
-//        facilityToDisplay.streetAddress = "600 Southview ave."
-//        facilityToDisplay.city = "Bronx"
-//        facilityToDisplay.state = "NY"
-//        facilityToDisplay.zipcode = "100123"
-//        facilityToDisplay.phoneNumber = "(718) 773-3551 x152"
-//        facilityToDisplay.hoursOfOperation = "10:00AM - 5:00PM"
-//        facilityToDisplay.intake = "please call"
-//        facilityToDisplay.fee = "Free"
-//        facilityToDisplay.featureList = ["soup kitchen", "food pantry"]
-//        facilityToDisplay.eligibility = "open for everyone"
-//        facilityToDisplay.requiredDocuments = "please call"
-        
         //call the function that updates the labels
         self.updateLabels()
-        print(facilityToDisplay)
+        //print(facilityToDisplay)
+        
+        // fake facility coordinates for test - to be commented out and/or deleted later
+        facilityToDisplay.latitude = 40.817330064
+        facilityToDisplay.longitude = -73.8570632384
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +45,7 @@ class CenkersDetailViewController: UIViewController {
     }
     
     @IBAction func addressTapped(sender: UIButton) {
-        self.openGoogleMapsAppWithDirection()
+        self.checkGoogleMapOnPhone()
     }
     
     @IBAction func phoneNumberTapped(sender: UIButton) {
@@ -104,6 +94,14 @@ class CenkersDetailViewController: UIViewController {
         return returnString
     }
     
+    func checkGoogleMapOnPhone() {
+        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+            self.showMapAlert()
+        } else {
+            self.openMapForPlace()
+        }
+    }
+    
     //function to open Google's maps app
     func openGoogleMapsAppWithDirection() {
         
@@ -111,10 +109,8 @@ class CenkersDetailViewController: UIViewController {
             UIApplication.sharedApplication().openURL(NSURL(string:
                 "comgooglemaps://?saddr=40.705329,-74.0139696&daddr=40.817330064,-73.8570632384&directionsmode=driving&views=traffic")!)
         } else {
-            self.openMapForPlace()
-            //print("cannot open google maps app");
+            print("cannot open google maps app");
         }
-        
     }
     
     // function to open Apple's maps app
@@ -124,8 +120,8 @@ class CenkersDetailViewController: UIViewController {
         let currentLongitude: CLLocationDegrees = -74.0139696
         let currentCoordinates = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
         
-        let destinationLatitude:CLLocationDegrees = 40.817330064 //self.facilityToDisplay.latitude
-        let destinationLongitude:CLLocationDegrees = -73.8570632384 //self.facilityToDisplay.longitude
+        let destinationLatitude:CLLocationDegrees = self.facilityToDisplay.latitude
+        let destinationLongitude:CLLocationDegrees = self.facilityToDisplay.longitude
         let destinationCoordinates = CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude)
         
         let regionDistance:CLLocationDistance = 10000
@@ -147,5 +143,44 @@ class CenkersDetailViewController: UIViewController {
             launchOptions: launchOptions)
     }
     
-
+    func showMapAlert() {
+        let alertController = UIAlertController(title: "\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+       
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert :UIAlertAction!) in
+            //print("Cancel button tapped")
+        })
+        alertController.addAction(cancelAction)
+        
+        let googleButton = UIButton(frame: CGRectMake(20,10,260,30))
+        googleButton.setTitle("Goggle Maps", forState: .Normal)
+        googleButton.layer.cornerRadius = 3
+        googleButton.setTitleColor(UIView().tintColor, forState: .Normal)
+        googleButton.addTarget(self, action: #selector(dismissForGoogleMaps), forControlEvents: .TouchUpInside)
+        alertController.view.addSubview(googleButton)
+        
+        let separator = UIButton(frame: CGRectMake(10,50,280, 0.5))
+        separator.backgroundColor = UIColor.lightGrayColor()
+        alertController.view.addSubview(separator)
+        
+        let appleButton = UIButton(frame: CGRectMake(20,60,260,30))
+        appleButton.setTitle("Apple Maps", forState: .Normal)
+        appleButton.layer.cornerRadius = 3
+        appleButton.setTitleColor(UIView().tintColor, forState: .Normal)
+        appleButton.addTarget(self, action: #selector(dismissForAppleMaps), forControlEvents: .TouchUpInside)
+        alertController.view.addSubview(appleButton)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func dismissForGoogleMaps() {
+        self.dismissViewControllerAnimated(true, completion: {
+            self.openGoogleMapsAppWithDirection()
+        })
+    }
+    
+    func dismissForAppleMaps() {
+        self.dismissViewControllerAnimated(true, completion: {
+            self.openMapForPlace()
+        })
+    }
 }

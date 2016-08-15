@@ -1,19 +1,22 @@
 //
-//  semiDetailedViewController.swift
+//  DennisViewController.swift
 //  Feed NYC
 //
-//  Created by Cenker Demir on 8/11/16.
+//  Created by Flatiron School on 8/12/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 
 import UIKit
 
-class semiDetailedViewController: UIViewController {
+class DennisViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
+        let xibSubView: XibAnnotationView = XibAnnotationView(frame: CGRect(x: 10, y: 300, width: 300, height: 100))
+        self.view.addSubview(xibSubView)
+        
     }
 
     override func didReceiveMemoryWarning() {
