@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 
+
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
@@ -91,7 +92,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             
             
-            print("CURRENT FACILITY: \(currentFasility)")
+            //print("CURRENT FACILITY: \(currentFasility)")
             
 
 
@@ -105,9 +106,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             marker.map = mapView
             
         }
-
-
+    }
+    
+    // because the current location is a property, we can find each location's distance to the current location
+    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
+        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
+        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
+        //calculate and convert to miles
+        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
         
+        return distance
+    }
+    
+    // update disctances
+    func updateDistanceForLocations() {
+        for i in 0..<self.store.facilities.count {
+            let currentFacility = self.store.facilities[i]
+            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
+        }
     }
     
     @IBAction func showMenu(sender: AnyObject) {
@@ -148,6 +164,11 @@ extension MapViewController {
             // current user location latitude and longitude
             self.currentDeviceLocationLatitude = manager.location!.coordinate.latitude
             self.currentDeviceLocationLongitude = manager.location!.coordinate.longitude
+            
+            //update the distance to corrent location
+            self.updateDistanceForLocations()
+            print(store.facilities)
+            
             
             // setting map with current location coordinats in the middle
             // zoom will be changable to represent some markers

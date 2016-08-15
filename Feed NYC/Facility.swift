@@ -27,7 +27,7 @@ class Facility: CustomStringConvertible {
     var latitude: Double = 0.0
     var longitude: Double = 0.0
     var fullAddress: String {return self.getFullAddress()}
-    
+    var distanceFromCurrentLocation = 1000.0
     
     // Should be in its own constructor call as convenience init (jsonDictionary: NSDictionary) ...
     class func makeFacility (jsonDictionary: NSDictionary) -> Facility {
@@ -95,7 +95,7 @@ class Facility: CustomStringConvertible {
     }
     
     var description: String {
-        return "name: \(name)\n, briefDescription: \(briefDescription)\n, streetAddress: \(streetAddress)\n, city: \(city)\n, state: \(state)\n, zipcode: \(zipcode)\n, phoneNumber: \(phoneNumber)\n, hoursOfOperation: \(hoursOfOperation)\n, intake: \(intake)\n, fee: \(fee)\n, featureList: \(featureList)\n, eligibility: \(eligibility)\n, requiredDocuments: \(requiredDocuments)\n, latitude: \(latitude)\n, longitude: \(longitude)\n"
+        return "name: \(name)\n, briefDescription: \(briefDescription)\n, streetAddress: \(streetAddress)\n, city: \(city)\n, state: \(state)\n, zipcode: \(zipcode)\n, phoneNumber: \(phoneNumber)\n, hoursOfOperation: \(hoursOfOperation)\n, intake: \(intake)\n, fee: \(fee)\n, featureList: \(featureList)\n, eligibility: \(eligibility)\n, requiredDocuments: \(requiredDocuments)\n, latitude: \(latitude)\n, longitude: \(longitude)\n, distance from the current location: \(distanceFromCurrentLocation)\n"
     }
     
     private func getFullAddress() -> String {
