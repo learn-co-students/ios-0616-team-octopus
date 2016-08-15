@@ -91,7 +91,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
             
             
-//            print("CURRENT FACILITY: \(currentFasility)")
+            print("CURRENT FACILITY: \(currentFasility)")
             
 
 
@@ -103,7 +103,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
-           
+            
         }
 
 
