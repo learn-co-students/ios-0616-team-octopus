@@ -9,7 +9,9 @@
 import UIKit
 import GoogleMaps
 
+
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+
     
     // view and manager to operate with map
     let locationManager = CLLocationManager()
@@ -84,6 +86,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         for i in 0..<self.store.facilities.count {
             let currentFasility = self.store.facilities[i]
             
+
             let latitude = currentFasility.latitude
             let longitude = currentFasility.longitude
             let name = currentFasility.name
@@ -92,7 +95,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
-        }        
+            
+        }
+    }
+    
+    // because the current location is a property, we can find each location's distance to the current location
+    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
+        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
+        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
+        //calculate and convert to miles
+        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
+        
+        return distance
+    }
+    
+    // update disctances
+    func updateDistanceForLocations() {
+        for i in 0..<self.store.facilities.count {
+            let currentFacility = self.store.facilities[i]
+            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
+        }
 
     }
     
@@ -128,6 +150,11 @@ extension MapViewController {
             }
             
             self.findClosestLocatio()
+            
+            //update the distance to corrent location
+            self.updateDistanceForLocations()
+            print(store.facilities)
+            
             
             // setting map with current location coordinats in the middle
             let camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: 13.0)
