@@ -22,8 +22,13 @@ class GeocodingAPI {
     // MARK: -Gets locations from GoogleMaps API
     // Make sure the for loop is "for i in 0..<self.store.facilities.count"
     func getGeoLatitudeLongtitudeByAddress() {
+        
+        // get full addresses of locations
         self.getAddresses()
+        
+        // based on full addresses set Lat and Lng for each location accordingly
         for i in 0..<2 {   // Update for loop here
+
             self.getLocationWithCompletion(self.addresses[i]) {
                 dictionary in
                 
@@ -43,13 +48,6 @@ class GeocodingAPI {
                         if let longitude = lngDict {
                             facility.longitude = Double(longitude as! NSNumber)
                         }
-                        
-                        
-//                        facility.latitude = String(dictionary["lat"])
-//                        facility.longitude = String(dictionary["lng"])
-                        //print(facility.latitude)
-
-                        //print("JJJJJJJJ\(self.store.facilities[i].description)jjj")
                     }
                 }
             }

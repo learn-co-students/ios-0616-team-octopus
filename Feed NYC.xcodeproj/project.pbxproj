@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0288801D5E28F6002309A6 /* DennisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B02887F1D5E28F6002309A6 /* DennisViewController.swift */; };
+		1B067D991D5E872800619228 /* DennisStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B067D981D5E872800619228 /* DennisStoryboard.storyboard */; };
+		1B067D9B1D5E875F00619228 /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */; };
 		1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */; };
 		1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F611D58D3520031C3AC /* AppDelegate.swift */; };
 		1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F651D58D3520031C3AC /* Main.storyboard */; };
@@ -16,11 +19,8 @@
 		1BB67E181D5A2DE200EEE7AE /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB67E141D5A2DE200EEE7AE /* Facility.swift */; };
 		1BB67E191D5A2DE200EEE7AE /* FacilityDetails.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1BB67E151D5A2DE200EEE7AE /* FacilityDetails.xml */; };
 		1BB67E1B1D5A2DE200EEE7AE /* FacilityXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB67E171D5A2DE200EEE7AE /* FacilityXMLParser.swift */; };
-		1BB67E1D1D5A2E0E00EEE7AE /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB67E1C1D5A2E0E00EEE7AE /* Secrets.swift */; };
-		1BF9B57A1D5A4B52009A60E7 /* DennisStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */; };
 		1BF9B57E1D5A869D009A60E7 /* FacilityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */; };
 		5B6D146B6F52C764D192A85B /* Pods_Feed_NYC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */; };
-		78407CBC1D5A3784005EE9C2 /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */; };
 		78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */; };
 		BA1B6DC01D5E115F005CAF4A /* Facilities.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */; };
 		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
@@ -28,9 +28,16 @@
 		BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44049E1D58DF0B0048CB8F /* TopViewController.swift */; };
 		BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4404A01D58DF170048CB8F /* MenuViewController.swift */; };
 		BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */; };
+		E14B2CB31D602C9500A7F3A9 /* UIViewExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B2CB21D602C9500A7F3A9 /* UIViewExtentsion.swift */; };
+		E1676E651D5F6768005C41A2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1676E641D5F6768005C41A2 /* Secrets.swift */; };
+		E1A0F3061D5F89C900DE0C51 /* XibAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A0F3051D5F89C900DE0C51 /* XibAnnotationView.xib */; };
+		E1A0F3081D5F8A9F00DE0C51 /* XibAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A0F3071D5F8A9F00DE0C51 /* XibAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B02887F1D5E28F6002309A6 /* DennisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DennisViewController.swift; sourceTree = "<group>"; };
+		1B067D981D5E872800619228 /* DennisStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DennisStoryboard.storyboard; sourceTree = "<group>"; };
+		1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
 		1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodingAPI.swift; sourceTree = "<group>"; };
 		1BAC3F5E1D58D3520031C3AC /* Feed NYC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed NYC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAC3F611D58D3520031C3AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,18 +50,19 @@
 		1BB67E141D5A2DE200EEE7AE /* Facility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Facility.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1BB67E151D5A2DE200EEE7AE /* FacilityDetails.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FacilityDetails.xml; sourceTree = "<group>"; };
 		1BB67E171D5A2DE200EEE7AE /* FacilityXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityXMLParser.swift; sourceTree = "<group>"; };
-		1BB67E1C1D5A2E0E00EEE7AE /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DennisStoryboard.storyboard; sourceTree = "<group>"; };
 		1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityTableViewController.swift; sourceTree = "<group>"; };
 		3FC8724A16989CF6927F967D /* Pods-Feed NYC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed NYC.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feed NYC/Pods-Feed NYC.release.xcconfig"; sourceTree = "<group>"; };
 		51B40F90EBFF5AD8382BB20B /* Pods-Feed NYC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed NYC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feed NYC/Pods-Feed NYC.debug.xcconfig"; sourceTree = "<group>"; };
-		78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
 		78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenkersDetailViewController.swift; sourceTree = "<group>"; };
 		BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Facilities.txt; sourceTree = "<group>"; };
 		BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		BA44049E1D58DF0B0048CB8F /* TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		BA4404A01D58DF170048CB8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDataStore.swift; sourceTree = "<group>"; };
+		E14B2CB21D602C9500A7F3A9 /* UIViewExtentsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtentsion.swift; sourceTree = "<group>"; };
+		E1676E641D5F6768005C41A2 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		E1A0F3051D5F89C900DE0C51 /* XibAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XibAnnotationView.xib; sourceTree = "<group>"; };
+		E1A0F3071D5F8A9F00DE0C51 /* XibAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibAnnotationView.swift; sourceTree = "<group>"; };
 		FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feed_NYC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,15 +110,19 @@
 				BA4404A01D58DF170048CB8F /* MenuViewController.swift */,
 				BA44049C1D58DEA40048CB8F /* ContainerViewController.swift */,
 				78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */,
+				E1A0F3071D5F8A9F00DE0C51 /* XibAnnotationView.swift */,
+				E1A0F3051D5F89C900DE0C51 /* XibAnnotationView.xib */,
+				E14B2CB21D602C9500A7F3A9 /* UIViewExtentsion.swift */,
+				1B02887F1D5E28F6002309A6 /* DennisViewController.swift */,
 				1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */,
-				78407CBB1D5A3784005EE9C2 /* CenkersStoryboard.storyboard */,
-				1BF9B5791D5A4B52009A60E7 /* DennisStoryboard.storyboard */,
 				1BAC3F651D58D3520031C3AC /* Main.storyboard */,
+				1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */,
+				1B067D981D5E872800619228 /* DennisStoryboard.storyboard */,
 				1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */,
 				1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */,
 				1BB67E151D5A2DE200EEE7AE /* FacilityDetails.xml */,
 				1BAC3F701D58D3520031C3AC /* Info.plist */,
-				1BB67E1C1D5A2E0E00EEE7AE /* Secrets.swift */,
+				E1676E641D5F6768005C41A2 /* Secrets.swift */,
 				1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */,
 			);
 			path = "Feed NYC";
@@ -195,12 +207,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BAC3F6F1D58D3520031C3AC /* LaunchScreen.storyboard in Resources */,
+				1B067D991D5E872800619228 /* DennisStoryboard.storyboard in Resources */,
 				1BB67E191D5A2DE200EEE7AE /* FacilityDetails.xml in Resources */,
-				1BF9B57A1D5A4B52009A60E7 /* DennisStoryboard.storyboard in Resources */,
 				1BAC3F6C1D58D3520031C3AC /* Assets.xcassets in Resources */,
 				1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */,
 				BA1B6DC01D5E115F005CAF4A /* Facilities.txt in Resources */,
-				78407CBC1D5A3784005EE9C2 /* CenkersStoryboard.storyboard in Resources */,
+				E1A0F3061D5F89C900DE0C51 /* XibAnnotationView.xib in Resources */,
+				1B067D9B1D5E875F00619228 /* CenkersStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,15 +272,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B0288801D5E28F6002309A6 /* DennisViewController.swift in Sources */,
+				E1676E651D5F6768005C41A2 /* Secrets.swift in Sources */,
 				BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */,
 				78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */,
-				1BB67E1D1D5A2E0E00EEE7AE /* Secrets.swift in Sources */,
 				1BF9B57E1D5A869D009A60E7 /* FacilityTableViewController.swift in Sources */,
+				E1A0F3081D5F8A9F00DE0C51 /* XibAnnotationView.swift in Sources */,
 				BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */,
 				1BB67E1B1D5A2DE200EEE7AE /* FacilityXMLParser.swift in Sources */,
 				1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */,
 				BA44049D1D58DEA40048CB8F /* ContainerViewController.swift in Sources */,
 				1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */,
+				E14B2CB31D602C9500A7F3A9 /* UIViewExtentsion.swift in Sources */,
 				1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */,
 				BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */,
 				BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */,
