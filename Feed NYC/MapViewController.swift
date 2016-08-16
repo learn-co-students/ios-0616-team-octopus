@@ -31,7 +31,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
         //
         //        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
@@ -42,9 +41,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.store.readInTextFile()
         setUpMaps()
         
+        mapView.delegate = self
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,27 +97,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             marker.map = mapView
         }
     }
-    
-
-//    // because the current location is a property, we can find each location's distance to the current location
-//    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
-//        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
-//        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
-//        //calculate and convert to miles
-//        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
-//        
-//        return distance
-//    }
-//    
-//    // update disctances
-//    func updateDistanceForLocations() {
-//        for i in 0..<self.store.facilities.count {
-//            let currentFacility = self.store.facilities[i]
-//            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
-//        }
-//
-//    }
-
     
     @IBAction func showMenu(sender: AnyObject) {
         if let container = self.so_containerViewController
@@ -206,6 +186,35 @@ extension MapViewController {
         }
     }
 }
+
+
+
+func mapView(mapView: GMSMapView!, didTapMarker marker: GMSMarker!) -> Bool {
+    //        mapCenterPinImage.fadeOut(0.25)
+    
+    print("marker tapped")
+    return false
+}
+
+//func mapView(mapView: GMSMapView!, markerInfoWindow marker: GMSMarker!) -> UIView! {
+//    let infoWindow = NSBundle.mainBundle().loadNibNamed("XibAnnotationView", owner: mapView, options: nil).first! as! XibAnnotationView
+//    infoWindow.locationLabel.text = "\(marker.position.latitude) \(marker.position.longitude)"
+//    return infoWindow
+//}
+
+
+//func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
+//   // let placeMarker = marker as! XibAnnotationView
+//    
+//    if let infoView = UIView.viewFromNibName("XibAnnotationView") as? XibAnnotationView {
+//        infoView.locationLabel.text = "Location Name"
+//        return infoView
+//    } else {
+//        return nil
+//    }
+//}
+//
+
 
 //    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
 //

@@ -157,7 +157,7 @@ class FacilityDataStore {
             }
         }
 //                print(self.facilities)
-                    print(self.facilitiesDictionary)
+//                    print(self.facilitiesDictionary)
 //                print(self.facilities.count)
 //                print(self.facilitiesDictionary.count)
     }
