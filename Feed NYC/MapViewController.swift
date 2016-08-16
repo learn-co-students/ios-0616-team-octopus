@@ -20,6 +20,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     var currentDeviceLocationLatitude = 0.0
     var currentDeviceLocationLongitude = 0.0
+    // Whether we are authorized to use location
     
     // closest location to current location
     var closestFacility: Facility?
@@ -39,11 +40,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         
         self.store.readInTextFile()
-        setUpMaps()
-        
-        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        self.createMapView()
+        self.findClosestLocation()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,7 +55,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     // finds the closest facility to current user location
     // puts closest location to the propert "closestFacility" and the distance to it in "distanceInMetersForClosestFacility"
-    func findClosestLocatio() {
+    func findClosestLocation() {
         
         let currentLocation: CLLocation = CLLocation.init(latitude: self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude)
         var minDistance: Double = 1000000.0
@@ -72,14 +73,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
-    func setUpMaps() {
-        // map possition at start
-        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
-        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
-        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-        self.mapView.myLocationEnabled = true
-        self.view.insertSubview(mapView, atIndex: 0)
-        
+    func setupMarkers() {
         // MARK: -To display all the pins on map
         for i in 0..<self.store.facilities.count {
             let currentFacility = self.store.facilities[i]
@@ -96,7 +90,40 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
-    
+    func createMapView() {
+        
+        let camera : GMSCameraPosition
+        print (CLLocationManager.authorizationStatus())
+        print (CLLocationManager.locationServicesEnabled())
+        
+        // .AuthorizedWhenInUse? = true
+        if CLLocationManager.locationServicesEnabled() {
+            // setting map with current location ≥coordinats in the middle
+            camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: 13.0)
+
+        }
+        else {
+            //if status == .Denied {
+                camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 12.5)
+
+            //  }
+        }
+        
+        let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
+        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+        self.mapView.myLocationEnabled = true
+        self.view.addSubview(mapView)
+        self.view.sendSubviewToBack(mapView)
+        //            self.view.insertSubview(mapView, atIndex: 0)
+        // button in right low corner that makes current location in the middle
+        self.mapView.settings.myLocationButton = true
+        setupMarkers()
+        self.view.subviews.forEach { view in
+            print(view.frame.origin)
+        }
+
+        
+    }
     //    // because the current location is a property, we can find each location's distance to the current location
     //    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
     //        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
@@ -116,6 +143,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     //
     //    }
     
+    func addBigRedButton() {
+        var button = UIButton()
+        //button.setTitle
+    }
     
     @IBAction func showMenu(sender: AnyObject) {
         
@@ -123,7 +154,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "closestLocSegue" {
-            self.findClosestLocatio()
+            self.findClosestLocation()
             let destVC = segue.destinationViewController as! CenkersDetailViewController
             if let closestFacility = self.closestFacility {
                 destVC.facilityToDisplay = closestFacility
@@ -150,37 +181,31 @@ extension MapViewController {
             // ask for updates on the user’s location
             locationManager.startUpdatingLocation()
             
+            
             // current user location latitude and longitude
             if let managerLocation = manager.location {
                 self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
                 self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
             }
             
-            self.findClosestLocatio()
             
             //calling the function that updates the singleton with current coordinates
             self.updateCurrentLocation()
-            
-            // setting map with current location coordinats in the middle
-            let camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: 13.0)
-            let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
-            self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-            self.view.insertSubview(mapView, atIndex: 0)
-            self.mapView.myLocationEnabled = true
-            // button in right low corner that makes curren location in the middle
-            self.mapView.settings.myLocationButton = true
         }
-        
+        if status == .Denied {
+            // Let them know they need to allow location!
+        }
         
         // if user denied access to his/he location coordinats or functionality is turned off
         // shows whole NYC map on screen
-        if status == .Denied {
-            let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
-            let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
-            self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-            self.mapView.myLocationEnabled = true
-            self.view.insertSubview(mapView, atIndex: 0)
-        }
+//        if status == .Denied {
+//            let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
+//            let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
+//            self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+//            self.mapView.myLocationEnabled = true
+//            self.view.insertSubview(mapView, atIndex: 0)
+//            setupMarkers()
+//        }
         
     }
     
@@ -195,7 +220,7 @@ extension MapViewController {
     // constantly updating new user location and move map accordingly, so blue marker always in the middle of the view
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 14, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
         }
     }

@@ -27,6 +27,7 @@
 		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
 		BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4404A01D58DF170048CB8F /* MenuViewController.swift */; };
 		BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */; };
+		BAA5C12D1D63AAA100E01C5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5C12C1D63AAA100E01C5B /* Constants.swift */; };
 		E14B2CB31D602C9500A7F3A9 /* UIViewExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B2CB21D602C9500A7F3A9 /* UIViewExtentsion.swift */; };
 		E1676E651D5F6768005C41A2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1676E641D5F6768005C41A2 /* Secrets.swift */; };
 		E1A0F3061D5F89C900DE0C51 /* XibAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A0F3051D5F89C900DE0C51 /* XibAnnotationView.xib */; };
@@ -58,6 +59,7 @@
 		BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Facilities.txt; sourceTree = "<group>"; };
 		BA4404A01D58DF170048CB8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDataStore.swift; sourceTree = "<group>"; };
+		BAA5C12C1D63AAA100E01C5B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E14B2CB21D602C9500A7F3A9 /* UIViewExtentsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtentsion.swift; sourceTree = "<group>"; };
 		E1676E641D5F6768005C41A2 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		E1A0F3051D5F89C900DE0C51 /* XibAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XibAnnotationView.xib; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */,
 				1BB67E151D5A2DE200EEE7AE /* FacilityDetails.xml */,
 				1BAC3F701D58D3520031C3AC /* Info.plist */,
+				BAA5C12C1D63AAA100E01C5B /* Constants.swift */,
 				E1676E641D5F6768005C41A2 /* Secrets.swift */,
 				1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */,
 			);
@@ -285,6 +288,7 @@
 				BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */,
 				78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */,
 				1BF9B57E1D5A869D009A60E7 /* FacilityTableViewController.swift in Sources */,
+				BAA5C12D1D63AAA100E01C5B /* Constants.swift in Sources */,
 				E1A0F3081D5F8A9F00DE0C51 /* XibAnnotationView.swift in Sources */,
 				BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */,
 				1BB67E1B1D5A2DE200EEE7AE /* FacilityXMLParser.swift in Sources */,

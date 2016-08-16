@@ -49,25 +49,25 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
                                 <rect key="frame" x="20" y="71" width="213" height="210"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
                                         <rect key="frame" x="0.0" y="0.0" width="213" height="30"/>
                                         <state key="normal" title="Food Banks and Soup Kitchens"/>
                                         <connections>
                                             <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
                                         <rect key="frame" x="0.0" y="45" width="81" height="30"/>
                                         <state key="normal" title="Food Banks"/>
                                         <connections>
                                             <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
                                         <rect key="frame" x="0.0" y="90" width="99" height="30"/>
                                         <state key="normal" title="Soup Kitchens"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
                                         <rect key="frame" x="0.0" y="135" width="30" height="30"/>
                                         <state key="normal" title="Map"/>
                                         <connections>
@@ -103,7 +103,7 @@
                 <viewControllerPlaceholder storyboardName="DennisStoryboard" id="rDb-nV-Ii3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RH5-EU-giL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2069" y="198"/>
+            <point key="canvasLocation" x="2065" y="218"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="AzT-7R-Wuh">
