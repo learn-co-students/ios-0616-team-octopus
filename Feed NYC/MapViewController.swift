@@ -11,6 +11,7 @@ import GoogleMaps
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     // view and manager to operate with map
     let locationManager = CLLocationManager()
@@ -31,13 +32,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        //        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
-        //
-        //        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
-        //        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-        //        self.mapView.myLocationEnabled = true
-        //        self.view.insertSubview(mapView, atIndex: 0)
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         
         self.store.readInTextFile()
         setUpMaps()
@@ -97,34 +96,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
-
-//    // because the current location is a property, we can find each location's distance to the current location
-//    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
-//        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
-//        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
-//        //calculate and convert to miles
-//        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
-//        
-//        return distance
-//    }
-//    
-//    // update disctances
-//    func updateDistanceForLocations() {
-//        for i in 0..<self.store.facilities.count {
-//            let currentFacility = self.store.facilities[i]
-//            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
-//        }
-//
-//    }
-
+    
+    //    // because the current location is a property, we can find each location's distance to the current location
+    //    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
+    //        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
+    //        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
+    //        //calculate and convert to miles
+    //        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
+    //
+    //        return distance
+    //    }
+    //
+    //    // update disctances
+    //    func updateDistanceForLocations() {
+    //        for i in 0..<self.store.facilities.count {
+    //            let currentFacility = self.store.facilities[i]
+    //            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
+    //        }
+    //
+    //    }
+    
     
     @IBAction func showMenu(sender: AnyObject) {
-        if let container = self.so_containerViewController
-        {
-            container.isSideViewControllerPresented = true
-            
-            // To close the sidebar menu set is sideVCPresented to false
-        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -155,13 +149,13 @@ extension MapViewController {
             
             // ask for updates on the user’s location
             locationManager.startUpdatingLocation()
-                
-                // current user location latitude and longitude
+            
+            // current user location latitude and longitude
             if let managerLocation = manager.location {
                 self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
                 self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
             }
-
+            
             self.findClosestLocatio()
             
             //calling the function that updates the singleton with current coordinates

@@ -31,7 +31,7 @@ class MenuViewController: UIViewController {
     // 3) To close the sidebar menu set is sideVCPresented to false
     //      self.so_containerViewController?.isSideViewControllerPresented = false
     @IBAction func AboutUsTapped(sender: AnyObject) {
-        self.so_containerViewController?.isSideViewControllerPresented = false
+
     }
     
 
