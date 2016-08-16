@@ -95,6 +95,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
+            marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
         }
     }
     
@@ -185,22 +186,35 @@ extension MapViewController {
             locationManager.stopUpdatingLocation()
         }
     }
+
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker)-> Bool {
+        //        mapCenterPinImage.fadeOut(0.25)
+        
+        print("marker tapped")
+        
+        if marker != mapView.selectedMarker {
+            mapView.selectedMarker = marker
+        }
+        
+        return true
+    }
+
+    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        print("info window called")
+        
+//        let infoWindow = UIView(frame: CGRectMake(0.0,0.0,200,150))
+//        let label: UILabel = UILabel(frame: CGRectMake(0.0,0.0, 130, 140))
+//        label.text = "facility"
+//        infoWindow.backgroundColor = UIColor.whiteColor()
+//        infoWindow.addSubview(label)
+        
+        let customInfoWindow = NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
+        customInfoWindow.helloLabel.text = marker.title
+        
+        return customInfoWindow
+    }
+
 }
-
-
-
-func mapView(mapView: GMSMapView!, didTapMarker marker: GMSMarker!) -> Bool {
-    //        mapCenterPinImage.fadeOut(0.25)
-    
-    print("marker tapped")
-    return false
-}
-
-//func mapView(mapView: GMSMapView!, markerInfoWindow marker: GMSMarker!) -> UIView! {
-//    let infoWindow = NSBundle.mainBundle().loadNibNamed("XibAnnotationView", owner: mapView, options: nil).first! as! XibAnnotationView
-//    infoWindow.locationLabel.text = "\(marker.position.latitude) \(marker.position.longitude)"
-//    return infoWindow
-//}
 
 
 //func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
