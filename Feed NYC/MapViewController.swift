@@ -9,7 +9,8 @@
 import UIKit
 import GoogleMaps
 
-class MapViewController: UIViewController, CLLocationManagerDelegate{
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+    
     
     // view and manager to operate with map
     let locationManager = CLLocationManager()
@@ -30,6 +31,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //        let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
         //
         //        let smallerRect = CGRectMake(0, 75, self.view.bounds.width, self.view.bounds.height - 75)
@@ -39,6 +41,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
         
         self.store.readInTextFile()
         setUpMaps()
+        
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
     }
@@ -68,7 +72,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
         }
     }
     
-    
     func setUpMaps() {
         // map possition at start
         let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
@@ -81,16 +84,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
         for i in 0..<self.store.facilities.count {
             let currentFasility = self.store.facilities[i]
             
+            
             let latitude = currentFasility.latitude
             let longitude = currentFasility.longitude
-                        let name = currentFasility.name
+            let name = currentFasility.name
             
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
-                        marker.title = name
+            marker.title = name
             marker.map = mapView
         }
+    }
+    
+    // because the current location is a property, we can find each location's distance to the current location
+    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
+        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
+        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
+        //calculate and convert to miles
+        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
         
+        return distance
+    }
+    
+    // update disctances
+    func updateDistanceForLocations() {
+        for i in 0..<self.store.facilities.count {
+            let currentFacility = self.store.facilities[i]
+            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
+        }
     }
     
     @IBAction func showMenu(sender: AnyObject) {
@@ -106,7 +127,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
 
 // MARK: - CLLocationManagerDelegate
 
-extension MapViewController: GMSMapViewDelegate {
+extension MapViewController {
     
     // 2 authorization status for the application (can I get access to your location?)
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -117,12 +138,19 @@ extension MapViewController: GMSMapViewDelegate {
             
             // ask for updates on the user’s location
             locationManager.startUpdatingLocation()
-            
-            // current user location latitude and longitude
-            self.currentDeviceLocationLatitude = manager.location!.coordinate.latitude
-            self.currentDeviceLocationLongitude = manager.location!.coordinate.longitude
-            
+                
+                // current user location latitude and longitude
+            if let managerLocation = manager.location {
+                self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
+                self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
+            }
+
             self.findClosestLocatio()
+            
+            //update the distance to corrent location
+            self.updateDistanceForLocations()
+            print(store.facilities)
+            
             
             // setting map with current location coordinats in the middle
             let camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: 13.0)
@@ -156,15 +184,15 @@ extension MapViewController: GMSMapViewDelegate {
         }
     }
 }
-    
+
 //    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-//        
+//
 //        let placeMarker = marker as! XibAnnotationView
-//        
+//
 //        if let infoView = UIView.viewFromNibName("XibAnnotationView") as? XibAnnotationView {
-//            
+//
 //            infoView.locationLabel.text = placeMarker.locationName
-//            
+//
 //            return infoView
 //        } else {
 //            return nil
