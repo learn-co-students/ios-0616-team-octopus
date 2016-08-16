@@ -12,21 +12,27 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxZ-O7-uti">
-                    <rect key="frame" x="8" y="64" width="184" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infoWindow" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-wQ-L2P">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxZ-O7-uti">
+                    <rect key="frame" x="8" y="10" width="184" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <size key="shadowOffset" width="1" height="0.0"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="EHg-q1-Hpc"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="MEU-zp-SI3"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Mfa-5e-1gE"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ttH-J5-3U4"/>
+                <constraint firstItem="VxZ-O7-uti" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="1Aj-Tz-Jul"/>
+                <constraint firstItem="VxZ-O7-uti" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="81O-Wa-nQh"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EuW-cT-zgZ"/>
+                <constraint firstItem="VxZ-O7-uti" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="FX5-qh-eYJ"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QnP-2y-LYK"/>
+                <constraint firstAttribute="bottom" secondItem="VxZ-O7-uti" secondAttribute="bottom" constant="96" id="Vhp-pv-Pu6"/>
+                <constraint firstAttribute="bottom" secondItem="Jsd-wQ-L2P" secondAttribute="bottom" id="qLb-wj-X2p"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="centerX" secondItem="VxZ-O7-uti" secondAttribute="centerX" id="rL0-J7-FIW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -35,4 +41,7 @@
             <point key="canvasLocation" x="380" y="271"/>
         </view>
     </objects>
+    <resources>
+        <image name="infoWindow" width="360" height="254"/>
+    </resources>
 </document>
