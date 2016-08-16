@@ -12,6 +12,9 @@ import MapKit
 
 class CenkersDetailViewController: UIViewController {
     
+    // shared datastore
+    let store = FacilityDataStore.sharedInstance
+    
     //facility object that we receive
     var facilityToDisplay: Facility = Facility()
     
@@ -35,8 +38,8 @@ class CenkersDetailViewController: UIViewController {
         //print(facilityToDisplay)
         
         // fake facility coordinates for test - to be commented out and/or deleted later
-        facilityToDisplay.latitude = 40.817330064
-        facilityToDisplay.longitude = -73.8570632384
+//        facilityToDisplay.latitude = 40.817330064
+//        facilityToDisplay.longitude = -73.8570632384
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,10 +107,13 @@ class CenkersDetailViewController: UIViewController {
     
     //function to open Google's maps app
     func openGoogleMapsAppWithDirection() {
-        
+        let currentLatitude: CLLocationDegrees = store.currentLocationCoordinates.latitude
+        let currentLongitude: CLLocationDegrees = store.currentLocationCoordinates.longitude
+        let destinationLatitude:CLLocationDegrees = self.facilityToDisplay.latitude
+        let destinationLongitude:CLLocationDegrees = self.facilityToDisplay.longitude
         if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
             UIApplication.sharedApplication().openURL(NSURL(string:
-                "comgooglemaps://?saddr=40.705329,-74.0139696&daddr=40.817330064,-73.8570632384&directionsmode=driving&views=traffic")!)
+                "comgooglemaps://?saddr=\(currentLatitude),\(currentLongitude)&daddr=\(destinationLatitude),\(destinationLongitude)&directionsmode=driving&views=traffic")!)
         } else {
             print("cannot open google maps app");
         }
@@ -115,9 +121,8 @@ class CenkersDetailViewController: UIViewController {
     
     // function to open Apple's maps app
     func openMapForPlace() {
-        
-        let currentLatitude: CLLocationDegrees = 40.705329
-        let currentLongitude: CLLocationDegrees = -74.0139696
+        let currentLatitude: CLLocationDegrees = store.currentLocationCoordinates.latitude
+        let currentLongitude: CLLocationDegrees = store.currentLocationCoordinates.longitude
         let currentCoordinates = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
         
         let destinationLatitude:CLLocationDegrees = self.facilityToDisplay.latitude

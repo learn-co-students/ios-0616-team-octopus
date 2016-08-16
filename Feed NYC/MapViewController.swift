@@ -83,12 +83,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         // MARK: -To display all the pins on map
         for i in 0..<self.store.facilities.count {
-            let currentFasility = self.store.facilities[i]
+            let currentFacility = self.store.facilities[i]
             
             
-            let latitude = currentFasility.latitude
-            let longitude = currentFasility.longitude
-            let name = currentFasility.name
+            let latitude = currentFacility.latitude
+            let longitude = currentFacility.longitude
+            let name = currentFacility.name
             
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
@@ -164,6 +164,8 @@ extension MapViewController {
 
             self.findClosestLocatio()
             
+            //calling the function that updates the singleton with current coordinates
+            self.updateCurrentLocation()
             
             // setting map with current location coordinats in the middle
             let camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: 13.0)
@@ -186,6 +188,13 @@ extension MapViewController {
             self.view.insertSubview(mapView, atIndex: 0)
         }
         
+    }
+    
+    //function to set the current coordinates to singleton's (datastore) currenLocationCoordinates property
+    func updateCurrentLocation() {
+        let currentCoordinates = CLLocationCoordinate2D(latitude: self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude)
+        
+        store.currentLocationCoordinates = currentCoordinates
     }
     
     // this function moves blue marker on the map with user movement,
