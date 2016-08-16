@@ -88,7 +88,9 @@ class GeocodingAPI {
                         var outputData = [String: AnyObject]()
                         
                         if let responseData = responseData {
-                            let oneDictionary = responseData["results"]![0] as? [String: AnyObject]
+                            
+                            //NOTE: Had to change it when running on iPhone. It was originally  let oneDictionary = responseData["results"]![0] as? [String: AnyObject]
+                            let oneDictionary = (responseData["results"] as! NSArray) [0] as? [String: AnyObject]
                             if let oneDictionary = oneDictionary {
                                 let locationDictionary = oneDictionary["geometry"] as? [String: AnyObject]
                                 if let locationDictionary = locationDictionary {
