@@ -41,11 +41,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         
         self.store.readInTextFile()
-        mapView.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         self.createMapView()
+        mapView.delegate = self
         self.findClosestLocation()
+        
 
 
     }

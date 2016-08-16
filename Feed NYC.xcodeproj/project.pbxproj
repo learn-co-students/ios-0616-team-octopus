@@ -289,17 +289,13 @@
 				78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */,
 				1BF9B57E1D5A869D009A60E7 /* FacilityTableViewController.swift in Sources */,
 				BAA5C12D1D63AAA100E01C5B /* Constants.swift in Sources */,
-				E1A0F3081D5F8A9F00DE0C51 /* XibAnnotationView.swift in Sources */,
-
 				BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */,
 				1BB67E1B1D5A2DE200EEE7AE /* FacilityXMLParser.swift in Sources */,
 				1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */,
 				1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */,
 				E14B2CB31D602C9500A7F3A9 /* UIViewExtentsion.swift in Sources */,
 				1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */,
-				BA44049F1D58DF0B0048CB8F /* TopViewController.swift in Sources */,
 				78B96BA51D63BA95006C07A2 /* CustomInfoWindow.swift in Sources */,
-
 				BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */,
 				1BB67E181D5A2DE200EEE7AE /* Facility.swift in Sources */,
 			);
