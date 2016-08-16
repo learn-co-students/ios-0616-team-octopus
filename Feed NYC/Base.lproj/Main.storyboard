@@ -112,6 +112,9 @@
                                 <state key="normal" title="FIND THE CLOSEST">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="rIS-ym-nfx" kind="presentation" identifier="closestLocSegue" id="wad-5z-m0J"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9M-fX-nnP">
                                 <rect key="frame" x="298" y="414" width="39" height="30"/>
@@ -133,6 +136,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKQ-lx-Rtp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1196" y="193"/>
+        </scene>
+        <!--CenkersStoryboard-->
+        <scene sceneID="dHH-88-bZI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CenkersStoryboard" id="rIS-ym-nfx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x2U-jF-kaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781.5" y="20"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kJF-lb-5uh">

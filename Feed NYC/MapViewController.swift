@@ -61,7 +61,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         var minDistance: Double = 1000000.0
         var distanceInMeters = 0.0
         // go through all locations and find the closest one
-        for i in 0...10 {
+        for i in 0..<store.facilities.count {
             let location = CLLocation.init(latitude: self.store.facilities[i].latitude, longitude: self.store.facilities[i].longitude)
             distanceInMeters = currentLocation.distanceFromLocation(location)
             if minDistance > distanceInMeters {
@@ -69,6 +69,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 self.closestFacility = self.store.facilities[i]
                 self.distanceInMetersForClosestFacility = minDistance
             }
+            self.store.facilities[i].distanceFromCurrentLocation = distanceInMeters * 0.000621371
         }
     }
    
@@ -98,24 +99,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
-    // because the current location is a property, we can find each location's distance to the current location
-    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
-        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
-        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
-        //calculate and convert to miles
-        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
-        
-        return distance
-    }
-    
-    // update disctances
-    func updateDistanceForLocations() {
-        for i in 0..<self.store.facilities.count {
-            let currentFacility = self.store.facilities[i]
-            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
-        }
-
-    }
+//    // because the current location is a property, we can find each location's distance to the current location
+//    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
+//        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
+//        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
+//        //calculate and convert to miles
+//        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
+//        
+//        return distance
+//    }
+//    
+//    // update disctances
+//    func updateDistanceForLocations() {
+//        for i in 0..<self.store.facilities.count {
+//            let currentFacility = self.store.facilities[i]
+//            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
+//        }
+//
+//    }
     
     @IBAction func showMenu(sender: AnyObject) {
         if let container = self.so_containerViewController
@@ -123,6 +124,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             container.isSideViewControllerPresented = true
             
             // To close the sidebar menu set is sideVCPresented to false
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "closestLocSegue" {
+            self.findClosestLocatio()
+            let destVC = segue.destinationViewController as! CenkersDetailViewController
+            if let closestFacility = self.closestFacility {
+                destVC.facilityToDisplay = closestFacility
+            }
+            else {
+                print("could not unwrap the closest facility")
+            }
         }
     }
 }
@@ -147,10 +161,6 @@ extension MapViewController {
             self.currentDeviceLocationLongitude = manager.location!.coordinate.longitude
 
             self.findClosestLocatio()
-            
-            //update the distance to corrent location
-            self.updateDistanceForLocations()
-            print(store.facilities)
             
             
             // setting map with current location coordinats in the middle
