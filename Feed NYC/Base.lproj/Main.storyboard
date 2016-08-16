@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Container View Controller-->
+        <!--Reveal View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ContainerViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,6 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="jCI-Os-AK9" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="7WW-Dx-Cks"/>
+                        <segue destination="uio-85-z6L" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="TgO-ME-d39"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,31 +47,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
-                                <rect key="frame" x="20" y="71" width="213" height="165"/>
+                                <rect key="frame" x="20" y="71" width="213" height="210"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
                                         <rect key="frame" x="0.0" y="0.0" width="213" height="30"/>
                                         <state key="normal" title="Food Banks and Soup Kitchens"/>
                                         <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="show" id="9r9-8b-lzB"/>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
                                         <rect key="frame" x="0.0" y="45" width="81" height="30"/>
                                         <state key="normal" title="Food Banks"/>
                                         <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="show" identifier="foodBanksSegue" id="dtZ-HE-VWr"/>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
                                         <rect key="frame" x="0.0" y="90" width="99" height="30"/>
                                         <state key="normal" title="Soup Kitchens"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
+                                        <rect key="frame" x="0.0" y="135" width="30" height="30"/>
+                                        <state key="normal" title="Map"/>
                                         <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="show" identifier="soupKitchensSegue" id="Qrv-L6-41X"/>
+                                            <segue destination="uio-85-z6L" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="1Go-j8-rOF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hey-pe-iAi">
-                                        <rect key="frame" x="0.0" y="135" width="64" height="30"/>
+                                        <rect key="frame" x="0.0" y="180" width="64" height="30"/>
                                         <state key="normal" title="About Us"/>
                                         <connections>
                                             <action selector="AboutUsTapped:" destination="jCI-Os-AK9" eventType="touchUpInside" id="Sdo-au-p9o"/>
@@ -87,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pV7-pY-jC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="937"/>
+            <point key="canvasLocation" x="1180" y="198"/>
         </scene>
         <!--DennisStoryboard-->
         <scene sceneID="KJm-IF-T9y">
@@ -95,7 +103,7 @@
                 <viewControllerPlaceholder storyboardName="DennisStoryboard" id="rDb-nV-Ii3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RH5-EU-giL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714" y="713"/>
+            <point key="canvasLocation" x="2065" y="218"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="AzT-7R-Wuh">
@@ -122,26 +130,23 @@
                                     <segue destination="rIS-ym-nfx" kind="presentation" identifier="closestLocSegue" id="wad-5z-m0J"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9M-fX-nnP">
-                                <rect key="frame" x="298" y="414" width="39" height="30"/>
-                                <state key="normal" title="Menu"/>
-                                <connections>
-                                    <action selector="showMenu:" destination="uQY-aM-RRh" eventType="touchUpInside" id="UHN-aS-Zd2"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iSw-MX-Enk" firstAttribute="top" secondItem="zvz-yN-vtj" secondAttribute="bottom" constant="80" id="5T3-Mo-4oZ"/>
-                            <constraint firstItem="c9M-fX-nnP" firstAttribute="leading" secondItem="zgL-l1-Rxt" secondAttribute="leadingMargin" id="DQg-hY-ntp"/>
-                            <constraint firstItem="c9M-fX-nnP" firstAttribute="top" secondItem="Kab-1v-anz" secondAttribute="bottom" constant="15" id="UF1-aQ-A7L"/>
                             <constraint firstItem="zvz-yN-vtj" firstAttribute="centerX" secondItem="zgL-l1-Rxt" secondAttribute="centerX" id="av8-j6-PbV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="EVS-Fg-dl5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="lou-pY-Tpx"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="lou-pY-Tpx" id="vM9-va-TxS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKQ-lx-Rtp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="193"/>
+            <point key="canvasLocation" x="2924" y="-578"/>
         </scene>
         <!--CenkersStoryboard-->
         <scene sceneID="dHH-88-bZI">
@@ -149,28 +154,29 @@
                 <viewControllerPlaceholder storyboardName="CenkersStoryboard" id="rIS-ym-nfx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2U-jF-kaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1781.5" y="20"/>
+            <point key="canvasLocation" x="3597" y="-584"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="kJF-lb-5uh">
+        <!--Navigation Controller-->
+        <scene sceneID="eXQ-NV-juz">
             <objects>
-                <viewController id="Hoo-AF-frj" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Vw7-Yy-AsB"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xf0-ze-9Tv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YLl-Jc-YWq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p12-g2-b2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uio-85-z6L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yfb-oQ-nr3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uQY-aM-RRh" kind="relationship" relationship="rootViewController" id="LL8-MS-skO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWM-iF-Y0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="903"/>
+            <point key="canvasLocation" x="2112" y="-578"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Qrv-L6-41X"/>
+        <segue reference="Eah-uz-nHs"/>
+        <segue reference="1Go-j8-rOF"/>
     </inferredMetricsTieBreakers>
 </document>

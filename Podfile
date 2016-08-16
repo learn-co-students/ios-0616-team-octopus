@@ -7,6 +7,7 @@ target 'Feed NYC' do
 
   # Pods for Feed NYC
   pod 'GoogleMaps'
-  pod 'SidebarOverlay', '~> 3.0'
+  #pod 'SidebarOverlay', '~> 3.0'
+  pod 'SWRevealViewController', '~> 2.3'
 
 end

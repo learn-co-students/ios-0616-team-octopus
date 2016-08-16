@@ -1,0 +1,14 @@
+//
+//  Constants.swift
+//  Feed NYC
+//
+//  Created by Henry Dinhofer on 8/16/16.
+//  Copyright © 2016 Flatiron School. All rights reserved.
+//
+
+import Foundation
+
+struct Constants {
+    static let navBarHeight = CGFloat(60.0)
+    
+}
