@@ -53,19 +53,22 @@
                                         <rect key="frame" x="0.0" y="0.0" width="213" height="30"/>
                                         <state key="normal" title="Food Banks and Soup Kitchens"/>
                                         <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="allFacilities" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
                                         <rect key="frame" x="0.0" y="45" width="81" height="30"/>
                                         <state key="normal" title="Food Banks"/>
                                         <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="foodBanks" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
                                         <rect key="frame" x="0.0" y="90" width="99" height="30"/>
                                         <state key="normal" title="Soup Kitchens"/>
+                                        <connections>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="soupKitchens" customClass="SWRevealViewControllerSeguePushController" id="tJg-Ci-GpC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
                                         <rect key="frame" x="0.0" y="135" width="30" height="30"/>
@@ -157,7 +160,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Eah-uz-nHs"/>
+        <segue reference="AAD-gm-Jw1"/>
         <segue reference="1Go-j8-rOF"/>
     </inferredMetricsTieBreakers>
 </document>

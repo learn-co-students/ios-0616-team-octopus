@@ -12,8 +12,8 @@ class FacilityTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    let store = FacilityDataStore.sharedInstance
-        
+    let facilities : [Facility]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,15 +38,15 @@ class FacilityTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return self.store.facilities.count
+        return self.facilities.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = self.store.facilities[indexPath.row].name as String
-        cell.detailTextLabel?.text = self.store.facilities[indexPath.row].briefDescription as String
+        cell.textLabel?.text = self.facilities[indexPath.row].name as String
+        cell.detailTextLabel?.text = self.facilities[indexPath.row].briefDescription as String
         
         
         return cell
@@ -62,7 +62,7 @@ class FacilityTableViewController: UITableViewController {
         if segue.identifier == "mapSegue" {
             let destVC = segue.destinationViewController as! CenkersDetailViewController
             if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
-                destVC.facilityToDisplay = self.store.facilities[indexPath.row]
+                destVC.facilityToDisplay = self.facilities[indexPath.row]
             }
         }
     }

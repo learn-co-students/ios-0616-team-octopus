@@ -85,11 +85,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             
             let latitude = currentFacility.latitude
             let longitude = currentFacility.longitude
-            let name = currentFacility.name
+            //let name = currentFacility.name
             
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
-            marker.title = name
+            //marker.title = name
             marker.map = mapView
             if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
                 marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
