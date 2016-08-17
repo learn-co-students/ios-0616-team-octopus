@@ -16,7 +16,7 @@
         <!--About Us View Controller-->
         <scene sceneID="Uev-jS-TiB">
             <objects>
-                <viewController storyboardIdentifier="AboutUsViewController" id="OMG-VY-JwH" customClass="AboutUsViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OMG-VY-JwH" customClass="AboutUsViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0ae-XY-ShA"/>
                         <viewControllerLayoutGuide type="bottom" id="6FH-Tn-WdX"/>
@@ -44,14 +44,13 @@
                     <navigationItem key="navigationItem" id="Vy8-jX-oIY">
                         <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="2kd-Iy-GOM">
                             <connections>
-                                <segue destination="oFU-vz-6Bx" kind="show" id="TNS-eF-dRt"/>
+                                <segue destination="oFU-vz-6Bx" kind="show" id="aT8-aW-ZWv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="menuButton" destination="2kd-Iy-GOM" id="V5O-Dv-KxW"/>
-                        <segue destination="oFU-vz-6Bx" kind="show" identifier="aboutUsSegue" customClass="SWRevealViewControllerSeguePushController" id="FMA-HY-uQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0un-iD-z8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,7 +156,7 @@
         <!--Navigation Controller-->
         <scene sceneID="NXD-Pg-oeu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wgP-Rx-NP0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AboutUsViewController" automaticallyAdjustsScrollViewInsets="NO" id="wgP-Rx-NP0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QNe-Vg-NFm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -173,7 +172,4 @@
             <point key="canvasLocation" x="1559" y="-304"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="FMA-HY-uQZ"/>
-    </inferredMetricsTieBreakers>
 </document>

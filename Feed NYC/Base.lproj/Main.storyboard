@@ -79,7 +79,7 @@
                                         <state key="normal" title="About Us"/>
                                         <connections>
                                             <action selector="AboutUsTapped:" destination="jCI-Os-AK9" eventType="touchUpInside" id="Sdo-au-p9o"/>
-                                            <segue destination="kOH-Vb-lNy" kind="custom" identifier="aboutUsSegue" customClass="SWRevealViewControllerSeguePushController" id="idT-Mc-NPR"/>
+                                            <segue destination="kOH-Vb-lNy" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="u7v-4z-E13"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -166,7 +166,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AAD-gm-Jw1"/>
+        <segue reference="Eah-uz-nHs"/>
         <segue reference="1Go-j8-rOF"/>
     </inferredMetricsTieBreakers>
 </document>
