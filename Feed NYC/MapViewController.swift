@@ -33,6 +33,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = Selector("revealToggle:")
@@ -44,7 +45,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         locationManager.requestWhenInUseAuthorization()
         self.createMapView()
         self.addBigRedButton()
+        mapView.delegate = self
         self.findClosestLocation()
+
 
     }
     
@@ -88,16 +91,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
-            
             if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
                 marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
             } else if currentFacility.featureList.contains("Food Pantry") {
                 marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
             }
             
+            marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
         }
     }
     
+
     func createMapView() {
         
         let camera : GMSCameraPosition
@@ -189,7 +193,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.presentViewController(detailVC, animated: true, completion: nil)
     }
     
-    
     @IBAction func showMenu(sender: AnyObject) {
         
     }
@@ -267,7 +270,49 @@ extension MapViewController {
             locationManager.stopUpdatingLocation()
         }
     }
+
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker)-> Bool {
+        //        mapCenterPinImage.fadeOut(0.25)
+        
+        print("marker tapped")
+        
+        if marker != mapView.selectedMarker {
+            mapView.selectedMarker = marker
+        }
+        
+        return true
+    }
+
+    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        print("info window called")
+        
+//        let infoWindow = UIView(frame: CGRectMake(0.0,0.0,200,150))
+//        let label: UILabel = UILabel(frame: CGRectMake(0.0,0.0, 130, 140))
+//        label.text = "facility"
+//        infoWindow.backgroundColor = UIColor.whiteColor()
+//        infoWindow.addSubview(label)
+        
+        let customInfoWindow = NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
+        customInfoWindow.helloLabel.text = marker.title
+        
+        return customInfoWindow
+    }
+
 }
+
+
+//func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
+//   // let placeMarker = marker as! XibAnnotationView
+//    
+//    if let infoView = UIView.viewFromNibName("XibAnnotationView") as? XibAnnotationView {
+//        infoView.locationLabel.text = "Location Name"
+//        return infoView
+//    } else {
+//        return nil
+//    }
+//}
+//
+
 
 //    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
 //
