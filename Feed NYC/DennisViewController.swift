@@ -13,9 +13,6 @@ class DennisViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-       // let xibSubView: XibAnnotationView = XibAnnotationView(frame: CGRect(x: 10, y: 300, width: 300, height: 100))
-        //self.view.addSubview(xibSubView)
         
     }
 

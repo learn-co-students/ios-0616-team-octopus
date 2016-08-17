@@ -79,6 +79,7 @@
                                         <state key="normal" title="About Us"/>
                                         <connections>
                                             <action selector="AboutUsTapped:" destination="jCI-Os-AK9" eventType="touchUpInside" id="Sdo-au-p9o"/>
+                                            <segue destination="kOH-Vb-lNy" kind="custom" identifier="aboutUsSegue" customClass="SWRevealViewControllerSeguePushController" id="idT-Mc-NPR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -103,7 +104,15 @@
                 <viewControllerPlaceholder storyboardName="DennisStoryboard" id="rDb-nV-Ii3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RH5-EU-giL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2065" y="218"/>
+            <point key="canvasLocation" x="1701" y="198"/>
+        </scene>
+        <!--AboutUsViewController-->
+        <scene sceneID="yu8-rG-8ce">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DennisStoryboard" referencedIdentifier="AboutUsViewController" id="kOH-Vb-lNy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AV9-v1-GRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1701" y="334"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="AzT-7R-Wuh">
@@ -157,7 +166,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Eah-uz-nHs"/>
+        <segue reference="AAD-gm-Jw1"/>
         <segue reference="1Go-j8-rOF"/>
     </inferredMetricsTieBreakers>
 </document>

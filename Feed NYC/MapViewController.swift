@@ -143,24 +143,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
         
     }
-    //    // because the current location is a property, we can find each location's distance to the current location
-    //    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
-    //        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
-    //        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
-    //        //calculate and convert to miles
-    //        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
-    //
-    //        return distance
-    //    }
-    //
-    //    // update disctances
-    //    func updateDistanceForLocations() {
-    //        for i in 0..<self.store.facilities.count {
-    //            let currentFacility = self.store.facilities[i]
-    //            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
-    //        }
-    //
-    //    }
     
     func addBigRedButton() {
         let button = UIButton()
@@ -178,6 +160,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // width is 295
         //153 490 295 30
     }
+    
     func helpButtonTapped(sender: UIButton!) {
         let cenkersStoryboard = UIStoryboard(name: "CenkersStoryboard", bundle: nil)
         
@@ -197,19 +180,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
     }
 
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "closestLocSegue" {
-            self.findClosestLocation()
-            let destVC = segue.destinationViewController as! CenkersDetailViewController
-            if let closestFacility = self.closestFacility {
-                destVC.facilityToDisplay = closestFacility
-            }
-            else {
-                print("could not unwrap the closest facility")
-            }
-        }
-    }
+
 }
 
 
@@ -290,56 +261,7 @@ extension MapViewController {
 }
 
 
-//func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-//   // let placeMarker = marker as! XibAnnotationView
-//    
-//    if let infoView = UIView.viewFromNibName("XibAnnotationView") as? XibAnnotationView {
-//        infoView.locationLabel.text = "Location Name"
-//        return infoView
-//    } else {
-//        return nil
-//    }
-//}
-//
 
-
-//    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-//
-//        let placeMarker = marker as! XibAnnotationView
-//
-//        if let infoView = UIView.viewFromNibName("XibAnnotationView") as? XibAnnotationView {
-//
-//            infoView.locationLabel.text = placeMarker.locationName
-//
-//            return infoView
-//        } else {
-//            return nil
-//        }
-//    }
-//}
-
-
-//    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-//
-////
-////        let placemarker = marker as! JohannView
-////
-////        var newView:UIView{
-////            var nView = UIView()
-////            nView.backgroundColor = UIColor.blueColor()
-////            return nView
-////        }
-//
-////        let coordinateString = "\(coordinate.latitude) \(coordinate.longitude)"
-////        let currentFacility = self.store.facilitiesDictionary[coordinateString]
-////        print(currentFacility)
-//
-//        return
-
-//        let placeMarker = marker as! XibAnnotationView
-
-//
-//    }
 
 
 
