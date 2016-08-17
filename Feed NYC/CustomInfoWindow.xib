@@ -3,41 +3,45 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomInfoWindow" customModule="Feed_NYC" customModuleProvider="target">
+            <connections>
+                <outlet property="nameButtonLabel" destination="RrN-UY-4RF" id="rA1-ro-HnN"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="CustomInfoWindow" customModule="Feed_NYC" customModuleProvider="target">
+        <view clearsContextBeforeDrawing="NO" alpha="0.93000000000000005" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infoWindow" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-wQ-L2P">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxZ-O7-uti">
-                    <rect key="frame" x="17" y="8" width="216" height="63"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <size key="shadowOffset" width="1" height="0.0"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RrN-UY-4RF">
+                    <rect key="frame" x="17" y="15" width="213" height="105"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <size key="titleShadowOffset" width="1" height="2"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="NameButtonTapped:" destination="-1" eventType="touchUpInside" id="Mvc-RR-tuA"/>
+                    </connections>
+                </button>
             </subviews>
+            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="VxZ-O7-uti" secondAttribute="trailing" constant="17" id="6fw-J5-ETt"/>
-                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="centerX" secondItem="VxZ-O7-uti" secondAttribute="centerX" id="PPE-6Q-zhT"/>
-                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pnq-ZQ-KuM"/>
-                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VQN-HJ-Lh0"/>
-                <constraint firstAttribute="bottom" secondItem="Jsd-wQ-L2P" secondAttribute="bottom" id="aGO-uK-4VF"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="dWw-p0-hpy"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="fDF-AO-OSb"/>
-                <constraint firstAttribute="bottom" secondItem="VxZ-O7-uti" secondAttribute="bottom" constant="79" id="j7q-K5-qDh"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Cd-ms-i8p"/>
+                <constraint firstAttribute="bottom" secondItem="Jsd-wQ-L2P" secondAttribute="bottom" id="1fM-5r-pdR"/>
+                <constraint firstAttribute="bottom" secondItem="RrN-UY-4RF" secondAttribute="bottom" constant="30" id="20J-yK-3UG"/>
+                <constraint firstItem="RrN-UY-4RF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="2BI-h1-MFm"/>
+                <constraint firstItem="RrN-UY-4RF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="AJz-ee-2Is"/>
+                <constraint firstAttribute="trailing" secondItem="RrN-UY-4RF" secondAttribute="trailing" constant="20" id="DxA-Hr-3kk"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fjH-nM-Kw7"/>
+                <constraint firstAttribute="trailing" secondItem="Jsd-wQ-L2P" secondAttribute="trailing" id="vQy-ch-iUV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="helloLabel" destination="VxZ-O7-uti" id="EyG-6Y-M0e"/>
-            </connections>
             <point key="canvasLocation" x="380" y="271"/>
         </view>
     </objects>

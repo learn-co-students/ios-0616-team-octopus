@@ -17,6 +17,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     let locationManager = CLLocationManager()
     var mapView: GMSMapView!
     var marker: GMSMarker!
+    var facilityForTappedMarker = Facility()
     
     var currentDeviceLocationLatitude = 0.0
     var currentDeviceLocationLongitude = 0.0
@@ -90,6 +91,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
             marker.title = name
+            let featureSet: Set<String> = Set(currentFacility.featureList)
+            marker.snippet = featureSet.joinWithSeparator(". ") + "\n" + currentFacility.phoneNumber
             marker.map = mapView
             if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
                 marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
@@ -143,24 +146,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
         
     }
-    //    // because the current location is a property, we can find each location's distance to the current location
-    //    func findDistanceOfFacility(destLat: CLLocationDegrees, destLong: CLLocationDegrees) -> Double {
-    //        let sourceLocation : CLLocation = CLLocation(latitude: currentDeviceLocationLatitude, longitude: currentDeviceLocationLongitude)
-    //        let destinationLocation: CLLocation = CLLocation(latitude: destLat, longitude: destLong)
-    //        //calculate and convert to miles
-    //        let distance = destinationLocation.distanceFromLocation(sourceLocation) * 0.000621371
-    //
-    //        return distance
-    //    }
-    //
-    //    // update disctances
-    //    func updateDistanceForLocations() {
-    //        for i in 0..<self.store.facilities.count {
-    //            let currentFacility = self.store.facilities[i]
-    //            currentFacility.distanceFromCurrentLocation = self.findDistanceOfFacility(currentFacility.latitude, destLong: currentFacility.longitude)
-    //        }
-    //
-    //    }
     
     func addBigRedButton() {
         let button = UIButton()
@@ -192,24 +177,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         self.presentViewController(detailVC, animated: true, completion: nil)
     }
-    
-    @IBAction func showMenu(sender: AnyObject) {
-        
-    }
 
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "closestLocSegue" {
-            self.findClosestLocation()
-            let destVC = segue.destinationViewController as! CenkersDetailViewController
-            if let closestFacility = self.closestFacility {
-                destVC.facilityToDisplay = closestFacility
-            }
-            else {
-                print("could not unwrap the closest facility")
-            }
-        }
-    }
 }
 
 
@@ -279,67 +247,33 @@ extension MapViewController {
     }
 
     func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        let customInfoWindow = NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
-        customInfoWindow.helloLabel.text = marker.title
+        let customInfoWindow : CustomInfoWindow!
+        customInfoWindow = CustomInfoWindow(frame: CGRect(x: 0, y: 0, width: 230, height: 150))
+        //NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
+        customInfoWindow.nameButtonLabel.setTitle("\(marker.title!)\n\n\(marker.snippet!)", forState: .Normal)
         
         mapView.camera = GMSCameraPosition(target: marker.position, zoom: 13, bearing: 0, viewingAngle: 0)
-        
         return customInfoWindow
     }
-
+    
+    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+        self.facilityForTappedMarker = self.findFacilityForMarker(marker)
+        performSegueWithIdentifier("detailSegue", sender: mapView)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detailSegue" {
+            let detailVC = segue.destinationViewController as! CenkersDetailViewController
+            detailVC.facilityToDisplay = self.facilityForTappedMarker
+        }
+    }
+    
+    func findFacilityForMarker(marker: GMSMarker) -> Facility {
+        let facilities = store.facilities.filter{ $0.name == marker.title && $0.latitude == marker.layer.latitude && $0.longitude == marker.layer.longitude}
+        return facilities[0]
+    }
+    
 }
-
-
-//func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-//   // let placeMarker = marker as! XibAnnotationView
-//    
-//    if let infoView = UIView.viewFromNibName("XibAnnotationView") as? XibAnnotationView {
-//        infoView.locationLabel.text = "Location Name"
-//        return infoView
-//    } else {
-//        return nil
-//    }
-//}
-//
-
-
-//    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-//
-//        let placeMarker = marker as! XibAnnotationView
-//
-//        if let infoView = UIView.viewFromNibName("XibAnnotationView") as? XibAnnotationView {
-//
-//            infoView.locationLabel.text = placeMarker.locationName
-//
-//            return infoView
-//        } else {
-//            return nil
-//        }
-//    }
-//}
-
-
-//    func mapView(mapView: GMSMapView!, markerInfoContents marker: GMSMarker!) -> UIView! {
-//
-////
-////        let placemarker = marker as! JohannView
-////
-////        var newView:UIView{
-////            var nView = UIView()
-////            nView.backgroundColor = UIColor.blueColor()
-////            return nView
-////        }
-//
-////        let coordinateString = "\(coordinate.latitude) \(coordinate.longitude)"
-////        let currentFacility = self.store.facilitiesDictionary[coordinateString]
-////        print(currentFacility)
-//
-//        return
-
-//        let placeMarker = marker as! XibAnnotationView
-
-//
-//    }
 
 
 

@@ -134,6 +134,7 @@ class CenkersDetailViewController: UIViewController {
         
         let myLocationPlacemark = MKPlacemark(coordinate: currentCoordinates, addressDictionary: nil)
         let myLocationMapItem = MKMapItem(placemark: myLocationPlacemark)
+        myLocationMapItem.name = "Current Location"
         
         let placemark = MKPlacemark(coordinate: destinationCoordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
