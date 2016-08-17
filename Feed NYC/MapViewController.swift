@@ -43,6 +43,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         self.createMapView()
+        self.addBigRedButton()
         self.findClosestLocation()
 
     }
@@ -87,24 +88,38 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let marker = GMSMarker(position: position)
             marker.title = name
             marker.map = mapView
+            
+            if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
+                marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
+            } else if currentFacility.featureList.contains("Food Pantry") {
+                marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
+            }
+            
         }
     }
     
     func createMapView() {
         
         let camera : GMSCameraPosition
-        print (CLLocationManager.authorizationStatus())
         print (CLLocationManager.locationServicesEnabled())
         
         // .AuthorizedWhenInUse? = true
         if CLLocationManager.locationServicesEnabled() {
+            
+            if let managerLocation = locationManager.location {
+                self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
+                self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
+            }
+            
+            
             // setting map with current location ≥coordinats in the middle
-            camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: 13.0)
-
+            camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: Constants.defaultZoomLevel)
+            
+            
         }
         else {
             //if status == .Denied {
-                camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 12.5)
+            camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: Constants.midtownZoomLevel)
 
             //  }
         }
@@ -113,14 +128,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
         self.mapView.myLocationEnabled = true
         self.view.addSubview(mapView)
-        self.view.sendSubviewToBack(mapView)
+        //self.view.sendSubviewToBack(mapView)
         //            self.view.insertSubview(mapView, atIndex: 0)
         // button in right low corner that makes current location in the middle
         self.mapView.settings.myLocationButton = true
         setupMarkers()
-        self.view.subviews.forEach { view in
-            print(view.frame.origin)
-        }
+        //self.view.subviews.forEach { view in
+          //  print(view.frame.origin)
+        //}
 
         
     }
@@ -144,13 +159,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     //    }
     
     func addBigRedButton() {
-        var button = UIButton()
-        //button.setTitle
+        let button = UIButton()
+        button.setTitle("FIND CLOSEST HELP", forState: .Normal)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.backgroundColor = UIColor.blueColor()
+        button.addTarget(self, action: #selector(MapViewController.helpButtonTapped(_:)), forControlEvents: .TouchUpInside)
+        button.frame = CGRectMake(153, 490, 295, 30)
+        
+        //UIScreen.mainScreen().bounds.size.width / 2.0
+        button.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.height - 80)
+
+        self.view.addSubview(button)
+        
+        // width is 295
+        //153 490 295 30
     }
+    func helpButtonTapped(sender: UIButton!) {
+        let cenkersStoryboard = UIStoryboard(name: "CenkersStoryboard", bundle: nil)
+        
+        let detailVC = cenkersStoryboard.instantiateViewControllerWithIdentifier("CenkersDetailViewController") as! CenkersDetailViewController
+        
+        if let closestFacility = self.closestFacility {
+            detailVC.facilityToDisplay = closestFacility
+        }
+        else {
+            print("could not unwrap the closest facility")
+        }
+        
+        self.presentViewController(detailVC, animated: true, completion: nil)
+    }
+    
     
     @IBAction func showMenu(sender: AnyObject) {
         
     }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "closestLocSegue" {
@@ -220,7 +263,7 @@ extension MapViewController {
     // constantly updating new user location and move map accordingly, so blue marker always in the middle of the view
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 14, bearing: 0, viewingAngle: 0)
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: Constants.defaultZoomLevel, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
         }
     }
