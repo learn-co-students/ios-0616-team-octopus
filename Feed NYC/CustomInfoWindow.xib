@@ -9,15 +9,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="CustomInfoWindow" customModule="Feed_NYC" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infoWindow" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-wQ-L2P">
-                    <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxZ-O7-uti">
-                    <rect key="frame" x="8" y="10" width="184" height="44"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="17" y="8" width="216" height="63"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -25,14 +25,14 @@
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="1Aj-Tz-Jul"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="81O-Wa-nQh"/>
-                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EuW-cT-zgZ"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="FX5-qh-eYJ"/>
-                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QnP-2y-LYK"/>
-                <constraint firstAttribute="bottom" secondItem="VxZ-O7-uti" secondAttribute="bottom" constant="96" id="Vhp-pv-Pu6"/>
-                <constraint firstAttribute="bottom" secondItem="Jsd-wQ-L2P" secondAttribute="bottom" id="qLb-wj-X2p"/>
-                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="centerX" secondItem="VxZ-O7-uti" secondAttribute="centerX" id="rL0-J7-FIW"/>
+                <constraint firstAttribute="trailing" secondItem="VxZ-O7-uti" secondAttribute="trailing" constant="17" id="6fw-J5-ETt"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="centerX" secondItem="VxZ-O7-uti" secondAttribute="centerX" id="PPE-6Q-zhT"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pnq-ZQ-KuM"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VQN-HJ-Lh0"/>
+                <constraint firstAttribute="bottom" secondItem="Jsd-wQ-L2P" secondAttribute="bottom" id="aGO-uK-4VF"/>
+                <constraint firstItem="VxZ-O7-uti" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="dWw-p0-hpy"/>
+                <constraint firstItem="VxZ-O7-uti" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="fDF-AO-OSb"/>
+                <constraint firstAttribute="bottom" secondItem="VxZ-O7-uti" secondAttribute="bottom" constant="79" id="j7q-K5-qDh"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -42,6 +42,6 @@
         </view>
     </objects>
     <resources>
-        <image name="infoWindow" width="360" height="254"/>
+        <image name="infoWindow" width="360" height="270"/>
     </resources>
 </document>

@@ -232,29 +232,18 @@ extension MapViewController {
         }
     }
 
-    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker)-> Bool {
-        //        mapCenterPinImage.fadeOut(0.25)
-        
-        print("marker tapped")
-        
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker)-> Bool {        
         if marker != mapView.selectedMarker {
             mapView.selectedMarker = marker
         }
-        
         return true
     }
 
     func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        print("info window called")
-        
-//        let infoWindow = UIView(frame: CGRectMake(0.0,0.0,200,150))
-//        let label: UILabel = UILabel(frame: CGRectMake(0.0,0.0, 130, 140))
-//        label.text = "facility"
-//        infoWindow.backgroundColor = UIColor.whiteColor()
-//        infoWindow.addSubview(label)
-        
         let customInfoWindow = NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
         customInfoWindow.helloLabel.text = marker.title
+        
+        mapView.camera = GMSCameraPosition(target: marker.position, zoom: 13, bearing: 0, viewingAngle: 0)
         
         return customInfoWindow
     }
