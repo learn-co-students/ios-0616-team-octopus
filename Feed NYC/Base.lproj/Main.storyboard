@@ -116,26 +116,7 @@
                     <view key="view" contentMode="scaleToFill" id="zgL-l1-Rxt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvz-yN-vtj">
-                                <rect key="frame" x="153" y="490" width="295" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="295" id="kke-c3-gOV"/>
-                                </constraints>
-                                <state key="normal" title="FIND THE CLOSEST">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="rIS-ym-nfx" kind="presentation" identifier="closestLocSegue" id="wad-5z-m0J"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="iSw-MX-Enk" firstAttribute="top" secondItem="zvz-yN-vtj" secondAttribute="bottom" constant="80" id="5T3-Mo-4oZ"/>
-                            <constraint firstItem="zvz-yN-vtj" firstAttribute="centerX" secondItem="zgL-l1-Rxt" secondAttribute="centerX" id="av8-j6-PbV"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EVS-Fg-dl5">
                         <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="lou-pY-Tpx"/>
