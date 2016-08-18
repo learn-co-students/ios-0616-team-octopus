@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main-->
@@ -32,16 +33,31 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T3-lv-DtB">
+                                <rect key="frame" x="20" y="574" width="347" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Soup Kitchen and Food Pantry dataset">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="datasetUrllinkTapped:" destination="OMG-VY-JwH" eventType="touchUpInside" id="PWo-S0-TR0"/>
+                                    <segue destination="VgJ-O7-oah" kind="show" id="u1s-eg-u2C"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="About Us" translatesAutoresizingMaskIntoConstraints="NO" id="EV5-gA-n7J">
-                                <rect key="frame" x="20" y="72" width="107" height="73"/>
+                                <rect key="frame" x="124" y="72" width="107" height="73"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wpY-U9-io7" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leading" constant="20" id="3HO-ZH-6Or"/>
                             <constraint firstItem="wpY-U9-io7" firstAttribute="top" secondItem="0ae-XY-ShA" secondAttribute="bottom" constant="66" id="3a8-5Q-JOQ"/>
+                            <constraint firstAttribute="trailing" secondItem="8T3-lv-DtB" secondAttribute="trailing" constant="8" id="G2F-HR-iiO"/>
                             <constraint firstAttribute="trailing" secondItem="wpY-U9-io7" secondAttribute="trailing" constant="20" id="Ghi-7F-4Qh"/>
+                            <constraint firstItem="6FH-Tn-WdX" firstAttribute="top" secondItem="8T3-lv-DtB" secondAttribute="bottom" constant="63" id="hvD-vA-XGS"/>
+                            <constraint firstItem="8T3-lv-DtB" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leading" constant="20" id="jeM-8i-x7h"/>
                             <constraint firstItem="6FH-Tn-WdX" firstAttribute="top" secondItem="wpY-U9-io7" secondAttribute="bottom" constant="130" id="n1S-pE-UCf"/>
+                            <constraint firstItem="8T3-lv-DtB" firstAttribute="top" secondItem="wpY-U9-io7" secondAttribute="bottom" constant="37" id="qA3-vf-XP2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vy8-jX-oIY">
@@ -66,7 +82,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="oFU-vz-6Bx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="art-rP-Jp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2443" y="-304"/>
+            <point key="canvasLocation" x="2423" y="-219"/>
         </scene>
         <!--Facility Table View Controller-->
         <scene sceneID="LHp-ez-9Nn">
@@ -155,6 +171,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxP-Ki-IwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1559" y="419"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="z1h-Bd-7Ij">
+            <objects>
+                <viewController id="VgJ-O7-oah" customClass="WebViewController" customModule="Feed_NYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fyN-ks-2DF"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zwf-wX-8pv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ayw-T7-9vj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1h-qR-OX3">
+                                <rect key="frame" x="-1" y="0.0" width="377" height="670"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C1h-qR-OX3" firstAttribute="centerX" secondItem="Ayw-T7-9vj" secondAttribute="centerX" id="G4C-yI-qnR"/>
+                            <constraint firstItem="C1h-qR-OX3" firstAttribute="leading" secondItem="Ayw-T7-9vj" secondAttribute="leadingMargin" constant="-17" id="TGI-IE-6KR"/>
+                            <constraint firstItem="C1h-qR-OX3" firstAttribute="top" secondItem="Ayw-T7-9vj" secondAttribute="top" id="VNE-66-F6H"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="C1h-qR-OX3" secondAttribute="bottom" constant="-3" id="zOZ-xq-R1E"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webViewer" destination="C1h-qR-OX3" id="6KF-tQ-K9p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWA-Rg-m6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2655.5" y="-304.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NXD-Pg-oeu">

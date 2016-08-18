@@ -9,7 +9,7 @@
 import UIKit
 
 class AboutUsViewController: UIViewController {
-
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     
@@ -32,5 +32,7 @@ class AboutUsViewController: UIViewController {
         }
     }
     
-    
+    @IBAction func datasetUrllinkTapped(sender: AnyObject) {
+      
+    }
 }
