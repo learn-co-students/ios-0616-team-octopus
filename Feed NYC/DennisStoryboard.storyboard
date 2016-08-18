@@ -25,20 +25,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wpY-U9-io7">
-                                <rect key="frame" x="67" y="270" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpY-U9-io7">
+                                <rect key="frame" x="20" y="130" width="335" height="407"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="About Us" translatesAutoresizingMaskIntoConstraints="NO" id="EV5-gA-n7J">
+                                <rect key="frame" x="20" y="72" width="107" height="73"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="wpY-U9-io7" secondAttribute="trailing" constant="68" id="8G3-ge-rL1"/>
-                            <constraint firstItem="wpY-U9-io7" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leading" constant="67" id="JfB-pQ-Za2"/>
-                            <constraint firstItem="6FH-Tn-WdX" firstAttribute="top" secondItem="wpY-U9-io7" secondAttribute="bottom" constant="269" id="Lpq-xZ-7bk"/>
-                            <constraint firstItem="wpY-U9-io7" firstAttribute="top" secondItem="0ae-XY-ShA" secondAttribute="bottom" constant="250" id="N4d-df-UIE"/>
+                            <constraint firstItem="wpY-U9-io7" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leading" constant="20" id="3HO-ZH-6Or"/>
+                            <constraint firstItem="wpY-U9-io7" firstAttribute="top" secondItem="0ae-XY-ShA" secondAttribute="bottom" constant="66" id="3a8-5Q-JOQ"/>
+                            <constraint firstAttribute="trailing" secondItem="wpY-U9-io7" secondAttribute="trailing" constant="20" id="Ghi-7F-4Qh"/>
+                            <constraint firstItem="6FH-Tn-WdX" firstAttribute="top" secondItem="wpY-U9-io7" secondAttribute="bottom" constant="130" id="n1S-pE-UCf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vy8-jX-oIY">
@@ -172,4 +175,7 @@
             <point key="canvasLocation" x="1559" y="-304"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="About Us" width="1200" height="1200"/>
+    </resources>
 </document>

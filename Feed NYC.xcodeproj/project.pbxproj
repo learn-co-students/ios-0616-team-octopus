@@ -31,7 +31,6 @@
 		BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4404A01D58DF170048CB8F /* MenuViewController.swift */; };
 		BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */; };
 		BAA5C12D1D63AAA100E01C5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5C12C1D63AAA100E01C5B /* Constants.swift */; };
-		E14B2CB31D602C9500A7F3A9 /* UIViewExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B2CB21D602C9500A7F3A9 /* UIViewExtentsion.swift */; };
 		E1676E651D5F6768005C41A2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1676E641D5F6768005C41A2 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +63,6 @@
 		BA4404A01D58DF170048CB8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityDataStore.swift; sourceTree = "<group>"; };
 		BAA5C12C1D63AAA100E01C5B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E14B2CB21D602C9500A7F3A9 /* UIViewExtentsion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtentsion.swift; sourceTree = "<group>"; };
 		E1676E641D5F6768005C41A2 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feed_NYC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -114,10 +112,9 @@
 				78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */,
 				78B96BA31D63BA95006C07A2 /* CustomInfoWindow.swift */,
 				78B96BA41D63BA95006C07A2 /* CustomInfoWindow.xib */,
-				E14B2CB21D602C9500A7F3A9 /* UIViewExtentsion.swift */,
-				1B02887F1D5E28F6002309A6 /* DennisViewController.swift */,
 				1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */,
 				1B63E5F11D64CE68004B109D /* AboutUsViewController.swift */,
+				1B02887F1D5E28F6002309A6 /* DennisViewController.swift */,
 				1BAC3F651D58D3520031C3AC /* Main.storyboard */,
 				1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */,
 				1B067D981D5E872800619228 /* DennisStoryboard.storyboard */,
@@ -298,7 +295,6 @@
 				1B63E5F21D64CE68004B109D /* AboutUsViewController.swift in Sources */,
 				1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */,
 				1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */,
-				E14B2CB31D602C9500A7F3A9 /* UIViewExtentsion.swift in Sources */,
 				1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */,
 				78B96BA51D63BA95006C07A2 /* CustomInfoWindow.swift in Sources */,
 				BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */,

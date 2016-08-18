@@ -47,35 +47,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
-                                <rect key="frame" x="20" y="71" width="213" height="210"/>
+                                <rect key="frame" x="20" y="71" width="246" height="220"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
-                                        <rect key="frame" x="0.0" y="0.0" width="213" height="30"/>
-                                        <state key="normal" title="Food Banks and Soup Kitchens"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                        <state key="normal" title="Soup Kitchens &amp; Food Pantries">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
-                                        <rect key="frame" x="0.0" y="45" width="81" height="30"/>
-                                        <state key="normal" title="Food Banks"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
+                                        <rect key="frame" x="0.0" y="47" width="111" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                        <state key="normal" title="Food Pantries"/>
                                         <connections>
                                             <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
-                                        <rect key="frame" x="0.0" y="90" width="99" height="30"/>
+                                        <rect key="frame" x="0.0" y="94" width="116" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                         <state key="normal" title="Soup Kitchens"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
-                                        <rect key="frame" x="0.0" y="135" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="141" width="35" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                         <state key="normal" title="Map"/>
                                         <connections>
                                             <segue destination="uio-85-z6L" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="1Go-j8-rOF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hey-pe-iAi">
-                                        <rect key="frame" x="0.0" y="180" width="64" height="30"/>
+                                        <rect key="frame" x="0.0" y="188" width="74" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                         <state key="normal" title="About Us"/>
                                         <connections>
                                             <action selector="AboutUsTapped:" destination="jCI-Os-AK9" eventType="touchUpInside" id="Sdo-au-p9o"/>
@@ -112,7 +119,7 @@
                 <viewControllerPlaceholder storyboardName="DennisStoryboard" referencedIdentifier="AboutUsViewController" id="kOH-Vb-lNy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AV9-v1-GRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701" y="334"/>
+            <point key="canvasLocation" x="1717.5" y="334"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="AzT-7R-Wuh">
