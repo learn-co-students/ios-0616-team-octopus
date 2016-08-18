@@ -215,7 +215,9 @@ class FacilityDataStore {
                 }
             }
         }
-        return facilityList
+        
+        
+        return facilityList.sort{$0.name < $1.name}
     }
     
     

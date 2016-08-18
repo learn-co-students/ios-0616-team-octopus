@@ -12,7 +12,7 @@ class FacilityTableViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    let facilities : [Facility]?
+    var facilities = [Facility]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

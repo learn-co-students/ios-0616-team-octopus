@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="45" width="81" height="30"/>
                                         <state key="normal" title="Food Banks"/>
                                         <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="foodBanks" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="foodPantries" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pV7-pY-jC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="198"/>
+            <point key="canvasLocation" x="1198" y="198"/>
         </scene>
         <!--DennisStoryboard-->
         <scene sceneID="KJm-IF-T9y">
@@ -160,7 +160,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AAD-gm-Jw1"/>
-        <segue reference="1Go-j8-rOF"/>
+        <segue reference="TgO-ME-d39"/>
+        <segue reference="Eah-uz-nHs"/>
     </inferredMetricsTieBreakers>
 </document>
