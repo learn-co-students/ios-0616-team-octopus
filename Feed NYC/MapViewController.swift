@@ -64,8 +64,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         
         self.findClosestLocation()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,7 +77,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func findClosestLocation() {
         
         let currentLocation: CLLocation = CLLocation.init(latitude: self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude)
-        var minDistance: Double = 1000000.0
+        var minDistance: Double = 100000000000.0
         var distanceInMeters = 0.0
         // go through all locations and find the closest one
         for i in 0..<store.facilities.count {
@@ -101,7 +99,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         for i in 0..<self.store.facilities.count {
             let currentFacility = self.store.facilities[i]
-            
             
             let latitude = currentFacility.latitude
             let longitude = currentFacility.longitude
@@ -198,6 +195,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         let cenkersStoryboard = UIStoryboard(name: "CenkersStoryboard", bundle: nil)
         
         let detailVC = cenkersStoryboard.instantiateViewControllerWithIdentifier("CenkersDetailViewController") as! CenkersDetailViewController
+        
+        if CLLocationManager.locationServicesEnabled() {
+            if let managerLocation = locationManager.location {
+                self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
+                self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
+            }
+        }
+        //call the function that updates the closest facility property before using the facility
+        self.findClosestLocation()
         
         if let closestFacility = self.closestFacility {
             detailVC.facilityToDisplay = closestFacility
