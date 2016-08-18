@@ -9,5 +9,6 @@ target 'Feed NYC' do
   pod 'GoogleMaps'
   #pod 'SidebarOverlay', '~> 3.0'
   pod 'SWRevealViewController', '~> 2.3'
+  pod 'ChameleonFramework', '~> 2.1'
 
 end

@@ -27,7 +27,6 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
     //http://www1.nyc.gov/apps/311utils/facilityFinderResults.htm?requestType=&serviceName=Find%20a%20Food%20Pantry%20or%20Soup%20Kitchen&viewType=SHOWALL&type=Food%20Provider&serviceId=1083#
     
     func loadWebPage() {

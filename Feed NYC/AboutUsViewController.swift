@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class AboutUsViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class AboutUsViewController: UIViewController {
             menuButton.action = Selector("revealToggle:")
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+//        view.backgroundColor = UIColor.flatPowderBlueColor()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -32,7 +35,7 @@ class AboutUsViewController: UIViewController {
         }
     }
     
-    @IBAction func datasetUrllinkTapped(sender: AnyObject) {
-      
+    @IBAction func webViewButtonTapped(sender: AnyObject) {
     }
+
 }
