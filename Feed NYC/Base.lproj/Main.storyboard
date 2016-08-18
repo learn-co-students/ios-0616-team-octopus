@@ -126,6 +126,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="lou-pY-Tpx" id="vM9-va-TxS"/>
+                        <segue destination="rIS-ym-nfx" kind="presentation" identifier="detailSegue" id="e8d-a3-GZJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKQ-lx-Rtp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -138,7 +139,7 @@
                 <viewControllerPlaceholder storyboardName="CenkersStoryboard" id="rIS-ym-nfx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2U-jF-kaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3597" y="-584"/>
+            <point key="canvasLocation" x="3481" y="-726"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eXQ-NV-juz">

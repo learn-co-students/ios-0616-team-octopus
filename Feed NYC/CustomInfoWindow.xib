@@ -3,36 +3,49 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomInfoWindow" customModule="Feed_NYC" customModuleProvider="target">
+            <connections>
+                <outlet property="nameButtonLabel" destination="RrN-UY-4RF" id="rA1-ro-HnN"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="CustomInfoWindow" customModule="Feed_NYC" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+        <view clearsContextBeforeDrawing="NO" alpha="0.93000000000000005" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxZ-O7-uti">
-                    <rect key="frame" x="8" y="64" width="184" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <size key="shadowOffset" width="1" height="0.0"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infoWindow" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-wQ-L2P">
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="RrN-UY-4RF">
+                    <rect key="frame" x="17" y="15" width="213" height="105"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <size key="titleShadowOffset" width="1" height="2"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="NameButtonTapped:" destination="-1" eventType="touchUpInside" id="Mvc-RR-tuA"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="EHg-q1-Hpc"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="MEU-zp-SI3"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Mfa-5e-1gE"/>
-                <constraint firstItem="VxZ-O7-uti" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ttH-J5-3U4"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Cd-ms-i8p"/>
+                <constraint firstAttribute="bottom" secondItem="Jsd-wQ-L2P" secondAttribute="bottom" id="1fM-5r-pdR"/>
+                <constraint firstAttribute="bottom" secondItem="RrN-UY-4RF" secondAttribute="bottom" constant="30" id="20J-yK-3UG"/>
+                <constraint firstItem="RrN-UY-4RF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="2BI-h1-MFm"/>
+                <constraint firstItem="RrN-UY-4RF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="AJz-ee-2Is"/>
+                <constraint firstAttribute="trailing" secondItem="RrN-UY-4RF" secondAttribute="trailing" constant="20" id="DxA-Hr-3kk"/>
+                <constraint firstItem="Jsd-wQ-L2P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fjH-nM-Kw7"/>
+                <constraint firstAttribute="trailing" secondItem="Jsd-wQ-L2P" secondAttribute="trailing" id="vQy-ch-iUV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="helloLabel" destination="VxZ-O7-uti" id="EyG-6Y-M0e"/>
-            </connections>
             <point key="canvasLocation" x="380" y="271"/>
         </view>
     </objects>
+    <resources>
+        <image name="infoWindow" width="360" height="270"/>
+    </resources>
 </document>
