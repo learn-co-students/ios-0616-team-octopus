@@ -56,7 +56,7 @@
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="allFacilities" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
@@ -64,13 +64,16 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                         <state key="normal" title="Food Pantries"/>
                                         <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="foodPantries" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
                                         <rect key="frame" x="0.0" y="94" width="116" height="32"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                         <state key="normal" title="Soup Kitchens"/>
+                                        <connections>
+                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="soupKitchens" customClass="SWRevealViewControllerSeguePushController" id="tJg-Ci-GpC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
                                         <rect key="frame" x="0.0" y="141" width="35" height="32"/>
@@ -103,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pV7-pY-jC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="198"/>
+            <point key="canvasLocation" x="1198" y="198"/>
         </scene>
         <!--DennisStoryboard-->
         <scene sceneID="KJm-IF-T9y">
@@ -139,6 +142,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="lou-pY-Tpx" id="vM9-va-TxS"/>
+                        <segue destination="rIS-ym-nfx" kind="presentation" identifier="detailSegue" id="e8d-a3-GZJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKQ-lx-Rtp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,7 +155,7 @@
                 <viewControllerPlaceholder storyboardName="CenkersStoryboard" id="rIS-ym-nfx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2U-jF-kaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3597" y="-584"/>
+            <point key="canvasLocation" x="3481" y="-726"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eXQ-NV-juz">
@@ -173,7 +177,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="TgO-ME-d39"/>
         <segue reference="Eah-uz-nHs"/>
-        <segue reference="1Go-j8-rOF"/>
     </inferredMetricsTieBreakers>
 </document>

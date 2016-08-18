@@ -11,5 +11,5 @@ import Foundation
 struct Constants {
     static let navBarHeight = CGFloat(60.0)
     static let midtownZoomLevel = Float(12.5)
-    static let defaultZoomLevel = Float(13.5)
+    static let defaultZoomLevel = Float(13) //13.5
 }

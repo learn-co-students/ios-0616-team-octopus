@@ -17,6 +17,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     let locationManager = CLLocationManager()
     var mapView: GMSMapView!
     var marker: GMSMarker!
+    var button: UIButton!
+    var facilityForTappedMarker = Facility()
     
     var currentDeviceLocationLatitude = 0.0
     var currentDeviceLocationLongitude = 0.0
@@ -29,10 +31,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     // data store for all facility objects
     let store = FacilityDataStore.sharedInstance
     
+    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        activityIndicator.color = UIColor.cyanColor()
+        activityIndicator.center = view.center
+        
+        
+        self.store.readInTextFile()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        self.createMapView()
+        self.setupMarkers {
+            self.activityIndicator.stopAnimating()
+            //            weakSelf?.activityIndicator.stopAnimating()
+            print("Were done with setup markers!") // Jokes! not really...
+        }
+        self.addBigRedButton()
+        self.view.addSubview(mapView)
+        self.view.addSubview(button)
+        self.view.addSubview(activityIndicator)
+        
+        mapView.delegate = self
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -40,15 +63,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        self.store.readInTextFile()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        self.createMapView()
-        self.addBigRedButton()
-        mapView.delegate = self
         self.findClosestLocation()
-
-
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,8 +94,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
-    func setupMarkers() {
-        // MARK: -To display all the pins on map
+    // MARK: -Displays all the pins on map
+    func setupMarkers(completion:() -> ()) {
+        self.activityIndicator.startAnimating()
+        
+        
         for i in 0..<self.store.facilities.count {
             let currentFacility = self.store.facilities[i]
             
@@ -86,26 +106,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let latitude = currentFacility.latitude
             let longitude = currentFacility.longitude
             let name = currentFacility.name
-            
             let position = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: position)
             marker.title = name
-            marker.map = mapView
-            if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
-                marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
-            } else if currentFacility.featureList.contains("Food Pantry") {
-                marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
-            }
+            
+            let featureSet: Set<String> = Set(currentFacility.featureList)
+            marker.snippet = featureSet.joinWithSeparator(". ") + "\n" + currentFacility.phoneNumber
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({
+                marker.map = self.mapView
+            })
+            
+            //            if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
+            //                marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
+            //            } else if currentFacility.featureList.contains("Food Pantry") {
+            //                marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
+            //            }
             
             marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
+            
         }
+            NSOperationQueue.mainQueue().addOperationWithBlock({
+                self.activityIndicator.stopAnimating()
+                completion()
+            })
+            
+        
     }
     
-
+    
     func createMapView() {
         
         let camera : GMSCameraPosition
-        print (CLLocationManager.locationServicesEnabled())
+        
+        // Has the user allowed location services
+        //print ("Has the user given us permission to use location services: \(CLLocationManager.locationServicesEnabled())")
         
         // .AuthorizedWhenInUse? = true
         if CLLocationManager.locationServicesEnabled() {
@@ -124,41 +159,39 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         else {
             //if status == .Denied {
             camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: Constants.midtownZoomLevel)
-
+            
             //  }
         }
         
         let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
         self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
         self.mapView.myLocationEnabled = true
-        self.view.addSubview(mapView)
-        //self.view.sendSubviewToBack(mapView)
-        //            self.view.insertSubview(mapView, atIndex: 0)
+        
+        
         // button in right low corner that makes current location in the middle
         self.mapView.settings.myLocationButton = true
-        setupMarkers()
         //self.view.subviews.forEach { view in
-          //  print(view.frame.origin)
+        //    print(view.frame.origin)
         //}
-
+        
         
     }
-    
+
+    // Sets properties of "get nearby help" button
     func addBigRedButton() {
-        let button = UIButton()
+        button = UIButton()
         button.setTitle("FIND CLOSEST HELP", forState: .Normal)
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.backgroundColor = UIColor.blueColor()
+        button.backgroundColor = UIColor.redColor()
         button.addTarget(self, action: #selector(MapViewController.helpButtonTapped(_:)), forControlEvents: .TouchUpInside)
-        button.frame = CGRectMake(153, 490, 295, 30)
+        button.frame = CGRectMake(153, 490, 295, 40)
+        button.layer.cornerRadius = 15 //Rounded edge of button: 20 is a semi-circle
+        button.layer.borderColor = UIColor.blackColor().CGColor
         
         //UIScreen.mainScreen().bounds.size.width / 2.0
         button.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.height - 80)
-
-        self.view.addSubview(button)
-        
         // width is 295
-        //153 490 295 30
+        //153 490 295 40
     }
     
     func helpButtonTapped(sender: UIButton!) {
@@ -175,14 +208,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         self.presentViewController(detailVC, animated: true, completion: nil)
     }
-    
-    @IBAction func showMenu(sender: AnyObject) {
-        
-    }
-
 
 }
-
 
 // MARK: - CLLocationManagerDelegate
 
@@ -215,14 +242,14 @@ extension MapViewController {
         
         // if user denied access to his/he location coordinats or functionality is turned off
         // shows whole NYC map on screen
-//        if status == .Denied {
-//            let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
-//            let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
-//            self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-//            self.mapView.myLocationEnabled = true
-//            self.view.insertSubview(mapView, atIndex: 0)
-//            setupMarkers()
-//        }
+        //        if status == .Denied {
+        //            let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
+        //            let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
+        //            self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+        //            self.mapView.myLocationEnabled = true
+        //            self.view.insertSubview(mapView, atIndex: 0)
+        //            setupMarkers()
+        //        }
         
     }
     
@@ -241,27 +268,40 @@ extension MapViewController {
             locationManager.stopUpdatingLocation()
         }
     }
-
-    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker)-> Bool {        
+    
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker)-> Bool {
         if marker != mapView.selectedMarker {
             mapView.selectedMarker = marker
         }
         return true
     }
-
+    
     func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        let customInfoWindow = NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
-        customInfoWindow.helloLabel.text = marker.title
+        let customInfoWindow : CustomInfoWindow!
+        customInfoWindow = CustomInfoWindow(frame: CGRect(x: 0, y: 0, width: 230, height: 150))
+        //NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
+        customInfoWindow.nameButtonLabel.setTitle("\(marker.title!)\n\n\(marker.snippet!)", forState: .Normal)
         
         mapView.camera = GMSCameraPosition(target: marker.position, zoom: 13, bearing: 0, viewingAngle: 0)
-        
         return customInfoWindow
     }
-
+    
+    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+        self.facilityForTappedMarker = self.findFacilityForMarker(marker)
+        performSegueWithIdentifier("detailSegue", sender: mapView)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detailSegue" {
+            let detailVC = segue.destinationViewController as! CenkersDetailViewController
+            detailVC.facilityToDisplay = self.facilityForTappedMarker
+        }
+    }
+    
+    func findFacilityForMarker(marker: GMSMarker) -> Facility {
+        let facilities = store.facilities.filter{ $0.name == marker.title && $0.latitude == marker.layer.latitude && $0.longitude == marker.layer.longitude}
+        return facilities[0]
+    }
+    
 }
-
-
-
-
-
 

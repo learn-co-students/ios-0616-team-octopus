@@ -10,6 +10,8 @@ import UIKit
 
 class MenuViewController: UIViewController {
 
+    let store = FacilityDataStore.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,14 +39,41 @@ class MenuViewController: UIViewController {
 
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        print(segue.destinationViewController)
+        
+        if segue.identifier == "allFacilities" {
+            let navigationController = segue.destinationViewController
+            let tableVC = navigationController.childViewControllers.first as! FacilityTableViewController
+            tableVC.title = "Soup Kitchens and Food Pantries"
+            
+            tableVC.facilities = self.store.facilities.sort{ $0.name < $1.name }
+            
+            print("Inside all facilities")
+        } else if segue.identifier == "foodPantries" {
+            let navigationController = segue.destinationViewController
+            let tableVC = navigationController.childViewControllers.first as! FacilityTableViewController
+            tableVC.title = "Food Pantries"
+            let foodPantries = self.store.getFoodPantryFacilities()
+            
+            tableVC.facilities = foodPantries.sort{ $0.name < $1.name }
+            
+            print(tableVC.facilities)
+            print("Inside food pantries")
+        } else if segue.identifier == "soupKitchens" {
+            let navigationController = segue.destinationViewController
+            let tableVC = navigationController.childViewControllers.first as! FacilityTableViewController
+            tableVC.title = "Soup Kitchens"
+            tableVC.facilities = self.store.getFacilitiesThatHave(feature: Facility.foodType.SoupKitchen)
+        }
+        
     }
-    */
 
 }
