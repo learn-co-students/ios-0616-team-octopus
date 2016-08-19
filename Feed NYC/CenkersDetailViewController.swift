@@ -31,7 +31,9 @@ class CenkersDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        self.view.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.1)
+        facilityNameLabel.textColor = UIColor.flatWhiteColor()
         
         //call the function that updates the labels
         self.updateLabels()

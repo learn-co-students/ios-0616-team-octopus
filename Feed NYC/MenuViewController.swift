@@ -9,13 +9,27 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    @IBOutlet weak var directories: UILabel!
+    @IBOutlet weak var soupAndPantryLabel: UIButton!
+    @IBOutlet weak var fodPantryLabel: UIButton!
+    @IBOutlet weak var soupKitchenLabel: UIButton!
+    @IBOutlet weak var mapLabel: UIButton!
+    @IBOutlet weak var aboutUsLabel: UIButton!
+    
+    
     let store = FacilityDataStore.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.flatNavyBlueColorDark()
+        directories.textColor = UIColor.flatSkyBlueColorDark()
+        soupAndPantryLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
+        fodPantryLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
+        soupKitchenLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
+        mapLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
+        aboutUsLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
+
     }
 
     override func didReceiveMemoryWarning() {
