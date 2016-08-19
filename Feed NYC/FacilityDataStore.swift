@@ -19,15 +19,16 @@ class FacilityDataStore {
     var currentLocationCoordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
     // Reads in Facilities.txt,  and creates singleton
-    // When you need to update with new data use the method: printFacilitiesTextFilenWhenWeUpdateWithNewXMLFile()
+    // When you need to update with new data use the method: printXMLFile()
     func readInTextFile() {
+        guard self.facilities.count == 0 else { return }
+        guard self.facilitiesDictionary.count == 0 else { return }
+       
+        
         if let filepath = NSBundle.mainBundle().pathForResource("Facilities", ofType: "txt") {
             do {
                 let contents = try String(contentsOfFile: filepath, usedEncoding: nil) as String
-                //                print(contents)
-                
-                
-                
+   
                 // Parses out Facilities.txt and populates facilities : [Facility] , facilitiesDictionary : [String : Facility ]
                 self.getFacilitiesFromJSONFile(contents)
             } catch {
@@ -47,24 +48,31 @@ class FacilityDataStore {
     //
     // Developer then copy paste and add it to Facilities.txt
     // Displays the new Facilities.txt file in the debug area
-    private func printFacilitiesTextFilenWhenWeUpdateWithNewXMLFile() {
+    // MARK: -Use this method when we have a new XML file
+    //    Make sure geo.getGeoLatitudeLongtitudeByAddress() for loop runs from 0..<self.store.facilities.count
+    //    It will take at least a minute to run
+    func printXMLFile() {
         
         //Read XML files
         self.refreshFacilitiesDataStoreWithCompletion { [weak weakSelf = self] in
             
             // Ask google to convert locations to latitude and longitude
             let geo = GeocodingAPI()
-            geo.getGeoLatitudeLongtitudeByAddress()  // Make sure that the for loop inside is from 0..<self.store.facilities.count
+            geo.getGeoLatitudeLongtitudeByAddress()  // <-- Make sure that the for loop inside this method from 0..<self.store.facilities.count
+                                                     //
+            
+            // Check facilities for duplicate Geolocations
+            self.checkAndRemoveDuplicateFacilities()
             
             // Call method to  Print the facility dictionary  -- what you copy, then paste into the Facilities.txt file
             weakSelf?.setUpFacilitiesForOutputToJSON()
         }
     }
-    func printFacilitiesDictionary() {
-        self.checkAndRemoveDuplicateFacilities()
-        self.setUpFacilitiesForOutputToJSON()
-    }
     
+    
+    
+    // Parses XML file and populates Singleton with Facility objects
+    // Facility array still contains duplicates
     func refreshFacilitiesDataStoreWithCompletion(completion: () -> ()) {
         facilities.removeAll()
         FacilityParser.getFacilitiesWithCompletion { (parsedFacilities) in
@@ -75,7 +83,8 @@ class FacilityDataStore {
             })
         }
     }
-    
+    // Checks self.facilities for duplicate Street Addresses
+    //  Problem was 619 lexington avenue != 619  Lexington Avenue, so a few duplicates get through
     func cleanRedundantFacilities(parsedFacilities: [Facility], completion: ([Facility])->()) {
         var i=0
         var cleanedFacilities: [Facility] = []
@@ -99,8 +108,9 @@ class FacilityDataStore {
     
     // Converts self.facilities to facilityDictionary, makes facilityDictionary into a jsonable string
     func setUpFacilitiesForOutputToJSON() {
-        // Sleep waits 60 seconds for the googleMaps GeocodingAPI to finish
-        //sleep(60)
+        // Sleep waits 60 seconds for the googleMaps GeocodingAPI to finish, yes its not a true multithreading dependency but eh it works
+        print ("Please wait 60 seconds for googleMaps GeocodingAPI to finish...")
+        sleep(60)
         
         var i = 0
         var masterDictionaryOfFacilities = [String : AnyObject]()
@@ -110,15 +120,15 @@ class FacilityDataStore {
             let currentFacility = self.facilities[i]
             let dictionaryFacility = currentFacility.toDictionary()
             
-            //            print(dictionaryFacility)
-            
+            // This string will be the key into self.facilitiesDictionary
+            // I.e. let facilityWeWant = facilitiesDictionary[coordinatesString]    
             let coordinatesString = "\(currentFacility.latitude) \(currentFacility.longitude)"
 
             masterDictionaryOfFacilities[coordinatesString] = dictionaryFacility
             i += 1
         }
         
-        //                print (masterDictionaryOfFacilities)
+        // print (masterDictionaryOfFacilities)
         
         
         //  creating JSON out of the above dictionary
@@ -147,7 +157,7 @@ class FacilityDataStore {
                 
                 //                print(facility)
                 let newFacility = Facility.makeFacility(facility)
-                //MARK: -Cenker add user distance to facility
+                //MARK: -Cenker we could add user distance to facility here
                 //  newFacility.distanceFromCurrentLocation =
                 
                 //                print(newFacility)
@@ -157,11 +167,12 @@ class FacilityDataStore {
             }
         }
 //                print(self.facilities)
-//                    print(self.facilitiesDictionary)
+//                print(self.facilitiesDictionary)
 //                print(self.facilities.count)
 //                print(self.facilitiesDictionary.count)
     }
     
+    // Checks Facility for duplicates that have the same coordinates
     func checkAndRemoveDuplicateFacilities()
     {
         var i = 0
@@ -201,7 +212,7 @@ class FacilityDataStore {
         
     }
     
-    
+    //
     // featureToCompare is either "Soup Kitchen" or "Food Pantry"
     //    Method example call: self.store.getFacilitiesThatHave(feature: Facility.foodType.FoodPantry)
     func getFacilitiesThatHave(feature featureToCompare: Facility.foodType) -> [Facility]{
@@ -209,14 +220,14 @@ class FacilityDataStore {
         
         for facility in self.facilities {
             for feature in facility.featureList {
-                if feature == featureToCompare.rawValue {
+                if feature == featureToCompare.rawValue {  // Uses Facility enum with rawValue equal to either "Soup Kitchen" or "Food Pantry"
                     facilityList.append(facility)
                     break
                 }
             }
         }
         
-        
+        //
         return facilityList.sort{$0.name < $1.name}
     }
     

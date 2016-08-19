@@ -22,7 +22,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     var currentDeviceLocationLatitude = 0.0
     var currentDeviceLocationLongitude = 0.0
-    // Whether we are authorized to use location
     
     // closest location to current location
     var closestFacility: Facility?
@@ -45,11 +44,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         self.createMapView()
-        self.setupMarkers {
+        self.setupMarkers { 
             self.activityIndicator.stopAnimating()
             //            weakSelf?.activityIndicator.stopAnimating()
-            print("Were done with setup markers!") // Jokes! not really...
+            print("Were done with setup markers") // Jokes! not really...
         }
+        
         self.addBigRedButton()
         self.view.addSubview(mapView)
         self.view.addSubview(button)
@@ -114,15 +114,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 marker.map = self.mapView
             })
             
-            //            if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
-            //                marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
-            //            } else if currentFacility.featureList.contains("Food Pantry") {
-            //                marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
-            //            }
+            if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
+                marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
+            } else if currentFacility.featureList.contains("Food Pantry") {
+                marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
+            }
             
             marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
             
         }
+        
+        defer { self.activityIndicator.stopAnimating() }
+        
             NSOperationQueue.mainQueue().addOperationWithBlock({
                 self.activityIndicator.stopAnimating()
                 completion()
@@ -245,17 +248,6 @@ extension MapViewController {
         if status == .Denied {
             // Let them know they need to allow location!
         }
-        
-        // if user denied access to his/he location coordinats or functionality is turned off
-        // shows whole NYC map on screen
-        //        if status == .Denied {
-        //            let camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: 10.5)
-        //            let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
-        //            self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-        //            self.mapView.myLocationEnabled = true
-        //            self.view.insertSubview(mapView, atIndex: 0)
-        //            setupMarkers()
-        //        }
         
     }
     

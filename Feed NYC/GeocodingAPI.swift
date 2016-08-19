@@ -89,7 +89,7 @@ class GeocodingAPI {
                         
                         if let responseData = responseData {
                             
-                            //NOTE: Had to change it when running on iPhone. It was originally  let oneDictionary = responseData["results"]![0] as? [String: AnyObject]
+                            //NOTE: Had to change it to test on iPhone. It was originally  let oneDictionary = responseData["results"]![0] as? [String: AnyObject]
                             let oneDictionary = (responseData["results"] as! NSArray) [0] as? [String: AnyObject]
                             if let oneDictionary = oneDictionary {
                                 let locationDictionary = oneDictionary["geometry"] as? [String: AnyObject]
@@ -104,33 +104,6 @@ class GeocodingAPI {
                         
                         completion(outputData)
                         
-                        
-                        
-//                        if let responseData = responseData {
-//                            for (key, value) in responseData {
-//                                if String(key) == "results" {
-//                                    let newDictionary = value[0] as? [String: AnyObject]
-//                                    if let newDictionary = newDictionary {
-//                                        for (key, value) in newDictionary {
-//                                            if String(key) == "geometry" {
-//                                                let locationDictionary = value as? [String: AnyObject]
-//                                                if let locationDictionary = locationDictionary {
-//                                                    for (key, value) in locationDictionary {
-//                                                        if String(key) == "location" {
-//                                                            let output = value as? [String: AnyObject]
-//                                                            if let output = output {
-//                                                                outputData = output
-//                                                            }
-//                                                        }
-//                                                    }
-//                                                }
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-                      
                     } catch {
                         print("Error: \(error)")
                     }
