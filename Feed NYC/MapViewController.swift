@@ -204,7 +204,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         let detailVC = cenkersStoryboard.instantiateViewControllerWithIdentifier("CenkersDetailViewController") as! CenkersDetailViewController
         
-        if CLLocationManager.locationServicesEnabled() {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             if let managerLocation = locationManager.location {
                 self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
                 self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
