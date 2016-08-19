@@ -39,7 +39,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         activityIndicator.color = UIColor.cyanColor()
         activityIndicator.center = view.center
         
-        
+        self.addBigRedButton()
         self.store.readInTextFile()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -47,12 +47,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.setupMarkers { 
             self.activityIndicator.stopAnimating()
             //            weakSelf?.activityIndicator.stopAnimating()
-            print("Were done with setup markers") // Jokes! not really...
+            print("Were done with setup markers")
         }
-        
-        self.addBigRedButton()
+
         self.view.addSubview(mapView)
-        self.view.addSubview(button)
+        
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            self.view.addSubview(button)
+        }
         self.view.addSubview(activityIndicator)
         
         mapView.delegate = self
@@ -138,42 +140,48 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func createMapView() {
         
         let camera : GMSCameraPosition
+        let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
         
         // Has the user allowed location services
         //print ("Has the user given us permission to use location services: \(CLLocationManager.locationServicesEnabled())")
         
         // .AuthorizedWhenInUse? = true
-        if CLLocationManager.locationServicesEnabled() {
-            
+        //if CLLocationManager.locationServicesEnabled() {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             if let managerLocation = locationManager.location {
                 self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
                 self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
             }
             
-            
             // setting map with current location ≥coordinats in the middle
             camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: Constants.defaultZoomLevel)
             
-            
+            self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+            self.mapView.myLocationEnabled = true
+            // button in right low corner that makes current location in the middle
+            self.mapView.settings.myLocationButton = true
+            self.view.addSubview(button)
+            //self.mapView.addSubview(button)
         }
         else {
             //if status == .Denied {
-            camera = GMSCameraPosition.cameraWithLatitude(40.738440, longitude: -73.950498, zoom: Constants.midtownZoomLevel)
+            camera = GMSCameraPosition.cameraWithLatitude(40.758896, longitude: -73.985130, zoom: Constants.midtownZoomLevel)
+           
+            self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
+            self.mapView.myLocationEnabled = false
+            showLocationAlert()
             
+            // button in right low corner that makes current location in the middle
+            self.mapView.settings.myLocationButton = false
+            button.removeFromSuperview()
             //  }
         }
         
-        let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
-        self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
-        self.mapView.myLocationEnabled = true
-        
-        
         // button in right low corner that makes current location in the middle
-        self.mapView.settings.myLocationButton = true
+        //self.mapView.settings.myLocationButton = true
         //self.view.subviews.forEach { view in
         //    print(view.frame.origin)
         //}
-        
         
     }
 
@@ -199,7 +207,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         let detailVC = cenkersStoryboard.instantiateViewControllerWithIdentifier("CenkersDetailViewController") as! CenkersDetailViewController
         
-        if CLLocationManager.locationServicesEnabled() {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             if let managerLocation = locationManager.location {
                 self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
                 self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
@@ -234,19 +242,33 @@ extension MapViewController {
             // ask for updates on the user’s location
             locationManager.startUpdatingLocation()
             
-            
             // current user location latitude and longitude
             if let managerLocation = manager.location {
                 self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
                 self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
             }
-            
-            
             //calling the function that updates the singleton with current coordinates
             self.updateCurrentLocation()
+            let camera = GMSCameraPosition.cameraWithLatitude(self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude, zoom: Constants.defaultZoomLevel)
+            mapView.camera = camera
+            mapView.myLocationEnabled = true
+            
+            // button in right low corner that makes current location in the middle
+            self.mapView.settings.myLocationButton = true
+            
+            self.view.addSubview(button)
+            //self.mapView.addSubview(button)
         }
         if status == .Denied {
             // Let them know they need to allow location!
+            let camera = GMSCameraPosition.cameraWithLatitude(40.758896, longitude: -73.985130, zoom: Constants.midtownZoomLevel)
+            mapView.camera = camera
+            mapView.myLocationEnabled = false
+            showLocationAlert()
+            // button in right low corner that makes current location in the middle
+            self.mapView.settings.myLocationButton = false
+            
+            button.removeFromSuperview()
         }
         
     }
@@ -299,6 +321,13 @@ extension MapViewController {
     func findFacilityForMarker(marker: GMSMarker) -> Facility {
         let facilities = store.facilities.filter{ $0.name == marker.title && $0.latitude == marker.layer.latitude && $0.longitude == marker.layer.longitude}
         return facilities[0]
+    }
+    
+    func showLocationAlert() {
+        let alert = UIAlertController(title: "Location Permission", message: "Please allow our app to see your location while in use so we can serve you better. You can change the permissions in your phone's settings.", preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(OKAction)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
 }
