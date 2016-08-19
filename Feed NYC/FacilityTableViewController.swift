@@ -44,12 +44,19 @@ class FacilityTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
+        
 
+        cell.textLabel?.textColor = UIColor.flatBlackColorDark()
+        cell.detailTextLabel?.textColor = UIColor.flatBlackColor().lightenByPercentage(0.2)
         cell.textLabel?.text = self.facilities[indexPath.row].name as String
         cell.detailTextLabel?.text = self.facilities[indexPath.row].briefDescription as String
         
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.flatWhiteColor().lightenByPercentage(0.5)
     }
  
     

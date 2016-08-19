@@ -10,6 +10,7 @@ import UIKit
 import ChameleonFramework
 
 class AboutUsViewController: UIViewController {
+    @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var aboutUSText: UITextView!
     @IBOutlet weak var aboutUsTxt1: UITextView!
     @IBOutlet weak var aboutUsTxt2: UITextView!
@@ -18,6 +19,7 @@ class AboutUsViewController: UIViewController {
     @IBOutlet weak var markersText: UITextView!
     @IBOutlet weak var aboutUsTxt5: UITextView!
     @IBOutlet weak var resourcesText: UITextView!
+    @IBOutlet weak var dataSetLink: UIButton!
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -25,14 +27,15 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.1)
-        aboutUSText.textColor = UIColor.flatBlackColor()
-        aboutUsTxt1.textColor = UIColor.flatWhiteColor()
-        aboutUsTxt2.textColor = UIColor.flatWhiteColor()
-        aboutUsTxt3.textColor = UIColor.flatWhiteColor()
-        markersText.textColor = UIColor.flatBlackColor()
-        aboutUsTxt5.textColor = UIColor.flatWhiteColor()
-        resourcesText.textColor = UIColor.flatBlackColor()
+        view.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
+        aboutUSText.textColor = UIColor.flatNavyBlueColorDark()
+        aboutUsTxt1.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+        aboutUsTxt2.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+        aboutUsTxt3.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+        markersText.textColor = UIColor.flatNavyBlueColorDark()
+        aboutUsTxt5.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+        resourcesText.textColor = UIColor.flatNavyBlueColorDark()
+        dataSetLink.setTitleColor(UIColor.flatWhiteColor().lightenByPercentage(0.7), forState: .Normal)
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()

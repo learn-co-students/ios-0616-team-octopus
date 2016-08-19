@@ -22,39 +22,39 @@
                                 <rect key="frame" x="134" y="72" width="107" height="73"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="FED NYC  is an app with the goal to help support NYC  soup kitchens and food pantries connect with their local communities. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dno-UV-mCn">
-                                <rect key="frame" x="20" y="201" width="335" height="81"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <rect key="frame" x="20" y="195" width="335" height="81"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Rf-xo-qeh">
-                                <rect key="frame" x="20" y="270" width="335" height="81"/>
+                                <rect key="frame" x="20" y="254" width="335" height="81"/>
                                 <string key="text">Locations are often difficult to find; Feed NYC can help you find and connect you to the nearest soup kitchen / food pantry location. </string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sort NYC-area soup kitchens and food pantries by your location and filter the results to match your criteria. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UPZ-NK-2cZ">
-                                <rect key="frame" x="20" y="340" width="335" height="81"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <rect key="frame" x="20" y="314" width="335" height="81"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Map markers guide:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6bE-o8-Fds">
-                                <rect key="frame" x="20" y="414" width="335" height="34"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="MAP MARKERS GUIDE" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6bE-o8-Fds">
+                                <rect key="frame" x="20" y="382" width="335" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ABOUT US:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-dV-QMj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ABOUT US" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-dV-QMj">
                                 <rect key="frame" x="23" y="165" width="335" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Resources:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YVD-ki-1gt">
-                                <rect key="frame" x="20" y="515" width="335" height="36"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="RESOURCES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YVD-ki-1gt">
+                                <rect key="frame" x="20" y="477" width="335" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T3-lv-DtB">
-                                <rect key="frame" x="23" y="541" width="335" height="31"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <rect key="frame" x="23" y="503" width="335" height="31"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Link to the dataset">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -64,9 +64,9 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-Cf-Ddr">
-                                <rect key="frame" x="20" y="441" width="335" height="75"/>
-                                <string key="text">Green markers represent soup kitchens.       Blue markers represent food pantries.           Purple markers represent all locations.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <rect key="frame" x="20" y="406" width="335" height="75"/>
+                                <string key="text">Green markers represent soup kitchens.                  Blue markers represent food pantries.                      Purple markers represent all locations.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -86,6 +86,8 @@
                         <outlet property="aboutUsTxt3" destination="UPZ-NK-2cZ" id="fAt-uW-UIg"/>
                         <outlet property="aboutUsTxt4" destination="QYk-Cf-Ddr" id="yAH-IJ-tVb"/>
                         <outlet property="aboutUsTxt5" destination="QYk-Cf-Ddr" id="jk7-O3-WVV"/>
+                        <outlet property="dataSetLink" destination="8T3-lv-DtB" id="eBu-TZ-UBt"/>
+                        <outlet property="logo" destination="EV5-gA-n7J" id="F6u-hW-GWT"/>
                         <outlet property="markersText" destination="6bE-o8-Fds" id="4VQ-pZ-oTb"/>
                         <outlet property="menuButton" destination="2kd-Iy-GOM" id="V5O-Dv-KxW"/>
                         <outlet property="resourcesText" destination="YVD-ki-1gt" id="yYp-vd-3yC"/>
