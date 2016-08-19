@@ -46,22 +46,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRECTORIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgO-0D-hBg">
-                                <rect key="frame" x="20" y="54" width="153" height="24"/>
+                                <rect key="frame" x="20" y="54" width="204" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="BKS-Gm-z2j"/>
-                                    <constraint firstAttribute="width" constant="153" id="rmo-qE-Y8f"/>
+                                    <constraint firstAttribute="height" constant="24" id="NiY-KU-IUj"/>
+                                    <constraint firstAttribute="width" constant="204" id="a0X-PW-LPe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="TharLon" family="TharLon" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="TharLon" family="TharLon" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
-                                <rect key="frame" x="20" y="94" width="231" height="184"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
+                                <rect key="frame" x="20" y="94" width="149" height="219"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
-                                        <rect key="frame" x="0.0" y="0.0" width="231" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                        <state key="normal" title="Soup Kitchens &amp; Food Pantries">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="39"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="All Locations">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -69,32 +69,32 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
-                                        <rect key="frame" x="0.0" y="38" width="104" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                        <rect key="frame" x="0.0" y="45" width="143" height="39"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <state key="normal" title="Food Pantries"/>
                                         <connections>
                                             <segue destination="rDb-nV-Ii3" kind="custom" identifier="foodPantries" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
-                                        <rect key="frame" x="0.0" y="76" width="108" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                        <rect key="frame" x="0.0" y="90" width="149" height="39"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <state key="normal" title="Soup Kitchens"/>
                                         <connections>
                                             <segue destination="rDb-nV-Ii3" kind="custom" identifier="soupKitchens" customClass="SWRevealViewControllerSeguePushController" id="tJg-Ci-GpC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
-                                        <rect key="frame" x="0.0" y="114" width="33" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                        <rect key="frame" x="0.0" y="135" width="46" height="39"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <state key="normal" title="Map"/>
                                         <connections>
                                             <segue destination="uio-85-z6L" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="1Go-j8-rOF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hey-pe-iAi">
-                                        <rect key="frame" x="0.0" y="152" width="69" height="32"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hey-pe-iAi">
+                                        <rect key="frame" x="0.0" y="180" width="95" height="39"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <state key="normal" title="About Us"/>
                                         <connections>
                                             <action selector="AboutUsTapped:" destination="jCI-Os-AK9" eventType="touchUpInside" id="Sdo-au-p9o"/>
@@ -106,10 +106,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="ttq-bn-JOl" secondAttribute="leadingMargin" id="Cxa-Ha-Apk"/>
-                            <constraint firstItem="jgO-0D-hBg" firstAttribute="top" secondItem="JNv-zt-y5h" secondAttribute="bottom" constant="34" id="I4X-1V-tQz"/>
-                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="5Hj-Zn-s7J" secondAttribute="leading" id="jCz-Vp-cle"/>
-                            <constraint firstItem="5Hj-Zn-s7J" firstAttribute="top" secondItem="jgO-0D-hBg" secondAttribute="bottom" constant="16" id="tSo-PR-7VX"/>
+                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="5Hj-Zn-s7J" secondAttribute="leading" id="5Dd-Mh-f3g"/>
+                            <constraint firstItem="jgO-0D-hBg" firstAttribute="top" secondItem="JNv-zt-y5h" secondAttribute="bottom" constant="34" id="FT9-bm-iCt"/>
+                            <constraint firstItem="5Hj-Zn-s7J" firstAttribute="top" secondItem="jgO-0D-hBg" secondAttribute="bottom" constant="16" id="pPM-sR-B8g"/>
+                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="ttq-bn-JOl" secondAttribute="leadingMargin" id="sw0-uF-apZ"/>
                         </constraints>
                     </view>
                     <connections>

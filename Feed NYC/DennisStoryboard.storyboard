@@ -18,42 +18,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="About Us" translatesAutoresizingMaskIntoConstraints="NO" id="EV5-gA-n7J">
-                                <rect key="frame" x="134" y="72" width="107" height="73"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About Us" translatesAutoresizingMaskIntoConstraints="NO" id="EV5-gA-n7J">
+                                <rect key="frame" x="134" y="95" width="107" height="73"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="FED NYC  is an app with the goal to help support NYC  soup kitchens and food pantries connect with their local communities. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dno-UV-mCn">
-                                <rect key="frame" x="20" y="195" width="335" height="81"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="FED NYC  is an app with the goal to help support NYC  soup kitchens and food pantries connect with their local communities. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dno-UV-mCn">
+                                <rect key="frame" x="20" y="233" width="335" height="81"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Rf-xo-qeh">
-                                <rect key="frame" x="20" y="254" width="335" height="81"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Rf-xo-qeh">
+                                <rect key="frame" x="20" y="292" width="335" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="XFX-1Y-Fcf"/>
+                                </constraints>
                                 <string key="text">Locations are often difficult to find; Feed NYC can help you find and connect you to the nearest soup kitchen / food pantry location. </string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sort NYC-area soup kitchens and food pantries by your location and filter the results to match your criteria. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UPZ-NK-2cZ">
-                                <rect key="frame" x="20" y="314" width="335" height="81"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Sort NYC-area soup kitchens and food pantries by your location and filter the results to match your criteria. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UPZ-NK-2cZ">
+                                <rect key="frame" x="20" y="352" width="335" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="9Rv-cC-Hms"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="MAP MARKERS GUIDE" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6bE-o8-Fds">
-                                <rect key="frame" x="20" y="382" width="335" height="34"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="MAP MARKERS GUIDE" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6bE-o8-Fds">
+                                <rect key="frame" x="20" y="420" width="335" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Hvk-fw-Mh7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ABOUT US" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-dV-QMj">
-                                <rect key="frame" x="23" y="165" width="335" height="34"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ABOUT US" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-dV-QMj">
+                                <rect key="frame" x="23" y="203" width="335" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="BUH-IY-wBl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="RESOURCES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YVD-ki-1gt">
-                                <rect key="frame" x="20" y="477" width="335" height="36"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="RESOURCES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YVD-ki-1gt">
+                                <rect key="frame" x="20" y="515" width="335" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T3-lv-DtB">
-                                <rect key="frame" x="23" y="503" width="335" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T3-lv-DtB">
+                                <rect key="frame" x="23" y="541" width="335" height="29"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Link to the dataset">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,13 +75,48 @@
                                     <segue destination="VgJ-O7-oah" kind="show" id="u1s-eg-u2C"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-Cf-Ddr">
-                                <rect key="frame" x="20" y="406" width="335" height="75"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-Cf-Ddr">
+                                <rect key="frame" x="20" y="444" width="335" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Ybv-or-Yeo"/>
+                                </constraints>
                                 <string key="text">Green markers represent soup kitchens.                  Blue markers represent food pantries.                      Purple markers represent all locations.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="UPZ-NK-2cZ" firstAttribute="top" secondItem="dno-UV-mCn" secondAttribute="bottom" constant="38" id="2hr-Py-kR8"/>
+                            <constraint firstItem="6bE-o8-Fds" firstAttribute="top" secondItem="2Rf-xo-qeh" secondAttribute="bottom" constant="47" id="60T-Hc-L6K"/>
+                            <constraint firstAttribute="bottom" secondItem="QYk-Cf-Ddr" secondAttribute="bottom" constant="148" id="AoQ-gv-lev"/>
+                            <constraint firstItem="fTm-dV-QMj" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leadingMargin" constant="7" id="AyD-t4-zFq"/>
+                            <constraint firstItem="8T3-lv-DtB" firstAttribute="top" secondItem="QYk-Cf-Ddr" secondAttribute="bottom" constant="22" id="Blc-7e-lFS"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leadingMargin" constant="4" id="Dnb-ZQ-5lJ"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="leading" secondItem="QYk-Cf-Ddr" secondAttribute="leading" id="K9F-2s-KXF"/>
+                            <constraint firstItem="6FH-Tn-WdX" firstAttribute="top" secondItem="YVD-ki-1gt" secondAttribute="bottom" constant="116" id="KHi-nn-514"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="trailing" secondItem="YVD-ki-1gt" secondAttribute="trailing" id="LCg-W2-8hI"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="leading" secondItem="YVD-ki-1gt" secondAttribute="leading" id="NUl-7s-hmu"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="centerX" secondItem="EV5-gA-n7J" secondAttribute="centerX" id="P1N-1T-B9A"/>
+                            <constraint firstItem="EV5-gA-n7J" firstAttribute="top" secondItem="0ae-XY-ShA" secondAttribute="bottom" constant="31" id="Q3g-4g-Xbz"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="leading" secondItem="dno-UV-mCn" secondAttribute="leading" id="QBi-WF-FTf"/>
+                            <constraint firstItem="dno-UV-mCn" firstAttribute="top" secondItem="EV5-gA-n7J" secondAttribute="bottom" constant="65" id="RHx-H4-dtD"/>
+                            <constraint firstAttribute="trailing" secondItem="EV5-gA-n7J" secondAttribute="trailing" constant="134" id="TQX-DB-nkT"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="top" secondItem="fTm-dV-QMj" secondAttribute="bottom" constant="55" id="UFT-PD-9NE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fTm-dV-QMj" secondAttribute="trailing" constant="1" id="VyJ-T6-hXp"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="leading" secondItem="UPZ-NK-2cZ" secondAttribute="leading" id="Wf9-eG-XzO"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="trailing" secondItem="QYk-Cf-Ddr" secondAttribute="trailing" id="X3X-GF-sNy"/>
+                            <constraint firstItem="QYk-Cf-Ddr" firstAttribute="top" secondItem="UPZ-NK-2cZ" secondAttribute="bottom" constant="11" id="Y4q-0c-7Iu"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="leading" secondItem="6bE-o8-Fds" secondAttribute="leading" id="dxe-md-UmR"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="trailing" secondItem="UPZ-NK-2cZ" secondAttribute="trailing" id="glf-3W-aIq"/>
+                            <constraint firstItem="fTm-dV-QMj" firstAttribute="top" secondItem="pg9-fL-0R5" secondAttribute="top" constant="203" id="kqZ-ZL-xrf"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="trailing" secondItem="6bE-o8-Fds" secondAttribute="trailing" id="lR1-Xh-eEU"/>
+                            <constraint firstItem="fTm-dV-QMj" firstAttribute="trailing" secondItem="8T3-lv-DtB" secondAttribute="trailing" id="mT5-U4-wRr"/>
+                            <constraint firstItem="YVD-ki-1gt" firstAttribute="top" secondItem="6bE-o8-Fds" secondAttribute="bottom" constant="61" id="mvB-l6-8Cf"/>
+                            <constraint firstItem="fTm-dV-QMj" firstAttribute="top" secondItem="EV5-gA-n7J" secondAttribute="bottom" constant="35" id="mvG-Un-mbI"/>
+                            <constraint firstItem="fTm-dV-QMj" firstAttribute="leading" secondItem="8T3-lv-DtB" secondAttribute="leading" id="uYi-bg-USz"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="trailing" secondItem="dno-UV-mCn" secondAttribute="trailing" id="vwl-IU-NmI"/>
+                            <constraint firstItem="EV5-gA-n7J" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leading" constant="134" id="xNB-c5-Ha3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vy8-jX-oIY">
                         <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="2kd-Iy-GOM">
@@ -118,20 +165,20 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6FG-Ec-cQf" id="9OK-xF-Deb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ybI-Rb-lf1">
-                                            <rect key="frame" x="15" y="6" width="27.5" height="17"/>
+                                            <rect key="frame" x="15" y="3" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bQj-RS-RML">
-                                            <rect key="frame" x="15" y="23" width="39" height="14.5"/>
+                                            <rect key="frame" x="15" y="23" width="46" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>

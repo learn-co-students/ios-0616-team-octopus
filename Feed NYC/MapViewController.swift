@@ -186,11 +186,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func addBigRedButton() {
         button = UIButton()
         button.setTitle("FIND CLOSEST HELP", forState: .Normal)
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        button.backgroundColor = UIColor.redColor()
+        button.setTitleColor(UIColor.flatWhiteColor(), forState: .Normal)
+        button.backgroundColor = UIColor.flatNavyBlueColor()
         button.addTarget(self, action: #selector(MapViewController.helpButtonTapped(_:)), forControlEvents: .TouchUpInside)
-        button.frame = CGRectMake(153, 490, 295, 40)
-        button.layer.cornerRadius = 15 //Rounded edge of button: 20 is a semi-circle
+        button.frame = CGRectMake(170, 450, 225, 30)
+        button.layer.cornerRadius = 11.5 //Rounded edge of button: 20 is a semi-circle
         button.layer.borderColor = UIColor.blackColor().CGColor
         
         //UIScreen.mainScreen().bounds.size.width / 2.0
@@ -285,7 +285,7 @@ extension MapViewController {
     func updateCurrentLocation() {
         let currentCoordinates = CLLocationCoordinate2D(latitude: self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude)
         
-        store.currentLocationCoordinates = currentCoordinates
+//        store.currentLocationCoordinates = currentCoordinates
     }
     
     // this function moves blue marker on the map with user movement,

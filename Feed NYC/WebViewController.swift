@@ -27,10 +27,8 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    //http://www1.nyc.gov/apps/311utils/facilityFinderResults.htm?requestType=&serviceName=Find%20a%20Food%20Pantry%20or%20Soup%20Kitchen&viewType=SHOWALL&type=Food%20Provider&serviceId=1083#
-    
     func loadWebPage() {
-        let url = NSURL(string: "https://flatironschool.com/")
+        let url = NSURL(string: "http://www1.nyc.gov/apps/311utils/facilityFinderResults.htm?requestType=&serviceName=Find%20a%20Food%20Pantry%20or%20Soup%20Kitchen&viewType=SHOWALL&type=Food%20Provider&serviceId=1083#")
         let request = NSURLRequest(URL: url!)
         webViewer.scalesPageToFit = true
         webViewer.contentMode = .ScaleAspectFit
