@@ -128,18 +128,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         completion(true)
     }
     
-    
     func createMapView() {
         
         let camera : GMSCameraPosition
         let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
         
-        // Has the user allowed location services
-        //print ("Has the user given us permission to use location services: \(CLLocationManager.locationServicesEnabled())")
-        
-        // .AuthorizedWhenInUse? = true
-        //if CLLocationManager.locationServicesEnabled() {
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
             if let managerLocation = locationManager.location {
                 self.currentDeviceLocationLatitude = managerLocation.coordinate.latitude
                 self.currentDeviceLocationLongitude = managerLocation.coordinate.longitude
@@ -156,19 +150,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             //self.mapView.addSubview(button)
         }
         else {
-            //if status == .Denied {
+
             camera = GMSCameraPosition.cameraWithLatitude(40.758896, longitude: -73.985130, zoom: Constants.midtownZoomLevel)
            
             self.mapView = GMSMapView.mapWithFrame(smallerRect, camera: camera)
             self.mapView.myLocationEnabled = false
-            showLocationAlert()
-            
+        
             // button in right low corner that makes current location in the middle
             self.mapView.settings.myLocationButton = false
             button.removeFromSuperview()
             //  }
         }
-        
+    
         // button in right low corner that makes current location in the middle
         //self.mapView.settings.myLocationButton = true
         //self.view.subviews.forEach { view in
