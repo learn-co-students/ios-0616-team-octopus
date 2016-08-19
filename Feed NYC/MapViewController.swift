@@ -44,10 +44,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         self.createMapView()
-        self.setupMarkers { 
-            self.activityIndicator.stopAnimating()
-            //            weakSelf?.activityIndicator.stopAnimating()
-            print("Were done with setup markers")
+        // completion block, wait when all markers created
+        self.setupMarkers { completion in
+            if completion {
+                NSOperationQueue.mainQueue().addOperationWithBlock({
+                    self.activityIndicator.stopAnimating()
+                })
+            }
         }
 
         self.view.addSubview(mapView)
@@ -95,45 +98,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     // MARK: -Displays all the pins on map
-    func setupMarkers(completion:() -> ()) {
+    func setupMarkers(completion:(Bool) -> ()) {
+        
+        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        self.activityIndicator.color = UIColor.blackColor()
+        self.activityIndicator.center = view.center
         self.activityIndicator.startAnimating()
-        
-        
+    
         for i in 0..<self.store.facilities.count {
             let currentFacility = self.store.facilities[i]
-            
-            let latitude = currentFacility.latitude
-            let longitude = currentFacility.longitude
-            let name = currentFacility.name
-            let position = CLLocationCoordinate2DMake(latitude, longitude)
+            let position = CLLocationCoordinate2DMake(currentFacility.latitude, currentFacility.longitude)
             let marker = GMSMarker(position: position)
-            marker.title = name
+            marker.title = currentFacility.name
             
             let featureSet: Set<String> = Set(currentFacility.featureList)
             marker.snippet = featureSet.joinWithSeparator(". ") + "\n" + currentFacility.phoneNumber
             
             NSOperationQueue.mainQueue().addOperationWithBlock({
                 marker.map = self.mapView
+                if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
+                    marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
+                } else if currentFacility.featureList.contains("Food Pantry") {
+                    marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
+                }
+                
+                marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
             })
-            
-            if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
-                marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
-            } else if currentFacility.featureList.contains("Food Pantry") {
-                marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
-            }
-            
-            marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
-            
         }
-        
-        defer { self.activityIndicator.stopAnimating() }
-        
-            NSOperationQueue.mainQueue().addOperationWithBlock({
-                self.activityIndicator.stopAnimating()
-                completion()
-            })
-            
-        
+        completion(true)
     }
     
     
