@@ -18,52 +18,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About Us" translatesAutoresizingMaskIntoConstraints="NO" id="EV5-gA-n7J">
-                                <rect key="frame" x="134" y="87" width="107" height="73"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="FED NYC  is an app with the goal to help support NYC  soup kitchens and food pantries connect with their local communities. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dno-UV-mCn">
-                                <rect key="frame" x="16" y="224" width="343" height="81"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ABOUT US" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-dV-QMj">
+                                <rect key="frame" x="16" y="210" width="343" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="wwC-aS-uKB"/>
+                                    <constraint firstAttribute="height" constant="34" id="rUI-aH-V4k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="FED NYC  goal is to support NYC  soup kitchens and food pantries connect with their local communities. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dno-UV-mCn">
+                                <rect key="frame" x="16" y="247" width="343" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="laU-I1-mrS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Rf-xo-qeh">
-                                <rect key="frame" x="16" y="303" width="343" height="81"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Rf-xo-qeh">
+                                <rect key="frame" x="16" y="291" width="343" height="81"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="lvo-pn-94s"/>
+                                    <constraint firstAttribute="height" constant="81" id="yP1-8c-cLD"/>
                                 </constraints>
                                 <string key="text">Locations are often difficult to find; Feed NYC can help you find and connect you to the nearest soup kitchen / food pantry location. </string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="MAP MARKERS GUIDE" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6bE-o8-Fds">
-                                <rect key="frame" x="16" y="449" width="343" height="34"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="MAP MARKERS GUIDE" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6bE-o8-Fds">
+                                <rect key="frame" x="16" y="421" width="343" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="yAu-Jc-V0I"/>
+                                    <constraint firstAttribute="height" constant="34" id="N0Z-v7-cN4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ABOUT US" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-dV-QMj">
-                                <rect key="frame" x="16" y="186" width="343" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="GIi-O1-Kja"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="RESOURCES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YVD-ki-1gt">
-                                <rect key="frame" x="16" y="560" width="343" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Ntq-op-LBd"/>
-                                </constraints>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="RESOURCES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YVD-ki-1gt">
+                                <rect key="frame" x="16" y="510" width="343" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T3-lv-DtB">
-                                <rect key="frame" x="19" y="586" width="343" height="29"/>
+                                <rect key="frame" x="19" y="535" width="343" height="29"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="Link to the dataset">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,50 +68,57 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-Cf-Ddr">
-                                <rect key="frame" x="16" y="473" width="343" height="75"/>
+                                <rect key="frame" x="16" y="442" width="343" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="2ba-Wm-E1S"/>
+                                    <constraint firstAttribute="height" constant="75" id="DZq-Az-iTI"/>
                                 </constraints>
                                 <string key="text">Green markers represent soup kitchens.                  Blue markers represent food pantries.                      Purple markers represent all locations.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Sort NYC-area soup kitchens and food pantries by your location and filter the results to match your criteria. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UPZ-NK-2cZ">
-                                <rect key="frame" x="16" y="376" width="343" height="81"/>
+                                <rect key="frame" x="16" y="353" width="343" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="ZBz-C6-urW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector Logo" translatesAutoresizingMaskIntoConstraints="NO" id="dqY-9z-esQ">
+                                <rect key="frame" x="117" y="90" width="146" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="BUd-i7-DfO"/>
+                                    <constraint firstAttribute="width" constant="146" id="x3r-kE-2cG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="6bE-o8-Fds" firstAttribute="top" secondItem="2Rf-xo-qeh" secondAttribute="bottom" constant="65" id="13d-Xf-aR6"/>
-                            <constraint firstItem="fTm-dV-QMj" firstAttribute="leading" secondItem="8T3-lv-DtB" secondAttribute="leading" constant="-3" id="8wP-YX-jxu"/>
-                            <constraint firstItem="QYk-Cf-Ddr" firstAttribute="leading" secondItem="YVD-ki-1gt" secondAttribute="leading" id="ATs-MQ-qBc"/>
-                            <constraint firstItem="dno-UV-mCn" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leadingMargin" id="Amv-ge-0Qk"/>
-                            <constraint firstItem="fTm-dV-QMj" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leadingMargin" id="IW1-kg-kXH"/>
-                            <constraint firstItem="dno-UV-mCn" firstAttribute="trailing" secondItem="2Rf-xo-qeh" secondAttribute="trailing" id="Iea-RI-41f"/>
-                            <constraint firstItem="dno-UV-mCn" firstAttribute="centerX" secondItem="EV5-gA-n7J" secondAttribute="centerX" id="Ioo-Zw-HWp"/>
-                            <constraint firstItem="6bE-o8-Fds" firstAttribute="leading" secondItem="QYk-Cf-Ddr" secondAttribute="leading" id="PZ0-cb-sEf"/>
-                            <constraint firstAttribute="trailing" secondItem="EV5-gA-n7J" secondAttribute="trailing" constant="134" id="TQX-DB-nkT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fTm-dV-QMj" secondAttribute="trailing" id="UFX-7d-eqE"/>
-                            <constraint firstItem="UPZ-NK-2cZ" firstAttribute="top" secondItem="dno-UV-mCn" secondAttribute="bottom" constant="71" id="W5g-hl-8dE"/>
-                            <constraint firstItem="UPZ-NK-2cZ" firstAttribute="trailing" secondItem="6bE-o8-Fds" secondAttribute="trailing" id="Ztn-qe-deu"/>
-                            <constraint firstItem="dno-UV-mCn" firstAttribute="top" secondItem="EV5-gA-n7J" secondAttribute="bottom" constant="64" id="ZuU-os-C3a"/>
-                            <constraint firstItem="8T3-lv-DtB" firstAttribute="top" secondItem="QYk-Cf-Ddr" secondAttribute="bottom" constant="38" id="arw-Dv-R3G"/>
-                            <constraint firstItem="fTm-dV-QMj" firstAttribute="trailing" secondItem="8T3-lv-DtB" secondAttribute="trailing" constant="-3" id="b5R-B2-27O"/>
-                            <constraint firstItem="UPZ-NK-2cZ" firstAttribute="leading" secondItem="6bE-o8-Fds" secondAttribute="leading" id="bja-kn-ffB"/>
-                            <constraint firstItem="QYk-Cf-Ddr" firstAttribute="trailing" secondItem="YVD-ki-1gt" secondAttribute="trailing" id="cmv-Ve-zau"/>
-                            <constraint firstItem="YVD-ki-1gt" firstAttribute="top" secondItem="6bE-o8-Fds" secondAttribute="bottom" constant="77" id="evw-Vu-o6r"/>
-                            <constraint firstItem="fTm-dV-QMj" firstAttribute="top" secondItem="EV5-gA-n7J" secondAttribute="bottom" constant="26" id="hVL-RU-7n0"/>
-                            <constraint firstItem="6FH-Tn-WdX" firstAttribute="top" secondItem="8T3-lv-DtB" secondAttribute="bottom" constant="52" id="hfV-Ee-Ggq"/>
-                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="leading" secondItem="UPZ-NK-2cZ" secondAttribute="leading" id="oGO-w5-ZnL"/>
-                            <constraint firstItem="6FH-Tn-WdX" firstAttribute="top" secondItem="YVD-ki-1gt" secondAttribute="bottom" constant="71" id="orf-EA-WcO"/>
-                            <constraint firstItem="QYk-Cf-Ddr" firstAttribute="top" secondItem="UPZ-NK-2cZ" secondAttribute="bottom" constant="16" id="qib-ls-b7H"/>
-                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="trailing" secondItem="UPZ-NK-2cZ" secondAttribute="trailing" id="rYI-jn-MvD"/>
-                            <constraint firstItem="EV5-gA-n7J" firstAttribute="top" secondItem="0ae-XY-ShA" secondAttribute="bottom" constant="23" id="rpg-Xo-BVr"/>
-                            <constraint firstItem="dno-UV-mCn" firstAttribute="leading" secondItem="2Rf-xo-qeh" secondAttribute="leading" id="sHp-nE-NHY"/>
-                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="top" secondItem="fTm-dV-QMj" secondAttribute="bottom" constant="83" id="u9n-ms-6WP"/>
-                            <constraint firstItem="EV5-gA-n7J" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leading" constant="134" id="xNB-c5-Ha3"/>
-                            <constraint firstItem="6bE-o8-Fds" firstAttribute="trailing" secondItem="QYk-Cf-Ddr" secondAttribute="trailing" id="yap-Bk-NLq"/>
+                            <constraint firstItem="QYk-Cf-Ddr" firstAttribute="leading" secondItem="6bE-o8-Fds" secondAttribute="leading" id="0vn-46-B7F"/>
+                            <constraint firstItem="6bE-o8-Fds" firstAttribute="top" secondItem="2Rf-xo-qeh" secondAttribute="bottom" constant="49" id="1rK-Ld-DZd"/>
+                            <constraint firstItem="QYk-Cf-Ddr" firstAttribute="trailing" secondItem="6bE-o8-Fds" secondAttribute="trailing" id="B0H-YB-dBb"/>
+                            <constraint firstItem="YVD-ki-1gt" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leadingMargin" id="BYx-7h-idi"/>
+                            <constraint firstItem="YVD-ki-1gt" firstAttribute="trailing" secondItem="pg9-fL-0R5" secondAttribute="trailingMargin" id="BlY-GA-4Mz"/>
+                            <constraint firstItem="8T3-lv-DtB" firstAttribute="top" secondItem="QYk-Cf-Ddr" secondAttribute="bottom" constant="18" id="DU6-Vj-sMB"/>
+                            <constraint firstItem="UPZ-NK-2cZ" firstAttribute="top" secondItem="dno-UV-mCn" secondAttribute="bottom" constant="41" id="E2E-DQ-e5t"/>
+                            <constraint firstItem="6bE-o8-Fds" firstAttribute="leading" secondItem="UPZ-NK-2cZ" secondAttribute="leading" id="Eey-Qz-g8F"/>
+                            <constraint firstItem="YVD-ki-1gt" firstAttribute="top" secondItem="6bE-o8-Fds" secondAttribute="bottom" constant="55" id="Ja7-Lj-NhS"/>
+                            <constraint firstItem="dno-UV-mCn" firstAttribute="top" secondItem="fTm-dV-QMj" secondAttribute="bottom" constant="3" id="S3Y-YH-Pnq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dqY-9z-esQ" secondAttribute="trailing" constant="96" id="VS5-YF-cCN"/>
+                            <constraint firstItem="UPZ-NK-2cZ" firstAttribute="leading" secondItem="2Rf-xo-qeh" secondAttribute="leading" id="VZM-Hx-Xfx"/>
+                            <constraint firstItem="6bE-o8-Fds" firstAttribute="trailing" secondItem="UPZ-NK-2cZ" secondAttribute="trailing" id="XoQ-Kl-ZaI"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="trailing" secondItem="dno-UV-mCn" secondAttribute="trailing" id="atF-70-opM"/>
+                            <constraint firstItem="2Rf-xo-qeh" firstAttribute="leading" secondItem="dno-UV-mCn" secondAttribute="leading" id="e0e-Qu-PwH"/>
+                            <constraint firstItem="QYk-Cf-Ddr" firstAttribute="top" secondItem="UPZ-NK-2cZ" secondAttribute="bottom" constant="8" symbolic="YES" id="gla-QK-21Y"/>
+                            <constraint firstItem="8T3-lv-DtB" firstAttribute="leading" secondItem="pg9-fL-0R5" secondAttribute="leadingMargin" constant="3" id="hkU-8z-4jq"/>
+                            <constraint firstItem="fTm-dV-QMj" firstAttribute="leading" secondItem="dno-UV-mCn" secondAttribute="leading" id="iWm-lw-RIi"/>
+                            <constraint firstItem="UPZ-NK-2cZ" firstAttribute="trailing" secondItem="2Rf-xo-qeh" secondAttribute="trailing" id="o5c-x2-Vr1"/>
+                            <constraint firstItem="dqY-9z-esQ" firstAttribute="centerX" secondItem="8T3-lv-DtB" secondAttribute="centerX" id="oWi-k0-Jzp"/>
+                            <constraint firstItem="YVD-ki-1gt" firstAttribute="leading" secondItem="QYk-Cf-Ddr" secondAttribute="leading" id="ohN-SH-3VP"/>
+                            <constraint firstItem="6FH-Tn-WdX" firstAttribute="top" secondItem="YVD-ki-1gt" secondAttribute="bottom" constant="121" id="ppI-nh-nXT"/>
+                            <constraint firstItem="fTm-dV-QMj" firstAttribute="top" secondItem="dqY-9z-esQ" secondAttribute="bottom" constant="23" id="qYi-wU-AAS"/>
+                            <constraint firstItem="fTm-dV-QMj" firstAttribute="trailing" secondItem="dno-UV-mCn" secondAttribute="trailing" id="syX-uq-fod"/>
+                            <constraint firstItem="YVD-ki-1gt" firstAttribute="trailing" secondItem="QYk-Cf-Ddr" secondAttribute="trailing" id="tBY-dn-Ryt"/>
+                            <constraint firstItem="dqY-9z-esQ" firstAttribute="top" secondItem="0ae-XY-ShA" secondAttribute="bottom" constant="26" id="wrV-kR-FQZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vy8-jX-oIY">
@@ -136,7 +137,6 @@
                         <outlet property="aboutUsTxt4" destination="QYk-Cf-Ddr" id="yAH-IJ-tVb"/>
                         <outlet property="aboutUsTxt5" destination="QYk-Cf-Ddr" id="jk7-O3-WVV"/>
                         <outlet property="dataSetLink" destination="8T3-lv-DtB" id="eBu-TZ-UBt"/>
-                        <outlet property="logo" destination="EV5-gA-n7J" id="F6u-hW-GWT"/>
                         <outlet property="markersText" destination="6bE-o8-Fds" id="4VQ-pZ-oTb"/>
                         <outlet property="menuButton" destination="2kd-Iy-GOM" id="V5O-Dv-KxW"/>
                         <outlet property="resourcesText" destination="YVD-ki-1gt" id="yYp-vd-3yC"/>
@@ -290,6 +290,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="About Us" width="1200" height="1200"/>
+        <image name="Vector Logo" width="384" height="465"/>
     </resources>
 </document>

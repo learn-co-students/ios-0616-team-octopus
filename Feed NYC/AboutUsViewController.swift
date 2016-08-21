@@ -28,13 +28,13 @@ class AboutUsViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
-        aboutUSText.textColor = UIColor.flatNavyBlueColorDark()
+        aboutUSText.textColor = UIColor.flatCoffeeColor()
         aboutUsTxt1.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
         aboutUsTxt2.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
         aboutUsTxt3.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
-        markersText.textColor = UIColor.flatNavyBlueColorDark()
+        markersText.textColor = UIColor.flatCoffeeColor()
         aboutUsTxt5.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
-        resourcesText.textColor = UIColor.flatNavyBlueColorDark()
+        resourcesText.textColor = UIColor.flatCoffeeColor()
         dataSetLink.setTitleColor(UIColor.flatWhiteColor().lightenByPercentage(0.7), forState: .Normal)
         
         if self.revealViewController() != nil {

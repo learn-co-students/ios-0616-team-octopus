@@ -120,7 +120,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
                     marker.icon = GMSMarker.markerImageWithColor(UIColor.flatPurpleColor())
                 } else if currentFacility.featureList.contains("Food Pantry") {
-                    marker.icon = GMSMarker.markerImageWithColor(UIColor.flatGreenColor())
+                    marker.icon = GMSMarker.markerImageWithColor(UIColor.flatGreenColorDark())
                 }
                 
                 marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
