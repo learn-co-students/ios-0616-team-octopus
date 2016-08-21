@@ -79,7 +79,7 @@ class MenuViewController: UIViewController {
             
             tableVC.facilities = foodPantries.sort{ $0.name < $1.name }
             
-            print(tableVC.facilities)
+            //print(tableVC.facilities)
             print("Inside food pantries")
         } else if segue.identifier == "soupKitchens" {
             let navigationController = segue.destinationViewController

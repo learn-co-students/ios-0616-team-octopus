@@ -13,6 +13,9 @@ class FacilityTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var facilities = [Facility]()
+    var filteredFacilities = [Facility]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,11 @@ class FacilityTableViewController: UITableViewController {
             menuButton.action = Selector("revealToggle:")
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,24 +40,40 @@ class FacilityTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-
+        
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var numberOfRows = 0
+        // If user has entered search query
+        if searchController.active && searchController.searchBar.text != "" {
+            numberOfRows = self.filteredFacilities.count
+        } else {
+            // Display entire list
+            numberOfRows = self.facilities.count
+        }
 
-        return self.facilities.count
+        return numberOfRows
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
         
+        let facility : Facility
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            facility = filteredFacilities[indexPath.row]
+        } else {
+            facility = facilities[indexPath.row]
+        }
+        
 
         cell.textLabel?.textColor = UIColor.flatBlackColorDark()
         cell.detailTextLabel?.textColor = UIColor.flatBlackColor().lightenByPercentage(0.2)
-        cell.textLabel?.text = self.facilities[indexPath.row].name as String
-        cell.detailTextLabel?.text = self.facilities[indexPath.row].briefDescription as String
+        cell.textLabel?.text = facility.name as String
+        cell.detailTextLabel?.text = facility.briefDescription as String
         
         
         return cell
@@ -72,4 +96,18 @@ class FacilityTableViewController: UITableViewController {
         }
     }
  
+}
+//MARK: -Search functionality
+extension FacilityTableViewController: UISearchResultsUpdating {
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredFacilities = facilities.filter { facility in
+            return facility.name.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }
