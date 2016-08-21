@@ -31,19 +31,19 @@ class FacilityTableViewController: UITableViewController {
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRows = 0
         // If user has entered search query
@@ -56,11 +56,12 @@ class FacilityTableViewController: UITableViewController {
 
         return numberOfRows
     }
-
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
         
+
         let facility : Facility
         
         if searchController.active && searchController.searchBar.text != "" {
@@ -70,24 +71,29 @@ class FacilityTableViewController: UITableViewController {
         }
         
 
-        cell.textLabel?.textColor = UIColor.flatBlackColorDark()
-        cell.detailTextLabel?.textColor = UIColor.flatBlackColor().lightenByPercentage(0.2)
+        cell.textLabel?.textColor = UIColor.flatNavyBlueColor()
+        cell.detailTextLabel?.textColor = UIColor.flatGrayColorDark()
         cell.textLabel?.text = facility.name as String
         cell.detailTextLabel?.text = facility.briefDescription as String
-        
         
         return cell
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.backgroundColor = UIColor.flatWhiteColor().lightenByPercentage(0.5)
+        
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.flatWhiteColorDark().lightenByPercentage(0.2)
+        } else {
+            cell.backgroundColor = UIColor.flatWhiteColor().lightenByPercentage(0.5)
+        }
+        
     }
- 
     
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "mapSegue" {
             let destVC = segue.destinationViewController as! CenkersDetailViewController
             if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
@@ -95,7 +101,7 @@ class FacilityTableViewController: UITableViewController {
             }
         }
     }
- 
+    
 }
 //MARK: -Search functionality
 extension FacilityTableViewController: UISearchResultsUpdating {

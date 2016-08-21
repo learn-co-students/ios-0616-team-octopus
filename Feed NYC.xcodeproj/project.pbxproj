@@ -418,7 +418,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC66";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed NYC/Feed NYC-Bridging-Header.h";
@@ -436,7 +436,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC66";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed NYC/Feed NYC-Bridging-Header.h";

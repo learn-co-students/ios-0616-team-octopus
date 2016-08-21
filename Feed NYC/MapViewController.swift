@@ -109,6 +109,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let currentFacility = self.store.facilities[i]
             let position = CLLocationCoordinate2DMake(currentFacility.latitude, currentFacility.longitude)
             let marker = GMSMarker(position: position)
+            marker.icon = GMSMarker.markerImageWithColor(UIColor.flatRedColor())
             marker.title = currentFacility.name
             
             let featureSet: Set<String> = Set(currentFacility.featureList)
@@ -117,9 +118,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             NSOperationQueue.mainQueue().addOperationWithBlock({
                 marker.map = self.mapView
                 if currentFacility.featureList.contains("Food Pantry") && currentFacility.featureList.contains("Soup Kitchen") {
-                    marker.icon = GMSMarker.markerImageWithColor(UIColor.purpleColor())
+                    marker.icon = GMSMarker.markerImageWithColor(UIColor.flatPurpleColor())
                 } else if currentFacility.featureList.contains("Food Pantry") {
-                    marker.icon = GMSMarker.markerImageWithColor(UIColor.greenColor())
+                    marker.icon = GMSMarker.markerImageWithColor(UIColor.flatGreenColorDark())
                 }
                 
                 marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
@@ -173,13 +174,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     // Sets properties of "get nearby help" button
     func addBigRedButton() {
         button = UIButton()
-        button.setTitle("FIND CLOSEST HELP", forState: .Normal)
+        button.setTitle("FIND NEAREST", forState: .Normal)
         button.setTitleColor(UIColor.flatWhiteColor(), forState: .Normal)
-        button.backgroundColor = UIColor.flatNavyBlueColor()
+        button.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.1)
         button.addTarget(self, action: #selector(MapViewController.helpButtonTapped(_:)), forControlEvents: .TouchUpInside)
-        button.frame = CGRectMake(170, 450, 225, 30)
+        button.frame = CGRectMake(170, 450, 220, 30)
         button.layer.cornerRadius = 11.5 //Rounded edge of button: 20 is a semi-circle
-        button.layer.borderColor = UIColor.blackColor().CGColor
+        button.layer.borderColor = UIColor.flatBlackColor().CGColor
         
         //UIScreen.mainScreen().bounds.size.width / 2.0
         button.center = CGPoint(x: self.view.frame.midX, y: self.view.frame.height - 80)
