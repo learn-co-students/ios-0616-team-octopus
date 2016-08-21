@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="442" y="198"/>
+            <point key="canvasLocation" x="482" y="198"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="xdD-Lj-5gy">
@@ -41,81 +41,108 @@
                         <viewControllerLayoutGuide type="top" id="JNv-zt-y5h"/>
                         <viewControllerLayoutGuide type="bottom" id="VIZ-N4-3bf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ttq-bn-JOl">
+                    <view key="view" contentMode="scaleAspectFit" id="ttq-bn-JOl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRECTORIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgO-0D-hBg">
-                                <rect key="frame" x="20" y="54" width="204" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRECTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgO-0D-hBg">
+                                <rect key="frame" x="20" y="63" width="204" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="NiY-KU-IUj"/>
-                                    <constraint firstAttribute="width" constant="204" id="a0X-PW-LPe"/>
+                                    <constraint firstAttribute="height" constant="24" id="wfC-bO-DWa"/>
+                                    <constraint firstAttribute="width" constant="204" id="xnJ-wE-7et"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="TharLon" family="TharLon" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="TharLon" family="TharLon" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-Zn-s7J">
-                                <rect key="frame" x="20" y="94" width="149" height="219"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gMG-7s-gdU">
+                                <rect key="frame" x="20" y="104" width="200" height="310"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR">
-                                        <rect key="frame" x="0.0" y="0.0" width="132" height="39"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
-                                        <state key="normal" title="All Locations">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="allFacilities" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
-                                        <rect key="frame" x="0.0" y="45" width="143" height="39"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
-                                        <state key="normal" title="Food Pantries"/>
-                                        <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="foodPantries" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
-                                        <rect key="frame" x="0.0" y="90" width="149" height="39"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
-                                        <state key="normal" title="Soup Kitchens"/>
-                                        <connections>
-                                            <segue destination="rDb-nV-Ii3" kind="custom" identifier="soupKitchens" customClass="SWRevealViewControllerSeguePushController" id="tJg-Ci-GpC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
-                                        <rect key="frame" x="0.0" y="135" width="46" height="39"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
-                                        <state key="normal" title="Map"/>
-                                        <connections>
-                                            <segue destination="uio-85-z6L" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="1Go-j8-rOF"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hey-pe-iAi">
-                                        <rect key="frame" x="0.0" y="180" width="95" height="39"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
-                                        <state key="normal" title="About Us"/>
-                                        <connections>
-                                            <action selector="AboutUsTapped:" destination="jCI-Os-AK9" eventType="touchUpInside" id="Sdo-au-p9o"/>
-                                            <segue destination="kOH-Vb-lNy" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="u7v-4z-E13"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALI-B6-HWL">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR" userLabel="All Locations Label">
+                                                <rect key="frame" x="34" y="10" width="132" height="39"/>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                <state key="normal" title="All Locations">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="rDb-nV-Ii3" kind="custom" identifier="allFacilities" customClass="SWRevealViewControllerSeguePushController" id="AAD-gm-Jw1"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VtJ-dM-ogY">
+                                        <rect key="frame" x="0.0" y="65" width="200" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Rk-Jxc">
+                                                <rect key="frame" x="29" y="10" width="143" height="39"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                <state key="normal" title="Food Pantries"/>
+                                                <connections>
+                                                    <segue destination="rDb-nV-Ii3" kind="custom" identifier="foodPantries" customClass="SWRevealViewControllerSeguePushController" id="Eah-uz-nHs"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBe-Fu-pQO">
+                                        <rect key="frame" x="0.0" y="130" width="200" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddK-1K-v9D">
+                                                <rect key="frame" x="26" y="10" width="149" height="39"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                <state key="normal" title="Soup Kitchens"/>
+                                                <connections>
+                                                    <segue destination="rDb-nV-Ii3" kind="custom" identifier="soupKitchens" customClass="SWRevealViewControllerSeguePushController" id="tJg-Ci-GpC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VcL-r4-Q8i">
+                                        <rect key="frame" x="0.0" y="195" width="200" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAl-RS-z0H">
+                                                <rect key="frame" x="77" y="5" width="46" height="39"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                <state key="normal" title="Map"/>
+                                                <connections>
+                                                    <segue destination="uio-85-z6L" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="1Go-j8-rOF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CzA-NS-Tdg">
+                                        <rect key="frame" x="0.0" y="250" width="200" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hey-pe-iAi">
+                                                <rect key="frame" x="53" y="10" width="95" height="39"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                <state key="normal" title="About Us"/>
+                                                <connections>
+                                                    <action selector="AboutUsTapped:" destination="jCI-Os-AK9" eventType="touchUpInside" id="Sdo-au-p9o"/>
+                                                    <segue destination="kOH-Vb-lNy" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="u7v-4z-E13"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="5Hj-Zn-s7J" secondAttribute="leading" id="5Dd-Mh-f3g"/>
-                            <constraint firstItem="jgO-0D-hBg" firstAttribute="top" secondItem="JNv-zt-y5h" secondAttribute="bottom" constant="34" id="FT9-bm-iCt"/>
-                            <constraint firstItem="5Hj-Zn-s7J" firstAttribute="top" secondItem="jgO-0D-hBg" secondAttribute="bottom" constant="16" id="pPM-sR-B8g"/>
-                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="ttq-bn-JOl" secondAttribute="leadingMargin" id="sw0-uF-apZ"/>
+                            <constraint firstItem="jgO-0D-hBg" firstAttribute="top" secondItem="JNv-zt-y5h" secondAttribute="bottom" constant="43" id="8BY-Nl-y3r"/>
+                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="ttq-bn-JOl" secondAttribute="leadingMargin" id="ChW-Wf-RbI"/>
+                            <constraint firstItem="jgO-0D-hBg" firstAttribute="leading" secondItem="gMG-7s-gdU" secondAttribute="leading" id="JP3-nU-mvX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="aboutUsLabel" destination="hey-pe-iAi" id="aJy-cz-qQp"/>
+                        <outlet property="allLocationsBox" destination="ALI-B6-HWL" id="dyk-AU-8vb"/>
                         <outlet property="directories" destination="jgO-0D-hBg" id="Wcl-Pu-K6H"/>
                         <outlet property="fodPantryLabel" destination="aLm-Rk-Jxc" id="96X-uq-ghe"/>
+                        <outlet property="foodPantryBox" destination="VtJ-dM-ogY" id="qf2-6A-G5W"/>
                         <outlet property="mapLabel" destination="HAl-RS-z0H" id="dyw-7Q-1IN"/>
                         <outlet property="soupAndPantryLabel" destination="que-Vy-TwR" id="c37-wG-XBQ"/>
                         <outlet property="soupKitchenLabel" destination="ddK-1K-v9D" id="F7G-MF-fg2"/>
@@ -131,7 +158,7 @@
                 <viewControllerPlaceholder storyboardName="DennisStoryboard" id="rDb-nV-Ii3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RH5-EU-giL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701" y="198"/>
+            <point key="canvasLocation" x="1685" y="198"/>
         </scene>
         <!--AboutUsViewController-->
         <scene sceneID="yu8-rG-8ce">
@@ -139,7 +166,7 @@
                 <viewControllerPlaceholder storyboardName="DennisStoryboard" referencedIdentifier="AboutUsViewController" id="kOH-Vb-lNy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AV9-v1-GRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717.5" y="334"/>
+            <point key="canvasLocation" x="1701.5" y="301"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="AzT-7R-Wuh">
@@ -164,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKQ-lx-Rtp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2924" y="-578"/>
+            <point key="canvasLocation" x="2584" y="-434"/>
         </scene>
         <!--CenkersStoryboard-->
         <scene sceneID="dHH-88-bZI">
@@ -172,7 +199,7 @@
                 <viewControllerPlaceholder storyboardName="CenkersStoryboard" id="rIS-ym-nfx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2U-jF-kaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3481" y="-726"/>
+            <point key="canvasLocation" x="3037" y="-434"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eXQ-NV-juz">
@@ -190,11 +217,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWM-iF-Y0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2112" y="-578"/>
+            <point key="canvasLocation" x="1914" y="-434"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AAD-gm-Jw1"/>
+        <segue reference="tJg-Ci-GpC"/>
         <segue reference="1Go-j8-rOF"/>
     </inferredMetricsTieBreakers>
 </document>

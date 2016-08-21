@@ -10,7 +10,9 @@ import UIKit
 
 class MenuViewController: UIViewController {
     @IBOutlet weak var directories: UILabel!
+    @IBOutlet weak var allLocationsBox: UIView!
     @IBOutlet weak var soupAndPantryLabel: UIButton!
+    @IBOutlet weak var foodPantryBox: UIView!
     @IBOutlet weak var fodPantryLabel: UIButton!
     @IBOutlet weak var soupKitchenLabel: UIButton!
     @IBOutlet weak var mapLabel: UIButton!
@@ -22,13 +24,15 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.flatNavyBlueColorDark()
+        self.view.backgroundColor = UIColor.flatWhiteColor().lightenByPercentage(0.5)
         directories.textColor = UIColor.flatSkyBlueColorDark()
         soupAndPantryLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
         fodPantryLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
         soupKitchenLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
         mapLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
         aboutUsLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
+        allLocationsBox.layer.borderColor = UIColor.flatNavyBlueColorDark().CGColor
+
 
     }
 
@@ -50,9 +54,6 @@ class MenuViewController: UIViewController {
 
     }
     
-
-    
-
     
     // MARK: - Navigation
 
@@ -66,7 +67,7 @@ class MenuViewController: UIViewController {
         if segue.identifier == "allFacilities" {
             let navigationController = segue.destinationViewController
             let tableVC = navigationController.childViewControllers.first as! FacilityTableViewController
-            tableVC.title = "Soup Kitchens and Food Pantries"
+            tableVC.title = "Soup Kitchens & Food Pantries"
             
             tableVC.facilities = self.store.facilities.sort{ $0.name < $1.name }
             
@@ -79,7 +80,7 @@ class MenuViewController: UIViewController {
             
             tableVC.facilities = foodPantries.sort{ $0.name < $1.name }
             
-            print(tableVC.facilities)
+            //print(tableVC.facilities)
             print("Inside food pantries")
         } else if segue.identifier == "soupKitchens" {
             let navigationController = segue.destinationViewController

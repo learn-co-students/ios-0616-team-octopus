@@ -20,24 +20,31 @@ class CenkersDetailViewController: UIViewController {
     
     //label outlets
     @IBOutlet weak var facilityNameLabel: UILabel!
+    @IBOutlet weak var addressTitleLabel: UILabel!
     @IBOutlet weak var addressLabel: UIButton!
+    @IBOutlet weak var hoursTitleLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var intakeTitleLabel: UILabel!
     @IBOutlet weak var intakeLabel: UILabel!
+    @IBOutlet weak var feeTitleLabel: UILabel!
     @IBOutlet weak var feeLabel: UILabel!
+    @IBOutlet weak var featureTitleLabel: UILabel!
     @IBOutlet weak var featureListLabel: UILabel!
+    @IBOutlet weak var eligibilityTitleLabel: UILabel!
     @IBOutlet weak var eligibilityLabel: UILabel!
+    @IBOutlet weak var reqyiredDocTittleLabel: UILabel!
     @IBOutlet weak var requiredDocLabel: UILabel!
+    @IBOutlet weak var phoneTitleLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.1)
-        facilityNameLabel.textColor = UIColor.flatWhiteColor()
         
         //call the function that updates the labels
         self.updateLabels()
         
+        self.textChameleonColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -186,6 +193,29 @@ class CenkersDetailViewController: UIViewController {
         MKMapItem.openMapsWithItems(
             [myLocationMapItem, mapItem],
             launchOptions: launchOptions)
+    }
+    
+    func textChameleonColor() {
+        self.view.backgroundColor = UIColor.flatNavyBlueColorDark().lightenByPercentage(0.2)
+        facilityNameLabel.textColor = UIColor.flatWhiteColor()
+        addressTitleLabel.textColor = UIColor.flatBlackColor()
+        addressLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        phoneTitleLabel.textColor = UIColor.flatBlackColor()
+        phoneNumberLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        hoursTitleLabel.textColor = UIColor.flatBlackColor()
+        hoursLabel.textColor = UIColor.flatSkyBlueColorDark()
+        intakeTitleLabel.textColor = UIColor.flatBlackColor()
+        intakeLabel.textColor = UIColor.flatSkyBlueColorDark()
+        feeTitleLabel.textColor = UIColor.flatBlackColor()
+        feeLabel.textColor = UIColor.flatSkyBlueColorDark()
+        featureTitleLabel.textColor = UIColor.flatBlackColor()
+        featureListLabel.textColor = UIColor.flatSkyBlueColorDark()
+        eligibilityTitleLabel.textColor = UIColor.flatBlackColor()
+        eligibilityLabel.textColor = UIColor.flatSkyBlueColorDark()
+        reqyiredDocTittleLabel.textColor = UIColor.flatBlackColor()
+        requiredDocLabel.textColor = UIColor.flatSkyBlueColorDark()
+        doneButton.setTitleColor(UIColor.flatSkyBlueColor(), forState: .Normal)
+        
     }
     
 }
