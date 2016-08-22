@@ -36,17 +36,15 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="210" id="q7E-aY-C1I"/>
                                                 </constraints>
-                                                <mutableString key="text">FED NYC  goal is to support NYC  soup kitchens and food pantries connect with their local communities.
+                                                <string key="text">FED NYC  goal is to support NYC  soup kitchens and food pantries connect with their local communities.
 
 Locations are often difficult to find; Feed NYC can help you find and connect you to the nearest soup kitchen / food pantry location. 
 
-Sort NYC-area soup kitchens and food pantries by your location and filter the results to match your criteria. </mutableString>
+Sort NYC-area soup kitchens and food pantries by your location and filter the results to match your criteria. </string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Green markers represent soup kitchens.
-Blue markers represent food pantries.
-Purple markers represent all locations." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-Cf-Ddr" userLabel="Markers Paragraph">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Green markers represent soup kitchens. Blue markers represent food pantries. Purple markers represent all locations." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-Cf-Ddr" userLabel="Markers Paragraph">
                                                 <rect key="frame" x="16" y="435" width="349" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="YMj-Yo-jIL"/>
