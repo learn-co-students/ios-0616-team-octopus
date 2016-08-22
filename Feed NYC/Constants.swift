@@ -15,7 +15,7 @@ struct Constants {
 }
 
 struct Animation {
-    static let width = CGFloat(90.0) //Works in 60 too
+    static let width = CGFloat(100.0) //Works in 60 too
     static let height = width
     static let halfSizeOffset = width / 2
 }

@@ -67,7 +67,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        self.findClosestLocation()
     }
     
     override func didReceiveMemoryWarning() {
