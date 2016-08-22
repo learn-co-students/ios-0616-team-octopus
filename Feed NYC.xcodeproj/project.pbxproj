@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B0288801D5E28F6002309A6 /* DennisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B02887F1D5E28F6002309A6 /* DennisViewController.swift */; };
-		1B067D991D5E872800619228 /* DennisStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B067D981D5E872800619228 /* DennisStoryboard.storyboard */; };
-		1B067D9B1D5E875F00619228 /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */; };
 		1B63E5F21D64CE68004B109D /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B63E5F11D64CE68004B109D /* AboutUsViewController.swift */; };
 		1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */; };
 		1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F611D58D3520031C3AC /* AppDelegate.swift */; };
-		1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F651D58D3520031C3AC /* Main.storyboard */; };
 		1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */; };
 		1BAC3F6C1D58D3520031C3AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */; };
 		1BAC3F6F1D58D3520031C3AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */; };
@@ -28,6 +25,9 @@
 		BA1B6DC01D5E115F005CAF4A /* Facilities.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */; };
 		BA1EC1A31D67430000392646 /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1EC1A21D67430000392646 /* CustomInfoWindow.xib */; };
 		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
+		BA32662A1D6BAA0B00086093 /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3266291D6BAA0B00086093 /* CenkersStoryboard.storyboard */; };
+		BA3266331D6BABBD00086093 /* DennisStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3266321D6BABBD00086093 /* DennisStoryboard.storyboard */; };
+		BA3266351D6BABCD00086093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3266341D6BABCD00086093 /* Main.storyboard */; };
 		BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4404A01D58DF170048CB8F /* MenuViewController.swift */; };
 		BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */; };
 		BAA5C12D1D63AAA100E01C5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5C12C1D63AAA100E01C5B /* Constants.swift */; };
@@ -36,14 +36,11 @@
 
 /* Begin PBXFileReference section */
 		1B02887F1D5E28F6002309A6 /* DennisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DennisViewController.swift; sourceTree = "<group>"; };
-		1B067D981D5E872800619228 /* DennisStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DennisStoryboard.storyboard; sourceTree = "<group>"; };
-		1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
 		1B63E5F11D64CE68004B109D /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocodingAPI.swift; sourceTree = "<group>"; };
 		1BAC3F5E1D58D3520031C3AC /* Feed NYC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed NYC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAC3F611D58D3520031C3AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BAC3F631D58D3520031C3AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		1BAC3F661D58D3520031C3AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BAC3F691D58D3520031C3AC /* Feed_NYC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Feed_NYC.xcdatamodel; sourceTree = "<group>"; };
 		1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BAC3F6E1D58D3520031C3AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +57,9 @@
 		BA0EA7A61D638D0100A9A903 /* Feed NYC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feed NYC-Bridging-Header.h"; sourceTree = "<group>"; };
 		BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Facilities.txt; sourceTree = "<group>"; };
 		BA1EC1A21D67430000392646 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
+		BA3266291D6BAA0B00086093 /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
+		BA3266321D6BABBD00086093 /* DennisStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DennisStoryboard.storyboard; sourceTree = "<group>"; };
+		BA3266341D6BABCD00086093 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BA4404A01D58DF170048CB8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FacilityDataStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BAA5C12C1D63AAA100E01C5B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -110,14 +110,14 @@
 				BA4404A01D58DF170048CB8F /* MenuViewController.swift */,
 				78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */,
 				78B96BA31D63BA95006C07A2 /* CustomInfoWindow.swift */,
+				BA3266341D6BABCD00086093 /* Main.storyboard */,
+				BA3266291D6BAA0B00086093 /* CenkersStoryboard.storyboard */,
+				BA3266321D6BABBD00086093 /* DennisStoryboard.storyboard */,
 				BA1EC1A21D67430000392646 /* CustomInfoWindow.xib */,
 				1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */,
-				1B63E5F11D64CE68004B109D /* AboutUsViewController.swift */,
 				1BC297B41D662B600051BA6F /* WebViewController.swift */,
 				1B02887F1D5E28F6002309A6 /* DennisViewController.swift */,
-				1BAC3F651D58D3520031C3AC /* Main.storyboard */,
-				1B067D9A1D5E875F00619228 /* CenkersStoryboard.storyboard */,
-				1B067D981D5E872800619228 /* DennisStoryboard.storyboard */,
+				1B63E5F11D64CE68004B109D /* AboutUsViewController.swift */,
 				1BAC3F6B1D58D3520031C3AC /* Assets.xcassets */,
 				1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */,
 				1BB67E151D5A2DE200EEE7AE /* FacilityDetails.xml */,
@@ -217,13 +217,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BAC3F6F1D58D3520031C3AC /* LaunchScreen.storyboard in Resources */,
-				1B067D991D5E872800619228 /* DennisStoryboard.storyboard in Resources */,
+				BA3266331D6BABBD00086093 /* DennisStoryboard.storyboard in Resources */,
 				1BB67E191D5A2DE200EEE7AE /* FacilityDetails.xml in Resources */,
+				BA3266351D6BABCD00086093 /* Main.storyboard in Resources */,
 				1BAC3F6C1D58D3520031C3AC /* Assets.xcassets in Resources */,
 				BA1EC1A31D67430000392646 /* CustomInfoWindow.xib in Resources */,
-				1BAC3F671D58D3520031C3AC /* Main.storyboard in Resources */,
 				BA1B6DC01D5E115F005CAF4A /* Facilities.txt in Resources */,
-				1B067D9B1D5E875F00619228 /* CenkersStoryboard.storyboard in Resources */,
+				BA32662A1D6BAA0B00086093 /* CenkersStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,14 +304,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1BAC3F651D58D3520031C3AC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1BAC3F661D58D3520031C3AC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -418,7 +410,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.team-octopus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed NYC/Feed NYC-Bridging-Header.h";
@@ -436,7 +428,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Feed NYC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed-NYC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.Feed--NYC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed NYC/Feed NYC-Bridging-Header.h";

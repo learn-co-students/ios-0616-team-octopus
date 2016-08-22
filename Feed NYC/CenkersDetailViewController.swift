@@ -46,7 +46,7 @@ class CenkersDetailViewController: UIViewController {
         
         self.textChameleonColor()
         
-        print (facilityToDisplay)
+//        print (facilityToDisplay)
         
         
 //        addressLabel.titleLabel?.minimumScaleFactor = 0.5

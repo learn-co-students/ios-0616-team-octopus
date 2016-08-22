@@ -206,10 +206,10 @@
                                                     <exclude reference="fZD-zZ-Hzl"/>
                                                     <exclude reference="JZJ-xb-lbi"/>
                                                     <exclude reference="qoa-zW-q12"/>
-                                                    <exclude reference="Oxw-gd-iQx"/>
-                                                    <exclude reference="Sv3-Ji-ooe"/>
                                                     <exclude reference="db2-vU-k8q"/>
                                                     <exclude reference="tFK-95-Iky"/>
+                                                    <exclude reference="Oxw-gd-iQx"/>
+                                                    <exclude reference="Sv3-Ji-ooe"/>
                                                 </mask>
                                             </variation>
                                         </stackView>

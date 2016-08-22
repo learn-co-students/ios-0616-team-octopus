@@ -10,32 +10,49 @@ import UIKit
 import ChameleonFramework
 
 class AboutUsViewController: UIViewController {
+   
+//    @IBOutlet weak var aboutUSText: UITextView!
+//    @IBOutlet weak var aboutUsTxt1: UITextView!
+//    @IBOutlet weak var aboutUsTxt2: UITextView!
+//    @IBOutlet weak var aboutUsTxt3: UITextView!
+//    @IBOutlet weak var aboutUsTxt4: UITextView!
+//    @IBOutlet weak var markersText: UITextView!
+//    @IBOutlet weak var aboutUsTxt5: UITextView!
+//    @IBOutlet weak var resourcesText: UITextView!
+//    @IBOutlet weak var dataSetLink: UIButton!
+    
+    
     @IBOutlet weak var logo: UIImageView!
-    @IBOutlet weak var aboutUSText: UITextView!
-    @IBOutlet weak var aboutUsTxt1: UITextView!
-    @IBOutlet weak var aboutUsTxt2: UITextView!
-    @IBOutlet weak var aboutUsTxt3: UITextView!
-    @IBOutlet weak var aboutUsTxt4: UITextView!
-    @IBOutlet weak var markersText: UITextView!
-    @IBOutlet weak var aboutUsTxt5: UITextView!
-    @IBOutlet weak var resourcesText: UITextView!
-    @IBOutlet weak var dataSetLink: UIButton!
+    @IBOutlet weak var wrapperView: UIView!
+    @IBOutlet weak var aboutUsTitle: UILabel!
+    @IBOutlet weak var aboutUsParagraph: UITextView!
+    @IBOutlet weak var markersTitle: UILabel!
+    @IBOutlet weak var markersParagraph: UITextView!
+    @IBOutlet weak var resourcesTitle: UILabel!
+    @IBOutlet weak var resourcesLink: UIButton!
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
-        aboutUSText.textColor = UIColor.flatCoffeeColor()
-        aboutUsTxt1.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
-        aboutUsTxt2.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
-        aboutUsTxt3.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
-        markersText.textColor = UIColor.flatCoffeeColor()
-        aboutUsTxt5.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
-        resourcesText.textColor = UIColor.flatCoffeeColor()
-        dataSetLink.setTitleColor(UIColor.flatWhiteColor().lightenByPercentage(0.7), forState: .Normal)
+        self.view.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
+        self.wrapperView.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
+        
+        self.aboutUsTitle.textColor = UIColor.flatCoffeeColor()
+        self.aboutUsParagraph.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+        
+        self.markersTitle.textColor = UIColor.flatCoffeeColor()
+        self.markersParagraph.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+        
+        self.resourcesTitle.textColor = UIColor.flatCoffeeColor()
+        self.resourcesLink.setTitleColor(UIColor.flatWhiteColor().lightenByPercentage(0.7), forState: .Normal)
+        
+        
+//        aboutUsTxt5.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+//        resourcesText.textColor = UIColor.flatCoffeeColor()
+        
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()

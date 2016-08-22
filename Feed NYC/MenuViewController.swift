@@ -9,6 +9,7 @@
 import UIKit
 
 class MenuViewController: UIViewController {
+    @IBOutlet weak var dierectoryBoxLabel: UIView!
     @IBOutlet weak var directories: UILabel!
     @IBOutlet weak var allLocationsBox: UIView!
     @IBOutlet weak var soupAndPantryLabel: UIButton!
@@ -24,15 +25,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.flatWhiteColor().lightenByPercentage(0.5)
-        directories.textColor = UIColor.flatSkyBlueColorDark()
-        soupAndPantryLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
-        fodPantryLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
-        soupKitchenLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
-        mapLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
-        aboutUsLabel.setTitleColor(UIColor.flatCoffeeColor(), forState: .Normal)
-        allLocationsBox.layer.borderColor = UIColor.flatNavyBlueColorDark().CGColor
-
+        menuPageColors()
 
     }
 
@@ -88,6 +81,20 @@ class MenuViewController: UIViewController {
             tableVC.title = "Soup Kitchens"
             tableVC.facilities = self.store.getFacilitiesThatHave(feature: Facility.foodType.SoupKitchen)
         }
+        
+    }
+    
+    func menuPageColors() {
+        
+        self.view.backgroundColor = UIColor.flatWhiteColor().lightenByPercentage(0.5)
+        self.dierectoryBoxLabel.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
+        directories.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.3)
+        soupAndPantryLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        fodPantryLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        soupKitchenLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        mapLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        aboutUsLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        allLocationsBox.layer.borderColor = UIColor.flatNavyBlueColorDark().CGColor
         
     }
 
