@@ -83,7 +83,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector Logo" translatesAutoresizingMaskIntoConstraints="NO" id="dqY-9z-esQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About Us" translatesAutoresizingMaskIntoConstraints="NO" id="dqY-9z-esQ">
                                 <rect key="frame" x="117" y="90" width="146" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="BUd-i7-DfO"/>
@@ -289,6 +289,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Vector Logo" width="120" height="120"/>
+        <image name="About Us" width="784" height="889"/>
     </resources>
 </document>

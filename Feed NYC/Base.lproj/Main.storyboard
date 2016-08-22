@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="Tharlon-Regular.ttf">
-            <string>TharLon</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Reveal View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -45,24 +40,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khH-vu-M25">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="106"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRECTORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgO-0D-hBg">
                                 <rect key="frame" x="20" y="63" width="204" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="wfC-bO-DWa"/>
                                     <constraint firstAttribute="width" constant="204" id="xnJ-wE-7et"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="TharLon" family="TharLon" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gMG-7s-gdU">
-                                <rect key="frame" x="20" y="104" width="200" height="310"/>
+                                <rect key="frame" x="20" y="131" width="200" height="310"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALI-B6-HWL">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="que-Vy-TwR" userLabel="All Locations Label">
-                                                <rect key="frame" x="34" y="10" width="132" height="39"/>
+                                                <rect key="frame" x="34" y="13" width="132" height="39"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                                 <state key="normal" title="All Locations">
@@ -140,6 +139,7 @@
                     <connections>
                         <outlet property="aboutUsLabel" destination="hey-pe-iAi" id="aJy-cz-qQp"/>
                         <outlet property="allLocationsBox" destination="ALI-B6-HWL" id="dyk-AU-8vb"/>
+                        <outlet property="dierectoryBoxLabel" destination="khH-vu-M25" id="uJK-SD-cCN"/>
                         <outlet property="directories" destination="jgO-0D-hBg" id="Wcl-Pu-K6H"/>
                         <outlet property="fodPantryLabel" destination="aLm-Rk-Jxc" id="96X-uq-ghe"/>
                         <outlet property="foodPantryBox" destination="VtJ-dM-ogY" id="qf2-6A-G5W"/>
