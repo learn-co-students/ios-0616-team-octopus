@@ -289,6 +289,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Vector Logo" width="384" height="465"/>
+        <image name="Vector Logo" width="120" height="120"/>
     </resources>
 </document>
