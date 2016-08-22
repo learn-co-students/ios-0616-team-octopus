@@ -17,18 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch-screen-img-60x60.png" translatesAutoresizingMaskIntoConstraints="NO" id="G9T-J9-GKX">
-                                <rect key="frame" x="70" y="150" width="180" height="180"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vector Logo" translatesAutoresizingMaskIntoConstraints="NO" id="VAK-Ak-XvF">
+                                <rect key="frame" x="60" y="140" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="cYj-rN-29W"/>
-                                    <constraint firstAttribute="height" constant="180" id="mvi-fp-iLr"/>
+                                    <constraint firstAttribute="height" constant="200" id="bXZ-i0-DKq"/>
+                                    <constraint firstAttribute="width" constant="200" id="fCj-Q2-96T"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="G9T-J9-GKX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oVE-Ki-YMq"/>
-                            <constraint firstItem="G9T-J9-GKX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vLa-0u-m44"/>
+                            <constraint firstItem="VAK-Ak-XvF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4zP-nC-Jb6"/>
+                            <constraint firstItem="VAK-Ak-XvF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="FEi-Cg-XCR"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -39,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launch-screen-img-60x60.png" width="180" height="180"/>
+        <image name="Vector Logo" width="120" height="120"/>
     </resources>
 </document>
