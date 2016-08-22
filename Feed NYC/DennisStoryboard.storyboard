@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GNv-KJ-T8c">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GNv-KJ-T8c">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -67,12 +67,11 @@
                                     <segue destination="VgJ-O7-oah" kind="show" id="u1s-eg-u2C"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-Cf-Ddr">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Green markers represent soup kitchens. Blue markers represent food pantries. Purple markers represent all locations." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QYk-Cf-Ddr">
                                 <rect key="frame" x="16" y="442" width="343" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="DZq-Az-iTI"/>
                                 </constraints>
-                                <string key="text">Green markers represent soup kitchens.                  Blue markers represent food pantries.                      Purple markers represent all locations.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
