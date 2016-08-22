@@ -100,13 +100,12 @@
 		1BAC3F601D58D3520031C3AC /* Feed NYC */ = {
 			isa = PBXGroup;
 			children = (
-				BA0EA7A51D638CD900A9A903 /* SWRevealViewController */,
-				1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */,
 				1BAC3F611D58D3520031C3AC /* AppDelegate.swift */,
+				1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */,
 				1BB67E141D5A2DE200EEE7AE /* Facility.swift */,
 				BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */,
-				BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */,
 				1BB67E171D5A2DE200EEE7AE /* FacilityXMLParser.swift */,
+				BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */,
 				1BAC3F631D58D3520031C3AC /* MapViewController.swift */,
 				BA4404A01D58DF170048CB8F /* MenuViewController.swift */,
 				78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */,
@@ -126,6 +125,7 @@
 				BAA5C12C1D63AAA100E01C5B /* Constants.swift */,
 				E1676E641D5F6768005C41A2 /* Secrets.swift */,
 				1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */,
+				BA0EA7A51D638CD900A9A903 /* SWRevealViewController */,
 			);
 			path = "Feed NYC";
 			sourceTree = "<group>";
