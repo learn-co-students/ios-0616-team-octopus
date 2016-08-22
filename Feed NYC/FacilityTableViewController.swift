@@ -89,19 +89,26 @@ class FacilityTableViewController: UITableViewController {
         
     }
     
-    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) else { return }
         
-        if segue.identifier == "mapSegue" {
+        // Get the facility we want to pass
+        let facility : Facility
+        if searchController.active && searchController.searchBar.text != "" {
+            facility = filteredFacilities[indexPath.row]
+        } else {
+            facility = facilities[indexPath.row]
+        }
+
+        // Pass the facility to the destinationVC
+        if segue.destinationViewController.isKindOfClass(CenkersDetailViewController) {
             let destVC = segue.destinationViewController as! CenkersDetailViewController
-            if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
-                destVC.facilityToDisplay = self.facilities[indexPath.row]
-            }
+                destVC.facilityToDisplay = facility
         }
     }
-    
+
 }
 //MARK: -Search functionality
 extension FacilityTableViewController: UISearchResultsUpdating {

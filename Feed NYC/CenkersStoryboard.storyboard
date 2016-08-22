@@ -253,43 +253,21 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="YW2-w7-gd4" firstAttribute="leading" secondItem="xoF-LP-Dhj" secondAttribute="leading" constant="152" id="12b-We-wAI"/>
-                            <constraint firstItem="Ue1-jV-knd" firstAttribute="centerX" secondItem="se5-ee-tfd" secondAttribute="centerX" id="4Bn-6c-mde"/>
                             <constraint firstItem="KZp-eF-9W1" firstAttribute="leading" secondItem="xoF-LP-Dhj" secondAttribute="leading" id="8al-A2-3q4"/>
                             <constraint firstItem="se5-ee-tfd" firstAttribute="centerX" secondItem="xoF-LP-Dhj" secondAttribute="centerX" id="9vq-eN-tUy"/>
-                            <constraint firstItem="Ue1-jV-knd" firstAttribute="centerX" secondItem="YW2-w7-gd4" secondAttribute="centerX" id="9yB-58-JiY"/>
                             <constraint firstItem="YW2-w7-gd4" firstAttribute="centerX" secondItem="xoF-LP-Dhj" secondAttribute="centerX" id="FUt-GN-uNF"/>
                             <constraint firstItem="YW2-w7-gd4" firstAttribute="bottom" secondItem="UY0-KD-I3M" secondAttribute="top" constant="-42" id="MbC-Iv-sDb"/>
                             <constraint firstItem="Ue1-jV-knd" firstAttribute="centerX" secondItem="xoF-LP-Dhj" secondAttribute="centerX" id="OOL-l8-MaZ"/>
-                            <constraint firstItem="se5-ee-tfd" firstAttribute="centerX" secondItem="YW2-w7-gd4" secondAttribute="centerX" id="Oot-ou-sxv"/>
                             <constraint firstItem="Ue1-jV-knd" firstAttribute="top" secondItem="NbP-u6-XXs" secondAttribute="bottom" constant="25" id="QhQ-q3-bDx"/>
                             <constraint firstItem="se5-ee-tfd" firstAttribute="trailing" secondItem="xoF-LP-Dhj" secondAttribute="trailing" id="Qrk-ZK-6mM"/>
-                            <constraint firstItem="se5-ee-tfd" firstAttribute="top" secondItem="Ue1-jV-knd" secondAttribute="bottom" constant="80" id="VLU-BK-kjU"/>
-                            <constraint firstItem="KZp-eF-9W1" firstAttribute="trailing" secondItem="se5-ee-tfd" secondAttribute="trailing" id="WIq-Lf-DyE"/>
                             <constraint firstItem="se5-ee-tfd" firstAttribute="leading" secondItem="xoF-LP-Dhj" secondAttribute="leading" id="bma-wO-Wqc"/>
-                            <constraint firstItem="YW2-w7-gd4" firstAttribute="trailing" secondItem="xoF-LP-Dhj" secondAttribute="trailing" constant="-153" id="egV-VS-hyf"/>
                             <constraint firstItem="Ue1-jV-knd" firstAttribute="width" secondItem="xoF-LP-Dhj" secondAttribute="width" constant="-20" id="kHg-b0-Kqv"/>
                             <constraint firstItem="KZp-eF-9W1" firstAttribute="trailing" secondItem="xoF-LP-Dhj" secondAttribute="trailing" id="kqo-Ng-DIv"/>
                             <constraint firstItem="se5-ee-tfd" firstAttribute="centerY" secondItem="xoF-LP-Dhj" secondAttribute="centerY" id="p8f-OG-hMf"/>
-                            <constraint firstItem="KZp-eF-9W1" firstAttribute="leading" secondItem="se5-ee-tfd" secondAttribute="leading" id="r5o-Wa-Wbi"/>
                             <constraint firstItem="KZp-eF-9W1" firstAttribute="top" secondItem="Ue1-jV-knd" secondAttribute="bottom" constant="29" id="rpw-VS-ZxC"/>
-                            <constraint firstItem="YW2-w7-gd4" firstAttribute="top" secondItem="se5-ee-tfd" secondAttribute="bottom" constant="88" id="tfk-6b-XlM"/>
                             <constraint firstItem="se5-ee-tfd" firstAttribute="height" secondItem="xoF-LP-Dhj" secondAttribute="height" multiplier="0.7" id="wYo-46-sbk"/>
                             <constraint firstItem="KZp-eF-9W1" firstAttribute="bottom" secondItem="UY0-KD-I3M" secondAttribute="top" id="xud-e3-NQH"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="4Bn-6c-mde"/>
-                                <exclude reference="9yB-58-JiY"/>
-                                <exclude reference="WIq-Lf-DyE"/>
-                                <exclude reference="r5o-Wa-Wbi"/>
-                                <exclude reference="Oot-ou-sxv"/>
-                                <exclude reference="VLU-BK-kjU"/>
-                                <exclude reference="12b-We-wAI"/>
-                                <exclude reference="egV-VS-hyf"/>
-                                <exclude reference="tfk-6b-XlM"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
