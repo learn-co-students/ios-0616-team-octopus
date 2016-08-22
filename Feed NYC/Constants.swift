@@ -13,3 +13,9 @@ struct Constants {
     static let midtownZoomLevel = Float(12.5)
     static let defaultZoomLevel = Float(13) //13.5
 }
+
+struct Animation {
+    static let width = CGFloat(90.0) //Works in 60 too
+    static let height = width
+    static let halfSizeOffset = width / 2
+}

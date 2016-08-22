@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import NVActivityIndicatorView
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
@@ -30,25 +31,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     // data store for all facility objects
     let store = FacilityDataStore.sharedInstance
     
-    var activityIndicator: UIActivityIndicatorView!
+    // Animation in center when loading map
+    var activityIndicator: NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        activityIndicator.color = UIColor.cyanColor()
-        activityIndicator.center = view.center
         
         self.addBigRedButton()
         self.store.readInTextFile()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         self.createMapView()
+        self.addLoadingAnimation()
         // completion block, wait when all markers created
         self.setupMarkers { completion in
             if completion {
                 NSOperationQueue.mainQueue().addOperationWithBlock({
-                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.stopAnimation()
                 })
             }
         }
@@ -99,12 +98,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     // MARK: -Displays all the pins on map
     func setupMarkers(completion:(Bool) -> ()) {
+        self.activityIndicator.startAnimation()
         
-        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        self.activityIndicator.color = UIColor.blackColor()
-        self.activityIndicator.center = view.center
-        self.activityIndicator.startAnimating()
-    
         for i in 0..<self.store.facilities.count {
             let currentFacility = self.store.facilities[i]
             let position = CLLocationCoordinate2DMake(currentFacility.latitude, currentFacility.longitude)
@@ -211,6 +206,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         self.presentViewController(detailVC, animated: true, completion: nil)
     }
+    
+    // Sets properties of loading animation while markers are generated
+    func addLoadingAnimation() {
+        //        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        //        self.activityIndicator.color = UIColor.blackColor()
+        //        self.activityIndicator.center = view.center
+        //        self.activityIndicator.startAnimating()
+        let animationFrame = CGRectMake(self.mapView.frame.midX - Animation.halfSizeOffset, self.mapView.frame.midY - Animation.halfSizeOffset,
+                                        Animation.width, Animation.height)
+        
+        self.activityIndicator = NVActivityIndicatorView(frame: animationFrame,
+                                                         type: NVActivityIndicatorType.BallScaleRippleMultiple,
+                                                         color: UIColor.whiteColor(),
+                                                         padding: 0.0)
+        
+    }
+    //       NVActivityIndicatorType.BallScaleRippleMultiple
+    // ALSO  NVActivityIndicatorType.BallClipRotateMultiple  is great!
 
 }
 
