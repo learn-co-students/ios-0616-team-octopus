@@ -45,6 +45,16 @@ class CenkersDetailViewController: UIViewController {
         self.updateLabels()
         
         self.textChameleonColor()
+        
+//        print (facilityToDisplay)
+        
+        
+//        addressLabel.titleLabel?.minimumScaleFactor = 0.5
+//        addressLabel.titleLabel?.numberOfLines = 0
+//        addressLabel.titleLabel?.adjustsFontSizeToFitWidth = true
+//        hoursLabel.adjustsFontSizeToFitWidth = true
+//        eligibilityLabel.adjustsFontSizeToFitWidth = true
+//        eligibilityTitleLabel.adjustsFontSizeToFitWidth = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -199,9 +209,17 @@ class CenkersDetailViewController: UIViewController {
         self.view.backgroundColor = UIColor.flatNavyBlueColorDark().lightenByPercentage(0.2)
         facilityNameLabel.textColor = UIColor.flatWhiteColor()
         addressTitleLabel.textColor = UIColor.flatBlackColor()
-        addressLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        
+        // Address button
+        addressLabel.setTitleColor(UIColor.flatWhiteColor(), forState: .Normal)
+        addressLabel.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.1)
+        addressLabel.layer.cornerRadius = 11.5
         phoneTitleLabel.textColor = UIColor.flatBlackColor()
-        phoneNumberLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
+        
+        phoneNumberLabel.setTitleColor(UIColor.flatWhiteColor(), forState: .Normal)
+        phoneNumberLabel.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.1)
+        phoneNumberLabel.layer.cornerRadius = 11.5
+        
         hoursTitleLabel.textColor = UIColor.flatBlackColor()
         hoursLabel.textColor = UIColor.flatSkyBlueColorDark()
         intakeTitleLabel.textColor = UIColor.flatBlackColor()
@@ -215,7 +233,8 @@ class CenkersDetailViewController: UIViewController {
         reqyiredDocTittleLabel.textColor = UIColor.flatBlackColor()
         requiredDocLabel.textColor = UIColor.flatSkyBlueColorDark()
         doneButton.setTitleColor(UIColor.flatSkyBlueColor(), forState: .Normal)
-        
+
+
     }
     
 }
