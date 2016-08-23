@@ -108,7 +108,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             marker.title = currentFacility.name
             
             let featureSet: Set<String> = Set(currentFacility.featureList)
-            marker.snippet = featureSet.joinWithSeparator(". ") + "\n" + currentFacility.phoneNumber
+            marker.snippet = featureSet.joinWithSeparator(". ") + "\n" + currentFacility.hoursOfOperation
             
             NSOperationQueue.mainQueue().addOperationWithBlock({
                 marker.map = self.mapView
@@ -297,9 +297,9 @@ extension MapViewController {
     
     func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let customInfoWindow : CustomInfoWindow!
-        customInfoWindow = CustomInfoWindow(frame: CGRect(x: 0, y: 0, width: 230, height: 150))
+        customInfoWindow = CustomInfoWindow(frame: CGRect(x: 0, y: 0, width: 300, height: 180))
         //NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
-        customInfoWindow.nameButtonLabel.setTitle("\(marker.title!)\n\n\(marker.snippet!)", forState: .Normal)
+        customInfoWindow.nameButtonLabel.setTitle("\(marker.title!)\n\(marker.snippet!)", forState: .Normal)
         
         mapView.camera = GMSCameraPosition(target: marker.position, zoom: 13, bearing: 0, viewingAngle: 0)
         return customInfoWindow
