@@ -301,7 +301,8 @@ extension MapViewController {
         //NSBundle.mainBundle().loadNibNamed("CustomInfoWindow", owner: self, options: nil)[0] as! CustomInfoWindow
         customInfoWindow.nameButtonLabel.setTitle("\(marker.title!)\n\(marker.snippet!)", forState: .Normal)
         
-        mapView.camera = GMSCameraPosition(target: marker.position, zoom: 13, bearing: 0, viewingAngle: 0)
+        let currentZoomLevel = mapView.camera.zoom
+        mapView.camera = GMSCameraPosition(target: marker.position, zoom: currentZoomLevel, bearing: 0, viewingAngle: 0)
         return customInfoWindow
     }
     
