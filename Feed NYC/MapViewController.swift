@@ -71,8 +71,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         self.mapView.settings.consumesGesturesInView = false
         self.revealViewController().delegate = self
-        // 414 736 iPhone 6s Plus  // 260 is the menu gesture end
-        // 320 480 iPhone 4s
     }
     
     override func didReceiveMemoryWarning() {
@@ -339,23 +337,18 @@ extension MapViewController {
 extension MapViewController {
     func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
         if position == .Left {
-            //print("Now were in front view position left")
             // happens when map disappears and were going to the TableView list
             // Map is visible
             self.mapView.settings.scrollGestures = true
         }
         if position == .Right {
-            //print ("RIGHT side position")
-            //Menu bar is visible
-            //Turn off touching map view
+            // In Menu Panel
+            // Turn off touching map view
             self.mapView.settings.scrollGestures = false
-            //self.mapView.userInteractionEnabled = false
         }
     }
     
     func revealController(revealController: SWRevealViewController!, panGestureBeganFromLocation location: CGFloat, progress: CGFloat) {
-        //print ("Pan gesture began from \(location) \(progress)")
-        
         // Started dragging out the menu
         if location == 0.0 {
             //print("dragging out the menu")
@@ -364,9 +357,8 @@ extension MapViewController {
         }
     }
     func revealController(revealController: SWRevealViewController!, panGestureEndedToLocation location: CGFloat, progress: CGFloat) {
-        //print("Gesture ended at \(location) \(progress)")
+        // Possible bad swipe. User likely tried to swipe open the menu and failed
         if progress < 0.5 || progress > 1.0 {
-            //print("Possible Bad swipe")
             self.mapView.settings.scrollGestures = true
         }
     }
