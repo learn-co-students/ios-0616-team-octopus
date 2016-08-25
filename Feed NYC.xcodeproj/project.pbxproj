@@ -55,7 +55,6 @@
 		78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenkersDetailViewController.swift; sourceTree = "<group>"; };
 		78411C6E1D6C8E5900A728DA /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
 		78B96BA31D63BA95006C07A2 /* CustomInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoWindow.swift; sourceTree = "<group>"; };
-		BA0EA7A61D638D0100A9A903 /* Feed NYC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feed NYC-Bridging-Header.h"; sourceTree = "<group>"; };
 		BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Facilities.txt; sourceTree = "<group>"; };
 		BA1EC1A21D67430000392646 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
 		BA3266321D6BABBD00086093 /* DennisStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DennisStoryboard.storyboard; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		1BAC3F601D58D3520031C3AC /* Feed NYC */ = {
 			isa = PBXGroup;
 			children = (
+				BAB31CE61D6E4DB100651B5C /* SWRevealViewController */,
 				1BAC3F611D58D3520031C3AC /* AppDelegate.swift */,
 				1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */,
 				1BB67E141D5A2DE200EEE7AE /* Facility.swift */,
@@ -125,15 +125,13 @@
 				BAA5C12C1D63AAA100E01C5B /* Constants.swift */,
 				E1676E641D5F6768005C41A2 /* Secrets.swift */,
 				1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */,
-				BA0EA7A51D638CD900A9A903 /* SWRevealViewController */,
 			);
 			path = "Feed NYC";
 			sourceTree = "<group>";
 		};
-		BA0EA7A51D638CD900A9A903 /* SWRevealViewController */ = {
+		BAB31CE61D6E4DB100651B5C /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BA0EA7A61D638D0100A9A903 /* Feed NYC-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
 			sourceTree = "<group>";

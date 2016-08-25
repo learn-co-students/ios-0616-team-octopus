@@ -65,8 +65,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             menuButton.target = self.revealViewController()
             menuButton.action = Selector("revealToggle:")
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            self.revealViewController().toggleAnimationType = .Spring //.EaseOut
+
         }
-        
+        self.mapView.settings.consumesGesturesInView = false
+        self.revealViewController().delegate = self
+        print (self.revealViewController().rearViewController.view.frame)
+        // 414 736
+        // 320 480
     }
     
     override func didReceiveMemoryWarning() {
@@ -208,10 +215,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     // Sets properties of loading animation while markers are generated
     func addLoadingAnimation() {
-        //        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        //        self.activityIndicator.color = UIColor.blackColor()
-        //        self.activityIndicator.center = view.center
-        //        self.activityIndicator.startAnimating()
         let animationFrame = CGRectMake(self.mapView.frame.midX - Animation.halfSizeOffset, self.mapView.frame.midY - Animation.halfSizeOffset,
                                         Animation.width, Animation.height)
         
@@ -220,10 +223,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                                          color: UIColor.whiteColor(),
                                                          padding: 0.0)
         
+        //       NVActivityIndicatorType.BallScaleRippleMultiple
+        // ALSO  NVActivityIndicatorType.BallClipRotateMultiple  is great!
     }
-    //       NVActivityIndicatorType.BallScaleRippleMultiple
-    // ALSO  NVActivityIndicatorType.BallClipRotateMultiple  is great!
 
+
+    
 }
 
 // MARK: - CLLocationManagerDelegate
