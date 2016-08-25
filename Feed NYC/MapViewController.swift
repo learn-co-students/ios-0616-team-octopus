@@ -10,8 +10,12 @@ import UIKit
 import GoogleMaps
 import NVActivityIndicatorView
 
+<<<<<<< HEAD
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, UIGestureRecognizerDelegate {
+=======
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, SWRevealViewControllerDelegate {
+>>>>>>> 8da667f784951b177c789d95de4fa51af3f1be77
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -66,6 +70,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
+<<<<<<< HEAD
             menuButton.action = Selector("revealToggle:")
            //gestPanRec = self.revealViewController().panGestureRecognizer()
             gestTapRec = self.revealViewController().tapGestureRecognizer()
@@ -74,6 +79,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             //self.mapView.settings.consumesGesturesInView = false
         }
         self.mapView.settings.consumesGesturesInView = false
+=======
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            self.revealViewController().toggleAnimationType = .Spring //.EaseOut
+
+        }
+        self.mapView.settings.consumesGesturesInView = false
+        self.revealViewController().delegate = self
+>>>>>>> 8da667f784951b177c789d95de4fa51af3f1be77
     }
     
 
@@ -229,10 +244,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     // Sets properties of loading animation while markers are generated
     func addLoadingAnimation() {
-        //        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        //        self.activityIndicator.color = UIColor.blackColor()
-        //        self.activityIndicator.center = view.center
-        //        self.activityIndicator.startAnimating()
         let animationFrame = CGRectMake(self.mapView.frame.midX - Animation.halfSizeOffset, self.mapView.frame.midY - Animation.halfSizeOffset,
                                         Animation.width, Animation.height)
         
@@ -241,10 +252,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                                          color: UIColor.whiteColor(),
                                                          padding: 0.0)
         
+        //       NVActivityIndicatorType.BallScaleRippleMultiple
+        // ALSO  NVActivityIndicatorType.BallClipRotateMultiple  is great!
     }
-    //       NVActivityIndicatorType.BallScaleRippleMultiple
-    // ALSO  NVActivityIndicatorType.BallClipRotateMultiple  is great!
 
+
+    
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -300,6 +313,16 @@ extension MapViewController {
         
     }
     
+<<<<<<< HEAD
+=======
+    //function to set the current coordinates to singleton's (datastore) currenLocationCoordinates property
+    func updateCurrentLocation() {
+        let currentCoordinates = CLLocationCoordinate2D(latitude: self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude)
+        
+        store.currentLocationCoordinates = currentCoordinates
+    }
+    
+>>>>>>> 8da667f784951b177c789d95de4fa51af3f1be77
     // this function moves blue marker on the map with user movement,
     // constantly updating new user location and move map accordingly, so blue marker always in the middle of the view
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -357,5 +380,36 @@ extension MapViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
+}
+
+// MARK: - SWRevealViewControllerDelegate
+extension MapViewController {
+    func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
+        if position == .Left {
+            // happens when map disappears and were going to the TableView list
+            // Map is visible
+            self.mapView.settings.scrollGestures = true
+        }
+        if position == .Right {
+            // In Menu Panel
+            // Turn off touching map view
+            self.mapView.settings.scrollGestures = false
+        }
+    }
+    
+    func revealController(revealController: SWRevealViewController!, panGestureBeganFromLocation location: CGFloat, progress: CGFloat) {
+        // Started dragging out the menu
+        if location == 0.0 {
+            //print("dragging out the menu")
+           self.mapView.settings.scrollGestures = false
+
+        }
+    }
+    func revealController(revealController: SWRevealViewController!, panGestureEndedToLocation location: CGFloat, progress: CGFloat) {
+        // Possible bad swipe. User likely tried to swipe open the menu and failed
+        if progress < 0.5 || progress > 1.0 {
+            self.mapView.settings.scrollGestures = true
+        }
+    }
 }
 

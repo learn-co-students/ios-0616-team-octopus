@@ -30,6 +30,7 @@
 		BA3266351D6BABCD00086093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3266341D6BABCD00086093 /* Main.storyboard */; };
 		BA4404A11D58DF170048CB8F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4404A01D58DF170048CB8F /* MenuViewController.swift */; };
 		BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */; };
+		BA5BA14A1D6F684500E3B55A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5BA1491D6F684500E3B55A /* SWRevealViewController.m */; };
 		BAA5C12D1D63AAA100E01C5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5C12C1D63AAA100E01C5B /* Constants.swift */; };
 		E1676E651D5F6768005C41A2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1676E641D5F6768005C41A2 /* Secrets.swift */; };
 /* End PBXBuildFile section */
@@ -55,13 +56,15 @@
 		78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenkersDetailViewController.swift; sourceTree = "<group>"; };
 		78411C6E1D6C8E5900A728DA /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
 		78B96BA31D63BA95006C07A2 /* CustomInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoWindow.swift; sourceTree = "<group>"; };
-		BA0EA7A61D638D0100A9A903 /* Feed NYC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feed NYC-Bridging-Header.h"; sourceTree = "<group>"; };
 		BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Facilities.txt; sourceTree = "<group>"; };
 		BA1EC1A21D67430000392646 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
 		BA3266321D6BABBD00086093 /* DennisStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DennisStoryboard.storyboard; sourceTree = "<group>"; };
 		BA3266341D6BABCD00086093 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BA4404A01D58DF170048CB8F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		BA4C30D61D5B6E2D00BD8C75 /* FacilityDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FacilityDataStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BA5BA1471D6F684400E3B55A /* Feed NYC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feed NYC-Bridging-Header.h"; sourceTree = "<group>"; };
+		BA5BA1481D6F684500E3B55A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		BA5BA1491D6F684500E3B55A /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		BAA5C12C1D63AAA100E01C5B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E1676E641D5F6768005C41A2 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feed_NYC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +103,7 @@
 		1BAC3F601D58D3520031C3AC /* Feed NYC */ = {
 			isa = PBXGroup;
 			children = (
+				BA5BA1461D6F683200E3B55A /* SWRevealViewController */,
 				1BAC3F611D58D3520031C3AC /* AppDelegate.swift */,
 				1B921E3E1D5A5CC700F3E95C /* GeocodingAPI.swift */,
 				1BB67E141D5A2DE200EEE7AE /* Facility.swift */,
@@ -125,15 +129,16 @@
 				BAA5C12C1D63AAA100E01C5B /* Constants.swift */,
 				E1676E641D5F6768005C41A2 /* Secrets.swift */,
 				1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */,
-				BA0EA7A51D638CD900A9A903 /* SWRevealViewController */,
 			);
 			path = "Feed NYC";
 			sourceTree = "<group>";
 		};
-		BA0EA7A51D638CD900A9A903 /* SWRevealViewController */ = {
+		BA5BA1461D6F683200E3B55A /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BA0EA7A61D638D0100A9A903 /* Feed NYC-Bridging-Header.h */,
+				BA5BA1481D6F684500E3B55A /* SWRevealViewController.h */,
+				BA5BA1491D6F684500E3B55A /* SWRevealViewController.m */,
+				BA5BA1471D6F684400E3B55A /* Feed NYC-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				1B63E5F21D64CE68004B109D /* AboutUsViewController.swift in Sources */,
 				1BAC3F621D58D3520031C3AC /* AppDelegate.swift in Sources */,
 				1B921E3F1D5A5CC700F3E95C /* GeocodingAPI.swift in Sources */,
+				BA5BA14A1D6F684500E3B55A /* SWRevealViewController.m in Sources */,
 				1BAC3F6A1D58D3520031C3AC /* Feed_NYC.xcdatamodeld in Sources */,
 				78B96BA51D63BA95006C07A2 /* CustomInfoWindow.swift in Sources */,
 				BA4C30D71D5B6E2D00BD8C75 /* FacilityDataStore.swift in Sources */,
