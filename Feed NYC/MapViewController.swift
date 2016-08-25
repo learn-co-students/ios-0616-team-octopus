@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import NVActivityIndicatorView
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, SWRevealViewControllerDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -63,7 +63,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = Selector("revealToggle:")
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             self.revealViewController().toggleAnimationType = .Spring //.EaseOut
@@ -71,9 +71,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         self.mapView.settings.consumesGesturesInView = false
         self.revealViewController().delegate = self
-        print (self.revealViewController().rearViewController.view.frame)
-        // 414 736
-        // 320 480
+        // 414 736 iPhone 6s Plus  // 260 is the menu gesture end
+        // 320 480 iPhone 4s
     }
     
     override func didReceiveMemoryWarning() {
@@ -334,5 +333,42 @@ extension MapViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
+}
+
+// MARK: - SWRevealViewControllerDelegate
+extension MapViewController {
+    func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
+        if position == .Left {
+            //print("Now were in front view position left")
+            // happens when map disappears and were going to the TableView list
+            // Map is visible
+            self.mapView.settings.scrollGestures = true
+        }
+        if position == .Right {
+            //print ("RIGHT side position")
+            //Menu bar is visible
+            //Turn off touching map view
+            self.mapView.settings.scrollGestures = false
+            //self.mapView.userInteractionEnabled = false
+        }
+    }
+    
+    func revealController(revealController: SWRevealViewController!, panGestureBeganFromLocation location: CGFloat, progress: CGFloat) {
+        //print ("Pan gesture began from \(location) \(progress)")
+        
+        // Started dragging out the menu
+        if location == 0.0 {
+            //print("dragging out the menu")
+           self.mapView.settings.scrollGestures = false
+
+        }
+    }
+    func revealController(revealController: SWRevealViewController!, panGestureEndedToLocation location: CGFloat, progress: CGFloat) {
+        //print("Gesture ended at \(location) \(progress)")
+        if progress < 0.5 || progress > 1.0 {
+            //print("Possible Bad swipe")
+            self.mapView.settings.scrollGestures = true
+        }
+    }
 }
 

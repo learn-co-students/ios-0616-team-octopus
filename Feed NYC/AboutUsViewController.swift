@@ -56,20 +56,20 @@ class AboutUsViewController: UIViewController {
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = Selector("revealToggle:")
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "aboutUsSegue" {
-            let destVC = segue.destinationViewController as! AboutUsViewController
-            
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        if segue.identifier == "aboutUsSegue" {
+//            let destVC = segue.destinationViewController as! AboutUsViewController
+//            
+//        }
+//    }
     
     @IBAction func webViewButtonTapped(sender: AnyObject) {
     }
