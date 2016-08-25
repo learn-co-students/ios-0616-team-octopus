@@ -7,8 +7,6 @@ target 'Feed NYC' do
 
   # Pods for Feed NYC
   pod 'GoogleMaps'
-  #pod 'SidebarOverlay', '~> 3.0'
-  #pod 'SWRevealViewController', '~> 2.3'
   pod 'ChameleonFramework', '~> 2.1'
   pod 'NVActivityIndicatorView', '~> 2.10'
 
