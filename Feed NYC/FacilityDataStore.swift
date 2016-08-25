@@ -141,7 +141,6 @@ class FacilityDataStore {
         } catch let error as NSError {
             print("Array to JSON conversion failed: \(error.localizedDescription)")
         }
-        
     }
     
     
