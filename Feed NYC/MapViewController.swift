@@ -277,7 +277,7 @@ extension MapViewController {
     func updateCurrentLocation() {
         let currentCoordinates = CLLocationCoordinate2D(latitude: self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude)
         
-//        store.currentLocationCoordinates = currentCoordinates
+        store.currentLocationCoordinates = currentCoordinates
     }
     
     // this function moves blue marker on the map with user movement,
