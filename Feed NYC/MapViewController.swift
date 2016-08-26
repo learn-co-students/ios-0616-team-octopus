@@ -66,7 +66,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             menuButton.target = self.revealViewController()
 
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             self.revealViewController().toggleAnimationType = .Spring //.EaseOut
 
@@ -364,7 +364,7 @@ extension MapViewController {
     }
     
 }
-/*
+
 // MARK: - SWRevealViewControllerDelegate
 extension MapViewController {
     func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
@@ -379,7 +379,7 @@ extension MapViewController {
             self.mapView.settings.scrollGestures = false
         }
     }
-    
+    /*
     func revealController(revealController: SWRevealViewController!, panGestureBeganFromLocation location: CGFloat, progress: CGFloat) {
         // Started dragging out the menu
         if location == 0.0 {
@@ -394,5 +394,6 @@ extension MapViewController {
             self.mapView.settings.scrollGestures = true
         }
     }
+    */
 }
-*/
+
