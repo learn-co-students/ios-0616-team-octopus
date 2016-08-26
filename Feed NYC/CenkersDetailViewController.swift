@@ -121,32 +121,32 @@ class CenkersDetailViewController: UIViewController {
     }
     
     func showMapSelection() {
-        let alertController = UIAlertController(title: "\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let actionSheetController: UIAlertController = UIAlertController(title: "Directions", message: "Choose a Map Option!", preferredStyle: .ActionSheet)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert :UIAlertAction!) in
-            //print("Cancel button tapped")
-        })
-        alertController.addAction(cancelAction)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            //Just dismiss the action sheet
+        }
+        actionSheetController.addAction(cancelAction)
+        //Create and add first option action
+        let googleMapsAction: UIAlertAction = UIAlertAction(title: "Google Maps", style: .Default) { [weak weakSelf = self] action -> Void in
+            //Code for launching Apple Maps goes here
+            weakSelf?.openGoogleMapsAppWithDirection()
+        }
+        actionSheetController.addAction(googleMapsAction)
+    
+    
+        let appleMapsAction: UIAlertAction = UIAlertAction(title: "Apple Maps", style: .Default) { [weak weakSelf = self]  action -> Void in
+            //Code for launching Apple Maps goes here
+            weakSelf?.openMapForPlace()
+
+        }
+        actionSheetController.addAction(appleMapsAction)
+    
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    
         
-        let googleButton = UIButton(frame: CGRectMake(20,10,260,30))
-        googleButton.setTitle("Goggle Maps", forState: .Normal)
-        googleButton.layer.cornerRadius = 3
-        googleButton.setTitleColor(UIView().tintColor, forState: .Normal)
-        googleButton.addTarget(self, action: #selector(dismissForGoogleMaps), forControlEvents: .TouchUpInside)
-        alertController.view.addSubview(googleButton)
-        
-        let separator = UIButton(frame: CGRectMake(10,50,280, 0.5))
-        separator.backgroundColor = UIColor.lightGrayColor()
-        alertController.view.addSubview(separator)
-        
-        let appleButton = UIButton(frame: CGRectMake(20,60,260,30))
-        appleButton.setTitle("Apple Maps", forState: .Normal)
-        appleButton.layer.cornerRadius = 3
-        appleButton.setTitleColor(UIView().tintColor, forState: .Normal)
-        appleButton.addTarget(self, action: #selector(dismissForAppleMaps), forControlEvents: .TouchUpInside)
-        alertController.view.addSubview(appleButton)
-        
-        presentViewController(alertController, animated: true, completion: nil)
+    
     }
     
     func dismissForGoogleMaps() {

@@ -332,7 +332,7 @@ extension MapViewController {
     }
     
 }
-
+/*
 // MARK: - SWRevealViewControllerDelegate
 extension MapViewController {
     func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
@@ -363,4 +363,4 @@ extension MapViewController {
         }
     }
 }
-
+*/
