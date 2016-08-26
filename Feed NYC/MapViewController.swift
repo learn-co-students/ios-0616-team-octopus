@@ -10,12 +10,9 @@ import UIKit
 import GoogleMaps
 import NVActivityIndicatorView
 
-<<<<<<< HEAD
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, UIGestureRecognizerDelegate {
-=======
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, SWRevealViewControllerDelegate {
->>>>>>> 8da667f784951b177c789d95de4fa51af3f1be77
+
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -25,9 +22,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var marker: GMSMarker!
     var button: UIButton!
     var facilityForTappedMarker = Facility()
-    
-    //var store.currentLocationCoordinates.latitude = 0.0
-   // var store.currentLocationCoordinates.longitude = 0.0
     
     // closest location to current location
     var closestFacility: Facility?
@@ -70,16 +64,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-<<<<<<< HEAD
-            menuButton.action = Selector("revealToggle:")
-           //gestPanRec = self.revealViewController().panGestureRecognizer()
-            gestTapRec = self.revealViewController().tapGestureRecognizer()
-            //self.mapView.addGestureRecognizer(gestPanRec)
-            self.mapView.addGestureRecognizer(gestTapRec)
-            //self.mapView.settings.consumesGesturesInView = false
-        }
-        self.mapView.settings.consumesGesturesInView = false
-=======
+
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
@@ -88,7 +73,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         self.mapView.settings.consumesGesturesInView = false
         self.revealViewController().delegate = self
->>>>>>> 8da667f784951b177c789d95de4fa51af3f1be77
     }
     
 
@@ -313,16 +297,15 @@ extension MapViewController {
         
     }
     
-<<<<<<< HEAD
-=======
+
     //function to set the current coordinates to singleton's (datastore) currenLocationCoordinates property
-    func updateCurrentLocation() {
-        let currentCoordinates = CLLocationCoordinate2D(latitude: self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude)
-        
-        store.currentLocationCoordinates = currentCoordinates
-    }
+//    func updateCurrentLocation() {
+//        let currentCoordinates = CLLocationCoordinate2D(latitude: self.currentDeviceLocationLatitude, longitude: self.currentDeviceLocationLongitude)
+//        
+//        store.currentLocationCoordinates = currentCoordinates
+//    }
     
->>>>>>> 8da667f784951b177c789d95de4fa51af3f1be77
+
     // this function moves blue marker on the map with user movement,
     // constantly updating new user location and move map accordingly, so blue marker always in the middle of the view
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

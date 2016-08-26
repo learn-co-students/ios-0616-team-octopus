@@ -8,20 +8,17 @@ PODS:
   - GoogleMaps/Maps (2.0.1):
     - GoogleMaps/Base (= 2.0.1)
   - NVActivityIndicatorView (2.10)
-  - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - ChameleonFramework (~> 2.1)
   - GoogleMaps
   - NVActivityIndicatorView (~> 2.10)
-  - SWRevealViewController (~> 2.3)
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
   NVActivityIndicatorView: 5568608c3511690a42c4dd02f7a1de4361d670ae
-  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 55be4946755fde99b05fbc5948636aeb7e4d0721
+PODFILE CHECKSUM: ec9456fcdd1917c0d4db5e71ae66f355119f4e76
 
 COCOAPODS: 1.0.1
