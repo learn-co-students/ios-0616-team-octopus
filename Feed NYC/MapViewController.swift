@@ -24,8 +24,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var facilityForTappedMarker = Facility()
     
     // closest location to current location
-    var closestFacility: Facility?
-    var distanceInMetersForClosestFacility = 0.0
+    //var closestFacility: Facility?
+ //   var distanceInMetersForClosestFacility = 0.0
     
     // data store for all facility objects
     let store = FacilityDataStore.sharedInstance
@@ -73,6 +73,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
         self.mapView.settings.consumesGesturesInView = false
         self.revealViewController().delegate = self
+        
+        self.findClosestLocation()
     }
     
 
@@ -93,12 +95,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // go through all locations and find the closest one
         for i in 0..<store.facilities.count {
             let location = CLLocation.init(latitude: self.store.facilities[i].latitude, longitude: self.store.facilities[i].longitude)
-            distanceInMeters = currentLocation.distanceFromLocation(location)
+                distanceInMeters = currentLocation.distanceFromLocation(location)
             if minDistance > distanceInMeters {
                 minDistance = distanceInMeters
-                self.closestFacility = self.store.facilities[i]
-                self.distanceInMetersForClosestFacility = minDistance
+                self.store.closestFacility = self.store.facilities[i]
+               // self.distanceInMetersForClosestFacility = minDistance
             }
+            //convert the distance to miles
             self.store.facilities[i].distanceFromCurrentLocation = distanceInMeters * 0.000621371
         }
     }
@@ -124,7 +127,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 } else if currentFacility.featureList.contains("Food Pantry") {
                     marker.icon = GMSMarker.markerImageWithColor(UIColor.flatGreenColorDark())
                 }
-                
                 marker.infoWindowAnchor = CGPointMake(0.4, 0.3)
             })
         }
@@ -133,6 +135,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     func createMapView() {
         let smallerRect = CGRectMake(0, Constants.navBarHeight, self.view.bounds.width, self.view.bounds.height - Constants.navBarHeight)
+//        if CLLocationManager.authorizationStatus().hashValue == 0 { return }
+//        print(CLLocationManager.authorizationStatus())
+//        print (CLLocationManager.authorizationStatus().rawValue)
+//        print (CLAuthorizationStatus.NotDetermined.rawValue)
+//        
         
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
             if self.IsUserInVicinityOfNewYork() == true {
@@ -153,9 +160,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     // this should check if the user is close enough to any of the facilities, so the center of the app would be the user's current location. Otherwise, it will be Time Square
     func IsUserInVicinityOfNewYork() -> Bool {
-        let eightMilesInMeters = 12874.8
-        self.findClosestLocation()
-        if self.distanceInMetersForClosestFacility < eightMilesInMeters {
+       
+        let eightmiles = 8.0
+        guard let closestFacility = self.store.closestFacility else {
+            print("could not get the closest facility from the store for comparison")
+            return false
+        }
+        if closestFacility.distanceFromCurrentLocation < eightmiles {
             return true
         }
         else {
@@ -216,7 +227,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         //call the function that updates the closest facility property before using the facility
         self.findClosestLocation()
         
-        if let closestFacility = self.closestFacility {
+        if let closestFacility = self.store.closestFacility {
             detailVC.facilityToDisplay = closestFacility
         }
         else {
@@ -258,11 +269,17 @@ extension MapViewController {
             // ask for updates on the user’s location
             locationManager.startUpdatingLocation()
             
+            
             // current user location latitude and longitude
             if let managerLocation = manager.location {
                 self.store.currentLocationCoordinates.latitude = managerLocation.coordinate.latitude
                 self.store.currentLocationCoordinates.longitude = managerLocation.coordinate.longitude
+                self.findClosestLocation()
             }
+            else {
+                print("could not get the current location from the location manager")
+            }
+            
             if self.IsUserInVicinityOfNewYork() == true {
                 //calling the function that updates the singleton with current coordinates
                 let camera = GMSCameraPosition.cameraWithLatitude(self.store.currentLocationCoordinates.latitude, longitude: self.store.currentLocationCoordinates.longitude, zoom: Constants.defaultZoomLevel)
@@ -272,7 +289,6 @@ extension MapViewController {
                 // button in right low corner that makes current location in the middle
                 self.mapView.settings.myLocationButton = true
             
-                self.view.addSubview(button)
                 //self.mapView.addSubview(button)
             }
             else {
@@ -282,6 +298,7 @@ extension MapViewController {
                 // button in right low corner that makes current location in the middle
                 self.mapView.settings.myLocationButton = false
             }
+            self.view.addSubview(button)
         }
         if status == .Denied {
             // Let them know they need to allow location!

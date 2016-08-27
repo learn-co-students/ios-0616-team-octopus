@@ -17,6 +17,8 @@ class FacilityDataStore {
     var facilities : [Facility] = []
     var facilitiesDictionary : [String : Facility] = [:]
     var currentLocationCoordinates: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    var closestFacility : Facility?
+    
     
     // Reads in Facilities.txt,  and creates singleton
     // When you need to update with new data use the method: printXMLFile()
