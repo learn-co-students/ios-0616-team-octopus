@@ -9,5 +9,6 @@ target 'Feed NYC' do
   pod 'GoogleMaps'
   pod 'ChameleonFramework', '~> 2.1'
   pod 'NVActivityIndicatorView', '~> 2.10'
+  pod 'Firebase/Core'
 
 end

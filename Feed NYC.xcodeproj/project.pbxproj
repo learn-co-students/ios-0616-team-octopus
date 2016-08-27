@@ -23,6 +23,7 @@
 		78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */; };
 		78411C6F1D6C8E5900A728DA /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78411C6E1D6C8E5900A728DA /* CenkersStoryboard.storyboard */; };
 		78B96BA51D63BA95006C07A2 /* CustomInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B96BA31D63BA95006C07A2 /* CustomInfoWindow.swift */; };
+		BA101E401D71219500EBE710 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA101E3F1D71219500EBE710 /* GoogleService-Info.plist */; };
 		BA1B6DC01D5E115F005CAF4A /* Facilities.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */; };
 		BA1EC1A31D67430000392646 /* CustomInfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1EC1A21D67430000392646 /* CustomInfoWindow.xib */; };
 		BA2A674A1D5A387F0038E23F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC3F631D58D3520031C3AC /* MapViewController.swift */; };
@@ -56,6 +57,7 @@
 		78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenkersDetailViewController.swift; sourceTree = "<group>"; };
 		78411C6E1D6C8E5900A728DA /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
 		78B96BA31D63BA95006C07A2 /* CustomInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoWindow.swift; sourceTree = "<group>"; };
+		BA101E3F1D71219500EBE710 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA1B6DBF1D5E115F005CAF4A /* Facilities.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Facilities.txt; sourceTree = "<group>"; };
 		BA1EC1A21D67430000392646 /* CustomInfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInfoWindow.xib; sourceTree = "<group>"; };
 		BA3266321D6BABBD00086093 /* DennisStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DennisStoryboard.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */,
 				1BB67E151D5A2DE200EEE7AE /* FacilityDetails.xml */,
 				1BAC3F701D58D3520031C3AC /* Info.plist */,
+				BA101E3F1D71219500EBE710 /* GoogleService-Info.plist */,
 				BAA5C12C1D63AAA100E01C5B /* Constants.swift */,
 				E1676E641D5F6768005C41A2 /* Secrets.swift */,
 				1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */,
@@ -224,6 +227,7 @@
 			files = (
 				1BAC3F6F1D58D3520031C3AC /* LaunchScreen.storyboard in Resources */,
 				BA3266331D6BABBD00086093 /* DennisStoryboard.storyboard in Resources */,
+				BA101E401D71219500EBE710 /* GoogleService-Info.plist in Resources */,
 				1BB67E191D5A2DE200EEE7AE /* FacilityDetails.xml in Resources */,
 				BA3266351D6BABCD00086093 /* Main.storyboard in Resources */,
 				1BAC3F6C1D58D3520031C3AC /* Assets.xcassets in Resources */,

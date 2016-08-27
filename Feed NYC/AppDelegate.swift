@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import GoogleMaps
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("\(Secrets.googleAPI)")
-        //let geo = GeocodingAPI()
-        //geo.getGeoLatitudeLongtitudeByAddress()
+        // Analytics - FireBase
+        FIRApp.configure()
 
         
         return true
