@@ -24,8 +24,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var facilityForTappedMarker = Facility()
     
     // closest location to current location
-    //var closestFacility: Facility?
- //   var distanceInMetersForClosestFacility = 0.0
+    var closestFacility: Facility?
+    var distanceInMetersForClosestFacility = 0.0
     
     // data store for all facility objects
     let store = FacilityDataStore.sharedInstance
@@ -75,6 +75,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.revealViewController().delegate = self
         
         self.findClosestLocation()
+        
     }
     
 
@@ -369,6 +370,11 @@ extension MapViewController {
     }
     
     func findFacilityForMarker(marker: GMSMarker) -> Facility {
+        
+        let latitude = marker.layer.latitude
+        let longitude = marker.layer.latitude
+        print ("AM I IN HERE")
+        
         let facilities = store.facilities.filter{ $0.name == marker.title && $0.latitude == marker.layer.latitude && $0.longitude == marker.layer.longitude}
         return facilities[0]
     }
