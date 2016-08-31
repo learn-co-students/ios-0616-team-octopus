@@ -142,6 +142,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 //        
         
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
+            
+            //if the location is authorized, update the current location info in the data store everytime the view is loaded
+            if let managerLocation = locationManager.location {
+                self.store.currentLocationCoordinates.latitude = managerLocation.coordinate.latitude
+                self.store.currentLocationCoordinates.longitude = managerLocation.coordinate.longitude
+            }
+            
             if self.IsUserInVicinityOfNewYork() == true {
             // setting map with current location ≥coordinats in the middle
                 self.placeCameraToCurrentLocation(smallerRect)
@@ -329,6 +336,10 @@ extension MapViewController {
         if let location = locations.first {
             if self.IsUserInVicinityOfNewYork() == true {
                 mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: Constants.defaultZoomLevel, bearing: 0, viewingAngle: 0)
+                mapView.myLocationEnabled = true
+                
+                // button in right low corner that makes current location in the middle
+                self.mapView.settings.myLocationButton = true
             }
             else {
                 let camera = GMSCameraPosition.cameraWithLatitude(40.758896, longitude: -73.985130, zoom: Constants.midtownZoomLevel)
