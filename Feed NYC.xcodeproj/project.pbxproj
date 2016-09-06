@@ -20,6 +20,18 @@
 		1BC297B51D662B600051BA6F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC297B41D662B600051BA6F /* WebViewController.swift */; };
 		1BF9B57E1D5A869D009A60E7 /* FacilityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */; };
 		5B6D146B6F52C764D192A85B /* Pods_Feed_NYC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF768363674E49F577DE9A8A /* Pods_Feed_NYC.framework */; };
+		78172A191D7DDB5F002D9CFE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78172A171D7DDB5F002D9CFE /* Interface.storyboard */; };
+		78172A1B1D7DDB5F002D9CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78172A1A1D7DDB5F002D9CFE /* Assets.xcassets */; };
+		78172A221D7DDB5F002D9CFE /* FeedNYC Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 78172A211D7DDB5F002D9CFE /* FeedNYC Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		78172A291D7DDB5F002D9CFE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78172A281D7DDB5F002D9CFE /* InterfaceController.swift */; };
+		78172A2B1D7DDB5F002D9CFE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78172A2A1D7DDB5F002D9CFE /* ExtensionDelegate.swift */; };
+		78172A2D1D7DDB5F002D9CFE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78172A2C1D7DDB5F002D9CFE /* NotificationController.swift */; };
+		78172A2F1D7DDB5F002D9CFE /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78172A2E1D7DDB5F002D9CFE /* GlanceController.swift */; };
+		78172A311D7DDB5F002D9CFE /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78172A301D7DDB5F002D9CFE /* ComplicationController.swift */; };
+		78172A331D7DDB5F002D9CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78172A321D7DDB5F002D9CFE /* Assets.xcassets */; };
+		78172A371D7DDB5F002D9CFE /* FeedNYC.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 78172A151D7DDB5E002D9CFE /* FeedNYC.app */; };
+		78172A411D7DE444002D9CFE /* DirectionsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78172A401D7DE444002D9CFE /* DirectionsInterfaceController.swift */; };
+		78172A431D7DE46E002D9CFE /* PhoneCallInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78172A421D7DE46E002D9CFE /* PhoneCallInterfaceController.swift */; };
 		78407CC01D5A3888005EE9C2 /* CenkersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */; };
 		78411C6F1D6C8E5900A728DA /* CenkersStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78411C6E1D6C8E5900A728DA /* CenkersStoryboard.storyboard */; };
 		78B96BA51D63BA95006C07A2 /* CustomInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B96BA31D63BA95006C07A2 /* CustomInfoWindow.swift */; };
@@ -35,6 +47,48 @@
 		BAA5C12D1D63AAA100E01C5B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA5C12C1D63AAA100E01C5B /* Constants.swift */; };
 		E1676E651D5F6768005C41A2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1676E641D5F6768005C41A2 /* Secrets.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		78172A231D7DDB5F002D9CFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BAC3F561D58D3520031C3AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78172A201D7DDB5F002D9CFE;
+			remoteInfo = "FeedNYC Extension";
+		};
+		78172A351D7DDB5F002D9CFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BAC3F561D58D3520031C3AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78172A141D7DDB5E002D9CFE;
+			remoteInfo = FeedNYC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		78172A3D1D7DDB5F002D9CFE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				78172A221D7DDB5F002D9CFE /* FeedNYC Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78172A3F1D7DDB5F002D9CFE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				78172A371D7DDB5F002D9CFE /* FeedNYC.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1B02887F1D5E28F6002309A6 /* DennisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DennisViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +108,21 @@
 		1BF9B57D1D5A869D009A60E7 /* FacilityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilityTableViewController.swift; sourceTree = "<group>"; };
 		3FC8724A16989CF6927F967D /* Pods-Feed NYC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed NYC.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feed NYC/Pods-Feed NYC.release.xcconfig"; sourceTree = "<group>"; };
 		51B40F90EBFF5AD8382BB20B /* Pods-Feed NYC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feed NYC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feed NYC/Pods-Feed NYC.debug.xcconfig"; sourceTree = "<group>"; };
+		78172A151D7DDB5E002D9CFE /* FeedNYC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedNYC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78172A181D7DDB5F002D9CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		78172A1A1D7DDB5F002D9CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78172A1C1D7DDB5F002D9CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78172A211D7DDB5F002D9CFE /* FeedNYC Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FeedNYC Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78172A271D7DDB5F002D9CFE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		78172A281D7DDB5F002D9CFE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		78172A2A1D7DDB5F002D9CFE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		78172A2C1D7DDB5F002D9CFE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		78172A2E1D7DDB5F002D9CFE /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		78172A301D7DDB5F002D9CFE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		78172A321D7DDB5F002D9CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78172A341D7DDB5F002D9CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78172A401D7DE444002D9CFE /* DirectionsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsInterfaceController.swift; sourceTree = "<group>"; };
+		78172A421D7DE46E002D9CFE /* PhoneCallInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneCallInterfaceController.swift; sourceTree = "<group>"; };
 		78407CBF1D5A3888005EE9C2 /* CenkersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenkersDetailViewController.swift; sourceTree = "<group>"; };
 		78411C6E1D6C8E5900A728DA /* CenkersStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CenkersStoryboard.storyboard; sourceTree = "<group>"; };
 		78B96BA31D63BA95006C07A2 /* CustomInfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoWindow.swift; sourceTree = "<group>"; };
@@ -81,6 +150,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78172A1E1D7DDB5F002D9CFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -88,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				1BAC3F601D58D3520031C3AC /* Feed NYC */,
+				78172A161D7DDB5F002D9CFE /* FeedNYC */,
+				78172A251D7DDB5F002D9CFE /* FeedNYC Extension */,
 				1BAC3F5F1D58D3520031C3AC /* Products */,
 				D81B2433BCC90B912B0D7A66 /* Pods */,
 				CFE8485110F7E9A75CC2539E /* Frameworks */,
@@ -98,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				1BAC3F5E1D58D3520031C3AC /* Feed NYC.app */,
+				78172A151D7DDB5E002D9CFE /* FeedNYC.app */,
+				78172A211D7DDB5F002D9CFE /* FeedNYC Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +214,41 @@
 				1BAC3F681D58D3520031C3AC /* Feed_NYC.xcdatamodeld */,
 			);
 			path = "Feed NYC";
+			sourceTree = "<group>";
+		};
+		78172A161D7DDB5F002D9CFE /* FeedNYC */ = {
+			isa = PBXGroup;
+			children = (
+				78172A171D7DDB5F002D9CFE /* Interface.storyboard */,
+				78172A1A1D7DDB5F002D9CFE /* Assets.xcassets */,
+				78172A1C1D7DDB5F002D9CFE /* Info.plist */,
+			);
+			path = FeedNYC;
+			sourceTree = "<group>";
+		};
+		78172A251D7DDB5F002D9CFE /* FeedNYC Extension */ = {
+			isa = PBXGroup;
+			children = (
+				78172A281D7DDB5F002D9CFE /* InterfaceController.swift */,
+				78172A2A1D7DDB5F002D9CFE /* ExtensionDelegate.swift */,
+				78172A2C1D7DDB5F002D9CFE /* NotificationController.swift */,
+				78172A2E1D7DDB5F002D9CFE /* GlanceController.swift */,
+				78172A301D7DDB5F002D9CFE /* ComplicationController.swift */,
+				78172A401D7DE444002D9CFE /* DirectionsInterfaceController.swift */,
+				78172A421D7DE46E002D9CFE /* PhoneCallInterfaceController.swift */,
+				78172A321D7DDB5F002D9CFE /* Assets.xcassets */,
+				78172A341D7DDB5F002D9CFE /* Info.plist */,
+				78172A261D7DDB5F002D9CFE /* Supporting Files */,
+			);
+			path = "FeedNYC Extension";
+			sourceTree = "<group>";
+		};
+		78172A261D7DDB5F002D9CFE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				78172A271D7DDB5F002D9CFE /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		BA5BA1461D6F683200E3B55A /* SWRevealViewController */ = {
@@ -176,15 +291,51 @@
 				1BAC3F5C1D58D3520031C3AC /* Resources */,
 				78FF9414B05EAEEFBC395732 /* [CP] Embed Pods Frameworks */,
 				F7FB1DAFEB4DBF8AA9DF77DF /* [CP] Copy Pods Resources */,
+				78172A3F1D7DDB5F002D9CFE /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				78172A361D7DDB5F002D9CFE /* PBXTargetDependency */,
 			);
 			name = "Feed NYC";
 			productName = "Feed NYC";
 			productReference = 1BAC3F5E1D58D3520031C3AC /* Feed NYC.app */;
 			productType = "com.apple.product-type.application";
+		};
+		78172A141D7DDB5E002D9CFE /* FeedNYC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78172A3E1D7DDB5F002D9CFE /* Build configuration list for PBXNativeTarget "FeedNYC" */;
+			buildPhases = (
+				78172A131D7DDB5E002D9CFE /* Resources */,
+				78172A3D1D7DDB5F002D9CFE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				78172A241D7DDB5F002D9CFE /* PBXTargetDependency */,
+			);
+			name = FeedNYC;
+			productName = FeedNYC;
+			productReference = 78172A151D7DDB5E002D9CFE /* FeedNYC.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		78172A201D7DDB5F002D9CFE /* FeedNYC Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78172A3C1D7DDB5F002D9CFE /* Build configuration list for PBXNativeTarget "FeedNYC Extension" */;
+			buildPhases = (
+				78172A1D1D7DDB5F002D9CFE /* Sources */,
+				78172A1E1D7DDB5F002D9CFE /* Frameworks */,
+				78172A1F1D7DDB5F002D9CFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FeedNYC Extension";
+			productName = "FeedNYC Extension";
+			productReference = 78172A211D7DDB5F002D9CFE /* FeedNYC Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -199,6 +350,14 @@
 					1BAC3F5D1D58D3520031C3AC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = KXY9EDFTF5;
+					};
+					78172A141D7DDB5E002D9CFE = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = KXY9EDFTF5;
+					};
+					78172A201D7DDB5F002D9CFE = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = X82JT57D2Y;
 					};
 				};
 			};
@@ -216,6 +375,8 @@
 			projectRoot = "";
 			targets = (
 				1BAC3F5D1D58D3520031C3AC /* Feed NYC */,
+				78172A141D7DDB5E002D9CFE /* FeedNYC */,
+				78172A201D7DDB5F002D9CFE /* FeedNYC Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +395,23 @@
 				BA1EC1A31D67430000392646 /* CustomInfoWindow.xib in Resources */,
 				BA1B6DC01D5E115F005CAF4A /* Facilities.txt in Resources */,
 				78411C6F1D6C8E5900A728DA /* CenkersStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78172A131D7DDB5E002D9CFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78172A1B1D7DDB5F002D9CFE /* Assets.xcassets in Resources */,
+				78172A191D7DDB5F002D9CFE /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78172A1F1D7DDB5F002D9CFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78172A331D7DDB5F002D9CFE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +490,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78172A1D1D7DDB5F002D9CFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78172A2D1D7DDB5F002D9CFE /* NotificationController.swift in Sources */,
+				78172A411D7DE444002D9CFE /* DirectionsInterfaceController.swift in Sources */,
+				78172A2B1D7DDB5F002D9CFE /* ExtensionDelegate.swift in Sources */,
+				78172A311D7DDB5F002D9CFE /* ComplicationController.swift in Sources */,
+				78172A291D7DDB5F002D9CFE /* InterfaceController.swift in Sources */,
+				78172A431D7DE46E002D9CFE /* PhoneCallInterfaceController.swift in Sources */,
+				78172A2F1D7DDB5F002D9CFE /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		78172A241D7DDB5F002D9CFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78172A201D7DDB5F002D9CFE /* FeedNYC Extension */;
+			targetProxy = 78172A231D7DDB5F002D9CFE /* PBXContainerItemProxy */;
+		};
+		78172A361D7DDB5F002D9CFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78172A141D7DDB5E002D9CFE /* FeedNYC */;
+			targetProxy = 78172A351D7DDB5F002D9CFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1BAC3F6D1D58D3520031C3AC /* LaunchScreen.storyboard */ = {
@@ -321,6 +526,14 @@
 				1BAC3F6E1D58D3520031C3AC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		78172A171D7DDB5F002D9CFE /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78172A181D7DDB5F002D9CFE /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -448,6 +661,72 @@
 			};
 			name = Release;
 		};
+		78172A381D7DDB5F002D9CFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Flatiron School, Inc (KXY9EDFTF5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Flatiron School, Inc (KXY9EDFTF5)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = FeedNYC_Extension;
+				INFOPLIST_FILE = FeedNYC/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.team-octopus.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		78172A391D7DDB5F002D9CFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Flatiron School, Inc (KXY9EDFTF5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Flatiron School, Inc (KXY9EDFTF5)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = FeedNYC_Extension;
+				INFOPLIST_FILE = FeedNYC/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.team-octopus.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		78172A3A1D7DDB5F002D9CFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "FeedNYC Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.team-octopus.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		78172A3B1D7DDB5F002D9CFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "FeedNYC Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flatironschool.team-octopus.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -468,6 +747,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		78172A3C1D7DDB5F002D9CFE /* Build configuration list for PBXNativeTarget "FeedNYC Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78172A3A1D7DDB5F002D9CFE /* Debug */,
+				78172A3B1D7DDB5F002D9CFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		78172A3E1D7DDB5F002D9CFE /* Build configuration list for PBXNativeTarget "FeedNYC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78172A381D7DDB5F002D9CFE /* Debug */,
+				78172A391D7DDB5F002D9CFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
