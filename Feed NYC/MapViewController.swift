@@ -9,12 +9,13 @@
 import UIKit
 import GoogleMaps
 import NVActivityIndicatorView
+import WatchConnectivity
 
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, SWRevealViewControllerDelegate, WCSessionDelegate {
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, SWRevealViewControllerDelegate {
-
-    
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    var session = WCSession.defaultSession()
     
     // view and manager to operate with map
     let locationManager = CLLocationManager()
@@ -23,16 +24,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var button: UIButton!
     var facilityForTappedMarker = Facility()
     
-    // closest location to current location
-    //var closestFacility: Facility?
- //   var distanceInMetersForClosestFacility = 0.0
-    
     // data store for all facility objects
     let store = FacilityDataStore.sharedInstance
     
     // Animation in center when loading map
     var activityIndicator: NVActivityIndicatorView!
     
+    // Tap gesture recognizer
     var gestTapRec = UITapGestureRecognizer()
     
     override func viewDidLoad() {
@@ -66,29 +64,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             menuButton.target = self.revealViewController()
 
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-            self.revealViewController().toggleAnimationType = .Spring //.EaseOut
-
+            self.revealViewController().toggleAnimationType = .Spring
         }
         self.mapView.settings.consumesGesturesInView = false
         self.revealViewController().delegate = self
         
         self.findClosestLocation()
+        
     }
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
     // finds the closest facility to current user location
     // puts closest location to the propert "closestFacility" and the distance to it in "distanceInMetersForClosestFacility"
     func findClosestLocation() {
-        
         let currentLocation: CLLocation = CLLocation.init(latitude: self.store.currentLocationCoordinates.latitude, longitude: self.store.currentLocationCoordinates.longitude)
         var minDistance: Double = 100000000000.0
         var distanceInMeters = 0.0
@@ -99,10 +92,32 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             if minDistance > distanceInMeters {
                 minDistance = distanceInMeters
                 self.store.closestFacility = self.store.facilities[i]
-               // self.distanceInMetersForClosestFacility = minDistance
             }
             //convert the distance to miles
             self.store.facilities[i].distanceFromCurrentLocation = distanceInMeters * 0.000621371
+        }
+        //we know the closest location so lets update it on the watch
+        self.sendClosestLocationToWatch()
+    }
+    
+    //function to send the closest location to the Watch
+    func sendClosestLocationToWatch() {
+        // create a message and send it to the Watch?
+        if  self.checkForWatchAvailability() {
+           guard let facility = self.store.closestFacility else { return }
+            let message = ["nearestFacility": facility.name]
+            session.transferUserInfo(message)
+            print("just sent user info over WCSession ...")
+        }
+    }
+    
+    // helper function to check the Watch
+    func checkForWatchAvailability() -> Bool {
+        if (session.watchAppInstalled == true) && (session.paired == true) && (session.reachable == true) {
+            return true
+        }
+        else {
+            return false
         }
     }
     
@@ -162,7 +177,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             self.placeCameraToTimeSquare(smallerRect)
             button.removeFromSuperview()
         }
-        
     }
     
     // this should check if the user is close enough to any of the facilities, so the center of the app would be the user's current location. Otherwise, it will be Time Square

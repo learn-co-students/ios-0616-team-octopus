@@ -12,10 +12,15 @@ import Foundation
 
 class PhoneCallInterfaceController: WKInterfaceController {
 
+    @IBOutlet var phoneNumberLabel: WKInterfaceLabel!
+    var phoneNumberAsAString = "9735233822"
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
+        
+        self.phoneNumberLabel.setText(self.phoneNumberAsAString)
     }
 
     override func willActivate() {
@@ -28,4 +33,13 @@ class PhoneCallInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+    
+    @IBAction func callButtonTapped() {
+        if let url = NSURL(string: "tel://\(self.phoneNumberAsAString)") {
+            WKExtension.sharedExtension().openSystemURL(url)
+            //WKApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    
 }

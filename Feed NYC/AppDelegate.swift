@@ -10,18 +10,28 @@ import UIKit
 import CoreData
 import GoogleMaps
 import Firebase
+import WatchConnectivity
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     var window: UIWindow?
-
+    
+    // Creating the WCSession for Watch Connectivity
+    var wcSession : WCSession!
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("\(Secrets.googleAPI)")
         // Analytics - FireBase
         FIRApp.configure()
-
+        
+        // Initializing our Watch Connectivity session as a default session, set the delegate, and activate the session
+        wcSession = WCSession.defaultSession()
+        wcSession.delegate = self
+        if WCSession.isSupported() {
+            wcSession.activateSession()
+        }
         
         return true
     }

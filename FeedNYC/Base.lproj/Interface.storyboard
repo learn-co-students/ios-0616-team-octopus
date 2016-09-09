@@ -10,48 +10,54 @@
             <objects>
                 <controller identifier="main facility info" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="FeedNYC" customModuleProvider="target">
                     <items>
-                        <label alignment="center" text="Closest Facility Name and Hours" textAlignment="center" numberOfLines="0" id="GxG-Dj-Atp"/>
+                        <label width="136" height="42" alignment="center" text="Nearest Facility Name" textAlignment="center" numberOfLines="0" id="GxG-Dj-Atp"/>
                         <imageView alignment="center" verticalAlignment="bottom" alpha="0.94999999999999996" image="soupkithchenImage1" id="a8F-f6-YQw"/>
                     </items>
                     <connections>
+                        <outlet property="ClosestFacilityNameLabel" destination="GxG-Dj-Atp" id="ala-qa-v5S"/>
                         <segue destination="2eg-hb-FmR" kind="relationship" relationship="nextPage" id="T2d-NR-5u9"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="347"/>
+            <point key="canvasLocation" x="235" y="335"/>
         </scene>
         <!--address for directions-->
         <scene sceneID="9Yf-Kn-5Oo">
             <objects>
                 <controller identifier="address for directions" contentMode="scaleAspectFill" id="2eg-hb-FmR" customClass="DirectionsInterfaceController" customModule="FeedNYC_Extension">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Facility Address for Directions" textAlignment="center" numberOfLines="0" id="pUa-DH-46m">
+                        <label height="38" alignment="center" verticalAlignment="center" text="Facility Address for Directions" textAlignment="center" numberOfLines="0" id="pUa-DH-46m">
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </label>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Directions" id="OYe-J0-xq1">
-                            <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                        </button>
+                        <map height="100" alignment="left" verticalAlignment="bottom" id="wI7-Z2-RyG"/>
                     </items>
                     <connections>
+                        <outlet property="mapObject" destination="wI7-Z2-RyG" id="wc2-AG-XPn"/>
                         <segue destination="dsE-jG-7cz" kind="relationship" relationship="nextPage" id="BT4-zO-OjC"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="532" y="345"/>
+            <point key="canvasLocation" x="532" y="335"/>
         </scene>
         <!--phone number for a call-->
         <scene sceneID="NJ7-uE-XTg">
             <objects>
                 <controller identifier="phone number for a call" id="dsE-jG-7cz" customClass="PhoneCallInterfaceController" customModule="FeedNYC_Extension">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Phone Number" textAlignment="center" numberOfLines="0" id="2Vt-s4-qCA"/>
                         <button width="1" alignment="left" verticalAlignment="bottom" title="Call" id="cMM-Kz-vNA">
                             <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="callButtonTapped" destination="dsE-jG-7cz" id="bfF-80-W8Z"/>
+                            </connections>
                         </button>
+                        <label alignment="center" verticalAlignment="center" text="Phone Number" textAlignment="center" numberOfLines="0" id="2Vt-s4-qCA"/>
                     </items>
+                    <connections>
+                        <outlet property="phoneNumberLabel" destination="2Vt-s4-qCA" id="sVi-PK-v1e"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="815" y="345"/>
+            <point key="canvasLocation" x="815" y="335"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
