@@ -15,23 +15,23 @@ import UIKit
     
     @IBOutlet weak var nameButtonLabel: UIButton!
     
-    @IBAction func NameButtonTapped(sender: UIButton) {
+    @IBAction func NameButtonTapped(_ sender: UIButton) {
         //let sb = UIStoryboard(name: "CenkersStoryboard", bundle: nil)
         print("name button tapped")
     }
     
     func loadViewFromNib() -> UIView {
         isViewLoaded = true
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CustomInfoWindow", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
     
     func xibSetup() {
         view = loadViewFromNib()
         view.frame = bounds
-        view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         
         addSubview(view)
     }

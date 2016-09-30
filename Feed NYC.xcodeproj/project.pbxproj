@@ -350,14 +350,17 @@
 					1BAC3F5D1D58D3520031C3AC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = KXY9EDFTF5;
+						LastSwiftMigration = 0800;
 					};
 					78172A141D7DDB5E002D9CFE = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = KXY9EDFTF5;
+						LastSwiftMigration = 0800;
 					};
 					78172A201D7DDB5F002D9CFE = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = KXY9EDFTF5;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -639,6 +642,7 @@
 				PROVISIONING_PROFILE = "dab10e9f-0e0d-4813-a0e1-f7c6fcca5ee9";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed NYC/Feed NYC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -657,6 +661,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dab10e9f-0e0d-4813-a0e1-f7c6fcca5ee9";
 				SWIFT_OBJC_BRIDGING_HEADER = "Feed NYC/Feed NYC-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -676,6 +681,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -696,6 +702,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -712,6 +719,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -728,6 +736,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};

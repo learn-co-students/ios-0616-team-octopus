@@ -12,7 +12,7 @@ import MapKit
 
 class FacilityDataStore {
     static let sharedInstance = FacilityDataStore()
-    private init() {  }
+    fileprivate init() {  }
     
     var facilities : [Facility] = []
     var facilitiesDictionary : [String : Facility] = [:]
@@ -27,7 +27,7 @@ class FacilityDataStore {
         guard self.facilitiesDictionary.count == 0 else { return }
        
         
-        if let filepath = NSBundle.mainBundle().pathForResource("Facilities", ofType: "txt") {
+        if let filepath = Bundle.main.path(forResource: "Facilities", ofType: "txt") {
             do {
                 let contents = try String(contentsOfFile: filepath, usedEncoding: nil) as String
    
@@ -75,7 +75,7 @@ class FacilityDataStore {
     
     // Parses XML file and populates Singleton with Facility objects
     // Facility array still contains duplicates
-    func refreshFacilitiesDataStoreWithCompletion(completion: () -> ()) {
+    func refreshFacilitiesDataStoreWithCompletion(_ completion: () -> ()) {
         facilities.removeAll()
         FacilityParser.getFacilitiesWithCompletion { (parsedFacilities) in
             self.cleanRedundantFacilities(parsedFacilities, completion: { (cleanedFacilities) in
@@ -87,12 +87,12 @@ class FacilityDataStore {
     }
     // Checks self.facilities for duplicate Street Addresses
     //  Problem was 619 lexington avenue != 619  Lexington Avenue, so a few duplicates get through
-    func cleanRedundantFacilities(parsedFacilities: [Facility], completion: ([Facility])->()) {
+    func cleanRedundantFacilities(_ parsedFacilities: [Facility], completion: ([Facility])->()) {
         var i=0
         var cleanedFacilities: [Facility] = []
         while i < parsedFacilities.count-1 {
             if parsedFacilities[i].streetAddress == parsedFacilities[i+1].streetAddress {
-                parsedFacilities[i].featureList.appendContentsOf(parsedFacilities[i+1].featureList)
+                parsedFacilities[i].featureList.append(contentsOf: parsedFacilities[i+1].featureList)
                 parsedFacilities[i].briefDescription = parsedFacilities[i].briefDescription + " " + parsedFacilities[i+1].briefDescription
                 cleanedFacilities.append(parsedFacilities[i])
                 i += 1
@@ -134,10 +134,10 @@ class FacilityDataStore {
         
         
         //  creating JSON out of the above dictionary
-        var jsonData: NSData!
+        var jsonData: Data!
         do {
-            jsonData = try NSJSONSerialization.dataWithJSONObject(masterDictionaryOfFacilities, options: NSJSONWritingOptions())
-            let jsonString = String(data: jsonData, encoding: NSUTF8StringEncoding)!
+            jsonData = try JSONSerialization.data(withJSONObject: masterDictionaryOfFacilities, options: JSONSerialization.WritingOptions())
+            let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)!
             print(jsonString) // Where the magic happens
             //                    print(jsonData)
         } catch let error as NSError {
@@ -148,12 +148,12 @@ class FacilityDataStore {
     
     // Would help to convert to a completion block
     // This method "pulls apart" the Facilities.txt string, parsing it out into the objects that comprise self.facilities and self.facilitiesDictionary
-    func getFacilitiesFromJSONFile(jsonString: String) {
+    func getFacilitiesFromJSONFile(_ jsonString: String) {
         
         if let
-            data = jsonString.dataUsingEncoding(NSUTF8StringEncoding),
-            object = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
-            dict = object as? [String : NSDictionary] {
+            data = jsonString.data(using: String.Encoding.utf8),
+            let object = try? JSONSerialization.jsonObject(with: data, options: []),
+            let dict = object as? [String : NSDictionary] {
             for (coordinate, facility) in dict {
                 
                 //                print(facility)
@@ -198,11 +198,11 @@ class FacilityDataStore {
                     if facilities[j].featureList.contains("Food Pantry") && facilities[j].featureList.contains("Soup Kitchen") {
                       // Do nothing
                     } else if facilities[j].featureList.contains("Food Pantry") {
-                        self.facilities[i].hoursOfOperation.appendContentsOf(" & Food Pantry \(facilities[j].hoursOfOperation)")
+                        self.facilities[i].hoursOfOperation.append(" & Food Pantry \(facilities[j].hoursOfOperation)")
                     } else if facilities[j].featureList.contains("Soup Kitchen") {
-                        self.facilities[i].hoursOfOperation.appendContentsOf(" & Soup Kitchen \(facilities[j].hoursOfOperation)")
+                        self.facilities[i].hoursOfOperation.append(" & Soup Kitchen \(facilities[j].hoursOfOperation)")
                     }
-                    self.facilities.removeAtIndex(j)
+                    self.facilities.remove(at: j)
                     print("Updated facility is now \(self.facilities[i])")
                 }
                 j += 1
@@ -229,7 +229,7 @@ class FacilityDataStore {
         }
         
         //
-        return facilityList.sort{$0.name < $1.name}
+        return facilityList.sorted{$0.name < $1.name}
     }
     
     

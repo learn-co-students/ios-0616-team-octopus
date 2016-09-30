@@ -62,29 +62,29 @@ class CenkersDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addressTapped(sender: UIButton) {
+    @IBAction func addressTapped(_ sender: UIButton) {
         self.checkGoogleMapOnPhone()
     }
     
-    @IBAction func phoneNumberTapped(sender: UIButton) {
-        var phoneNumString = self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: "")
-        phoneNumString = phoneNumString.stringByReplacingOccurrencesOfString("x", withString: ",,,")
-        if let url = NSURL(string: "tel://\(phoneNumString)") {
-            UIApplication.sharedApplication().openURL(url)
+    @IBAction func phoneNumberTapped(_ sender: UIButton) {
+        var phoneNumString = self.facilityToDisplay.phoneNumber.replacingOccurrences(of: " ", with: "")
+        phoneNumString = phoneNumString.replacingOccurrences(of: "x", with: ",,,")
+        if let url = URL(string: "tel://\(phoneNumString)") {
+            UIApplication.shared.openURL(url)
         }
     }
     
-    @IBAction func pageDone(sender: AnyObject) {
-        super.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func pageDone(_ sender: AnyObject) {
+        super.dismiss(animated: true, completion: nil)
     }
     
     
     //updating labels
     func updateLabels() {
         self.facilityNameLabel.text = self.facilityToDisplay.name
-        self.addressLabel.setTitle(self.createFullAddress(), forState: .Normal)
-        let phoneNumWithExt = self.facilityToDisplay.phoneNumber.stringByReplacingOccurrencesOfString(" x", withString: "  Ext:")
-        self.phoneNumberLabel.setTitle(phoneNumWithExt, forState: .Normal)
+        self.addressLabel.setTitle(self.createFullAddress(), for: UIControlState())
+        let phoneNumWithExt = self.facilityToDisplay.phoneNumber.replacingOccurrences(of: " x", with: "  Ext:")
+        self.phoneNumberLabel.setTitle(phoneNumWithExt, for: UIControlState())
         self.hoursLabel.text = self.facilityToDisplay.hoursOfOperation
         self.intakeLabel.text = self.facilityToDisplay.intake
         self.feeLabel.text = self.facilityToDisplay.fee
@@ -101,7 +101,7 @@ class CenkersDetailViewController: UIViewController {
     }
     
     //getting the features list array as a string with spaces in between
-    func getStringFromArray(array:[String])-> String {
+    func getStringFromArray(_ array:[String])-> String {
         var returnString = ""
         for i in 0..<array.count {
             returnString += array[i]
@@ -113,7 +113,7 @@ class CenkersDetailViewController: UIViewController {
     }
     
     func checkGoogleMapOnPhone() {
-        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
             self.showMapSelection()
         } else {
             self.openMapForPlace()
@@ -121,21 +121,21 @@ class CenkersDetailViewController: UIViewController {
     }
     
     func showMapSelection() {
-        let actionSheetController: UIAlertController = UIAlertController(title: "Directions", message: "Choose a Map Option!", preferredStyle: .ActionSheet)
+        let actionSheetController: UIAlertController = UIAlertController(title: "Directions", message: "Choose a Map Option!", preferredStyle: .actionSheet)
         
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             //Just dismiss the action sheet
         }
         actionSheetController.addAction(cancelAction)
         //Create and add first option action
-        let googleMapsAction: UIAlertAction = UIAlertAction(title: "Google Maps", style: .Default) { [weak weakSelf = self] action -> Void in
+        let googleMapsAction: UIAlertAction = UIAlertAction(title: "Google Maps", style: .default) { [weak weakSelf = self] action -> Void in
             //Code for launching Apple Maps goes here
             weakSelf?.openGoogleMapsAppWithDirection()
         }
         actionSheetController.addAction(googleMapsAction)
     
     
-        let appleMapsAction: UIAlertAction = UIAlertAction(title: "Apple Maps", style: .Default) { [weak weakSelf = self]  action -> Void in
+        let appleMapsAction: UIAlertAction = UIAlertAction(title: "Apple Maps", style: .default) { [weak weakSelf = self]  action -> Void in
             //Code for launching Apple Maps goes here
             weakSelf?.openMapForPlace()
 
@@ -143,20 +143,20 @@ class CenkersDetailViewController: UIViewController {
         actionSheetController.addAction(appleMapsAction)
     
         //Present the AlertController
-        self.presentViewController(actionSheetController, animated: true, completion: nil)
+        self.present(actionSheetController, animated: true, completion: nil)
     
         
     
     }
     
     func dismissForGoogleMaps() {
-        self.dismissViewControllerAnimated(true, completion: {
+        self.dismiss(animated: true, completion: {
             self.openGoogleMapsAppWithDirection()
         })
     }
     
     func dismissForAppleMaps() {
-        self.dismissViewControllerAnimated(true, completion: {
+        self.dismiss(animated: true, completion: {
             self.openMapForPlace()
         })
     }
@@ -167,9 +167,9 @@ class CenkersDetailViewController: UIViewController {
         let currentLongitude: CLLocationDegrees = store.currentLocationCoordinates.longitude
         let destinationLatitude:CLLocationDegrees = self.facilityToDisplay.latitude
         let destinationLongitude:CLLocationDegrees = self.facilityToDisplay.longitude
-        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
             let googleDirectionsString = "comgooglemaps://?saddr=\(currentLatitude),\(currentLongitude)&daddr=\(destinationLatitude),\(destinationLongitude)&directionsmode=driving&views=traffic"
-            UIApplication.sharedApplication().openURL(NSURL(string: googleDirectionsString)!)
+            UIApplication.shared.openURL(URL(string: googleDirectionsString)!)
         } else {
             print("cannot open google maps app");
         }
@@ -197,42 +197,42 @@ class CenkersDetailViewController: UIViewController {
         mapItem.name = "\(self.facilityToDisplay.name)"
         let launchOptions = [
             MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,
-            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
-        ]
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ] as [String : Any]
         
-        MKMapItem.openMapsWithItems(
-            [myLocationMapItem, mapItem],
+        MKMapItem.openMaps(
+            with: [myLocationMapItem, mapItem],
             launchOptions: launchOptions)
     }
     
     func textChameleonColor() {
-        self.view.backgroundColor = UIColor.flatNavyBlueColorDark().lightenByPercentage(0.2)
-        facilityNameLabel.textColor = UIColor.flatWhiteColor()
-        addressTitleLabel.textColor = UIColor.flatBlackColor()
+        self.view.backgroundColor = UIColor.flatNavyBlueColorDark().lighten(byPercentage: 0.2)
+        facilityNameLabel.textColor = UIColor.flatWhite()
+        addressTitleLabel.textColor = UIColor.flatBlack()
         
         // Address button
-        addressLabel.setTitleColor(UIColor.flatWhiteColor(), forState: .Normal)
-        addressLabel.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.1)
+        addressLabel.setTitleColor(UIColor.flatWhite(), for: UIControlState())
+        addressLabel.backgroundColor = UIColor.flatNavyBlue().lighten(byPercentage: 0.1)
         addressLabel.layer.cornerRadius = 11.5
-        phoneTitleLabel.textColor = UIColor.flatBlackColor()
+        phoneTitleLabel.textColor = UIColor.flatBlack()
         
-        phoneNumberLabel.setTitleColor(UIColor.flatWhiteColor(), forState: .Normal)
-        phoneNumberLabel.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.1)
+        phoneNumberLabel.setTitleColor(UIColor.flatWhite(), for: UIControlState())
+        phoneNumberLabel.backgroundColor = UIColor.flatNavyBlue().lighten(byPercentage: 0.1)
         phoneNumberLabel.layer.cornerRadius = 11.5
         
-        hoursTitleLabel.textColor = UIColor.flatBlackColor()
+        hoursTitleLabel.textColor = UIColor.flatBlack()
         hoursLabel.textColor = UIColor.flatSkyBlueColorDark()
-        intakeTitleLabel.textColor = UIColor.flatBlackColor()
+        intakeTitleLabel.textColor = UIColor.flatBlack()
         intakeLabel.textColor = UIColor.flatSkyBlueColorDark()
-        feeTitleLabel.textColor = UIColor.flatBlackColor()
+        feeTitleLabel.textColor = UIColor.flatBlack()
         feeLabel.textColor = UIColor.flatSkyBlueColorDark()
-        featureTitleLabel.textColor = UIColor.flatBlackColor()
+        featureTitleLabel.textColor = UIColor.flatBlack()
         featureListLabel.textColor = UIColor.flatSkyBlueColorDark()
-        eligibilityTitleLabel.textColor = UIColor.flatBlackColor()
+        eligibilityTitleLabel.textColor = UIColor.flatBlack()
         eligibilityLabel.textColor = UIColor.flatSkyBlueColorDark()
-        reqyiredDocTittleLabel.textColor = UIColor.flatBlackColor()
+        reqyiredDocTittleLabel.textColor = UIColor.flatBlack()
         requiredDocLabel.textColor = UIColor.flatSkyBlueColorDark()
-        doneButton.setTitleColor(UIColor.flatSkyBlueColor(), forState: .Normal)
+        doneButton.setTitleColor(UIColor.flatSkyBlue(), for: UIControlState())
 
 
     }

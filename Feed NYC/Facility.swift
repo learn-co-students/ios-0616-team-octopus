@@ -30,25 +30,25 @@ class Facility: CustomStringConvertible {
     var distanceFromCurrentLocation = 1000.0
     
     // Should be in its own constructor call as convenience init (jsonDictionary: NSDictionary) ...
-    class func makeFacility (jsonDictionary: NSDictionary) -> Facility {
+    class func makeFacility (_ jsonDictionary: NSDictionary) -> Facility {
         let newFacility = Facility()
         
         guard let
             name = jsonDictionary["name"] as? String,
-            briefDescription = jsonDictionary["briefDescription"] as? String,
-            streetAddress = jsonDictionary["streetAddress"] as? String,
-            city = jsonDictionary["city"] as? String,
-            state = jsonDictionary["state"] as? String,
-            zipcode = jsonDictionary["zipcode"] as? String,
-            phoneNumber = jsonDictionary["phoneNumber"] as? String,
-            hoursOfOperation = jsonDictionary["hoursOfOperation"] as? String,
-            intake = jsonDictionary["intake"] as? String,
-            fee = jsonDictionary["fee"] as? String,
-            featureList = jsonDictionary["featureList"] as? [String],
-            eligibility = jsonDictionary["eligibility"] as? String,
-            requiredDocuments = jsonDictionary["requiredDocuments"] as? String,
-            latitude = jsonDictionary["latitude"] as? Double,
-            longitude = jsonDictionary["longitude"] as? Double
+            let briefDescription = jsonDictionary["briefDescription"] as? String,
+            let streetAddress = jsonDictionary["streetAddress"] as? String,
+            let city = jsonDictionary["city"] as? String,
+            let state = jsonDictionary["state"] as? String,
+            let zipcode = jsonDictionary["zipcode"] as? String,
+            let phoneNumber = jsonDictionary["phoneNumber"] as? String,
+            let hoursOfOperation = jsonDictionary["hoursOfOperation"] as? String,
+            let intake = jsonDictionary["intake"] as? String,
+            let fee = jsonDictionary["fee"] as? String,
+            let featureList = jsonDictionary["featureList"] as? [String],
+            let eligibility = jsonDictionary["eligibility"] as? String,
+            let requiredDocuments = jsonDictionary["requiredDocuments"] as? String,
+            let latitude = jsonDictionary["latitude"] as? Double,
+            let longitude = jsonDictionary["longitude"] as? Double
         
             else { fatalError("Could not create repository object from supplied dictionary") }
         
@@ -98,7 +98,7 @@ class Facility: CustomStringConvertible {
         return "name: \(name)\n, briefDescription: \(briefDescription)\n, streetAddress: \(streetAddress)\n, city: \(city)\n, state: \(state)\n, zipcode: \(zipcode)\n, phoneNumber: \(phoneNumber)\n, hoursOfOperation: \(hoursOfOperation)\n, intake: \(intake)\n, fee: \(fee)\n, featureList: \(featureList)\n, eligibility: \(eligibility)\n, requiredDocuments: \(requiredDocuments)\n, latitude: \(latitude)\n, longitude: \(longitude)\n, distance from the current location: \(distanceFromCurrentLocation)\n"
     }
     
-    private func getFullAddress() -> String {
+    fileprivate func getFullAddress() -> String {
         return "\(self.streetAddress)+\(self.city)+\(self.state)+\(self.zipcode)"
     }
 }

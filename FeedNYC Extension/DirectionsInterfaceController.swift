@@ -14,8 +14,8 @@ class DirectionsInterfaceController: WKInterfaceController {
 
     @IBOutlet var mapObject: WKInterfaceMap!
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
         
@@ -23,7 +23,7 @@ class DirectionsInterfaceController: WKInterfaceController {
         
         let coordinateSpan = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
         
-        mapObject.addAnnotation(location, withPinColor: WKInterfaceMapPinColor.Purple)
+        mapObject.addAnnotation(location, with: WKInterfaceMapPinColor.purple)
         
         mapObject.setRegion(MKCoordinateRegion(center: location, span: coordinateSpan))
     }

@@ -15,8 +15,8 @@ class PhoneCallInterfaceController: WKInterfaceController {
     @IBOutlet var phoneNumberLabel: WKInterfaceLabel!
     var phoneNumberAsAString = "9735233822"
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
         
@@ -35,8 +35,8 @@ class PhoneCallInterfaceController: WKInterfaceController {
 
     
     @IBAction func callButtonTapped() {
-        if let url = NSURL(string: "tel://\(self.phoneNumberAsAString)") {
-            WKExtension.sharedExtension().openSystemURL(url)
+        if let url = URL(string: "tel://\(self.phoneNumberAsAString)") {
+            WKExtension.shared().openSystemURL(url)
             //WKApplication.sharedApplication().openURL(url)
         }
     }

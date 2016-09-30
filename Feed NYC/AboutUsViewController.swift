@@ -37,17 +37,17 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
-        self.wrapperView.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
+        self.view.backgroundColor = UIColor.flatNavyBlue().lighten(byPercentage: 0.2)
+        self.wrapperView.backgroundColor = UIColor.flatNavyBlue().lighten(byPercentage: 0.2)
         
-        self.aboutUsTitle.textColor = UIColor.flatCoffeeColor()
-        self.aboutUsParagraph.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+        self.aboutUsTitle.textColor = UIColor.flatCoffee()
+        self.aboutUsParagraph.textColor = UIColor.flatWhite().lighten(byPercentage: 0.7)
         
-        self.markersTitle.textColor = UIColor.flatCoffeeColor()
-        self.markersParagraph.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
+        self.markersTitle.textColor = UIColor.flatCoffee()
+        self.markersParagraph.textColor = UIColor.flatWhite().lighten(byPercentage: 0.7)
         
-        self.resourcesTitle.textColor = UIColor.flatCoffeeColor()
-        self.resourcesLink.setTitleColor(UIColor.flatWhiteColor().lightenByPercentage(0.7), forState: .Normal)
+        self.resourcesTitle.textColor = UIColor.flatCoffee()
+        self.resourcesLink.setTitleColor(UIColor.flatWhite().lighten(byPercentage: 0.7), for: UIControlState())
         
         
 //        aboutUsTxt5.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.7)
@@ -71,7 +71,7 @@ class AboutUsViewController: UIViewController {
 //        }
 //    }
     
-    @IBAction func webViewButtonTapped(sender: AnyObject) {
+    @IBAction func webViewButtonTapped(_ sender: AnyObject) {
     }
 
 }

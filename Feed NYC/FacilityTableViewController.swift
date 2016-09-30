@@ -39,15 +39,15 @@ class FacilityTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numberOfRows = 0
         // If user has entered search query
-        if searchController.active && searchController.searchBar.text != "" {
+        if searchController.isActive && searchController.searchBar.text != "" {
             numberOfRows = self.filteredFacilities.count
         } else {
             // Display entire list
@@ -58,20 +58,20 @@ class FacilityTableViewController: UITableViewController {
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
         
 
         let facility : Facility
         
-        if searchController.active && searchController.searchBar.text != "" {
-            facility = filteredFacilities[indexPath.row]
+        if searchController.isActive && searchController.searchBar.text != "" {
+            facility = filteredFacilities[(indexPath as NSIndexPath).row]
         } else {
-            facility = facilities[indexPath.row]
+            facility = facilities[(indexPath as NSIndexPath).row]
         }
         
 
-        cell.textLabel?.textColor = UIColor.flatNavyBlueColor()
+        cell.textLabel?.textColor = UIColor.flatNavyBlue()
         cell.detailTextLabel?.textColor = UIColor.flatGrayColorDark()
         cell.textLabel?.text = facility.name as String
         cell.detailTextLabel?.text = facility.briefDescription as String
@@ -79,32 +79,32 @@ class FacilityTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if (indexPath.row % 2 == 0) {
-            cell.backgroundColor = UIColor.flatWhiteColorDark().lightenByPercentage(0.2)
+        if ((indexPath as NSIndexPath).row % 2 == 0) {
+            cell.backgroundColor = UIColor.flatWhiteColorDark().lighten(byPercentage: 0.2)
         } else {
-            cell.backgroundColor = UIColor.flatWhiteColor().lightenByPercentage(0.5)
+            cell.backgroundColor = UIColor.flatWhite().lighten(byPercentage: 0.5)
         }
         
     }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) else { return }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPath(for: sender as! UITableViewCell) else { return }
         
         // Get the facility we want to pass
         let facility : Facility
-        if searchController.active && searchController.searchBar.text != "" {
-            facility = filteredFacilities[indexPath.row]
+        if searchController.isActive && searchController.searchBar.text != "" {
+            facility = filteredFacilities[(indexPath as NSIndexPath).row]
         } else {
-            facility = facilities[indexPath.row]
+            facility = facilities[(indexPath as NSIndexPath).row]
         }
 
         // Pass the facility to the destinationVC
-        if segue.destinationViewController.isKindOfClass(CenkersDetailViewController) {
-            let destVC = segue.destinationViewController as! CenkersDetailViewController
+        if segue.destination.isKind(of: CenkersDetailViewController.self) {
+            let destVC = segue.destination as! CenkersDetailViewController
                 destVC.facilityToDisplay = facility
         }
     }
@@ -112,15 +112,15 @@ class FacilityTableViewController: UITableViewController {
 }
 //MARK: -Search functionality
 extension FacilityTableViewController: UISearchResultsUpdating {
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredFacilities = facilities.filter { facility in
-            return facility.name.lowercaseString.containsString(searchText.lowercaseString)
+            return facility.name.lowercased().contains(searchText.lowercased())
         }
         
         tableView.reloadData()
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
 }

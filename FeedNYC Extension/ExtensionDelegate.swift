@@ -7,12 +7,22 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
+    
+    //create the Watch Connectivity Session on the Watch side
+    var session : WCSession!
+    
+    var facilityInfo = ""
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-
+        
+        // Initializing our Watch Connectivity session as a default session, set the delegate, and activate the session
+        session = WCSession.default()
+        session.delegate = self
+        session.activate()
     }
 
     func applicationDidBecomeActive() {
@@ -24,4 +34,21 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         // Use this method to pause ongoing tasks, disable timers, etc.
     }
     
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if activationState == .activated {
+            print("activated")
+        }
+    }
+    
+    // get the user info from iOS
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any]) {
+        guard let nearestFacilityName = userInfo["nearestFacility"] as? String else {
+            print("user info could not unwrapped")
+            return
+        }
+        DispatchQueue.main.async {
+            self.facilityInfo = nearestFacilityName
+            print("inside did recieve user info: \(self.facilityInfo)")
+        }
+    }
 }

@@ -64,17 +64,17 @@ class GeocodingAPI {
     
     
     // request to get NSDictionary object by address
-    func getLocationWithCompletion(address: String, completion: ([String: AnyObject]) -> ()) {
+    func getLocationWithCompletion(_ address: String, completion: @escaping ([String: AnyObject]) -> ()) {
         
         // 1. create a session
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        let session = URLSession(configuration: URLSessionConfiguration.default)
         
         // 2. create task for this session
         // 2.1 for this URL
-        if let url = NSURL(string: "\(self.geocodingURL)address=\(address)&key=\(Secrets.googleGeocodingAPI)".stringByReplacingOccurrencesOfString(" ", withString: "%20")) {
+        if let url = URL(string: "\(self.geocodingURL)address=\(address)&key=\(Secrets.googleGeocodingAPI)".replacingOccurrences(of: " ", with: "%20")) {
             
             // 2.2 make a task that will
-            let task = session.dataTaskWithURL(url) {
+            let task = session.dataTask(with: url) {
                 (data, response, error) in
                 
                 // 2.3 get response
@@ -82,7 +82,7 @@ class GeocodingAPI {
                     
                     do {
                         // response data from Google geocoding API server as JSON, convert to dictionary
-                        let responseData = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject]
+                        let responseData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject]
                         
                         // LOOP THROUGHT DICTIONARY TO GET LOT AND LAT
                         var outputData = [String: AnyObject]()

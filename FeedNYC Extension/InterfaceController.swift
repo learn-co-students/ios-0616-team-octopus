@@ -8,48 +8,34 @@
 
 import WatchKit
 import Foundation
-import WatchConnectivity
+//import WatchConnectivity
 
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
+class InterfaceController: WKInterfaceController {
 
     @IBOutlet var ClosestFacilityNameLabel: WKInterfaceLabel!
     
-    //create the Watch Connectivity Session on the Watch side
-    var session : WCSession!
-
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
-        
     }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
-        // Initializing our Watch Connectivity session as a default session, set the delegate, and activate the session
-        session = WCSession.defaultSession()
-        session.delegate = self
-        session.activateSession()
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+//    
+//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+//        if activationState == .activated {
+//            print("activated")
+//        }
+//    }
     
-    // get the user info from iOS
-    func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
-        guard let nearestFacilityName = userInfo["nearestFacility"] as? String else {
-            print("user info could not unwrapped")
-            return
-        }
-        dispatch_async(dispatch_get_main_queue()) {
-            self.ClosestFacilityNameLabel.setText(nearestFacilityName)
-            print("inside did recieve user info")
-        }
-    }
-
 }

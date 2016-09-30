@@ -43,7 +43,7 @@ class MenuViewController: UIViewController {
     //     self.so_containerViewController.topViewController = profileViewController
     // 3) To close the sidebar menu set is sideVCPresented to false
     //      self.so_containerViewController?.isSideViewControllerPresented = false
-    @IBAction func AboutUsTapped(sender: AnyObject) {
+    @IBAction func AboutUsTapped(_ sender: AnyObject) {
 
     }
     
@@ -51,32 +51,32 @@ class MenuViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        print(segue.destinationViewController)
+        print(segue.destination)
         
         if segue.identifier == "allFacilities" {
-            let navigationController = segue.destinationViewController
+            let navigationController = segue.destination
             let tableVC = navigationController.childViewControllers.first as! FacilityTableViewController
             tableVC.title = "Soup Kitchens & Food Pantries"
             
-            tableVC.facilities = self.store.facilities.sort{ $0.name < $1.name }
+            tableVC.facilities = self.store.facilities.sorted{ $0.name < $1.name }
             
             print("Inside all facilities")
         } else if segue.identifier == "foodPantries" {
-            let navigationController = segue.destinationViewController
+            let navigationController = segue.destination
             let tableVC = navigationController.childViewControllers.first as! FacilityTableViewController
             tableVC.title = "Food Pantries"
             let foodPantries = self.store.getFoodPantryFacilities()
             
-            tableVC.facilities = foodPantries.sort{ $0.name < $1.name }
+            tableVC.facilities = foodPantries.sorted{ $0.name < $1.name }
             
             //print(tableVC.facilities)
             print("Inside food pantries")
         } else if segue.identifier == "soupKitchens" {
-            let navigationController = segue.destinationViewController
+            let navigationController = segue.destination
             let tableVC = navigationController.childViewControllers.first as! FacilityTableViewController
             tableVC.title = "Soup Kitchens"
             tableVC.facilities = self.store.getFacilitiesThatHave(feature: Facility.foodType.SoupKitchen)
@@ -86,15 +86,15 @@ class MenuViewController: UIViewController {
     
     func menuPageColors() {
         
-        self.view.backgroundColor = UIColor.flatWhiteColor().lightenByPercentage(0.5)
-        self.dierectoryBoxLabel.backgroundColor = UIColor.flatNavyBlueColor().lightenByPercentage(0.2)
-        directories.textColor = UIColor.flatWhiteColor().lightenByPercentage(0.3)
-        soupAndPantryLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
-        fodPantryLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
-        soupKitchenLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
-        mapLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
-        aboutUsLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), forState: .Normal)
-        allLocationsBox.layer.borderColor = UIColor.flatNavyBlueColorDark().CGColor
+        self.view.backgroundColor = UIColor.flatWhite().lighten(byPercentage: 0.5)
+        self.dierectoryBoxLabel.backgroundColor = UIColor.flatNavyBlue().lighten(byPercentage: 0.2)
+        directories.textColor = UIColor.flatWhite().lighten(byPercentage: 0.3)
+        soupAndPantryLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), for: UIControlState())
+        fodPantryLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), for: UIControlState())
+        soupKitchenLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), for: UIControlState())
+        mapLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), for: UIControlState())
+        aboutUsLabel.setTitleColor(UIColor.flatSkyBlueColorDark(), for: UIControlState())
+        allLocationsBox.layer.borderColor = UIColor.flatNavyBlueColorDark().cgColor
         
     }
 

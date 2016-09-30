@@ -11,17 +11,17 @@
 import Foundation
 
 
-class FacilityParser: NSObject, NSXMLParserDelegate {
+class FacilityParser: NSObject, XMLParserDelegate {
     
-    var xmlParser: NSXMLParser?
+    var xmlParser: XMLParser?
     var facilities: [Facility] = []
     var xmlText = String()
     var currentFacility: Facility?
     
     init(withXML xml: String) {
         
-        if let data = xml.dataUsingEncoding(NSUTF8StringEncoding) {
-            xmlParser = NSXMLParser(data: data)
+        if let data = xml.data(using: String.Encoding.utf8) {
+            xmlParser = XMLParser(data: data)
         }
     }
     
@@ -32,10 +32,10 @@ class FacilityParser: NSObject, NSXMLParserDelegate {
         return facilities
     }
     
-    class func getFacilitiesWithCompletion(completion: ([Facility]) -> ()) {
+    class func getFacilitiesWithCompletion(_ completion: ([Facility]) -> ()) {
         
         do {
-            if let xmlURL = NSBundle.mainBundle().URLForResource("FacilityDetails", withExtension: "xml") {
+            if let xmlURL = Bundle.main.url(forResource: "FacilityDetails", withExtension: "xml") {
                 let xml = try String(contentsOfURL: xmlURL)
                 let facilityParser = FacilityParser(withXML: xml)
                 let facilities = facilityParser.parse()
@@ -53,7 +53,7 @@ class FacilityParser: NSObject, NSXMLParserDelegate {
 
 extension FacilityParser {
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
         xmlText = ""
         if elementName == "facility" {
@@ -61,54 +61,54 @@ extension FacilityParser {
         }
     }
     
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         if elementName == "name" {
-            currentFacility?.name = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.name = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "brief-description" {
-            currentFacility?.briefDescription = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.briefDescription = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "street-address" {
-            currentFacility?.streetAddress = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.streetAddress = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "city" {
-            currentFacility?.city = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.city = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "state" {
-            currentFacility?.state = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.state = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "zip-code" {
-            currentFacility?.zipcode = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.zipcode = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "phone-number" {
-            currentFacility?.phoneNumber = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.phoneNumber = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "hours-of-operation" {
-            currentFacility?.hoursOfOperation = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.hoursOfOperation = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "intake" {
-            currentFacility?.intake = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.intake = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "fee" {
-            currentFacility?.fee = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.fee = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "eligibility" {
-            currentFacility?.eligibility = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.eligibility = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "required-documents" {
-            currentFacility?.requiredDocuments = xmlText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            currentFacility?.requiredDocuments = xmlText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
         
         if elementName == "feature" {
@@ -124,7 +124,7 @@ extension FacilityParser {
         
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
         xmlText += string
         
     }

@@ -28,23 +28,23 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadWebPage() {
-        let url = NSURL(string: "http://www1.nyc.gov/apps/311utils/facilityFinderResults.htm?requestType=&serviceName=Find%20a%20Food%20Pantry%20or%20Soup%20Kitchen&viewType=SHOWALL&type=Food%20Provider&serviceId=1083#")
-        let request = NSURLRequest(URL: url!)
+        let url = URL(string: "http://www1.nyc.gov/apps/311utils/facilityFinderResults.htm?requestType=&serviceName=Find%20a%20Food%20Pantry%20or%20Soup%20Kitchen&viewType=SHOWALL&type=Food%20Provider&serviceId=1083#")
+        let request = URLRequest(url: url!)
         webViewer.scalesPageToFit = true
-        webViewer.contentMode = .ScaleAspectFit
+        webViewer.contentMode = .scaleAspectFit
         webViewer.loadRequest(request)
     }
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
-    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
 }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
     
         print("There was a problem loading the web page!")
 }
