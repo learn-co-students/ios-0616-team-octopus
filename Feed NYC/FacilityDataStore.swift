@@ -29,7 +29,8 @@ class FacilityDataStore {
         
         if let filepath = Bundle.main.path(forResource: "Facilities", ofType: "txt") {
             do {
-                let contents = try String(contentsOfFile: filepath, usedEncoding: nil) as String
+                let contents = try String(contentsOfFile: filepath)
+                //(contentsOfFile: filepath, usedEncoding: nil) as String
    
                 // Parses out Facilities.txt and populates facilities : [Facility] , facilitiesDictionary : [String : Facility ]
                 self.getFacilitiesFromJSONFile(contents)
@@ -126,7 +127,7 @@ class FacilityDataStore {
             // I.e. let facilityWeWant = facilitiesDictionary[coordinatesString]    
             let coordinatesString = "\(currentFacility.latitude) \(currentFacility.longitude)"
 
-            masterDictionaryOfFacilities[coordinatesString] = dictionaryFacility
+            masterDictionaryOfFacilities[coordinatesString] = dictionaryFacility as AnyObject?
             i += 1
         }
         

@@ -9,7 +9,8 @@
 import ClockKit
 
 
-class ComplicationController: NSObject, CLKComplicationDataSource {
+class ComplicationController: NSObject /*, CLKComplicationDataSource*/ {
+ 
     
     // MARK: - Timeline Configuration
     

@@ -75,21 +75,21 @@ class Facility: CustomStringConvertible {
     func toDictionary() -> [String: AnyObject] {
         var facilityAsDictionary = [String: AnyObject]()
         
-        facilityAsDictionary["name"] = self.name
-        facilityAsDictionary["briefDescription"] = self.briefDescription
-        facilityAsDictionary["streetAddress"] = self.streetAddress
-        facilityAsDictionary["city"] = self.city
-        facilityAsDictionary["state"] = self.state
-        facilityAsDictionary["zipcode"] = self.zipcode
-        facilityAsDictionary["phoneNumber"] = self.phoneNumber
-        facilityAsDictionary["hoursOfOperation"] = self.hoursOfOperation
-        facilityAsDictionary["intake"] = self.intake
-        facilityAsDictionary["fee"] = self.fee
-        facilityAsDictionary["featureList"] = self.featureList
-        facilityAsDictionary["eligibility"] = self.eligibility
-        facilityAsDictionary["requiredDocuments"] = self.requiredDocuments
-        facilityAsDictionary["latitude"] = self.latitude
-        facilityAsDictionary["longitude"] = self.longitude
+        facilityAsDictionary["name"] = self.name as AnyObject?
+        facilityAsDictionary["briefDescription"] = self.briefDescription as AnyObject?
+        facilityAsDictionary["streetAddress"] = self.streetAddress as AnyObject?
+        facilityAsDictionary["city"] = self.city as AnyObject?
+        facilityAsDictionary["state"] = self.state as AnyObject?
+        facilityAsDictionary["zipcode"] = self.zipcode as AnyObject?
+        facilityAsDictionary["phoneNumber"] = self.phoneNumber as AnyObject?
+        facilityAsDictionary["hoursOfOperation"] = self.hoursOfOperation as AnyObject?
+        facilityAsDictionary["intake"] = self.intake as AnyObject?
+        facilityAsDictionary["fee"] = self.fee as AnyObject?
+        facilityAsDictionary["featureList"] = self.featureList as AnyObject?
+        facilityAsDictionary["eligibility"] = self.eligibility as AnyObject?
+        facilityAsDictionary["requiredDocuments"] = self.requiredDocuments as AnyObject?
+        facilityAsDictionary["latitude"] = self.latitude as AnyObject?
+        facilityAsDictionary["longitude"] = self.longitude as AnyObject?
         
         return facilityAsDictionary
     }

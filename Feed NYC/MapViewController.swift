@@ -281,7 +281,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 extension MapViewController {
     
     // 2 authorization status for the application (can I get access to your location?)
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    @objc(locationManager:didChangeAuthorizationStatus:) func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         
         // if user aggried access to his/he location coordinats
@@ -363,7 +363,7 @@ extension MapViewController {
         }
     }
     
-    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker)-> Bool {
+    @objc(mapView:didTapMarker:) func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker)-> Bool {
         if marker != mapView.selectedMarker {
             mapView.selectedMarker = marker
         }
@@ -381,7 +381,7 @@ extension MapViewController {
         return customInfoWindow
     }
     
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+    @objc(mapView:didTapInfoWindowOfMarker:) func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         self.facilityForTappedMarker = self.findFacilityForMarker(marker)
         performSegue(withIdentifier: "detailSegue", sender: mapView)
     }
@@ -409,7 +409,7 @@ extension MapViewController {
 
 // MARK: - SWRevealViewControllerDelegate
 extension MapViewController {
-    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
+    @objc(revealController:willMoveToPosition:) func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
         if position == .left {
             // happens when map disappears and were going to the TableView list
             // Map is visible
@@ -437,5 +437,22 @@ extension MapViewController {
         }
     }
     */
+}
+
+extension MapViewController {
+    @objc(session:activationDidCompleteWithState:error:) func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if activationState == WCSessionActivationState.notActivated {
+            print(error)
+        }
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
 }
 
